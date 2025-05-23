@@ -250,11 +250,17 @@
         .navigation {
             position: fixed;
             bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
+            left: 0;
+            right: 0;
             display: flex;
-            gap: 15px;
+            justify-content: space-between;
+            padding: 0 50px;
             z-index: 1000;
+            pointer-events: none;
+        }
+
+        .navigation .nav-btn {
+            pointer-events: all;
         }
 
         .nav-btn {
