@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz Analítica de Datos</title>
+    <title>Quiz Analítica de Datos - Universidad del SABES</title>
     <style>
         * {
             margin: 0;
@@ -13,7 +13,7 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -22,8 +22,8 @@
         }
 
         .container {
-            max-width: 800px;
-            width: 90%;
+            max-width: 900px;
+            width: 95%;
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(20px);
             border-radius: 20px;
@@ -32,26 +32,60 @@
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
+        .university-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .university-logo {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 15px;
+            background: linear-gradient(135deg, #3498db, #f39c12);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .university-name {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #ffd700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .course-name {
+            font-size: 1.3rem;
+            color: #e8f4fd;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+
         .start-screen {
             text-align: center;
         }
 
-        .logo {
-            font-size: 4rem;
-            margin-bottom: 20px;
-            filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.3));
-        }
-
-        h1 {
-            font-size: 2.5rem;
+        .main-title {
+            font-size: 2.8rem;
             margin-bottom: 20px;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(45deg, #ffd700, #ff6b6b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .subtitle {
             font-size: 1.2rem;
             margin-bottom: 30px;
             opacity: 0.9;
+            line-height: 1.5;
         }
 
         .stats {
@@ -67,6 +101,11 @@
             border-radius: 15px;
             text-align: center;
             border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
         }
 
         .stat-number {
@@ -79,16 +118,18 @@
             background: linear-gradient(135deg, #ff6b6b, #ee5a24);
             color: white;
             border: none;
-            padding: 15px 40px;
-            font-size: 1.3rem;
+            padding: 18px 50px;
+            font-size: 1.4rem;
             border-radius: 50px;
             cursor: pointer;
             transition: all 0.3s ease;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            font-weight: bold;
+            letter-spacing: 1px;
         }
 
         .start-btn:hover {
-            transform: translateY(-2px);
+            transform: translateY(-3px);
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
         }
 
@@ -96,53 +137,91 @@
             display: none;
         }
 
+        .quiz-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .timer {
+            background: rgba(255, 107, 107, 0.2);
+            padding: 10px 20px;
+            border-radius: 25px;
+            border: 2px solid rgba(255, 107, 107, 0.5);
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #ff6b6b;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .timer.warning {
+            animation: pulse 1s infinite;
+            background: rgba(255, 0, 0, 0.3);
+            border-color: #ff0000;
+            color: #ff0000;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .progress-section {
+            margin-bottom: 25px;
+        }
+
         .progress-bar {
             width: 100%;
-            height: 10px;
+            height: 12px;
             background: rgba(255, 255, 255, 0.2);
-            border-radius: 5px;
-            margin-bottom: 30px;
+            border-radius: 6px;
+            margin-bottom: 10px;
             overflow: hidden;
         }
 
         .progress {
             height: 100%;
             background: linear-gradient(90deg, #ffd700, #ff6b6b);
-            border-radius: 5px;
+            border-radius: 6px;
             transition: width 0.5s ease;
         }
 
-        .question-header {
+        .section-info {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
 
-        .question-number {
-            font-size: 1.2rem;
-            opacity: 0.8;
+        .section-badge {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
 
-        .score {
+        .question-counter {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .score-display {
             font-size: 1.2rem;
             font-weight: bold;
             color: #ffd700;
         }
 
-        .category-badge {
-            background: rgba(255, 255, 255, 0.2);
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            margin-bottom: 20px;
-            display: inline-block;
-        }
-
         .question {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             margin-bottom: 30px;
-            line-height: 1.4;
+            line-height: 1.5;
             text-align: center;
         }
 
@@ -162,6 +241,7 @@
             transition: all 0.3s ease;
             font-size: 1.1rem;
             text-align: left;
+            position: relative;
         }
 
         .option:hover {
@@ -185,18 +265,40 @@
             border-color: #ff6b6b;
         }
 
+        .option::before {
+            content: attr(data-letter);
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.2);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .option-text {
+            margin-left: 50px;
+        }
+
         .next-btn {
             background: linear-gradient(135deg, #ffd700, #ff6b6b);
             color: white;
             border: none;
-            padding: 12px 30px;
-            font-size: 1.1rem;
+            padding: 15px 35px;
+            font-size: 1.2rem;
             border-radius: 25px;
             cursor: pointer;
             transition: all 0.3s ease;
             float: right;
             opacity: 0;
             pointer-events: none;
+            font-weight: bold;
         }
 
         .next-btn.show {
@@ -209,40 +311,120 @@
             text-align: center;
         }
 
+        .results-header {
+            margin-bottom: 40px;
+        }
+
         .final-score {
             font-size: 4rem;
             color: #ffd700;
             margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
 
-        .performance {
-            font-size: 1.5rem;
+        .performance-level {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .performance-message {
+            font-size: 1.2rem;
             margin-bottom: 30px;
+            opacity: 0.9;
         }
 
         .results-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 20px;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
         }
 
         .result-card {
             background: rgba(255, 255, 255, 0.1);
-            padding: 20px;
+            padding: 25px;
             border-radius: 15px;
             border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .result-card h3 {
+            margin-bottom: 10px;
+            color: #ffd700;
+        }
+
+        .section-results {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #ffd700;
+            text-align: left;
+        }
+
+        .section-performance {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .section-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 4px solid;
+        }
+
+        .section-card.excellent { border-left-color: #2ed573; }
+        .section-card.good { border-left-color: #ffd700; }
+        .section-card.fair { border-left-color: #ff9f43; }
+        .section-card.needs-improvement { border-left-color: #ff6b6b; }
+
+        .feedback-section {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        .feedback-title {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: #ffd700;
+        }
+
+        .feedback-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .feedback-list li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .feedback-list li::before {
+            content: "📚";
+            position: absolute;
+            left: 0;
         }
 
         .restart-btn {
             background: linear-gradient(135deg, #667eea, #764ba2);
             color: white;
             border: none;
-            padding: 15px 30px;
-            font-size: 1.2rem;
+            padding: 15px 35px;
+            font-size: 1.3rem;
             border-radius: 25px;
             cursor: pointer;
             transition: all 0.3s ease;
+            font-weight: bold;
+            margin: 10px;
         }
 
         .restart-btn:hover {
@@ -257,48 +439,84 @@
         .fade-in {
             animation: fadeIn 0.5s ease;
         }
+
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+                padding: 20px;
+            }
+            
+            .main-title {
+                font-size: 2.2rem;
+            }
+            
+            .quiz-header {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .timer {
+                justify-content: center;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="container">
+        <!-- Header Universitario -->
+        <div class="university-header">
+            <div class="university-logo">🎓</div>
+            <div class="university-name">Universidad del SABES</div>
+            <div class="course-name">ANALÍTICA DE DATOS</div>
+        </div>
+
         <!-- Pantalla de inicio -->
         <div class="start-screen" id="startScreen">
-            <div class="logo">📊</div>
-            <h1>Quiz Analítica de Datos</h1>
-            <p class="subtitle">Pon a prueba tus conocimientos en Power BI, R, Python y conceptos fundamentales</p>
+            <h1 class="main-title">Evaluación Integral</h1>
+            <p class="subtitle">Evalúa tus conocimientos en todas las áreas de la analítica de datos<br>
+            Desde conceptos básicos hasta herramientas especializadas</p>
             
             <div class="stats">
                 <div class="stat-card">
-                    <div class="stat-number">25</div>
+                    <div class="stat-number">40</div>
                     <div>Preguntas</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number">4</div>
-                    <div>Categorías</div>
+                    <div class="stat-number">5</div>
+                    <div>Secciones</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number">⭐</div>
-                    <div>Dificultad Mixta</div>
+                    <div class="stat-number">⏱️</div>
+                    <div>Cronometrado</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">📊</div>
+                    <div>Retroalimentación</div>
                 </div>
             </div>
             
-            <button class="start-btn" onclick="startQuiz()">¡Comenzar Quiz!</button>
+            <button class="start-btn" onclick="startQuiz()">¡Comenzar Evaluación!</button>
         </div>
 
         <!-- Pantalla del quiz -->
         <div class="quiz-screen" id="quizScreen">
-            <div class="progress-bar">
-                <div class="progress" id="progress"></div>
+            <div class="quiz-header">
+                <div class="timer" id="timer">⏱️ <span id="timeLeft">02:00</span></div>
+                <div class="score-display" id="currentScore">Puntos: 0</div>
+            </div>
+
+            <div class="progress-section">
+                <div class="progress-bar">
+                    <div class="progress" id="progress"></div>
+                </div>
             </div>
             
-            <div class="question-header">
-                <span class="question-number" id="questionNumber">Pregunta 1 de 25</span>
-                <span class="score" id="currentScore">Puntos: 0</span>
+            <div class="section-info">
+                <div class="section-badge" id="sectionBadge">¿Qué tanto sabes de DATOS?</div>
+                <div class="question-counter" id="questionNumber">Pregunta 1 de 40</div>
             </div>
             
-            <div class="category-badge" id="categoryBadge">Conceptos Básicos</div>
-            
-            <div class="question" id="questionText">¿Cuál es la diferencia principal entre datos estructurados y no estructurados?</div>
+            <div class="question" id="questionText"></div>
             
             <div class="options" id="optionsContainer">
                 <!-- Opciones se generan dinámicamente -->
@@ -309,34 +527,92 @@
 
         <!-- Pantalla de resultados -->
         <div class="results-screen" id="resultsScreen">
-            <div class="logo">🏆</div>
-            <div class="final-score" id="finalScore">0/25</div>
-            <div class="performance" id="performance">¡Excelente trabajo!</div>
+            <div class="university-header">
+                <div class="university-logo">🏆</div>
+                <div class="university-name">Universidad del SABES</div>
+                <div class="course-name">ANALÍTICA DE DATOS - RESULTADOS</div>
+            </div>
+
+            <div class="results-header">
+                <div class="final-score" id="finalScore">0/40</div>
+                <div class="performance-level" id="performanceLevel">Nivel Intermedio</div>
+                <div class="performance-message" id="performanceMessage">¡Buen trabajo! Continúa mejorando</div>
+            </div>
             
             <div class="results-grid">
                 <div class="result-card">
-                    <div class="stat-number" id="correctAnswers">0</div>
-                    <div>Correctas</div>
+                    <h3>Puntuación Total</h3>
+                    <div class="stat-number" id="totalPoints">0</div>
                 </div>
                 <div class="result-card">
+                    <h3>Precisión</h3>
                     <div class="stat-number" id="accuracy">0%</div>
-                    <div>Precisión</div>
                 </div>
                 <div class="result-card">
-                    <div class="stat-number" id="categoryBest">-</div>
-                    <div>Mejor Categoría</div>
+                    <h3>Tiempo Promedio</h3>
+                    <div class="stat-number" id="avgTime">0s</div>
+                </div>
+                <div class="result-card">
+                    <h3>Mejor Sección</h3>
+                    <div class="stat-number" id="bestSection">-</div>
                 </div>
             </div>
+
+            <div class="section-results">
+                <h2 class="section-title">📊 Rendimiento por Sección</h2>
+                <div class="section-performance" id="sectionPerformance">
+                    <!-- Se generan dinámicamente -->
+                </div>
+            </div>
+
+            <div class="feedback-section">
+                <h3 class="feedback-title">💡 Recomendaciones de Estudio</h3>
+                <ul class="feedback-list" id="feedbackList">
+                    <!-- Se genera dinámicamente -->
+                </ul>
+            </div>
             
-            <button class="restart-btn" onclick="restartQuiz()">Jugar de Nuevo</button>
+            <div style="text-align: center;">
+                <button class="restart-btn" onclick="restartQuiz()">Intentar de Nuevo</button>
+                <button class="restart-btn" onclick="showDetailedResults()">Ver Análisis Detallado</button>
+            </div>
         </div>
     </div>
 
     <script>
+        const sections = {
+            "DATOS": {
+                name: "¿Qué tanto sabes de DATOS?",
+                color: "#3498db",
+                questions: []
+            },
+            "BIG_DATA": {
+                name: "¿Qué tanto sabes de BIG DATA?",
+                color: "#e74c3c",
+                questions: []
+            },
+            "POWER_BI": {
+                name: "¿Qué tanto sabes de POWER BI?",
+                color: "#f39c12",
+                questions: []
+            },
+            "PYTHON": {
+                name: "¿Qué tanto sabes de PYTHON?",
+                color: "#27ae60",
+                questions: []
+            },
+            "R": {
+                name: "¿Qué tanto sabes de R?",
+                color: "#9b59b6",
+                questions: []
+            }
+        };
+
         const questions = [
-            // Conceptos Básicos de Analítica
+            // SECCIÓN: DATOS (Conceptos fundamentales)
             {
-                category: "Conceptos Básicos",
+                section: "DATOS",
+                difficulty: "básico",
                 question: "¿Cuál es la diferencia principal entre datos estructurados y no estructurados?",
                 options: [
                     "Los estructurados están en bases de datos, los no estructurados en archivos",
@@ -344,54 +620,38 @@
                     "Los estructurados son numéricos, los no estructurados son texto",
                     "No hay diferencia real entre ambos tipos"
                 ],
-                correct: 1
+                correct: 1,
+                timeLimit: 120
             },
             {
-                category: "Conceptos Básicos",
+                section: "DATOS",
+                difficulty: "básico",
                 question: "¿Qué significa ETL en el contexto de analítica de datos?",
                 options: [
                     "Export, Transform, Load",
-                    "Extract, Transfer, Link",
+                    "Extract, Transfer, Link", 
                     "Extract, Transform, Load",
                     "Evaluate, Test, Launch"
                 ],
-                correct: 2
+                correct: 2,
+                timeLimit: 90
             },
             {
-                category: "Conceptos Básicos",
-                question: "¿Cuál es la diferencia entre análisis descriptivo y análisis predictivo?",
+                section: "DATOS",
+                difficulty: "intermedio",
+                question: "¿Cuál es la principal característica de un conjunto de datos (dataset)?",
                 options: [
-                    "Descriptivo usa gráficos, predictivo usa números",
-                    "Descriptivo explica qué pasó, predictivo anticipa qué podría pasar",
-                    "Descriptivo es más complejo que predictivo",
-                    "No hay diferencia, son sinónimos"
+                    "Debe contener solo números",
+                    "Es una colección organizada de datos relacionados para análisis",
+                    "Solo puede tener una tabla",
+                    "Siempre está en formato Excel"
                 ],
-                correct: 1
+                correct: 1,
+                timeLimit: 120
             },
             {
-                category: "Conceptos Básicos",
-                question: "¿Qué es un KPI (Key Performance Indicator)?",
-                options: [
-                    "Una base de datos especial",
-                    "Un tipo de gráfico",
-                    "Una métrica que mide el rendimiento hacia objetivos específicos",
-                    "Un software de análisis"
-                ],
-                correct: 2
-            },
-            {
-                category: "Conceptos Básicos",
-                question: "¿Cuál es la principal ventaja del Big Data?",
-                options: [
-                    "Solo maneja datos grandes",
-                    "Permite analizar grandes volúmenes de datos diversos para obtener insights",
-                    "Es más rápido que los análisis tradicionales",
-                    "Solo funciona con inteligencia artificial"
-                ],
-                correct: 1
-            },
-            {
-                category: "Conceptos Básicos",
+                section: "DATOS",
+                difficulty: "intermedio",
                 question: "¿Qué es la limpieza de datos (Data Cleaning)?",
                 options: [
                     "Eliminar todos los datos antiguos",
@@ -399,12 +659,172 @@
                     "Organizar datos en carpetas",
                     "Hacer copias de seguridad"
                 ],
-                correct: 1
+                correct: 1,
+                timeLimit: 120
+            },
+            {
+                section: "DATOS",
+                difficulty: "avanzado",
+                question: "¿Cuál es la diferencia entre análisis descriptivo y análisis predictivo?",
+                options: [
+                    "Descriptivo usa gráficos, predictivo usa números",
+                    "Descriptivo explica qué pasó, predictivo anticipa qué podría pasar",
+                    "Descriptivo es más complejo que predictivo",
+                    "No hay diferencia, son sinónimos"
+                ],
+                correct: 1,
+                timeLimit: 150
+            },
+            {
+                section: "DATOS",
+                difficulty: "avanzado",
+                question: "¿Qué es un KPI (Key Performance Indicator)?",
+                options: [
+                    "Una base de datos especial",
+                    "Un tipo de gráfico",
+                    "Una métrica que mide el rendimiento hacia objetivos específicos",
+                    "Un software de análisis"
+                ],
+                correct: 2,
+                timeLimit: 120
+            },
+            {
+                section: "DATOS",
+                difficulty: "avanzado",
+                question: "En el proceso CRISP-DM, ¿cuál es la primera fase?",
+                options: [
+                    "Preparación de datos",
+                    "Comprensión del negocio",
+                    "Modelado",
+                    "Evaluación"
+                ],
+                correct: 1,
+                timeLimit: 120
+            },
+            {
+                section: "DATOS",
+                difficulty: "intermedio",
+                question: "¿Qué caracteriza a los datos cualitativos?",
+                options: [
+                    "Solo contienen números",
+                    "Describen cualidades o características no numéricas",
+                    "Siempre son datos estructurados",
+                    "No se pueden analizar estadísticamente"
+                ],
+                correct: 1,
+                timeLimit: 120
             },
 
-            // Power BI
+            // SECCIÓN: BIG DATA
             {
-                category: "Power BI",
+                section: "BIG_DATA",
+                difficulty: "básico",
+                question: "¿Cuáles son las 3 V's tradicionales del Big Data?",
+                options: [
+                    "Velocidad, Variedad, Verificación",
+                    "Volumen, Velocidad, Variedad",
+                    "Valor, Velocidad, Volumen",
+                    "Variedad, Verificación, Valor"
+                ],
+                correct: 1,
+                timeLimit: 120
+            },
+            {
+                section: "BIG_DATA",
+                difficulty: "básico",
+                question: "¿Cuál es la principal ventaja del Big Data?",
+                options: [
+                    "Solo maneja datos grandes",
+                    "Permite analizar grandes volúmenes de datos diversos para obtener insights",
+                    "Es más rápido que los análisis tradicionales",
+                    "Solo funciona con inteligencia artificial"
+                ],
+                correct: 1,
+                timeLimit: 120
+            },
+            {
+                section: "BIG_DATA",
+                difficulty: "intermedio",
+                question: "¿Qué perfil profesional NO es típico en Big Data?",
+                options: [
+                    "Data Scientist",
+                    "Data Engineer",
+                    "Data Analyst",
+                    "Marketing Manager tradicional"
+                ],
+                correct: 3,
+                timeLimit: 120
+            },
+            {
+                section: "BIG_DATA",
+                difficulty: "intermedio",
+                question: "¿Qué es un Data Warehouse?",
+                options: [
+                    "Un almacén físico de servidores",
+                    "Sistema centralizado para almacenar y gestionar datos de múltiples fuentes",
+                    "Un software de análisis",
+                    "Una base de datos pequeña"
+                ],
+                correct: 1,
+                timeLimit: 150
+            },
+            {
+                section: "BIG_DATA",
+                difficulty: "avanzado",
+                question: "¿Cuál es la principal diferencia entre Data Lake y Data Warehouse?",
+                options: [
+                    "Data Lake es más pequeño",
+                    "Data Lake almacena datos en formato nativo, Data Warehouse en formato estructurado",
+                    "No hay diferencia",
+                    "Data Warehouse es más moderno"
+                ],
+                correct: 1,
+                timeLimit: 180
+            },
+            {
+                section: "BIG_DATA",
+                difficulty: "avanzado",
+                question: "¿Qué significa el término 'Minería de Datos' (Data Mining)?",
+                options: [
+                    "Extraer datos de bases de datos",
+                    "Proceso de descubrir patrones y conocimientos en grandes conjuntos de datos",
+                    "Limpiar datos sucios",
+                    "Crear copias de seguridad"
+                ],
+                correct: 1,
+                timeLimit: 150
+            },
+            {
+                section: "BIG_DATA",
+                difficulty: "intermedio",
+                question: "¿Qué tecnología es fundamental para el procesamiento de Big Data?",
+                options: [
+                    "Solo SQL",
+                    "Computación distribuida (como Hadoop, Spark)",
+                    "Solo Excel",
+                    "Únicamente inteligencia artificial"
+                ],
+                correct: 1,
+                timeLimit: 120
+            },
+            {
+                section: "BIG_DATA",
+                difficulty: "avanzado",
+                question: "En la metodología CRISP-DM, ¿qué sigue después de 'Comprensión de los datos'?",
+                options: [
+                    "Modelado",
+                    "Preparación de los datos",
+                    "Evaluación",
+                    "Despliegue"
+                ],
+                correct: 1,
+                timeLimit: 120
+            },
+
+            // SECCIÓN: POWER BI
+            {
+                section: "POWER_BI",
+                difficulty: "básico",
                 question: "¿Cuál es la función principal de Power Query en Power BI?",
                 options: [
                     "Crear visualizaciones",
@@ -412,10 +832,12 @@
                     "Compartir reportes",
                     "Crear dashboards"
                 ],
-                correct: 1
+                correct: 1,
+                timeLimit: 120
             },
             {
-                category: "Power BI",
+                section: "POWER_BI",
+                difficulty: "básico",
                 question: "¿Qué es DAX en Power BI?",
                 options: [
                     "Un tipo de gráfico",
@@ -423,10 +845,12 @@
                     "Una base de datos",
                     "Un formato de archivo"
                 ],
-                correct: 1
+                correct: 1,
+                timeLimit: 120
             },
             {
-                category: "Power BI",
+                section: "POWER_BI",
+                difficulty: "intermedio",
                 question: "¿Cuál es la diferencia entre un reporte y un dashboard en Power BI?",
                 options: [
                     "No hay diferencia",
@@ -434,10 +858,12 @@
                     "Los dashboards son más complejos",
                     "Los reportes solo tienen tablas"
                 ],
-                correct: 1
+                correct: 1,
+                timeLimit: 120
             },
             {
-                category: "Power BI",
+                section: "POWER_BI",
+                difficulty: "intermedio",
                 question: "¿Qué función cumple Power BI Service?",
                 options: [
                     "Solo crear reportes",
@@ -445,10 +871,12 @@
                     "Instalar Power BI",
                     "Solo almacenar datos"
                 ],
-                correct: 1
+                correct: 1,
+                timeLimit: 150
             },
             {
-                category: "Power BI",
+                section: "POWER_BI",
+                difficulty: "avanzado",
                 question: "¿Qué es un modelo de datos en Power BI?",
                 options: [
                     "Un tipo de gráfico",
@@ -456,325 +884,13 @@
                     "Una plantilla de reporte",
                     "Un archivo de configuración"
                 ],
-                correct: 1
+                correct: 1,
+                timeLimit: 150
             },
             {
-                category: "Power BI",
-                question: "¿Para qué sirven los filtros en Power BI?",
+                section: "POWER_BI",
+                difficulty: "avanzado",
+                question: "¿Cuál es la función de una medida (Measure) en Power BI?",
                 options: [
-                    "Solo para decorar reportes",
-                    "Permitir a los usuarios interactuar y segmentar datos dinámicamente",
-                    "Cambiar colores",
-                    "Exportar datos"
-                ],
-                correct: 1
-            },
-
-            // Python
-            {
-                category: "Python",
-                question: "¿Cuál es la librería más popular de Python para análisis de datos?",
-                options: [
-                    "NumPy",
-                    "Pandas",
-                    "Matplotlib",
-                    "Seaborn"
-                ],
-                correct: 1
-            },
-            {
-                category: "Python",
-                question: "¿Qué es un DataFrame en Pandas?",
-                options: [
-                    "Un tipo de gráfico",
-                    "Una estructura de datos bidimensional similar a una tabla",
-                    "Una función matemática",
-                    "Un archivo de Python"
-                ],
-                correct: 1
-            },
-            {
-                category: "Python",
-                question: "¿Cuál es la función de NumPy en análisis de datos?",
-                options: [
-                    "Crear gráficos",
-                    "Operaciones numéricas eficientes con arrays",
-                    "Conectar bases de datos",
-                    "Crear interfaces web"
-                ],
-                correct: 1
-            },
-            {
-                category: "Python",
-                question: "¿Qué librería se usa comúnmente para visualización en Python?",
-                options: [
-                    "Pandas",
-                    "NumPy",
-                    "Matplotlib",
-                    "Requests"
-                ],
-                correct: 2
-            },
-            {
-                category: "Python",
-                question: "¿Cuál es el método para leer un archivo CSV en Pandas?",
-                options: [
-                    "pandas.open_csv()",
-                    "pandas.read_csv()",
-                    "pandas.load_csv()",
-                    "pandas.import_csv()"
-                ],
-                correct: 1
-            },
-            {
-                category: "Python",
-                question: "¿Qué es Jupyter Notebook?",
-                options: [
-                    "Una librería de Python",
-                    "Un entorno interactivo para escribir y ejecutar código Python",
-                    "Una base de datos",
-                    "Un tipo de archivo"
-                ],
-                correct: 1
-            },
-
-            // R
-            {
-                category: "R",
-                question: "¿Cuál es la principal ventaja de R para análisis estadístico?",
-                options: [
-                    "Es más rápido que otros lenguajes",
-                    "Tiene muchos paquetes especializados en estadística y visualización",
-                    "Es más fácil de aprender",
-                    "No requiere instalación"
-                ],
-                correct: 1
-            },
-            {
-                category: "R",
-                question: "¿Qué es ggplot2 en R?",
-                options: [
-                    "Una base de datos",
-                    "Un paquete para crear visualizaciones elegantes",
-                    "Un tipo de variable",
-                    "Un editor de código"
-                ],
-                correct: 1
-            },
-            {
-                category: "R",
-                question: "¿Cuál es la función para instalar paquetes en R?",
-                options: [
-                    "load.packages()",
-                    "install.packages()",
-                    "add.packages()",
-                    "get.packages()"
-                ],
-                correct: 1
-            },
-            {
-                category: "R",
-                question: "¿Qué función se usa para ver las primeras filas de un dataset en R?",
-                options: [
-                    "top()",
-                    "head()",
-                    "first()",
-                    "show()"
-                ],
-                correct: 1
-            },
-            {
-                category: "R",
-                question: "¿Qué es RStudio?",
-                options: [
-                    "Un paquete de R",
-                    "Un entorno de desarrollo integrado (IDE) para R",
-                    "Una función de R",
-                    "Una base de datos"
-                ],
-                correct: 1
-            },
-            {
-                category: "R",
-                question: "¿Cuál es la estructura de datos principal en R?",
-                options: [
-                    "Array",
-                    "Data.frame",
-                    "List",
-                    "Vector"
-                ],
-                correct: 1
-            },
-
-            // Preguntas mixtas avanzadas
-            {
-                category: "Conceptos Básicos",
-                question: "¿Qué es Machine Learning en el contexto de analítica?",
-                options: [
-                    "Solo algoritmos de clasificación",
-                    "Técnicas que permiten a las máquinas aprender patrones de los datos automáticamente",
-                    "Un software específico",
-                    "Solo para Big Data"
-                ],
-                correct: 1
-            }
-        ];
-
-        let currentQuestion = 0;
-        let score = 0;
-        let selectedAnswer = null;
-        let categoryScores = {
-            "Conceptos Básicos": { correct: 0, total: 0 },
-            "Power BI": { correct: 0, total: 0 },
-            "Python": { correct: 0, total: 0 },
-            "R": { correct: 0, total: 0 }
-        };
-
-        function startQuiz() {
-            document.getElementById('startScreen').style.display = 'none';
-            document.getElementById('quizScreen').style.display = 'block';
-            document.getElementById('quizScreen').classList.add('fade-in');
-            showQuestion();
-        }
-
-        function showQuestion() {
-            const question = questions[currentQuestion];
-            
-            document.getElementById('questionNumber').textContent = `Pregunta ${currentQuestion + 1} de ${questions.length}`;
-            document.getElementById('currentScore').textContent = `Puntos: ${score}`;
-            document.getElementById('categoryBadge').textContent = question.category;
-            document.getElementById('questionText').textContent = question.question;
-            
-            const progress = ((currentQuestion) / questions.length) * 100;
-            document.getElementById('progress').style.width = progress + '%';
-            
-            const optionsContainer = document.getElementById('optionsContainer');
-            optionsContainer.innerHTML = '';
-            
-            question.options.forEach((option, index) => {
-                const optionElement = document.createElement('div');
-                optionElement.className = 'option';
-                optionElement.textContent = `${String.fromCharCode(65 + index)}. ${option}`;
-                optionElement.onclick = () => selectAnswer(index, optionElement);
-                optionsContainer.appendChild(optionElement);
-            });
-            
-            selectedAnswer = null;
-            document.getElementById('nextBtn').classList.remove('show');
-        }
-
-        function selectAnswer(answerIndex, optionElement) {
-            if (selectedAnswer !== null) return;
-            
-            selectedAnswer = answerIndex;
-            const question = questions[currentQuestion];
-            
-            // Marcar respuesta seleccionada
-            optionElement.classList.add('selected');
-            
-            // Mostrar respuestas correctas e incorrectas
-            const options = document.querySelectorAll('.option');
-            options.forEach((option, index) => {
-                if (index === question.correct) {
-                    option.classList.add('correct');
-                } else if (index === answerIndex && index !== question.correct) {
-                    option.classList.add('incorrect');
-                }
-                option.style.pointerEvents = 'none';
-            });
-            
-            // Actualizar puntuación
-            categoryScores[question.category].total++;
-            if (answerIndex === question.correct) {
-                score += 4; // 4 puntos por respuesta correcta
-                categoryScores[question.category].correct++;
-            }
-            
-            document.getElementById('currentScore').textContent = `Puntos: ${score}`;
-            document.getElementById('nextBtn').classList.add('show');
-        }
-
-        function nextQuestion() {
-            currentQuestion++;
-            
-            if (currentQuestion < questions.length) {
-                setTimeout(() => {
-                    showQuestion();
-                }, 300);
-            } else {
-                showResults();
-            }
-        }
-
-        function showResults() {
-            document.getElementById('quizScreen').style.display = 'none';
-            document.getElementById('resultsScreen').style.display = 'block';
-            document.getElementById('resultsScreen').classList.add('fade-in');
-            
-            const totalQuestions = questions.length;
-            const correctAnswers = score / 4;
-            const accuracy = Math.round((correctAnswers / totalQuestions) * 100);
-            
-            document.getElementById('finalScore').textContent = `${correctAnswers}/${totalQuestions}`;
-            document.getElementById('correctAnswers').textContent = correctAnswers;
-            document.getElementById('accuracy').textContent = accuracy + '%';
-            
-            // Determinar el mensaje de rendimiento
-            let performanceMessage;
-            if (accuracy >= 90) {
-                performanceMessage = "¡Excelente! Eres un experto en analítica de datos 🏆";
-            } else if (accuracy >= 75) {
-                performanceMessage = "¡Muy bien! Tienes sólidos conocimientos 👏";
-            } else if (accuracy >= 60) {
-                performanceMessage = "¡Buen trabajo! Sigue estudiando para mejorar 📚";
-            } else {
-                performanceMessage = "¡Sigue practicando! Hay mucho por aprender 💪";
-            }
-            
-            document.getElementById('performance').textContent = performanceMessage;
-            
-            // Encontrar la mejor categoría
-            let bestCategory = "";
-            let bestScore = -1;
-            
-            for (const [category, scores] of Object.entries(categoryScores)) {
-                if (scores.total > 0) {
-                    const categoryAccuracy = scores.correct / scores.total;
-                    if (categoryAccuracy > bestScore) {
-                        bestScore = categoryAccuracy;
-                        bestCategory = category;
-                    }
-                }
-            }
-            
-            document.getElementById('categoryBest').textContent = bestCategory || "N/A";
-        }
-
-        function restartQuiz() {
-            currentQuestion = 0;
-            score = 0;
-            selectedAnswer = null;
-            categoryScores = {
-                "Conceptos Básicos": { correct: 0, total: 0 },
-                "Power BI": { correct: 0, total: 0 },
-                "Python": { correct: 0, total: 0 },
-                "R": { correct: 0, total: 0 }
-            };
-            
-            document.getElementById('resultsScreen').style.display = 'none';
-            document.getElementById('startScreen').style.display = 'block';
-        }
-
-        // Mezclar preguntas al cargar
-        function shuffleArray(array) {
-            for (let i = array.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [array[i], array[j]] = [array[j], array[i]];
-            }
-        }
-
-        // Inicializar
-        shuffleArray(questions);
-    </script>
-</body>
-</html>
+                    "Solo mostrar datos",
+                    "Realizar cálculos dinámicos basados
