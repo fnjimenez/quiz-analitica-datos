@@ -35,6 +35,24 @@
             border-bottom: 2px solid rgba(255, 255, 255, 0.1);
         }
 
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .header-center {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
         .university-info {
             display: flex;
             align-items: center;
@@ -287,14 +305,13 @@
         }
 
         .slide-counter {
-            position: fixed;
-            top: 50%;
-            right: 30px;
-            transform: translateY(-50%);
-            background: rgba(0, 0, 0, 0.3);
-            padding: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 8px 15px;
             border-radius: 15px;
             backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: center;
+            font-size: 0.9rem;
         }
 
         .progress-indicator {
@@ -376,6 +393,11 @@
                 padding: 15px;
             }
             
+            .header-left, .header-center, .header-right {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
             .slide {
                 padding: 30px 20px;
             }
@@ -388,22 +410,19 @@
                 font-size: 1.8rem;
             }
             
-            .slide-container {
-                padding: 40px 80px;
+            .nav-btn-header {
+                padding: 6px 12px;
+                font-size: 0.8rem;
             }
             
-            .nav-btn-left {
-                left: 10px;
-                width: 50px;
-                height: 50px;
-                font-size: 1.2rem;
+            .timer-controls {
+                flex-direction: row;
+                gap: 5px;
             }
             
-            .nav-btn-right {
-                right: 10px;
-                width: 50px;
-                height: 50px;
-                font-size: 1.2rem;
+            .timer-btn {
+                padding: 6px 10px;
+                font-size: 0.8rem;
             }
         }
     </style>
@@ -412,22 +431,40 @@
     <div class="presentation-container">
         <!-- Header -->
         <div class="header">
-            <div class="university-info">
-                <div class="university-logo">🎓</div>
-                <div class="course-info">
-                    <h1>ANALÍTICA DE DATOS</h1>
-                    <p>Universidad del SABES | Sesión 2 de 12 | 24 de mayo 2025</p>
-                    <p>Prof. Fausto Noé Jiménez | fausto.noej@sabes.edu.mx</p>
+            <div class="header-left">
+                <div class="university-info">
+                    <div class="university-logo">🎓</div>
+                    <div class="course-info">
+                        <h1>ANALÍTICA DE DATOS</h1>
+                        <p>Universidad del SABES | Sesión 2 de 12 | 24 de mayo 2025</p>
+                        <p>Prof. Fausto Noé Jiménez | fausto.noej@sabes.edu.mx</p>
+                    </div>
                 </div>
             </div>
-            <div class="session-timer">
-                <div class="timer-display" id="sessionTimer">
-                    ⏱️ <span id="timeRemaining">40:00</span>
+            
+            <div class="header-center">
+                <button class="nav-btn-header" id="prevBtn" onclick="changeSlide(-1)">
+                    ⬅️ Anterior
+                </button>
+                <div class="slide-counter">
+                    <div>Diapositiva</div>
+                    <div><span id="currentSlide">1</span> / <span id="totalSlides">18</span></div>
                 </div>
-                <div class="timer-controls">
-                    <button class="timer-btn" onclick="startTimer()">▶️ Iniciar</button>
-                    <button class="timer-btn" onclick="pauseTimer()">⏸️ Pausar</button>
-                    <button class="timer-btn" onclick="resetTimer()">🔄 Reset</button>
+                <button class="nav-btn-header" id="nextBtn" onclick="changeSlide(1)">
+                    Siguiente ➡️
+                </button>
+            </div>
+            
+            <div class="header-right">
+                <div class="session-timer">
+                    <div class="timer-display" id="sessionTimer">
+                        ⏱️ <span id="timeRemaining">40:00</span>
+                    </div>
+                    <div class="timer-controls">
+                        <button class="timer-btn" onclick="startTimer()">▶️</button>
+                        <button class="timer-btn" onclick="pauseTimer()">⏸️</button>
+                        <button class="timer-btn" onclick="resetTimer()">🔄</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -938,9 +975,8 @@
             </div>
         </div>
 
-        <!-- Navigation Buttons -->
-        <button class="nav-btn-left" id="prevBtn" onclick="changeSlide(-1)">⬅️</button>
-        <button class="nav-btn-right" id="nextBtn" onclick="changeSlide(1)">➡️</button>
+        <!-- Navigation Buttons ya no necesarios -->
+        <!-- Ahora están en el header -->
 
         <!-- Slide Counter -->
         <div class="slide-counter">
