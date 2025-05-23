@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad 3: Cuadro Comparativo | Universidad del SABES</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            min-height: 100vh;
+            color: white;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .university-logo {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #3498db, #f39c12);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto 15px;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            color: #ffd700;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .navigation-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .tab-btn.active {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-color: #667eea;
+        }
+
+        .tab-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .content-section {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: none;
+        }
+
+        .content-section.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .content-section h2 {
+            font-size: 2rem;
+            color: #ffd700;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .step {
+            background: rgba(255, 255, 255, 0.05);
+            border-left: 4px solid #ffd700;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 10px;
+        }
+
+        .step h3 {
+            font-size: 1.3rem;
+            color: #ffd700;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .step-number {
+            background: #ffd700;
+            color: #1e3c72;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+        .step ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .step li {
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+
+        .highlight-box {
+            background: rgba(255, 215, 0, 0.2);
+            border: 2px solid rgba(255, 215, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .warning-box {
+            background: rgba(255, 107, 107, 0.2);
+            border: 2px solid rgba(255, 107, 107, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .success-box {
+            background: rgba(46, 213, 115, 0.2);
+            border: 2px solid rgba(46, 213, 115, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .rubric-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .rubric-table th,
+        .rubric-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            vertical-align: top;
+        }
+
+        .rubric-table th {
+            background: rgba(255, 215, 0, 0.2);
+            font-weight: bold;
+            color: #ffd700;
+        }
+
+        .rubric-level-0 {
+            background: rgba(255, 107, 107, 0.1);
+            border-left: 4px solid #ff6b6b;
+        }
+
+        .rubric-level-1 {
+            background: rgba(255, 193, 7, 0.1);
+            border-left: 4px solid #ffc107;
+        }
+
+        .rubric-level-2 {
+            background: rgba(46, 213, 115, 0.1);
+            border-left: 4px solid #2ed573;
+        }
+
+        .points {
+            font-weight: bold;
+            font-size: 1.1rem;
+            text-align: center;
+        }
+
+        .checklist {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+
+        .checklist h3 {
+            color: #ffd700;
+            margin-bottom: 15px;
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .checklist-item:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .checklist-item input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            margin-right: 15px;
+            accent-color: #ffd700;
+        }
+
+        .software-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .software-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .software-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255, 215, 0, 0.5);
+        }
+
+        .software-card h4 {
+            color: #ffd700;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .software-card .icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .progress-tracker {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 15px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+        }
+
+        .progress-bar {
+            width: 200px;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #ffd700, #ff6b6b);
+            border-radius: 4px;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .example-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .example-table th,
+        .example-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .example-table th {
+            background: rgba(255, 215, 0, 0.2);
+            font-weight: bold;
+            color: #ffd700;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            .content-section {
+                padding: 25px;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .navigation-tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .tab-btn {
+                width: 90%;
+                text-align: center;
+            }
+
+            .progress-tracker {
+                position: relative;
+                bottom: auto;
+                right: auto;
+                margin: 20px 0;
+            }
+
+            .rubric-table,
+            .example-table {
+                font-size: 0.9rem;
+            }
+
+            .rubric-table th,
+            .rubric-table td,
+            .example-table th,
+            .example-table td {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="university-logo">🎓</div>
+            <h1>ACTIVIDAD 3</h1>
+            <p>Aplicación de técnicas - Cuadro Comparativo</p>
+            <p><strong>Universidad del SABES</strong> | Analítica de Datos | Prof. Fausto Noé Jiménez</p>
+        </div>
+
+        <!-- Navigation -->
+        <div class="navigation-tabs">
+            <button class="tab-btn active" onclick="showSection('instrucciones')">📋 Instrucciones</button>
+            <button class="tab-btn" onclick="showSection('pasos')">🔧 Pasos Detallados</button>
+            <button class="tab-btn" onclick="showSection('rubrica')">📊 Rúbrica</button>
+            <button class="tab-btn" onclick="showSection('software')">💻 Software</button>
+            <button class="tab-btn" onclick="showSection('checklist')">✅ Checklist Final</button>
+        </div>
+
+        <!-- Instrucciones Generales -->
+        <div id="instrucciones" class="content-section active">
+            <h2>📋 INSTRUCCIONES GENERALES</h2>
+
+            <div class="highlight-box">
+                <h3>🎯 OBJETIVO</h3>
+                <p>Crear un cuadro comparativo que analice las principales técnicas de exploración de datos, complementado con evidencia práctica del uso de software especializado.</p>
+            </div>
+
+            <div class="step">
+                <h3><span class="step-number">📅</span>FECHAS IMPORTANTES</h3>
+                <ul>
+                    <li><strong>Fecha de apertura:</strong> Martes, 27 de mayo de 2025, 00:00</li>
+                    <li><strong>Fecha límite:</strong> Lunes, 2 de junio de 2025, 23:59</li>
+                    <li><strong>Tiempo estimado:</strong> 2 horas</li>
+                </ul>
+            </div>
+
+            <div class="step">
+                <h3><span class="step-number">📄</span>FORMATO DE ENTREGA</h3>
+                <ul>
+                    <li><strong>Archivo:</strong> CuadroComparativo_[TU_MATRÍCULA].docx</li>
+                    <li><strong>Ejemplo:</strong> CuadroComparativo_U2303057N0061.docx</li>
+                    <li><strong>Tamaño máximo:</strong> 20 MB</li>
+                    <li><strong>Software:</strong> Microsoft Word (.docx)</li>
+                </ul>
+            </div>
+
+            <div class="step">
+                <h3><span class="step-number">📚</span>QUÉ DEBES HACER</h3>
+                <ol style="margin-left: 20px;">
+                    <li><strong>Investigar</strong> en fuentes confiables sobre técnicas de exploración de datos</li>
+                    <li><strong>Crear un cuadro comparativo</strong> en Word con estructura establecida</li>
+                    <li><strong>Incluir evidencia práctica</strong> del uso de software especializado</li>
+                    <li><strong>Citar fuentes</strong> en formato APA</li>
+                    <li><strong>Subir archivo</strong> al campus virtual</li>
+                </ol>
+            </div>
+
+            <div class="warning-box">
+                <h3>⚠️ IMPORTANTE</h3>
+                <ul>
+                    <li>Sigue EXACTAMENTE el formato del cuadro comparativo</li>
+                    <li>Usa negritas para ideas principales</li>
+                    <li>Organiza de lo simple a lo complejo</li>
+                    <li>Sin errores de ortografía</li>
+                    <li>Citas APA obligatorias</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Pasos Detallados -->
+        <div id="pasos" class="content-section">
+            <h2>🔧 PASOS DETALLADOS</h2>
+
+            <div class="step">
+                <h3><span class="step-number">1</span>CREAR LA PORTADA</h3>
+                <p><strong>Para obtener 2 puntos completos, incluye TODOS estos datos:</strong></p>
+                <ul>
+                    <li>✅ Nombre de la materia: <strong>ANALÍTICA DE DATOS</strong></li>
+                    <li>✅ Nombre del alumno: <strong>[Tu nombre completo]</strong></li>
+                    <li>✅ Nombre del tutor: <strong>Prof. Fausto Noé Jiménez</strong></li>
+                    <li>✅ Nombre de la actividad: <strong>Actividad 3. Aplicación de técnicas</strong></li>
+                    <li>✅ Fecha de entrega: <strong>[Fecha que entregas]</strong></li>
+                </ul>
+                
+                <div class="success-box">
+                    <p><strong>💡 TIP:</strong> Usa una portada formal de Word. Ve a Insertar → Portada y personaliza con estos datos.</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <h3><span class="step-number">2</span>INVESTIGAR LAS TÉCNICAS</h3>
+                <p><strong>Investiga estas 4 técnicas de exploración de datos:</strong></p>
+                
+                <div class="software-grid">
+                    <div class="software-card">
+                        <div class="icon">📊</div>
+                        <h4>Análisis Descriptivo</h4>
+                        <p>Estadísticas básicas, medidas de tendencia central, distribuciones</p>
+                    </div>
+                    <div class="software-card">
+                        <div class="icon">🔍</div>
+                        <h4>Análisis Exploratorio</h4>
+                        <p>Patrones, correlaciones, visualizaciones iniciales</p>
+                    </div>
+                    <div class="software-card">
+                        <div class="icon">⛏️</div>
+                        <h4>Minería de Datos</h4>
+                        <p>Descubrimiento de patrones, algoritmos, clustering</p>
+                    </div>
+                    <div class="software-card">
+                        <div class="icon">📈</div>
+                        <h4>Visualización de Datos</h4>
+                        <p>Gráficos, dashboards, representación visual</p>
+                    </div>
+                </div>
+
+                <div class="highlight-box">
+                    <h4>📖 FUENTES RECOMENDADAS:</h4>
+                    <ul>
+                        <li>Libros académicos de estadística y ciencia de datos</li>
+                        <li>Artículos científicos en bases de datos</li>
+                        <li>Documentación oficial de herramientas (IBM, SAS, Microsoft)</li>
+                        <li>Papers de IEEE, ACM</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="step">
+                <h3><span class="step-number">3</span>CREAR EL CUADRO COMPARATIVO</h3>
+                <p><strong>Estructura EXACTA que debes seguir:</strong></p>
+
+                <table class="example-table">
+                    <thead>
+                        <tr>
+                            <th>TÉCNICA</th>
+                            <th>CONCEPTO PRINCIPAL 1</th>
+                            <th>CONCEPTO PRINCIPAL 2</th>
+                            <th>CONCEPTO PRINCIPAL 3</th>
+                            <th>CONCEPTO PRINCIPAL 4</th>
+                            <th>CARACTERÍSTICAS</th>
+                            <th>APLICACIONES</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Análisis Descriptivo</strong></td>
+                            <td>[Concepto con cita APA]</td>
+                            <td>[Concepto con cita APA]</td>
+                            <td>[Concepto con cita APA]</td>
+                            <td>[Concepto con cita APA]</td>
+                            <td>[Características principales]</td>
+                            <td>[Aplicaciones prácticas]</td>
+                        </tr>
+                        <tr style="background: rgba(255,255,255,0.05);">
+                            <td colspan="7" style="text-align: center; font-style: italic;">
+                                [Repite para las 4 técnicas]
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="warning-box">
+                    <h4>🎯 REQUISITOS PARA 2 PUNTOS:</h4>
+                    <ul>
+                        <li><strong>4 conceptos principales</strong> por cada técnica (mínimo)</li>
+                        <li><strong>Ideas principales en negritas</strong></li>
+                        <li><strong>Organización de simple a complejo</strong></li>
+                        <li><strong>Identificar semejanzas y diferencias</strong> entre técnicas</li>
+                        <li><strong>Sin errores de ortografía</strong></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="step">
+                <h3><span class="step-number">4</span>EVIDENCIA DE SOFTWARE</h3>
+                <p><strong>Incluye capturas de pantalla mostrando:</strong></p>
+                
+                <div class="software-grid">
+                    <div class="software-card">
+                        <div class="icon">📊</div>
+                        <h4>Excel/Power BI</h4>
+                        <p>• Captura de software instalado<br>
+                        • Tabla dinámica simple<br>
+                        • Gráfico básico creado</p>
+                    </div>
+                    <div class="software-card">
+                        <div class="icon">🐍</div>
+                        <h4>Python</h4>
+                        <p>• Anaconda instalado<br>
+                        • Jupyter Notebook abierto<br>
+                        • Comando pandas ejecutado</p>
+                    </div>
+                    <div class="software-card">
+                        <div class="icon">📈</div>
+                        <h4>R / RStudio</h4>
+                        <p>• RStudio instalado<br>
+                        • Script básico<br>
+                        • Comando summary() ejecutado</p>
+                    </div>
+                    <div class="software-card">
+                        <div class="icon">💼</div>
+                        <h4>Tableau/Power BI</h4>
+                        <p>• Interfaz principal<br>
+                        • Conexión a datos<br>
+                        • Visualización simple</p>
+                    </div>
+                </div>
+
+                <div class="success-box">
+                    <p><strong>💡 CÓMO INSERTAR CAPTURAS EN WORD:</strong></p>
+                    <ol>
+                        <li>Toma captura con <strong>Alt + Impr Pant</strong></li>
+                        <li>En Word: <strong>Ctrl + V</strong></li>
+                        <li>Ajusta tamaño: clic derecho → Tamaño y propiedades</li>
+                        <li>Añade descripción debajo de cada imagen</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="step">
+                <h3><span class="step-number">5</span>AGREGAR SEMEJANZAS Y DIFERENCIAS</h3>
+                <p><strong>Al final del cuadro, incluye una sección que identifique:</strong></p>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px 0;">
+                    <div style="background: rgba(46, 213, 115, 0.1); padding: 20px; border-radius: 10px;">
+                        <h4 style="color: #2ed573;">✅ SEMEJANZAS</h4>
+                        <ul>
+                            <li>Todas trabajan con datos</li>
+                            <li>Buscan patrones</li>
+                            <li>Apoyan toma de decisiones</li>
+                            <li>Requieren limpieza de datos</li>
+                        </ul>
+                    </div>
+                    <div style="background: rgba(255, 193, 7, 0.1); padding: 20px; border-radius: 10px;">
+                        <h4 style="color: #ffc107;">🔄 DIFERENCIAS</h4>
+                        <ul>
+                            <li>Nivel de complejidad</li>
+                            <li>Tipos de algoritmos</li>
+                            <li>Objetivos específicos</li>
+                            <li>Herramientas utilizadas</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="step">
+                <h3><span class="step-number">6</span>BIBLIOGRAFÍA EN APA</h3>
+                <p><strong>Al final del documento, incluye referencias completas:</strong></p>
+                
+                <div class="highlight-box">
+                    <h4>📚 FORMATO APA 7ma EDICIÓN:</h4>
+                    <p><strong>Libro:</strong><br>
+                    Apellido, A. (Año). <em>Título del libro</em>. Editorial.</p>
+                    
+                    <p><strong>Artículo:</strong><br>
+                    Apellido, A. (Año). Título del artículo. <em>Revista</em>, volumen(número), páginas.</p>
+                    
+                    <p><strong>Sitio web:</strong><br>
+                    Apellido, A. (Año, mes día). Título. <em>Sitio web</em>. URL</p>
+                </div>
+
+                <div class="warning-box">
+                    <p><strong>⚠️ CITAS EN EL TEXTO:</strong> Cada concepto debe tener su cita: (Autor, año)</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Rúbrica -->
+        <div id="rubrica" class="content-section">
+            <h2>📊 RÚBRICA DE EVALUACIÓN</h2>
+            <p style="text-align: center; margin-bottom: 30px; font-size: 1.2rem;">
+                <strong>Total: 10 puntos</strong> | Revisa cada criterio para obtener la máxima calificación
+            </p>
+
+            <div class="step">
+                <h3><span class="step-number">📋</span>PRESENTACIÓN (2 puntos)</h3>
+                <table class="rubric-table">
+                    <tr class="rubric-level-0">
+                        <td class="points">0 puntos</td>
+                        <td>No ha incluido una portada en su actividad.</td>
+                    </tr>
+                    <tr class="rubric-level-1">
+                        <td class="points">1 punto</td>
+                        <td>Incluye una portada donde enuncia al menos tres de los siguientes datos: nombre de la materia, alumno, nombre del tutor, nombre de la actividad y fecha de entrega.</td>
+                    </tr>
+                    <tr class="rubric-level-2">
+                        <td class="points">2 puntos</td>
+                        <td>Incluye una portada donde enuncia <strong>los datos de la materia, alumno, nombre del tutor, nombre de la actividad y fecha de entrega.</strong></td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="step">
+                <h3><span class="step-number">📚</span>CONTENIDO (2 puntos)</h3>
+                <table class="rubric-table">
+                    <tr class="rubric-level-0">
+                        <td class="points">0 puntos</td>
+                        <td>La información que aborda es poco clara para entender y comparar los elementos y características de cada técnica de exploración de datos. Plantea dos conceptos principales de cada técnica, demuestra que no se hizo el análisis elemental de los textos. No identifica las semejanzas y diferencias de los elementos comparados.</td>
+                    </tr>
+                    <tr class="rubric-level-1">
+                        <td class="points">1 punto</td>
+                        <td>Aborda la mayoría de la información para comprender y diferenciar los elementos y las características de cada técnica de exploración de datos. Plantea cuatro conceptos principales de cada técnica, siendo los mínimos para demostrar la lectura y análisis de los textos. Identifica varias de las semejanzas y diferencias entre los elementos comparados.</td>
+                    </tr>
+                    <tr class="rubric-level-2">
+                        <td class="points">2 puntos</td>
+                        <td>Aborda <strong>toda la información necesaria</strong> para comprender y diferenciar los elementos y las características de las técnica de exploración de datos. Plantea <strong>todos los conceptos principales</strong> de cada técnica que demuestra la lectura y análisis de los textos. <strong>Identifica de manera clara y precisa</strong> las semejanzas y diferencias entre los elementos comparados.</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="step">
+                <h3><span class="step-number">🎨</span>DISEÑO (2 puntos)</h3>
+                <table class="rubric-table">
+                    <tr class="rubric-level-0">
+                        <td class="points">0 puntos</td>
+                        <td>Cuadro simple que cumple con uno de los criterios de diseño, con más de diez errores de ortografía (seguir el orden del formato establecido por el profesor, señalar en negritas las ideas y conceptos principales, escribir de arriba a abajo, de lo simple a lo complejo).</td>
+                    </tr>
+                    <tr class="rubric-level-1">
+                        <td class="points">1 punto</td>
+                        <td>Cuadro que cumple con dos de los criterios de diseño, con errores de ortografía (seguir el orden del formato establecido por el profesor, señalar en negritas las ideas y conceptos principales, escribir de arriba a abajo, de lo simple a lo complejo).</td>
+                    </tr>
+                    <tr class="rubric-level-2">
+                        <td class="points">2 puntos</td>
+                        <td>Cuadro que cumple con <strong>todos los criterios de diseño, sin errores de ortografía</strong> (seguir el orden del formato establecido por el profesor, señalar en negritas las ideas y conceptos principales, escribir de arriba a abajo, de lo simple a lo complejo).</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="step">
+                <h3><span class="step-number">📋</span>ORGANIZACIÓN DE INFORMACIÓN (2 puntos)</h3>
+                <table class="rubric-table">
+                    <tr class="rubric-level-0">
+                        <td class="points">0 puntos</td>
+                        <td>Descripción poco clara del cuadro, contiene pocos detalles significativos (ideas principales de cada técnica). La presentación no está bien organizada y dificulta el seguimiento.</td>
+                    </tr>
+                    <tr class="rubric-level-1">
+                        <td class="points">1 punto</td>
+                        <td>Descripción precisa y clara del cuadro, con buena calidad de detalles significativos (ideas principales de cada técnica). La presentación está organizada.</td>
+                    </tr>
+                    <tr class="rubric-level-2">
+                        <td class="points">2 puntos</td>
+                        <td>Descripción <strong>precisa y clara</strong> del cuadro, con <strong>excelente calidad de detalles significativos</strong> (ideas principales de cada técnica). La presentación <strong>está bien organizada</strong>.</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="step">
+                <h3><span class="step-number">📖</span>BIBLIOGRAFÍA (2 puntos)</h3>
+                <table class="rubric-table">
+                    <tr class="rubric-level-0">
+                        <td class="points">0 puntos</td>
+                        <td>Se emplearon conceptos derivados de otros autores sin realizar las citas y referencias pertinentes en formato APA en todos casos necesarios.</td>
+                    </tr>
+                    <tr class="rubric-level-1">
+                        <td class="points">1 punto</td>
+                        <td>Se emplearon conceptos derivados de otros autores, con omisiones o errores técnicos en citas y referencias respecto al formato APA.</td>
+                    </tr>
+                    <tr class="rubric-level-2">
+                        <td class="points">2 puntos</td>
+                        <td><strong>Se incluyeron las citas y referencias pertinentes en formato APA en todos casos necesarios.</strong></td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="success-box">
+                <h3>🎯 RESUMEN PARA OBTENER 10/10</h3>
+                <ul>
+                    <li>✅ <strong>Portada completa</strong> con todos los datos (2 pts)</li>
+                    <li>✅ <strong>4+ conceptos por técnica</strong> + semejanzas/diferencias (2 pts)</li>
+                    <li>✅ <strong>Formato correcto</strong> + negritas + sin errores (2 pts)</li>
+                    <li>✅ <strong>Organización excelente</strong> + detalles significativos (2 pts)</li>
+                    <li>✅ <strong>Citas APA perfectas</strong> en texto y referencias (2 pts)</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Software -->
+        <div id="software" class="content-section">
+            <h2>💻 GUÍA DE SOFTWARE</h2>
+
+            <div class="step">
+                <h3><span class="step-number">📥</span>INSTALACIONES REQUERIDAS</h3>
+                <div class="software-grid">
+                    <div class="software-card">
+                        <div class="icon">📊</div>
+                        <h4>Microsoft Excel</h4>
+                        <p><strong>Descarga:</strong> Office 365 estudiantil<br>
+                        <strong>Alternativa:</strong> Google Sheets<br>
+                        <strong>Uso:</strong> Tablas dinámicas, gráficos básicos</p>
+                    </div>
+                    <div class="software-card">
+                        <div class="icon">⚡</div>
+                        <h4>Power BI Desktop</h4>
+                        <p><strong>Descarga:</strong> Microsoft.com (Gratis)<br>
+                        <strong>Uso:</strong> Dashboards, visualizaciones<br>
+                        <strong>Captura:</strong> Pantalla principal + gráfico</p>
+                    </div>
+                    <div class="software-card">
+                        <div class="icon">🐍</div>
+                        <h4>Python (Anaconda)</h4>
+                        <p><strong>Descarga:</strong> anaconda.com<br>
+                        <strong>Incluye:</strong> Jupyter, Pandas, NumPy<br>
+                        <strong>Captura:</strong> Jupyter Notebook funcionando</p>
+                    </div>
+                    <div class="software-card">
+                        <div class="icon">📈</div>
+                        <h4>R + RStudio</h4>
+                        <p><strong>Descarga:</strong> r-project.org + rstudio.com<br>
+                        <strong>Uso:</strong> Análisis estadístico<br>
+                        <strong>Captura:</strong> RStudio con script ejecutado</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="step">
+                <h3><span class="step-number">📸</span>QUÉ CAPTURAS TOMAR</h3>
+                
+                <div class="highlight-box">
+                    <h4>🔍 CAPTURA 1: EXCEL/POWER BI</h4>
+                    <ul>
+                        <li>Pantalla completa mostrando Excel abierto</li>
+                        <li>Una tabla dinámica simple creada</li>
+                        <li>Un gráfico básico (barras o pastel)</li>
+                        <li>Tu nombre visible en alguna celda</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box">
+                    <h4>🐍 CAPTURA 2: PYTHON</h4>
+                    <ul>
+                        <li>Jupyter Notebook abierto</li>
+                        <li>Comando ejecutado: <code>import pandas as pd</code></li>
+                        <li>Comando ejecutado: <code>pd.DataFrame({'A':[1,2,3]})</code></li>
+                        <li>Resultado visible en pantalla</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box">
+                    <h4>📊 CAPTURA 3: R/RSTUDIO</h4>
+                    <ul>
+                        <li>RStudio interface completa</li>
+                        <li>Script con comandos básicos</li>
+                        <li>Comando ejecutado: <code>summary(iris)</code></li>
+                        <li>Resultado en consola</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box">
+                    <h4>⚡ CAPTURA 4: POWER BI (OPCIONAL)</h4>
+                    <ul>
+                        <li>Power BI Desktop abierto</li>
+                        <li>Datos conectados</li>
+                        <li>Visualización simple creada</li>
+                        <li>Panel de campos visible</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="warning-box">
+                <h3>⚠️ PROBLEMAS COMUNES</h3>
+                <ul>
+                    <li><strong>Error de instalación:</strong> Ejecutar como administrador</li>
+                    <li><strong>Python no funciona:</strong> Verificar PATH en variables de entorno</li>
+                    <li><strong>R no instala paquetes:</strong> Cambiar mirror de CRAN</li>
+                    <li><strong>Power BI no abre:</strong> Actualizar Windows 10/11</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Checklist Final -->
+        <div id="checklist" class="content-section">
+            <h2>✅ CHECKLIST FINAL</h2>
+
+            <div class="checklist">
+                <h3>📋 ANTES DE ENTREGAR, VERIFICA:</h3>
+                
+                <div class="checklist-item">
+                    <input type="checkbox" id="check1">
+                    <label for="check1">✅ <strong>PORTADA:</strong> Incluye TODOS los datos requeridos (materia, alumno, tutor, actividad, fecha)</label>
+                </div>
+                
+                <div class="checklist-item">
+                    <input type="checkbox" id="check2">
+                    <label for="check2">📊 <strong>CUADRO:</strong> 4 técnicas con mínimo 4 conceptos cada una</label>
+                </div>
+                
+                <div class="checklist-item">
+                    <input type="checkbox" id="check3">
+                    <label for="check3">🔍 <strong>ANÁLISIS:</strong> Identifica semejanzas y diferencias entre técnicas</label>
+                </div>
+                
+                <div class="checklist-item">
+                    <input type="checkbox" id="check4">
+                    <label for="check4">🎨 <strong>FORMATO:</strong> Ideas principales en negritas, organizado simple→complejo</label>
+                </div>
+                
+                <div class="checklist-item">
+                    <input type="checkbox" id="check5">
+                    <label for="check5">📝 <strong>ORTOGRAFÍA:</strong> Sin errores de escritura</label>
+                </div>
+                
+                <div class="checklist-item">
+                    <input type="checkbox" id="check6">
+                    <label for="check6">📸 <strong>CAPTURAS:</strong> Evidencia de software instalado y funcionando</label>
+                </div>
+                
+                <div class="checklist-item">
+                    <input type="checkbox" id="check7">
+                    <label for="check7">📚 <strong>CITAS APA:</strong> Todas las fuentes citadas correctamente en texto</label>
+                </div>
+                
+                <div class="checklist-item">
+                    <input type="checkbox" id="check8">
+                    <label for="check8">📖 <strong>REFERENCIAS:</strong> Bibliografía completa en formato APA al final</label>
+                </div>
+                
+                <div class="checklist-item">
+                    <input type="checkbox" id="check9">
+                    <label for="check9">💾 <strong>ARCHIVO:</strong> Guardado como CuadroComparativo_[MATRÍCULA].docx</label>
+                </div>
+                
+                <div class="checklist-item">
+                    <input type="checkbox" id="check10">
+                    <label for="check10">📤 <strong>ENTREGA:</strong> Subido al campus antes de la fecha límite</label>
+                </div>
+            </div>
+
+            <div class="success-box" id="completionMessage" style="display: none;">
+                <h3>🎉 ¡LISTO PARA ENTREGAR!</h3>
+                <p>Has completado todos los requisitos. Tu actividad debería obtener <strong>10/10 puntos</strong>.</p>
+            </div>
+
+            <div class="step">
+                <h3><span class="step-number">🎯</span>AUTOEVALUACIÓN RÁPIDA</h3>
+                <p>Antes de entregar, pregúntate:</p>
+                <ul>
+                    <li>¿Mi cuadro se ve <strong>profesional y organizado</strong>?</li>
+                    <li>¿Cualquier persona puede <strong>entender las diferencias</strong> entre técnicas?</li>
+                    <li>¿Todas mis afirmaciones tienen <strong>respaldo bibliográfico</strong>?</li>
+                    <li>¿Las capturas de software son <strong>claras y legibles</strong>?</li>
+                    <li>¿He seguido <strong>exactamente</strong> el formato establecido?</li>
+                </ul>
+            </div>
+
+            <div class="highlight-box">
+                <h3>📞 ¿NECESITAS AYUDA?</h3>
+                <p><strong>Profesor:</strong> Fausto Noé Jiménez<br>
+                <strong>Email:</strong> fausto.noej@sabes.edu.mx<br>
+                <strong>Consulta:</strong> Durante horario de clases o por email</p>
+            </div>
+        </div>
+
+        <!-- Progress Tracker -->
+        <div class="progress-tracker">
+            <div style="font-size: 0.9rem; margin-bottom: 5px;">Progreso</div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <div style="font-size: 0.8rem; text-align: center;" id="progressText">0%</div>
+        </div>
+    </div>
+
+    <script>
+        // Variables globales
+        let currentSection = 'instrucciones';
+
+        // Función para mostrar secciones
+        function showSection(sectionId) {
+            // Ocultar todas las secciones
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Desactivar todos los botones
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('active');
+            });
+
+            // Mostrar la sección seleccionada
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Activar el botón correspondiente
+            event.target.classList.add('active');
+            
+            currentSection = sectionId;
+        }
+
+        // Función para actualizar progreso
+        function updateProgress() {
+            const checkboxes = document.querySelectorAll('#checklist input[type="checkbox"]');
+            const checkedBoxes = document.querySelectorAll('#checklist input[type="checkbox"]:checked');
+            
+            const progress = (checkedBoxes.length / checkboxes.length) * 100;
+            
+            document.getElementById('progressFill').style.width = progress + '%';
+            document.getElementById('progressText').textContent = Math.round(progress) + '%';
+            
+            // Mostrar mensaje de completación
+            if (progress === 100) {
+                document.getElementById('completionMessage').style.display = 'block';
+            } else {
+                document.getElementById('completionMessage').style.display = 'none';
+            }
+        }
+
+        // Event listeners para checkboxes
+        document.addEventListener('DOMContentLoaded', function() {
+            const checkboxes = document.querySelectorAll('#checklist input[type="checkbox"]');
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', updateProgress);
+            });
+            
+            // Inicializar progreso
+            updateProgress();
+        });
+
+        // Función para mostrar alertas
+        function showAlert(message) {
+            alert(message);
+        }
+
+        // Smooth scrolling para navegación interna
+        document.addEventListener('click', function(e) {
+            if (e.target.matches('a[href^="#"]')) {
+                e.preventDefault();
+                const target = document.querySelector(e.target.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+        });
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey) {
+                switch(e.key) {
+                    case '1':
+                        e.preventDefault();
+                        showSection('instrucciones');
+                        break;
+                    case '2':
+                        e.preventDefault();
+                        showSection('pasos');
+                        break;
+                    case '3':
+                        e.preventDefault();
+                        showSection('rubrica');
+                        break;
+                    case '4':
+                        e.preventDefault();
+                        showSection('software');
+                        break;
+                    case '5':
+                        e.preventDefault();
+                        showSection('checklist');
+                        break;
+                }
+            }
+        });
+
+        // Funciones adicionales para interactividad
+        function highlightRubricCriterion(criterion) {
+            // Resaltar criterio específico de la rúbrica
+            const element = document.getElementById(criterion);
+            if (element) {
+                element.style.background = 'rgba(255, 215, 0, 0.3)';
+                setTimeout(() => {
+                    element.style.background = '';
+                }, 2000);
+            }
+        }
+
+        // Auto-save progress removido por compatibilidad
+        // Solo mantener funcionalidad básica sin localStorage
+
+        // Cargar funcionalidad básica al iniciar
+        document.addEventListener('DOMContentLoaded', function() {
+            // Solo configurar los event listeners para checkboxes
+            const checkboxes = document.querySelectorAll('#checklist input[type="checkbox"]');
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', updateProgress);
+            });
+            
+            // Inicializar progreso
+            updateProgress();
+        });
+    </script>
+</body>
+</html>
