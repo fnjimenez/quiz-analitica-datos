@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analítica de Datos - Sesión 3 | Universidad del SABES</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            min-height: 100vh;
+            color: white;
+            margin: 0;
+            overflow-x: auto;
+            overflow-y: auto;
+        }
+
+        .presentation-container {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 10px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .header-center {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .university-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .university-logo {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #3498db, #f39c12);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .course-info h1 {
+            font-size: 1.3rem;
+            color: #ffd700;
+            margin-bottom: 2px;
+        }
+
+        .course-info p {
+            font-size: 0.7rem;
+            opacity: 0.7;
+            line-height: 1.2;
+            margin: 1px 0;
+        }
+
+        .session-timer {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .timer-display {
+            background: rgba(255, 107, 107, 0.2);
+            padding: 10px 20px;
+            border-radius: 25px;
+            border: 2px solid rgba(255, 107, 107, 0.5);
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #ff6b6b;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .timer-display.warning {
+            animation: pulse 1s infinite;
+            background: rgba(255, 0, 0, 0.3);
+            border-color: #ff0000;
+            color: #ff0000;
+        }
+
+        .timer-controls {
+            display: flex;
+            gap: 10px;
+        }
+
+        .timer-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .timer-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .nav-btn-header {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .nav-btn-header:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-btn-header:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .slide-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            position: relative;
+        }
+
+        .slide {
+            max-width: 1200px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: center;
+            display: none;
+            animation: slideIn 0.5s ease-in-out;
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        .slide h1 {
+            font-size: 3rem;
+            margin-bottom: 30px;
+            background: linear-gradient(45deg, #ffd700, #ff6b6b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .slide h2 {
+            font-size: 2.5rem;
+            margin-bottom: 25px;
+            color: #ffd700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .slide h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #e8f4fd;
+        }
+
+        .slide p {
+            font-size: 1.3rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .slide ul {
+            text-align: left;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .slide li {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            padding-left: 10px;
+            position: relative;
+        }
+
+        .slide li::before {
+            content: "🧠";
+            position: absolute;
+            left: -30px;
+        }
+
+        .interactive-element {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .interactive-element:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .technique-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .technique-card {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 15px;
+            padding: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .technique-card:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.05);
+            border-color: #ffd700;
+        }
+
+        .technique-card.selected {
+            background: rgba(255, 215, 0, 0.3);
+            border-color: #ffd700;
+        }
+
+        .algorithm-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .algorithm-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 15px;
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .algorithm-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            border-color: #ffd700;
+        }
+
+        .complexity-indicator {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(255, 215, 0, 0.8);
+            color: #1e3c72;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .complexity-indicator.basic { background: rgba(46, 213, 115, 0.8); }
+        .complexity-indicator.intermediate { background: rgba(255, 193, 7, 0.8); }
+        .complexity-indicator.advanced { background: rgba(255, 107, 107, 0.8); }
+
+        .code-example {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+            text-align: left;
+            position: relative;
+            overflow-x: auto;
+        }
+
+        .code-example::before {
+            content: attr(data-lang);
+            position: absolute;
+            top: 5px;
+            right: 10px;
+            background: rgba(255, 215, 0, 0.8);
+            color: #1e3c72;
+            padding: 2px 8px;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .neural-network-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 30px 0;
+            gap: 50px;
+        }
+
+        .network-layer {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .neuron {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            position: relative;
+            animation: pulse 2s infinite;
+        }
+
+        .connection {
+            width: 3px;
+            height: 100px;
+            background: linear-gradient(45deg, #ffd700, #ff6b6b);
+            margin: 10px 25px;
+            border-radius: 2px;
+            opacity: 0.7;
+        }
+
+        .decision-tree-visual {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 30px 0;
+        }
+
+        .tree-node {
+            background: rgba(255, 215, 0, 0.3);
+            border: 2px solid #ffd700;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 10px;
+            position: relative;
+        }
+
+        .tree-branch {
+            width: 2px;
+            height: 30px;
+            background: #ffd700;
+            margin: 0 auto;
+        }
+
+        .citation {
+            font-size: 0.9rem;
+            font-style: italic;
+            color: #b0c4de;
+            margin-top: 15px;
+        }
+
+        .slide-counter {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 8px 15px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .progress-indicator {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #ffd700, #ff6b6b);
+            transition: width 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% { 
+                opacity: 1; 
+                transform: scale(1);
+            }
+            50% { 
+                opacity: 0.7; 
+                transform: scale(1.1);
+            }
+        }
+
+        .intro-slide {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                gap: 10px;
+                padding: 10px 15px;
+            }
+            
+            .slide {
+                padding: 30px 20px;
+                max-height: 70vh;
+                overflow-y: auto;
+            }
+            
+            .slide h1 {
+                font-size: 2.2rem;
+            }
+            
+            .slide h2 {
+                font-size: 1.8rem;
+            }
+            
+            .technique-grid,
+            .algorithm-showcase {
+                grid-template-columns: 1fr;
+            }
+            
+            .neural-network-visual {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="presentation-container">
+        <!-- Header -->
+        <div class="header">
+            <div class="header-left">
+                <div class="university-info">
+                    <div class="university-logo">🎓</div>
+                    <div class="course-info">
+                        <h1>ANALÍTICA DE DATOS</h1>
+                        <p>Universidad del SABES | Sesión 3 de 12 | 27 de mayo 2025</p>
+                        <p>Prof. Fausto Noé Jiménez | fausto.noej@sabes.edu.mx</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="header-center">
+                <button class="nav-btn-header" id="prevBtn" onclick="changeSlide(-1)">
+                    ⬅️ Anterior
+                </button>
+                <div class="slide-counter">
+                    <div>Diapositiva</div>
+                    <div><span id="currentSlide">1</span> / <span id="totalSlides">15</span></div>
+                </div>
+                <button class="nav-btn-header" id="nextBtn" onclick="changeSlide(1)">
+                    Siguiente ➡️
+                </button>
+            </div>
+            
+            <div class="header-right">
+                <div class="session-timer">
+                    <div class="timer-display" id="sessionTimer">
+                        ⏱️ <span id="timeRemaining">45:00</span>
+                    </div>
+                    <div class="timer-controls">
+                        <button class="timer-btn" onclick="startTimer()">▶️</button>
+                        <button class="timer-btn" onclick="pauseTimer()">⏸️</button>
+                        <button class="timer-btn" onclick="resetTimer()">🔄</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slides -->
+        <div class="slide-container">
+            <!-- Slide 1: Título -->
+            <div class="slide active intro-slide">
+                <h1>🧠 TÉCNICAS DE EXPLORACIÓN DE DATOS</h1>
+                <div style="font-size: 8rem; margin: 30px 0;">🤖📊🔬</div>
+                <h3>Sesión 3: Algoritmos y Métodos Avanzados</h3>
+                <p><strong>Semana:</strong> 27 de mayo - 02 de junio 2025</p>
+                <p><strong>Duración:</strong> 45 minutos teoría + 30 min práctica + 15 min Q&A</p>
+                
+                <div class="interactive-element" onclick="showAlert('¡Prepárate para explorar algoritmos fascinantes! 🚀')">
+                    <h3>🎯 ¡Descubre el poder de los algoritmos!</h3>
+                    <p>Desde redes neuronales hasta sistemas expertos</p>
+                </div>
+            </div>
+
+            <!-- Slide 2: Objetivos -->
+            <div class="slide">
+                <h2>🎯 OBJETIVOS DE LA SESIÓN</h2>
+                <ul>
+                    <li><strong>Comprender</strong> las principales técnicas de exploración de datos</li>
+                    <li><strong>Analizar</strong> redes neuronales y su funcionamiento</li>
+                    <li><strong>Dominar</strong> regresión lineal y árboles de decisión</li>
+                    <li><strong>Explorar</strong> análisis de varianza y discriminante</li>
+                    <li><strong>Descubrir</strong> inteligencia artificial y sistemas expertos</li>
+                    <li><strong>Aplicar</strong> minería de datos en casos reales</li>
+                </ul>
+                
+                <div class="interactive-element" onclick="showLearningPath()">
+                    <h3>🗺️ Ruta de Aprendizaje</h3>
+                    <p>De lo básico → avanzado → aplicaciones</p>
+                </div>
+            </div>
+
+            <!-- Slide 3: Panorama General -->
+            <div class="slide">
+                <h2>🌐 PANORAMA DE TÉCNICAS</h2>
+                
+                <div class="technique-grid">
+                    <div class="technique-card" onclick="selectTechnique(this, 'supervised')">
+                        <div class="complexity-indicator basic">Supervisado</div>
+                        <h3>🎯 APRENDIZAJE SUPERVISADO</h3>
+                        <p>Con datos de entrenamiento etiquetados</p>
+                        <p><strong>Ejemplos:</strong> Regresión, Clasificación</p>
+                    </div>
+                    
+                    <div class="technique-card" onclick="selectTechnique(this, 'unsupervised')">
+                        <div class="complexity-indicator intermediate">No Supervisado</div>
+                        <h3>🔍 APRENDIZAJE NO SUPERVISADO</h3>
+                        <p>Descubre patrones ocultos</p>
+                        <p><strong>Ejemplos:</strong> Clustering, Análisis discriminante</p>
+                    </div>
+                    
+                    <div class="technique-card" onclick="selectTechnique(this, 'reinforcement')">
+                        <div class="complexity-indicator advanced">Por Refuerzo</div>
+                        <h3>🎮 APRENDIZAJE POR REFUERZO</h3>
+                        <p>Aprende mediante ensayo y error</p>
+                        <p><strong>Ejemplos:</strong> Sistemas expertos adaptativos</p>
+                    </div>
+                </div>
+                
+                <p>"El machine learning es una forma de dar a las computadoras la habilidad de aprender sin ser explícitamente programadas" (Samuel, 1959).</p>
+                
+                <div class="citation">(Samuel, A. L., 1959)</div>
+            </div>
+
+            <!-- Slide 4: Redes Neuronales -->
+            <div class="slide">
+                <h2>🧠 REDES NEURONALES</h2>
+                
+                <div class="neural-network-visual">
+                    <div class="network-layer">
+                        <div class="neuron">X₁</div>
+                        <div class="neuron">X₂</div>
+                        <div class="neuron">X₃</div>
+                    </div>
+                    <div class="connection"></div>
+                    <div class="network-layer">
+                        <div class="neuron">H₁</div>
+                        <div class="neuron">H₂</div>
+                    </div>
+                    <div class="connection"></div>
+                    <div class="network-layer">
+                        <div class="neuron">Y</div>
+                    </div>
+                </div>
+                
+                <h3>¿Cómo funcionan?</h3>
+                <p>Inspiradas en el cerebro humano, las redes neuronales procesan información a través de <strong>neuronas artificiales conectadas</strong> (McCulloch & Pitts, 1943).</p>
+                
+                <div class="interactive-element" onclick="explainNeuralNetwork()">
+                    <h3>⚡ Componentes Clave</h3>
+                    <ul>
+                        <li><strong>Neuronas:</strong> Unidades de procesamiento</li>
+                        <li><strong>Pesos:</strong> Fuerza de las conexiones</li>
+                        <li><strong>Función de activación:</strong> Decide si se activa</li>
+                        <li><strong>Backpropagation:</strong> Método de aprendizaje</li>
+                    </ul>
+                    <p>¡Haz clic para ver ejemplo práctico!</p>
+                </div>
+                
+                <div class="citation">(McCulloch, W. S., & Pitts, W., 1943)</div>
+            </div>
+
+            <!-- Slide 5: Código Neural Network -->
+            <div class="slide">
+                <h2>🐍 RED NEURONAL EN PYTHON</h2>
+                
+                <div class="code-example" data-lang="Python">
+import numpy as np
+from sklearn.neural_network import MLPClassifier
+
+# Datos de ejemplo
+X = np.array([[0,0], [0,1], [1,0], [1,1]])  # Entradas
+y = np.array([0, 1, 1, 0])  # XOR problem
+
+# Crear red neuronal
+nn = MLPClassifier(hidden_layer_sizes=(4,), 
+                   activation='relu',
+                   max_iter=1000)
+
+# Entrenar
+nn.fit(X, y)
+
+# Predecir
+predictions = nn.predict(X)
+print(f"Predicciones: {predictions}")
+print(f"Precisión: {nn.score(X, y):.2f}")
+                </div>
+                
+                <div class="interactive-element" onclick="runNeuralNetworkDemo()">
+                    <h3>🎯 Aplicaciones Reales</h3>
+                    <ul>
+                        <li><strong>Reconocimiento de imágenes</strong> - 99.8% precisión</li>
+                        <li><strong>Procesamiento de lenguaje</strong> - ChatGPT, traducción</li>
+                        <li><strong>Medicina</strong> - Diagnóstico de cáncer</li>
+                        <li><strong>Finanzas</strong> - Detección de fraude</li>
+                    </ul>
+                    <p>¡Haz clic para ver demo interactivo!</p>
+                </div>
+            </div>
+
+            <!-- Slide 6: Regresión Lineal -->
+            <div class="slide">
+                <h2>📈 REGRESIÓN LINEAL</h2>
+                
+                <div style="font-size: 6rem; margin: 20px 0;">📊📉📈</div>
+                
+                <h3>La base de la predicción numérica</h3>
+                <p>La regresión lineal busca la <strong>"mejor línea"</strong> que describe la relación entre variables (Galton, 1886).</p>
+                
+                <div style="background: rgba(255, 255, 255, 0.1); padding: 20px; border-radius: 10px; margin: 20px 0;">
+                    <h3>Ecuación fundamental:</h3>
+                    <p style="font-size: 2rem; color: #ffd700;"><strong>y = β₀ + β₁x + ε</strong></p>
+                    <ul style="text-align: left; margin-top: 20px;">
+                        <li><strong>y:</strong> Variable dependiente (lo que queremos predecir)</li>
+                        <li><strong>x:</strong> Variable independiente (predictor)</li>
+                        <li><strong>β₀:</strong> Intercepto (valor cuando x=0)</li>
+                        <li><strong>β₁:</strong> Pendiente (cambio en y por unidad de x)</li>
+                        <li><strong>ε:</strong> Error residual</li>
+                    </ul>
+                </div>
+                
+                <div class="citation">(Galton, F., 1886)</div>
+            </div>
+
+            <!-- Slide 7: Regresión en Acción -->
+            <div class="slide">
+                <h2>💼 REGRESIÓN: EJEMPLO PRÁCTICO</h2>
+                
+                <div class="code-example" data-lang="Python">
+import pandas as pd
+import matplotlib.pyplot as plt
+from sklearn.linear_model import LinearRegression
+
+# Datos: años de experiencia vs salario
+data = pd.DataFrame({
+    'experiencia': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    'salario': [30, 35, 42, 48, 55, 62, 68, 75, 82, 90]
+})
+
+# Crear modelo
+X = data[['experiencia']]
+y = data['salario']
+modelo = LinearRegression()
+modelo.fit(X, y)
+
+# Predicción
+nueva_experiencia = [[6.5]]
+salario_predicho = modelo.predict(nueva_experiencia)
+print(f"Con 6.5 años: ${salario_predicho[0]:.0f}K")
+
+# R² score
+r2 = modelo.score(X, y)
+print(f"R² = {r2:.3f} ({r2*100:.1f}% ajuste)")
+                </div>
+                
+                <div class="interactive-element" onclick="showRegressionApplications()">
+                    <h3>🎯 ¿Dónde se usa?</h3>
+                    <ul>
+                        <li><strong>Bienes raíces:</strong> Predecir precios de casas</li>
+                        <li><strong>Marketing:</strong> ROI de publicidad</li>
+                        <li><strong>Economía:</strong> Relación inflación-desempleo</li>
+                        <li><strong>Medicina:</strong> Dosis vs efectividad</li>
+                    </ul>
+                    <p>¡Haz clic para más ejemplos!</p>
+                </div>
+            </div>
+
+            <!-- Slide 8: Árboles de Decisión -->
+            <div class="slide">
+                <h2>🌳 ÁRBOLES DE DECISIÓN</h2>
+                
+                <div class="decision-tree-visual">
+                    <div class="tree-node">¿Llueve?</div>
+                    <div style="display: flex; gap: 40px;">
+                        <div>
+                            <div class="tree-branch"></div>
+                            <div class="tree-node">Sí → ¿Viento?</div>
+                            <div style="display: flex; gap: 20px;">
+                                <div>
+                                    <div class="tree-branch"></div>
+                                    <div class="tree-node" style="background: rgba(255, 107, 107, 0.3);">No salir</div>
+                                </div>
+                                <div>
+                                    <div class="tree-branch"></div>
+                                    <div class="tree-node" style="background: rgba(46, 213, 115, 0.3);">Llevar paraguas</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="tree-branch"></div>
+                            <div class="tree-node" style="background: rgba(46, 213, 115, 0.3);">Salir</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3>Decisiones como un humano</h3>
+                <p>Los árboles de decisión imitan el <strong>proceso humano de toma de decisiones</strong> mediante preguntas secuenciales (Quinlan, 1986).</p>
+                
+                <div class="interactive-element" onclick="explainDecisionTrees()">
+                    <h3>🎯 Ventajas de los Árboles</h3>
+                    <ul>
+                        <li><strong>Interpretables:</strong> Fáciles de entender</li>
+                        <li><strong>No paramétricos:</strong> Sin suposiciones estadísticas</li>
+                        <li><strong>Manejan datos mixtos:</strong> Numéricos y categóricos</li>
+                        <li><strong>Identifican variables importantes:</strong> Feature selection automático</li>
+                    </ul>
+                    <p>¡Haz clic para ver algoritmos famosos!</p>
+                </div>
+                
+                <div class="citation">(Quinlan, J. R., 1986)</div>
+            </div>
+
+            <!-- Slide 9: Análisis de Varianza (ANOVA) -->
+            <div class="slide">
+                <h2>📊 ANÁLISIS DE VARIANZA (ANOVA)</h2>
+                
+                <div style="font-size: 6rem; margin: 20px 0;">📈⚖️📉</div>
+                
+                <h3>¿Las diferencias son reales o casualidad?</h3>
+                <p>ANOVA compara <strong>medias de múltiples grupos</strong> para determinar si las diferencias son estadísticamente significativas (Fisher, 1918).</p>
+                
+                <div style="background: rgba(255, 255, 255, 0.1); padding: 20px; border-radius: 10px; margin: 20px 0;">
+                    <h3>Hipótesis clave:</h3>
+                    <ul style="text-align: left;">
+                        <li><strong>H₀:</strong> Todas las medias son iguales (μ₁ = μ₂ = μ₃...)</li>
+                        <li><strong>H₁:</strong> Al menos una media es diferente</li>
+                        <li><strong>Estadístico F:</strong> Compara varianza entre grupos vs dentro de grupos</li>
+                        <li><strong>p-valor:</strong> Si p < 0.05 → diferencia significativa</li>
+                    </ul>
+                </div>
+                
+                <div class="interactive-element" onclick="showANOVAExample()">
+                    <h3>💼 Ejemplo: Efectividad de Tratamientos</h3>
+                    <p>¿El Tratamiento A, B y C tienen efectos diferentes?</p>
+                    <p><strong>¡Haz clic para ver el análisis completo!</strong></p>
+                </div>
+                
+                <div class="citation">(Fisher, R. A., 1918)</div>
+            </div>
+
+            <!-- Slide 10: Análisis Discriminante -->
+            <div class="slide">
+                <h2>🎯 ANÁLISIS DISCRIMINANTE</h2>
+                
+                <div style="font-size: 6rem; margin: 20px 0;">🔍📊🎪</div>
+                
+                <h3>Clasificación basada en características</h3>
+                <p>El análisis discriminante encuentra <strong>combinaciones lineales de variables</strong> que mejor separan grupos predefinidos (Fisher, 1936).</p>
+                
+                <div class="algorithm-showcase">
+                    <div class="algorithm-card" onclick="explainLDA()">
+                        <div class="complexity-indicator basic">Básico</div>
+                        <h3>📏 DISCRIMINANTE LINEAL (LDA)</h3>
+                        <p>Asume varianzas iguales entre grupos</p>
+                        <p><strong>Usa:</strong> Fronteras lineales</p>
+                    </div>
+                    
+                    <div class="algorithm-card" onclick="explainQDA()">
+                        <div class="complexity-indicator intermediate">Intermedio</div>
+                        <h3>📐 DISCRIMINANTE CUADRÁTICO (QDA)</h3>
+                        <p>Permite varianzas diferentes</p>
+                        <p><strong>Usa:</strong> Fronteras curvas</p>
+                    </div>
+                </div>
+                
+                <div class="citation">(Fisher, R. A., 1936)</div>
+            </div>
+
+            <!-- Slide 11: Inteligencia Artificial -->
+            <div class="slide">
+                <h2>🤖 INTELIGENCIA ARTIFICIAL</h2>
+                
+                <div style="font-size: 8rem; margin: 20px 0;">🧠🤖✨</div>
+                
+                <h3>El campo que lo cambió todo</h3>
+                <p>La IA busca crear <strong>máquinas que puedan realizar tareas que requieren inteligencia humana</strong> (McCarthy et al., 1955).</p>
+                
+                <div class="algorithm-showcase">
+                    <div class="algorithm-card" onclick="explainAI('narrow')">
+                        <div class="complexity-indicator basic">Actual</div>
+                        <h3>🎯 IA ESTRECHA (ANI)</h3>
+                        <p>Especializada en tareas específicas</p>
+                        <p><strong>Ejemplos:</strong> Siri, Netflix, GPS</p>
+                    </div>
+                    
+                    <div class="algorithm-card" onclick="explainAI('general')">
+                        <div class="complexity-indicator advanced">Futuro</div>
+                        <h3>🧠 IA GENERAL (AGI)</h3>
+                        <p>Inteligencia humana completa</p>
+                        <p><strong>Estado:</strong> En desarrollo</p>
+                    </div>
+                    
+                    <div class="algorithm-card" onclick="explainAI('super')">
+                        <div class="complexity-indicator advanced">Teórico</div>
+                        <h3>🚀 SUPERINTELIGENCIA</h3>
+                        <p>Supera capacidades humanas</p>
+                        <p><strong>Estado:</strong> Especulativo</p>
+                    </div>
+                </div>
+                
+                <div class="citation">(McCarthy, J., et al., 1955)</div>
+            </div>
+
+            <!-- Slide 12: Sistemas Expertos -->
+            <div class="slide">
+                <h2>🎓 SISTEMAS EXPERTOS</h2>
+                
+                <div style="font-size: 6rem; margin: 20px 0;">👨‍⚕️🔬📚</div>
+                
+                <h3>Conocimiento humano en software</h3>
+                <p>Los sistemas expertos <strong>replican el conocimiento y razonamiento de expertos humanos</strong> en dominios específicos (Feigenbaum, 1977).</p>
+                
+                <div style="background: rgba(255, 255, 255, 0.1); padding: 20px; border-radius: 10px; margin: 20px 0;">
+                    <h3>Componentes principales:</h3>
+                    <ul style="text-align: left;">
+                        <li><strong>Base de conocimiento:</strong> Hechos y reglas del dominio</li>
+                        <li><strong>Motor de inferencia:</strong> Razonamiento lógico</li>
+                        <li><strong>Interfaz de usuario:</strong> Comunicación humano-sistema</li>
+                        <li><strong>Módulo de explicación:</strong> Justifica decisiones</li>
+                    </ul>
+                </div>
+                
+                <div class="interactive-element" onclick="showExpertSystemExample()">
+                    <h3>🏥 Ejemplo: MYCIN (1970s)</h3>
+                    <p>Sistema para diagnóstico de infecciones bacterianas</p>
+                    <ul>
+                        <li><strong>Precisión:</strong> 69% (vs 65% de doctores)</li>
+                        <li><strong>Reglas:</strong> 600+ reglas médicas</li>
+                        <li><strong>Impacto:</strong> Pionero en IA médica</li>
+                    </ul>
+                    <p>¡Haz clic para ver sistemas modernos!</p>
+                </div>
+                
+                <div class="citation">(Feigenbaum, E. A., 1977)</div>
+            </div>
+
+            <!-- Slide 13: Aplicaciones de Minería de Datos -->
+            <div class="slide">
+                <h2>💎 APLICACIONES DE MINERÍA DE DATOS</h2>
+                
+                <div style="font-size: 6rem; margin: 20px 0;">🏪💳🎬</div>
+                
+                <h3>Transformando industrias completas</h3>
+                
+                <div class="algorithm-showcase">
+                    <div class="algorithm-card" onclick="showApplication('retail')">
+                        <h3>🛒 RETAIL & E-COMMERCE</h3>
+                        <ul style="text-align: left; font-size: 1rem;">
+                            <li>Sistemas de recomendación</li>
+                            <li>Análisis de cesta de mercado</li>
+                            <li>Precios dinámicos</li>
+                            <li>Gestión de inventario</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="algorithm-card" onclick="showApplication('finance')">
+                        <h3>🏦 FINANZAS</h3>
+                        <ul style="text-align: left; font-size: 1rem;">
+                            <li>Detección de fraude</li>
+                            <li>Credit scoring</li>
+                            <li>Trading algorítmico</li>
+                            <li>Gestión de riesgo</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="algorithm-card" onclick="showApplication('healthcare')">
+                        <h3>⚕️ SALUD</h3>
+                        <ul style="text-align: left; font-size: 1rem;">
+                            <li>Diagnóstico asistido</li>
+                            <li>Descubrimiento de fármacos</li>
+                            <li>Medicina personalizada</li>
+                            <li>Epidemiología</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <p>"La minería de datos es el proceso de descubrir patrones útiles en grandes conjuntos de datos" (Fayyad et al., 1996).</p>
+                
+                <div class="citation">(Fayyad, U., et al., 1996)</div>
+            </div>
+
+            <!-- Slide 14: Conclusiones -->
+            <div class="slide">
+                <h2>🎯 PUNTOS CLAVE</h2>
+                
+                <div style="font-size: 6rem; margin: 20px 0;">💡🎯✨</div>
+                
+                <ul style="font-size: 1.4rem;">
+                    <li><strong>Cada técnica</strong> tiene su lugar y propósito específico</li>
+                    <li><strong>Redes neuronales</strong> son potentes pero requieren muchos datos</li>
+                    <li><strong>Regresión lineal</strong> sigue siendo fundamental y interpretable</li>
+                    <li><strong>Árboles de decisión</strong> son ideales para reglas de negocio</li>
+                    <li><strong>ANOVA</strong> es esencial para validación estadística</li>
+                    <li><strong>IA y sistemas expertos</strong> transforman industrias</li>
+                    <li><strong>La ética</strong> es tan importante como la técnica</li>
+                </ul>
+                
+                <div class="interactive-element" onclick="showTechnicianAdvice()">
+                    <h3>🎓 Consejos para Practicantes</h3>
+                    <ul>
+                        <li><strong>Empieza simple:</strong> Regresión antes que deep learning</li>
+                        <li><strong>Entiende tus datos:</strong> EDA siempre primero</li>
+                        <li><strong>Valida todo:</strong> Train/validation/test</li>
+                        <li><strong>Interpreta resultados:</strong> No solo precisión</li>
+                    </ul>
+                    <p>¡El mejor algoritmo es el que entiendes!</p>
+                </div>
+            </div>
+
+            <!-- Slide 15: Próxima Sesión -->
+            <div class="slide">
+                <h1>📅 PRÓXIMA SESIÓN</h1>
+                
+                <div style="font-size: 6rem; margin: 20px 0;">💻🔧⚡</div>
+                
+                <h3>Sesión 4: Herramientas en Acción</h3>
+                <ul>
+                    <li><strong>Power BI:</strong> Dashboard con datos reales</li>
+                    <li><strong>Python:</strong> Implementar algoritmos vistos hoy</li>
+                    <li><strong>R:</strong> Análisis estadístico completo</li>
+                    <li><strong>Proyecto integrador:</strong> Del problema a la solución</li>
+                </ul>
+                
+                <div class="interactive-element" onclick="showNextPreparation()">
+                    <h3>📝 Preparación requerida:</h3>
+                    <ul>
+                        <li>Tener instalado: Power BI Desktop, Python, R</li>
+                        <li>Descargar datasets de práctica</li>
+                        <li>Revisar conceptos de hoy</li>
+                        <li>Preparar preguntas</li>
+                    </ul>
+                    <p><strong>¡Haz clic para lista de verificación!</strong></p>
+                </div>
+                
+                <h2 style="margin-top: 30px;">🏁 ¡FIN DE LA TEORÍA!</h2>
+                <p><strong>Ahora:</strong> 30 minutos de práctica + 15 minutos de Q&A</p>
+            </div>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="progress-indicator">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+    </div>
+
+    <script>
+        // Variables globales
+        let currentSlideIndex = 0;
+        let totalSlides = 15;
+        let sessionTime = 45 * 60; // 45 minutos en segundos
+        let timeRemaining = sessionTime;
+        let timerInterval = null;
+        let isTimerRunning = false;
+
+        // Inicializar
+        document.addEventListener('DOMContentLoaded', function() {
+            updateSlideDisplay();
+            document.getElementById('totalSlides').textContent = totalSlides;
+        });
+
+        // Control del temporizador
+        function startTimer() {
+            if (!isTimerRunning) {
+                isTimerRunning = true;
+                timerInterval = setInterval(updateTimer, 1000);
+            }
+        }
+
+        function pauseTimer() {
+            if (isTimerRunning) {
+                isTimerRunning = false;
+                clearInterval(timerInterval);
+            }
+        }
+
+        function resetTimer() {
+            pauseTimer();
+            timeRemaining = sessionTime;
+            updateTimerDisplay();
+            document.getElementById('sessionTimer').classList.remove('warning');
+        }
+
+        function updateTimer() {
+            timeRemaining--;
+            updateTimerDisplay();
+            
+            if (timeRemaining <= 300) {
+                document.getElementById('sessionTimer').classList.add('warning');
+            }
+            
+            if (timeRemaining <= 0) {
+                pauseTimer();
+                alert('⏰ ¡Tiempo de teoría completado! Hora de la práctica 🔧');
+            }
+        }
+
+        function updateTimerDisplay() {
+            const minutes = Math.floor(timeRemaining / 60);
+            const seconds = timeRemaining % 60;
+            document.getElementById('timeRemaining').textContent = 
+                `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        }
+
+        // Control de slides
+        function changeSlide(direction) {
+            const slides = document.querySelectorAll('.slide');
+            slides[currentSlideIndex].classList.remove('active');
+            
+            currentSlideIndex += direction;
+            
+            if (currentSlideIndex < 0) currentSlideIndex = 0;
+            if (currentSlideIndex >= totalSlides) currentSlideIndex = totalSlides - 1;
+            
+            slides[currentSlideIndex].classList.add('active');
+            updateSlideDisplay();
+        }
+
+        function updateSlideDisplay() {
+            document.getElementById('currentSlide').textContent = currentSlideIndex + 1;
+            document.getElementById('prevBtn').disabled = currentSlideIndex === 0;
+            document.getElementById('nextBtn').disabled = currentSlideIndex === totalSlides - 1;
+            
+            const progress = ((currentSlideIndex + 1) / totalSlides) * 100;
+            document.getElementById('progressBar').style.width = progress + '%';
+        }
+
+        // Funciones interactivas
+        function showAlert(message) {
+            alert(message);
+        }
+
+        function showLearningPath() {
+            alert('🗺️ RUTA DE APRENDIZAJE:\n\n1️⃣ Fundamentos estadísticos\n2️⃣ Algoritmos básicos (regresión, árboles)\n3️⃣ Técnicas avanzadas (redes neuronales)\n4️⃣ IA y sistemas expertos\n5️⃣ Aplicaciones prácticas\n6️⃣ Consideraciones éticas\n\n¡Paso a paso hacia la maestría!');
+        }
+
+        function selectTechnique(element, type) {
+            document.querySelectorAll('.technique-card').forEach(card => {
+                card.classList.remove('selected');
+            });
+            element.classList.add('selected');
+            
+            const explanations = {
+                'supervised': '🎯 APRENDIZAJE SUPERVISADO:\n\n• Tenemos ejemplos de entrada Y salida\n• El algoritmo aprende la relación\n• Puede predecir nuevos casos\n\nEjemplos: Spam/No spam, Precio de casa, Diagnóstico médico',
+                'unsupervised': '🔍 APRENDIZAJE NO SUPERVISADO:\n\n• Solo tenemos datos de entrada\n• Buscamos patrones ocultos\n• Descubrimos estructura en los datos\n\nEjemplos: Segmentación de clientes, Detección de anomalías',
+                'reinforcement': '🎮 APRENDIZAJE POR REFUERZO:\n\n• El agente interactúa con el ambiente\n• Recibe recompensas o castigos\n• Aprende la estrategia óptima\n\nEjemplos: Juegos (AlphaGo), Robots, Trading'
+            };
+            
+            alert(explanations[type]);
+        }
+
+        function explainNeuralNetwork() {
+            alert('🧠 REDES NEURONALES EN DETALLE:\n\n⚡ NEURONAS:\n• Reciben inputs\n• Aplican pesos\n• Usan función de activación\n• Producen output\n\n🔄 ENTRENAMIENTO:\n• Backpropagation ajusta pesos\n• Minimiza función de pérdida\n• Gradiente descendente\n\n🎯 APLICACIONES:\n• Reconocimiento de imágenes\n• Traducción automática\n• Diagnóstico médico\n• Vehículos autónomos');
+        }
+
+        function runNeuralNetworkDemo() {
+            alert('🎯 DEMO: Red Neuronal para XOR\n\nProblema: Aprender función XOR\n• (0,0) → 0\n• (0,1) → 1  \n• (1,0) → 1\n• (1,1) → 0\n\nRed: 2 inputs → 4 hidden → 1 output\nActivación: ReLU → Sigmoid\nPérdida: Binary crossentropy\n\nResultado: 100% de precisión!\n\n¡Esto era imposible con perceptrón simple!');
+        }
+
+        function showRegressionApplications() {
+            alert('📈 REGRESIÓN EN ACCIÓN:\n\n🏠 BIENES RAÍCES:\n• Precio = f(ubicación, tamaño, edad)\n• R² típico: 0.7-0.9\n• Variables: 10-50\n\n📢 MARKETING:\n• ROI = f(presupuesto, canal, timing)\n• Optimización de inversión\n• Attribution modeling\n\n💊 MEDICINA:\n• Dosis = f(peso, edad, condición)\n• Modelos farmacocinéticos\n• Medicina personalizada\n\n📊 ECONOMÍA:\n• Inflación vs desempleo\n• Predicción PIB\n• Modelos econométricos');
+        }
+
+        function explainDecisionTrees() {
+            alert('🌳 ALGORITMOS DE ÁRBOLES:\n\n🔍 ID3: Information Gain\n📊 C4.5: Gain Ratio (mejora de ID3)\n🚀 CART: Gini Impurity\n🌲 Random Forest: Múltiples árboles\n⚡ XGBoost: Gradient Boosting\n\n✅ VENTAJAS:\n• Fáciles de interpretar\n• Manejan datos categóricos\n• No necesitan normalización\n• Resistentes a outliers\n\n❌ DESVENTAJAS:\n• Propensos a overfitting\n• Inestables con datos pequeños');
+        }
+
+        function showANOVAExample() {
+            alert('🔬 EJEMPLO ANOVA:\n\n🎯 PREGUNTA: ¿Los 3 métodos de estudio tienen diferentes efectos?\n\nDATOS:\n• Método A: 85, 88, 92, 89, 91 (Media: 89)\n• Método B: 78, 82, 79, 81, 80 (Media: 80)\n• Método C: 95, 97, 93, 96, 94 (Media: 95)\n\nANOVA:\n• F = 87.3\n• p < 0.001\n\n✅ CONCLUSIÓN: SÍ hay diferencias significativas\n\nPOST-HOC: C > A > B (todos diferentes)');
+        }
+
+        function explainLDA() {
+            alert('📏 ANÁLISIS DISCRIMINANTE LINEAL (LDA):\n\n🎯 OBJETIVO:\n• Encontrar dimensiones que separen grupos\n• Maximizar separación entre grupos\n• Minimizar variación dentro de grupos\n\n📐 FÓRMULA:\n• Combina variables: Z = a₁X₁ + a₂X₂ + ...\n• Coeficientes optimizados\n\n✅ VENTAJAS:\n• Reducción de dimensionalidad\n• Interpretable\n• Buen clasificador\n\n❌ LIMITACIONES:\n• Asume normalidad\n• Fronteras lineales');
+        }
+
+        function explainQDA() {
+            alert('📐 ANÁLISIS DISCRIMINANTE CUADRÁTICO (QDA):\n\n🔄 DIFERENCIA CON LDA:\n• Permite diferentes matrices de covarianza\n• Fronteras de decisión cuadráticas\n• Más flexible pero más complejo\n\n🎯 CUÁNDO USAR:\n• Grupos con varianzas muy diferentes\n• Fronteras no lineales\n• Suficientes datos (más parámetros)\n\n⚖️ TRADE-OFF:\n• Más flexible pero menos robusto\n• Mejor fit vs overfitting');
+        }
+
+        function explainAI(type) {
+            const explanations = {
+                'narrow': '🎯 IA ESTRECHA (ANI):\n\n✅ LO QUE TENEMOS HOY:\n• Siri, Alexa (reconocimiento voz)\n• Recomendaciones Netflix\n• GPS y navegación\n• Traducción Google\n• Detección spam\n\n🎯 CARACTERÍSTICAS:\n• Especializada en UNA tarea\n• Supera humanos en dominio específico\n• No transfiere conocimiento\n\n💰 VALOR: $2 trillones anuales',
+                'general': '🧠 IA GENERAL (AGI):\n\n🔮 OBJETIVO:\n• Inteligencia humana completa\n• Razonamiento, creatividad, conciencia\n• Transferencia entre dominios\n\n📅 PREDICCIONES:\n• 2029: Ray Kurzweil\n• 2045: Singularidad tecnológica\n• 2075: Expertos conservadores\n\n🚧 DESAFÍOS:\n• Sentido común\n• Razonamiento causal\n• Conciencia',
+                'super': '🚀 SUPERINTELIGENCIA:\n\n⚡ DEFINICIÓN:\n• Supera capacidades humanas en TODO\n• Mejora recursiva\n• Explosión de inteligencia\n\n⚠️ CONSIDERACIONES:\n• Control y alineación\n• Impacto en humanidad\n• Riesgos existenciales\n\n🤔 DEBATE ACTIVO:\n• ¿Cuándo llegará?\n• ¿Cómo prepararnos?\n• ¿Beneficio vs riesgo?'
+            };
+            alert(explanations[type]);
+        }
+
+        function showExpertSystemExample() {
+            alert('🏥 MYCIN - PIONERO MÉDICO:\n\n📅 DESARROLLADO: Stanford, 1970s\n\n🎯 PROPÓSITO:\n• Diagnóstico de infecciones bacterianas\n• Recomendación de antibióticos\n• Justificación de decisiones\n\n📊 RENDIMIENTO:\n• 69% de precisión diagnóstica\n• Médicos expertos: 65%\n• Médicos junior: 42%\n\n💡 INNOVACIONES:\n• Base de conocimiento con 600 reglas\n• Factor de certeza (0-1)\n• Explicación del razonamiento\n\n🏆 LEGADO: Inspiró sistemas médicos modernos');
+        }
+
+        function showApplication(industry) {
+            const applications = {
+                'retail': '🛒 RETAIL & E-COMMERCE:\n\n🎯 AMAZON:\n• "Customers who bought X also bought Y"\n• Recommendations: 35% de ventas\n• Supply chain optimization\n\n📊 WALMART:\n• Predicción de demanda\n• Optimización de precios\n• Gestión de inventario\n\n🛍️ TÉCNICAS:\n• Collaborative filtering\n• Market basket analysis\n• Dynamic pricing algorithms\n\n💰 IMPACTO: +20% en ventas típicamente',
+                'finance': '🏦 FINANZAS:\n\n💳 DETECCIÓN DE FRAUDE:\n• PayPal: Analiza 4B transacciones/año\n• Modelos en tiempo real\n• Redes neuronales + reglas\n\n📊 CREDIT SCORING:\n• FICO scores\n• Alternative data (redes sociales)\n• Machine learning models\n\n📈 TRADING:\n• Algoritmos de alta frecuencia\n• Análisis de sentimientos\n• Predicción de mercados\n\n⚡ VELOCIDAD: Microsegundos para decisiones',
+                'healthcare': '⚕️ SALUD:\n\n🔬 DIAGNÓSTICO:\n• Radiología: Detección de cáncer\n• Patología: Análisis de biopsias\n• Cardiología: ECG automatizado\n\n💊 DESCUBRIMIENTO DE FÁRMACOS:\n• AlphaFold: Estructura de proteínas\n• Reducción de tiempo: 10+ años → 2-3 años\n• Costo: $2.6B → $100M\n\n🧬 MEDICINA PERSONALIZADA:\n• Genómica\n• Tratamientos específicos\n• Predicción de respuesta\n\n📊 PRECISIÓN: 95%+ en imagenología'
+            };
+            alert(applications[industry]);
+        }
+
+        function showTechnicianAdvice() {
+            alert('🎓 CONSEJOS PARA PRACTICANTES:\n\n📚 FUNDAMENTOS PRIMERO:\n• Estadística sólida\n• Programación fluida\n• Dominio del negocio\n• Comunicación clara\n\n🔬 METODOLOGÍA:\n• Siempre EDA primero\n• Baseline simple\n• Validación rigurosa\n• Iteración constante\n\n🛠️ HERRAMIENTAS:\n• Domina lo básico antes que lo fancy\n• Entiende cuándo usar qué\n• No uses cañón para matar mosca\n\n🎯 MENTALIDAD:\n• Curiosidad > conocimiento\n• Pregunta "¿por qué?" siempre\n• Falla rápido, aprende rápido');
+        }
+
+        function showNextPreparation() {
+            alert('📝 PREPARACIÓN SESIÓN 4:\n\n💻 SOFTWARE REQUERIDO:\n✅ Power BI Desktop\n✅ Python (Anaconda)\n✅ R + RStudio\n✅ Jupyter Notebooks\n\n📊 DATASETS:\n• customers_data.csv\n• sales_transactions.xlsx\n• product_reviews.json\n• marketing_campaigns.csv\n\n🎯 REVISAR:\n• Conceptos de hoy\n• Sintaxis básica Python/R\n• Navegación Power BI\n\n📧 Enlaces por email mañana\n💡 ¡Vamos a implementar todo lo visto!');
+        }
+
+        // Atajos de teclado
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowLeft') changeSlide(-1);
+            if (e.key === 'ArrowRight') changeSlide(1);
+            if (e.key === ' ') {
+                e.preventDefault();
+                if (isTimerRunning) pauseTimer();
+                else startTimer();
+            }
+        });
+    </script>
+</body>
+</html>
