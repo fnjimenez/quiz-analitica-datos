@@ -324,6 +324,9 @@
             text-align: left;
             position: relative;
             overflow-x: auto;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            line-height: 1.5;
         }
 
         .code-example::before {
@@ -511,7 +514,7 @@
                 </button>
                 <div class="slide-counter">
                     <div>Diapositiva</div>
-                    <div><span id="currentSlide">1</span> / <span id="totalSlides">15</span></div>
+                    <div><span id="currentSlide">1</span> / <span id="totalSlides">16</span></div>
                 </div>
                 <button class="nav-btn-header" id="nextBtn" onclick="changeSlide(1)">
                     Siguiente ➡️
@@ -640,23 +643,23 @@
             <div class="slide">
                 <h2>🐍 RED NEURONAL EN PYTHON</h2>
                 
-                <div class="code-example" data-lang="Python">
+                <div class="code-example" data-lang="Python"># Importar librerías necesarias
 import numpy as np
 from sklearn.neural_network import MLPClassifier
 
-# Datos de ejemplo
-X = np.array([[0,0], [0,1], [1,0], [1,1]])  # Entradas
-y = np.array([0, 1, 1, 0])  # XOR problem
+# Definir los datos de entrada (X) y las salidas esperadas (y)
+X = np.array([[0,0], [0,1], [1,0], [1,1]])  # Entradas para XOR
+y = np.array([0, 1, 1, 0])  # Salidas esperadas del XOR
 
-# Crear red neuronal
+# Crear una red neuronal con capa oculta de 4 neuronas
 nn = MLPClassifier(hidden_layer_sizes=(4,), 
                    activation='relu',
                    max_iter=1000)
 
-# Entrenar
+# Entrenar la red neuronal
 nn.fit(X, y)
 
-# Predecir
+# Hacer predicciones
 predictions = nn.predict(X)
 print(f"Predicciones: {predictions}")
 print(f"Precisión: {nn.score(X, y):.2f}")
@@ -702,31 +705,33 @@ print(f"Precisión: {nn.score(X, y):.2f}")
             <div class="slide">
                 <h2>💼 REGRESIÓN: EJEMPLO PRÁCTICO</h2>
                 
-                <div class="code-example" data-lang="Python">
+                <div class="code-example" data-lang="Python"># Importar las librerías necesarias
 import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn.linear_model import LinearRegression
 
-# Datos: años de experiencia vs salario
+# Crear datos: años de experiencia vs salario (en miles)
 data = pd.DataFrame({
     'experiencia': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
     'salario': [30, 35, 42, 48, 55, 62, 68, 75, 82, 90]
 })
 
-# Crear modelo
-X = data[['experiencia']]
-y = data['salario']
+# Preparar los datos para el modelo
+X = data[['experiencia']]  # Variable independiente
+y = data['salario']        # Variable dependiente
+
+# Crear y entrenar el modelo
 modelo = LinearRegression()
 modelo.fit(X, y)
 
-# Predicción
+# Hacer una predicción
 nueva_experiencia = [[6.5]]
 salario_predicho = modelo.predict(nueva_experiencia)
 print(f"Con 6.5 años: ${salario_predicho[0]:.0f}K")
 
-# R² score
+# Evaluar el modelo (R²)
 r2 = modelo.score(X, y)
-print(f"R² = {r2:.3f} ({r2*100:.1f}% ajuste)")
+print(f"R² = {r2:.3f} (ajuste del {r2*100:.1f}%)")
                 </div>
                 
                 <div class="interactive-element" onclick="showRegressionApplications()">
@@ -983,7 +988,54 @@ print(f"R² = {r2:.3f} ({r2*100:.1f}% ajuste)")
                 </div>
             </div>
 
-            <!-- Slide 15: Próxima Sesión -->
+            <!-- Slide 15: Referencias Bibliográficas -->
+            <div class="slide">
+                <h2>📚 REFERENCIAS BIBLIOGRÁFICAS</h2>
+                
+                <div style="text-align: left; max-width: 1000px; margin: 0 auto;">
+                    <div style="background: rgba(255, 255, 255, 0.05); padding: 15px; margin: 15px 0; border-radius: 8px; line-height: 1.6;">
+                        <strong>Chapman, P., Clinton, J., Kerber, R., Khabaza, T., Reinartz, T., Shearer, C., & Wirth, R.</strong> (2000). <em>CRISP-DM 1.0: Step-by-step data mining guide</em>. SPSS Inc.
+                    </div>
+                    
+                    <div style="background: rgba(255, 255, 255, 0.05); padding: 15px; margin: 15px 0; border-radius: 8px; line-height: 1.6;">
+                        <strong>Fayyad, U., Piatetsky-Shapiro, G., & Smyth, P.</strong> (1996). From data mining to knowledge discovery in databases. <em>AI Magazine</em>, 17(3), 37-54.
+                    </div>
+                    
+                    <div style="background: rgba(255, 255, 255, 0.05); padding: 15px; margin: 15px 0; border-radius: 8px; line-height: 1.6;">
+                        <strong>Feigenbaum, E. A.</strong> (1977). The art of artificial intelligence: Themes and case studies of knowledge engineering. <em>Proceedings of the 5th International Joint Conference on Artificial Intelligence</em>, 1014-1029.
+                    </div>
+                    
+                    <div style="background: rgba(255, 255, 255, 0.05); padding: 15px; margin: 15px 0; border-radius: 8px; line-height: 1.6;">
+                        <strong>Fisher, R. A.</strong> (1918). The correlation between relatives on the supposition of Mendelian inheritance. <em>Transactions of the Royal Society of Edinburgh</em>, 52(2), 399-433.
+                    </div>
+                    
+                    <div style="background: rgba(255, 255, 255, 0.05); padding: 15px; margin: 15px 0; border-radius: 8px; line-height: 1.6;">
+                        <strong>Fisher, R. A.</strong> (1936). The use of multiple measurements in taxonomic problems. <em>Annals of Eugenics</em>, 7(2), 179-188.
+                    </div>
+                    
+                    <div style="background: rgba(255, 255, 255, 0.05); padding: 15px; margin: 15px 0; border-radius: 8px; line-height: 1.6;">
+                        <strong>Galton, F.</strong> (1886). Regression towards mediocrity in hereditary stature. <em>The Journal of the Anthropological Institute of Great Britain and Ireland</em>, 15, 246-263.
+                    </div>
+                    
+                    <div style="background: rgba(255, 255, 255, 0.05); padding: 15px; margin: 15px 0; border-radius: 8px; line-height: 1.6;">
+                        <strong>McCarthy, J., Minsky, M. L., Rochester, N., & Shannon, C. E.</strong> (1955). A proposal for the Dartmouth summer research project on artificial intelligence. <em>AI Magazine</em>, 27(4), 12-14.
+                    </div>
+                    
+                    <div style="background: rgba(255, 255, 255, 0.05); padding: 15px; margin: 15px 0; border-radius: 8px; line-height: 1.6;">
+                        <strong>McCulloch, W. S., & Pitts, W.</strong> (1943). A logical calculus of the ideas immanent in nervous activity. <em>The Bulletin of Mathematical Biophysics</em>, 5(4), 115-133.
+                    </div>
+                    
+                    <div style="background: rgba(255, 255, 255, 0.05); padding: 15px; margin: 15px 0; border-radius: 8px; line-height: 1.6;">
+                        <strong>Quinlan, J. R.</strong> (1986). Induction of decision trees. <em>Machine Learning</em>, 1(1), 81-106.
+                    </div>
+                    
+                    <div style="background: rgba(255, 255, 255, 0.05); padding: 15px; margin: 15px 0; border-radius: 8px; line-height: 1.6;">
+                        <strong>Samuel, A. L.</strong> (1959). Some studies in machine learning using the game of checkers. <em>IBM Journal of Research and Development</em>, 3(3), 210-229.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 16: Próxima Sesión -->
             <div class="slide">
                 <h1>📅 PRÓXIMA SESIÓN</h1>
                 
@@ -1022,7 +1074,7 @@ print(f"R² = {r2:.3f} ({r2*100:.1f}% ajuste)")
     <script>
         // Variables globales
         let currentSlideIndex = 0;
-        let totalSlides = 15;
+        let totalSlides = 16;
         let sessionTime = 45 * 60; // 45 minutos en segundos
         let timeRemaining = sessionTime;
         let timerInterval = null;
