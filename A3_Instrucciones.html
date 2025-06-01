@@ -205,12 +205,35 @@
         }
 
         .code-block {
-            background: rgba(0, 0, 0, 0.4);
-            padding: 15px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
             border-radius: 8px;
             font-family: 'Courier New', monospace;
-            margin: 10px 0;
+            margin: 15px 0;
             border-left: 4px solid #ffd700;
+            position: relative;
+            overflow-x: auto;
+            white-space: pre;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #ffd700;
+            color: #1e3c72;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .copy-btn:hover {
+            background: #ffed4a;
         }
 
         .example-table {
@@ -241,6 +264,7 @@
             .header h1 { font-size: 2rem; }
             .navigation-tabs { flex-direction: column; align-items: center; }
             .tab-btn { width: 90%; text-align: center; }
+            .code-block { font-size: 12px; padding: 15px; }
         }
     </style>
 </head>
@@ -256,12 +280,12 @@
 
         <!-- Navigation -->
         <div class="navigation-tabs">
-            <button class="tab-btn active" onclick="mostrarSeccion('instrucciones')">📋 Instrucciones</button>
-            <button class="tab-btn" onclick="mostrarSeccion('pasos')">🔧 Pasos Detallados</button>
-            <button class="tab-btn" onclick="mostrarSeccion('software')">💻 Software Express</button>
-            <button class="tab-btn" onclick="mostrarSeccion('evidencia')">📸 Evidencia Software</button>
-            <button class="tab-btn" onclick="mostrarSeccion('rubrica')">📊 Rúbrica</button>
-            <button class="tab-btn" onclick="mostrarSeccion('checklist')">✅ Checklist Final</button>
+            <button class="tab-btn active" data-section="instrucciones">📋 Instrucciones</button>
+            <button class="tab-btn" data-section="pasos">🔧 Pasos Detallados</button>
+            <button class="tab-btn" data-section="software">💻 Software Express</button>
+            <button class="tab-btn" data-section="evidencia">📸 Evidencia Software</button>
+            <button class="tab-btn" data-section="rubrica">📊 Rúbrica</button>
+            <button class="tab-btn" data-section="checklist">✅ Checklist Final</button>
         </div>
 
         <!-- Instrucciones Generales -->
@@ -345,330 +369,6 @@
                         <h4>Visualización de Datos</h4>
                         <p>Gráficos, dashboards, representación visual</p>
                     </div>
-                </div>
-            </div>
-
-            <div class="step">
-                <h3><span class="step-number">3</span>CREAR EL CUADRO COMPARATIVO</h3>
-                <p><strong>Estructura EXACTA que debes seguir:</strong></p>
-
-                <table class="example-table">
-                    <thead>
-                        <tr>
-                            <th>TÉCNICA</th>
-                            <th>CONCEPTO PRINCIPAL 1</th>
-                            <th>CONCEPTO PRINCIPAL 2</th>
-                            <th>CONCEPTO PRINCIPAL 3</th>
-                            <th>CONCEPTO PRINCIPAL 4</th>
-                            <th>CARACTERÍSTICAS</th>
-                            <th>APLICACIONES</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Análisis Descriptivo</strong></td>
-                            <td>[Concepto con cita APA]</td>
-                            <td>[Concepto con cita APA]</td>
-                            <td>[Concepto con cita APA]</td>
-                            <td>[Concepto con cita APA]</td>
-                            <td>[Características principales]</td>
-                            <td>[Aplicaciones prácticas]</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <!-- Software Express -->
-        <div id="software" class="content-section">
-            <h2>💻 ACTIVIDAD EXPRESS: EVIDENCIA DE SOFTWARE</h2>
-            
-            <div class="highlight-box">
-                <div style="background: rgba(255, 193, 7, 0.2); padding: 10px 20px; border-radius: 25px; display: inline-block; font-weight: bold; margin-bottom: 15px;">
-                    ⏰ Tiempo total: 30 minutos
-                </div>
-                <h3>🎯 Objetivo: Obtener capturas de pantalla de software funcionando</h3>
-                <p>Realizarás una actividad rápida en el centro de cómputo para obtener evidencia del uso de 3 herramientas de análisis de datos.</p>
-            </div>
-
-            <div class="step">
-                <h3><span class="step-number">1</span>POWER BI DESKTOP (8 minutos)</h3>
-                
-                <div class="highlight-box">
-                    <h4>📊 PASOS DETALLADOS:</h4>
-                    <ol>
-                        <li><strong>Abrir Power BI Desktop</strong> (icono en escritorio)</li>
-                        <li>Clic en <strong>"Obtener datos"</strong> → seleccionar <strong>"Web"</strong></li>
-                        <li><strong>Copiar y pegar esta URL exactamente:</strong><br>
-                            <code style="background: rgba(0,0,0,0.3); padding: 5px; border-radius: 3px;">https://raw.githubusercontent.com/plotly/datasets/master/iris.csv</code>
-                        </li>
-                        <li>Clic en <strong>"Aceptar"</strong> → <strong>"Cargar"</strong></li>
-                        <li><strong>Crear visualizaciones:</strong>
-                            <ul style="margin-top: 10px;">
-                                <li>📋 <strong>Tabla:</strong> Arrastar todos los campos a "Valores"</li>
-                                <li>📊 <strong>Gráfico de barras:</strong> species (Eje X) + sepal_length (Eje Y)</li>
-                                <li>🥧 <strong>Gráfico circular:</strong> species (Leyenda y Valores)</li>
-                            </ul>
-                        </li>
-                        <li><strong>Capturar pantalla completa:</strong> Tecla "Impr Pant"</li>
-                    </ol>
-                </div>
-
-                <div class="success-box">
-                    <h4>✅ QUÉ DEBES VER EN TU PANTALLA:</h4>
-                    <ul>
-                        <li>Panel "Campos" con iris, sepal_length, sepal_width, etc.</li>
-                        <li>Al menos 2 visualizaciones funcionando</li>
-                        <li>Datos visibles en alguna tabla o gráfico</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="step">
-                <h3><span class="step-number">2</span>GOOGLE COLAB (8 minutos)</h3>
-                
-                <div class="highlight-box">
-                    <h4>🐍 PASO 1: Ir a Google Colab</h4>
-                    <p>En el navegador, ve a: <strong>colab.research.google.com</strong><br>
-                    Clic en <strong>"Nuevo cuaderno"</strong></p>
-                </div>
-
-                <div class="highlight-box">
-                    <h4>📦 PASO 2: Cargar librerías (Primera celda)</h4>
-                    <p><strong>Copia este código en la primera celda:</strong></p>
-                    <div class="code-block"># PASO 2A: Importar pandas para manejar datos
-import pandas as pd
-
-# PASO 2B: Importar matplotlib para crear gráficos  
-import matplotlib.pyplot as plt</div>
-                    <p><strong>Presiona Shift + Enter para ejecutar</strong></p>
-                </div>
-
-                <div class="highlight-box">
-                    <h4>📥 PASO 3: Cargar datos (Segunda celda)</h4>
-                    <p><strong>En una NUEVA celda, copia este código:</strong></p>
-                    <div class="code-block"># PASO 3A: Definir la dirección donde están los datos
-url = "https://raw.githubusercontent.com/plotly/datasets/master/tips.csv"
-
-# PASO 3B: Descargar y cargar los datos en una tabla
-datos = pd.read_csv(url)
-
-# PASO 3C: Confirmar que se cargaron correctamente
-print("✅ ¡Datos cargados exitosamente!")
-
-# PASO 3D: Mostrar cuántas filas tenemos
-print("📊 Número de filas:", len(datos))</div>
-                    <p><strong>⚠️ IMPORTANTE: Copia línea por línea, NO todo junto</strong></p>
-                    <p><strong>Presiona Shift + Enter para ejecutar</strong></p>
-                </div>
-
-                <div class="highlight-box">
-                    <h4>👀 PASO 4: Ver los datos (Tercera celda)</h4>
-                    <p><strong>En una NUEVA celda, copia SOLO esta línea:</strong></p>
-                    <div class="code-block">print("📋 Primeras 5 filas:")
-datos.head()</div>
-                    <p><strong>Presiona Shift + Enter para ejecutar</strong></p>
-                </div>
-
-                <div class="warning-box">
-                    <h4>🚨 MÉTODO SÚPER SIMPLE - UNA LÍNEA A LA VEZ:</h4>
-                    
-                    <p><strong>Línea 1:</strong> Copia solo esto y presiona Enter:</p>
-                    <div class="code-block">print("📋 Primeras 5 filas:")</div>
-                    
-                    <p><strong>Línea 2:</strong> En la misma celda, agrega esta línea:</p>
-                    <div class="code-block">datos.head()</div>
-                    
-                    <p><strong>Resultado final en tu celda debe verse así:</strong></p>
-                    <div class="code-block">print("📋 Primeras 5 filas:")
-datos.head()</div>
-                </div>
-
-                <div class="highlight-box">
-                    <h4>📊 PASO 5: Crear primer gráfico - Barras (Cuarta celda)</h4>
-                    <p><strong>MÉTODO LÍNEA POR LÍNEA - Copia cada línea por separado:</strong></p>
-                    
-                    <p><strong>Línea 1:</strong></p>
-                    <div class="code-block">import matplotlib.pyplot as plt</div>
-                    
-                    <p><strong>Línea 2:</strong></p>
-                    <div class="code-block">datos['day'].value_counts().plot(kind='bar')</div>
-                    
-                    <p><strong>Línea 3:</strong></p>
-                    <div class="code-block">plt.title('Comidas por día')</div>
-                    
-                    <p><strong>Línea 4:</strong></p>
-                    <div class="code-block">plt.show()</div>
-                    
-                    <div class="success-box">
-                        <p><strong>Tu celda final debe verse así:</strong></p>
-                        <div class="code-block">import matplotlib.pyplot as plt
-datos['day'].value_counts().plot(kind='bar')
-plt.title('Comidas por día')
-plt.show()</div>
-                    </div>
-                </div>
-
-                <div class="highlight-box">
-                    <h4>📈 PASO 6: Crear segundo gráfico - Histograma (Quinta celda)</h4>
-                    <p><strong>MÉTODO LÍNEA POR LÍNEA:</strong></p>
-                    
-                    <p><strong>Línea 1:</strong></p>
-                    <div class="code-block">plt.figure(figsize=(8, 5))</div>
-                    
-                    <p><strong>Línea 2:</strong></p>
-                    <div class="code-block">plt.hist(datos['total_bill'], bins=15, color='red')</div>
-                    
-                    <p><strong>Línea 3:</strong></p>
-                    <div class="code-block">plt.title('Distribución de cuentas')</div>
-                    
-                    <p><strong>Línea 4:</strong></p>
-                    <div class="code-block">plt.show()</div>
-                    
-                    <p><strong>Línea 5:</strong></p>
-                    <div class="code-block">print("🎯 ¡Análisis completado!")</div>
-                    
-                    <div class="success-box">
-                        <p><strong>Tu celda final debe verse así:</strong></p>
-                        <div class="code-block">plt.figure(figsize=(8, 5))
-plt.hist(datos['total_bill'], bins=15, color='red')
-plt.title('Distribución de cuentas')
-plt.show()
-print("🎯 ¡Análisis completado!")</div>
-                    </div>
-                </div>
-
-                <div class="success-box">
-                    <h4>✅ QUÉ DEBES VER DESPUÉS DE CADA PASO:</h4>
-                    <ul>
-                        <li><strong>Paso 2:</strong> Sin errores, librerías cargadas</li>
-                        <li><strong>Paso 3:</strong> Mensaje "✅ Datos cargados" + número de filas</li>
-                        <li><strong>Paso 4:</strong> Tabla con datos + información de columnas</li>
-                        <li><strong>Paso 5:</strong> Gráfico de barras azules por día</li>
-                        <li><strong>Paso 6:</strong> Histograma rojo + mensaje "Análisis completado"</li>
-                    </ul>
-                </div>
-
-                <div class="warning-box">
-                    <p><strong>🚨 SOLUCIÓN AL ERROR DE SINTAXIS:</strong></p>
-                    <ol>
-                        <li><strong>NO copies todo el código de una vez</strong></li>
-                        <li><strong>Copia línea por línea</strong> o bloque por bloque</li>
-                        <li><strong>Asegúrate de que cada línea esté separada</strong></li>
-                        <li><strong>Si ves error "invalid syntax":</strong>
-                            <ul>
-                                <li>Borra todo el contenido de la celda</li>
-                                <li>Copia SOLO una línea a la vez</li>
-                                <li>Presiona Enter después de cada línea</li>
-                            </ul>
-                        </li>
-                    </ol>
-                </div>
-
-                <div class="success-box">
-                    <h4>✅ MÉTODO ALTERNATIVO - Copia línea por línea:</h4>
-                    <div class="code-block">url = "https://raw.githubusercontent.com/plotly/datasets/master/tips.csv"</div>
-                    <p>↓ Presiona Enter, luego copia la siguiente línea:</p>
-                    <div class="code-block">datos = pd.read_csv(url)</div>
-                    <p>↓ Presiona Enter, luego copia la siguiente línea:</p>
-                    <div class="code-block">print("✅ ¡Datos cargados exitosamente!")</div>
-                    <p>↓ Presiona Enter, luego copia la última línea:</p>
-                    <div class="code-block">print("📊 Número de filas:", len(datos))</div>
-                </div>
-            </div>
-
-            <div class="step">
-                <h3><span class="step-number">3</span>R ONLINE (8 minutos)</h3>
-                
-                <div class="highlight-box">
-                    <h4>📊 PASO 1: Ir a R Online</h4>
-                    <p>En el navegador, ve a: <strong>rdrr.io/snippets/</strong><br>
-                    (No necesitas crear cuenta)</p>
-                </div>
-
-                <div class="highlight-box">
-                    <h4>📝 PASO 2: Copiar código completo</h4>
-                    <p><strong>Copia EXACTAMENTE todo este código en la caja de texto:</strong></p>
-                    <div class="code-block">
-# Cargar datos desde internet
-cat("🔄 Cargando datos...\n")
-url <- "https://raw.githubusercontent.com/plotly/datasets/master/mtcars.csv"
-datos <- read.csv(url)
-
-cat("✅ ¡Datos cargados exitosamente!\n")
-cat("📊 Número de autos en el dataset:", nrow(datos), "\n\n")
-
-# Mostrar tabla de datos
-cat("📋 TABLA DE DATOS (primeras 8 filas):\n")
-cat("="*50, "\n")
-print(head(datos, 8))
-
-cat("\n", "="*50, "\n")
-
-# Mostrar resumen estadístico
-cat("📈 RESUMEN ESTADÍSTICO:\n")
-cat("Variables: MPG (millas por galón), HP (caballos de fuerza), WT (peso)\n\n")
-print(summary(datos[c("mpg", "hp", "wt")]))
-
-cat("\n", "="*50, "\n")
-
-# Crear gráfico de dispersión
-cat("📊 CREANDO GRÁFICO...\n")
-plot(datos$wt, datos$mpg, 
-     main="Relación entre Peso y Consumo de Combustible",
-     xlab="Peso del auto (1000 lbs)", 
-     ylab="Millas por galón (MPG)",
-     pch=19,           # Puntos sólidos
-     col="blue",       # Color azul
-     cex=1.2)          # Tamaño de puntos
-
-# Añadir línea de tendencia
-abline(lm(mpg ~ wt, data=datos), col="red", lwd=2)
-
-cat("🎯 ¡Análisis completado!\n")
-cat("💡 El gráfico muestra que autos más pesados consumen más combustible.\n")
-                    </div>
-                    <p><strong>Clic en "Run" para ejecutar todo el código</strong></p>
-                </div>
-
-                <div class="success-box">
-                    <h4>✅ QUÉ DEBES VER EN LOS RESULTADOS:</h4>
-                    <ol>
-                        <li><strong>Mensajes de confirmación</strong> (✅ Datos cargados...)</li>
-                        <li><strong>Tabla con información de autos</strong> (mpg, hp, wt, etc.)</li>
-                        <li><strong>Resumen estadístico</strong> con Min, Max, Media</li>
-                        <li><strong>Gráfico de puntos azules</strong> con línea roja</li>
-                        <li><strong>Mensaje final</strong> explicando el resultado</li>
-                    </ol>
-                </div>
-
-                <div class="warning-box">
-                    <p><strong>⚠️ SI NO FUNCIONA:</strong></p>
-                    <ul>
-                        <li>Verifica que estés en <strong>rdrr.io/snippets/</strong></li>
-                        <li>Copia TODO el código, no por partes</li>
-                        <li>Espera unos segundos después de hacer clic en "Run"</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <!-- Evidencia Software -->
-        <div id="evidencia" class="content-section">
-            <h2>📸 EVIDENCIA DE SOFTWARE EN EL DOCUMENTO</h2>
-
-            <div class="step">
-                <h3><span class="step-number">📋</span>CÓMO INCLUIR LAS CAPTURAS EN WORD</h3>
-                
-                <div class="highlight-box">
-                    <h4>📸 PROCESO PASO A PASO:</h4>
-                    <ol>
-                        <li><strong>Tomar captura:</strong> Alt + Impr Pant (ventana activa)</li>
-                        <li><strong>En Word:</strong> Ctrl + V para pegar</li>
-                        <li><strong>Ajustar tamaño:</strong> Clic derecho → Tamaño y propiedades</li>
-                        <li><strong>Añadir descripción</strong> debajo de cada imagen</li>
-                        <li><strong>Ubicación:</strong> Después del cuadro comparativo</li>
-                    </ol>
                 </div>
             </div>
 
@@ -805,30 +505,378 @@ cat("💡 El gráfico muestra que autos más pesados consumen más combustible.\
     </div>
 
     <script>
-        function mostrarSeccion(seccionId) {
-            // Ocultar todas las secciones
-            var secciones = document.getElementsByClassName('content-section');
-            for (var i = 0; i < secciones.length; i++) {
-                secciones[i].classList.remove('active');
-            }
-            
-            // Quitar clase active de todos los botones
-            var botones = document.getElementsByClassName('tab-btn');
-            for (var i = 0; i < botones.length; i++) {
-                botones[i].classList.remove('active');
-            }
-            
-            // Mostrar la sección seleccionada
-            document.getElementById(seccionId).classList.add('active');
-            
-            // Activar el botón correspondiente
-            event.target.classList.add('active');
+        // Función para cambiar secciones usando data attributes
+        function initializeNavigation() {
+            const buttons = document.querySelectorAll('.tab-btn');
+            const sections = document.querySelectorAll('.content-section');
+
+            buttons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const targetSection = this.getAttribute('data-section');
+                    
+                    // Remover clase active de todos los botones
+                    buttons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Remover clase active de todas las secciones
+                    sections.forEach(section => section.classList.remove('active'));
+                    
+                    // Agregar clase active al botón clickeado
+                    this.classList.add('active');
+                    
+                    // Mostrar la sección correspondiente
+                    const targetElement = document.getElementById(targetSection);
+                    if (targetElement) {
+                        targetElement.classList.add('active');
+                    }
+                    
+                    console.log('Navegando a:', targetSection);
+                });
+            });
         }
 
-        // Función simple para testing
-        function test() {
-            alert('¡JavaScript funciona!');
+        // Función para copiar código al portapapeles
+        function copyToClipboard(elementId) {
+            const element = document.getElementById(elementId);
+            const text = element.textContent;
+            
+            // Función para mostrar feedback visual
+            function showCopyFeedback(button) {
+                const originalText = button.textContent;
+                button.textContent = '¡Copiado!';
+                button.style.backgroundColor = '#46df71';
+                
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.style.backgroundColor = '#ffd700';
+                }, 2000);
+            }
+            
+            // Encontrar el botón que activó la función
+            const button = element.parentElement.querySelector('.copy-btn');
+            
+            // Intentar copiar con la API moderna
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(text)
+                    .then(() => {
+                        showCopyFeedback(button);
+                        console.log('Texto copiado:', text.substring(0, 50) + '...');
+                    })
+                    .catch(err => {
+                        console.error('Error al copiar:', err);
+                        // Fallback method
+                        fallbackCopy(text, button);
+                    });
+            } else {
+                // Método alternativo para navegadores más antiguos
+                fallbackCopy(text, button);
+            }
         }
+
+        // Método alternativo para copiar texto
+        function fallbackCopy(text, button) {
+            const textArea = document.createElement('textarea');
+            textArea.value = text;
+            textArea.style.position = 'fixed';
+            textArea.style.left = '-999999px';
+            textArea.style.top = '-999999px';
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            
+            try {
+                const successful = document.execCommand('copy');
+                document.body.removeChild(textArea);
+                
+                if (successful) {
+                    const originalText = button.textContent;
+                    button.textContent = '¡Copiado!';
+                    button.style.backgroundColor = '#46df71';
+                    
+                    setTimeout(() => {
+                        button.textContent = originalText;
+                        button.style.backgroundColor = '#ffd700';
+                    }, 2000);
+                    
+                    console.log('Texto copiado con método alternativo');
+                } else {
+                    console.error('No se pudo copiar el texto');
+                }
+            } catch (err) {
+                document.body.removeChild(textArea);
+                console.error('Error en método alternativo:', err);
+            }
+        }
+
+        // Inicializar cuando el DOM esté listo
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM cargado, inicializando navegación...');
+            initializeNavigation();
+            console.log('Navegación inicializada correctamente');
+        });
+
+        // Hacer funciones disponibles globalmente
+        window.copyToClipboard = copyToClipboard;
     </script>
 </body>
 </html>
+
+        </div>
+
+        <!-- Software Express -->
+        <div id="software" class="content-section">
+            <h2>💻 ACTIVIDAD EXPRESS: EVIDENCIA DE SOFTWARE</h2>
+            
+            <div class="highlight-box">
+                <div style="background: rgba(255, 193, 7, 0.2); padding: 10px 20px; border-radius: 25px; display: inline-block; font-weight: bold; margin-bottom: 15px;">
+                    ⏰ Tiempo total: 30 minutos
+                </div>
+                <h3>🎯 Objetivo: Obtener capturas de pantalla de software funcionando</h3>
+                <p>Realizarás una actividad rápida en el centro de cómputo para obtener evidencia del uso de 3 herramientas de análisis de datos.</p>
+            </div>
+
+            <div class="step">
+                <h3><span class="step-number">1</span>POWER BI DESKTOP (8 minutos)</h3>
+                
+                <div class="highlight-box">
+                    <h4>📊 PASOS DETALLADOS:</h4>
+                    <ol>
+                        <li><strong>Abrir Power BI Desktop</strong> (icono en escritorio)</li>
+                        <li>Clic en <strong>"Obtener datos"</strong> → seleccionar <strong>"Web"</strong></li>
+                        <li><strong>Copiar y pegar esta URL exactamente:</strong></li>
+                        <div class="code-block">
+                            <button class="copy-btn" onclick="copyToClipboard('powerbi-url')">Copiar</button>
+                            <span id="powerbi-url">https://raw.githubusercontent.com/plotly/datasets/master/iris.csv</span>
+                        </div>
+                        <li>Clic en <strong>"Aceptar"</strong> → <strong>"Cargar"</strong></li>
+                        <li><strong>Crear visualizaciones:</strong>
+                            <ul style="margin-top: 10px;">
+                                <li>📋 <strong>Tabla:</strong> Arrastar todos los campos a "Valores"</li>
+                                <li>📊 <strong>Gráfico de barras:</strong> species (Eje X) + sepal_length (Eje Y)</li>
+                                <li>🥧 <strong>Gráfico circular:</strong> species (Leyenda y Valores)</li>
+                            </ul>
+                        </li>
+                        <li><strong>Capturar pantalla completa:</strong> Tecla "Impr Pant"</li>
+                    </ol>
+                </div>
+
+                <div class="success-box">
+                    <h4>✅ QUÉ DEBES VER EN TU PANTALLA:</h4>
+                    <ul>
+                        <li>Panel "Campos" con iris, sepal_length, sepal_width, etc.</li>
+                        <li>Al menos 2 visualizaciones funcionando</li>
+                        <li>Datos visibles en alguna tabla o gráfico</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="step">
+                <h3><span class="step-number">2</span>GOOGLE COLAB (8 minutos)</h3>
+                
+                <div class="highlight-box">
+                    <h4>🐍 PASO 1: Ir a Google Colab</h4>
+                    <p>En el navegador, ve a: <strong>colab.research.google.com</strong><br>
+                    Clic en <strong>"Nuevo cuaderno"</strong></p>
+                </div>
+
+                <div class="highlight-box">
+                    <h4>📦 PASO 2: Importar librerías (Primera celda)</h4>
+                    <p><strong>Copia este código en la primera celda:</strong></p>
+                    <div class="code-block">
+                        <button class="copy-btn" onclick="copyToClipboard('python-imports')">Copiar</button>
+                        <span id="python-imports">import pandas as pd
+import matplotlib.pyplot as plt</span>
+                    </div>
+                    <p><strong>Presiona Shift + Enter para ejecutar</strong></p>
+                </div>
+
+                <div class="highlight-box">
+                    <h4>📥 PASO 3: Cargar datos (Segunda celda)</h4>
+                    <p><strong>En una NUEVA celda, copia este código:</strong></p>
+                    <div class="code-block">
+                        <button class="copy-btn" onclick="copyToClipboard('python-load-data')">Copiar</button>
+                        <span id="python-load-data"># Cargar datos desde internet
+url = "https://raw.githubusercontent.com/plotly/datasets/master/tips.csv"
+datos = pd.read_csv(url)
+
+# Confirmar que se cargaron correctamente
+print("✅ ¡Datos cargados exitosamente!")
+print("📊 Número de filas:", len(datos))
+print("📋 Columnas disponibles:", list(datos.columns))</span>
+                    </div>
+                    <p><strong>Presiona Shift + Enter para ejecutar</strong></p>
+                </div>
+
+                <div class="highlight-box">
+                    <h4>👀 PASO 4: Ver los datos (Tercera celda)</h4>
+                    <p><strong>En una NUEVA celda, copia este código:</strong></p>
+                    <div class="code-block">
+                        <button class="copy-btn" onclick="copyToClipboard('python-show-data')">Copiar</button>
+                        <span id="python-show-data"># Mostrar las primeras filas
+print("📋 Primeras 5 filas de los datos:")
+datos.head()</span>
+                    </div>
+                    <p><strong>Presiona Shift + Enter para ejecutar</strong></p>
+                </div>
+
+                <div class="highlight-box">
+                    <h4>📊 PASO 5: Crear gráfico de barras (Cuarta celda)</h4>
+                    <p><strong>En una NUEVA celda, copia este código:</strong></p>
+                    <div class="code-block">
+                        <button class="copy-btn" onclick="copyToClipboard('python-bar-chart')">Copiar</button>
+                        <span id="python-bar-chart"># Crear gráfico de barras
+plt.figure(figsize=(8, 6))
+datos['day'].value_counts().plot(kind='bar', color='skyblue')
+plt.title('Número de comidas por día de la semana')
+plt.xlabel('Día de la semana')
+plt.ylabel('Número de comidas')
+plt.xticks(rotation=45)
+plt.show()</span>
+                    </div>
+                    <p><strong>Presiona Shift + Enter para ejecutar</strong></p>
+                </div>
+
+                <div class="highlight-box">
+                    <h4>📈 PASO 6: Crear histograma (Quinta celda)</h4>
+                    <p><strong>En una NUEVA celda, copia este código:</strong></p>
+                    <div class="code-block">
+                        <button class="copy-btn" onclick="copyToClipboard('python-histogram')">Copiar</button>
+                        <span id="python-histogram"># Crear histograma
+plt.figure(figsize=(8, 6))
+plt.hist(datos['total_bill'], bins=20, color='orange', alpha=0.7)
+plt.title('Distribución del total de cuentas')
+plt.xlabel('Total de la cuenta ($)')
+plt.ylabel('Frecuencia')
+plt.grid(True, alpha=0.3)
+plt.show()
+
+print("🎯 ¡Análisis completado exitosamente!")</span>
+                    </div>
+                    <p><strong>Presiona Shift + Enter para ejecutar</strong></p>
+                </div>
+
+                <div class="success-box">
+                    <h4>✅ QUÉ DEBES VER DESPUÉS DE CADA PASO:</h4>
+                    <ul>
+                        <li><strong>Paso 2:</strong> Sin errores, librerías importadas</li>
+                        <li><strong>Paso 3:</strong> Mensaje "✅ Datos cargados" + número de filas</li>
+                        <li><strong>Paso 4:</strong> Tabla con datos de propinas y restaurantes</li>
+                        <li><strong>Paso 5:</strong> Gráfico de barras azul por días de la semana</li>
+                        <li><strong>Paso 6:</strong> Histograma naranja + mensaje de completado</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="step">
+                <h3><span class="step-number">3</span>R ONLINE (8 minutos)</h3>
+                
+                <div class="highlight-box">
+                    <h4>📊 PASO 1: Ir a R Online</h4>
+                    <p>En el navegador, ve a: <strong>rdrr.io/snippets/</strong><br>
+                    (No necesitas crear cuenta)</p>
+                </div>
+
+                <div class="highlight-box">
+                    <h4>📝 PASO 2: Copiar código completo</h4>
+                    <p><strong>Copia EXACTAMENTE todo este código en la caja de texto:</strong></p>
+                    <div class="code-block">
+                        <button class="copy-btn" onclick="copyToClipboard('r-complete-code')">Copiar</button>
+                        <span id="r-complete-code"># =================================================
+# ANÁLISIS DE DATOS DE AUTOMÓVILES CON R
+# =================================================
+
+cat("🔄 Iniciando análisis de datos...\n\n")
+
+# Cargar datos desde internet
+cat("📥 Cargando datos de automóviles...\n")
+url <- "https://raw.githubusercontent.com/plotly/datasets/master/mtcars.csv"
+datos <- read.csv(url)
+
+cat("✅ ¡Datos cargados exitosamente!\n")
+cat("📊 Número de automóviles:", nrow(datos), "\n")
+cat("📋 Número de variables:", ncol(datos), "\n\n")
+
+# Mostrar información básica de los datos
+cat("=" , rep("=", 50), "\n")
+cat("📋 INFORMACIÓN DE LOS DATOS\n")
+cat("=" , rep("=", 50), "\n")
+print(head(datos, 6))
+
+cat("\n")
+cat("=" , rep("=", 50), "\n")
+cat("📈 RESUMEN ESTADÍSTICO\n")
+cat("=" , rep("=", 50), "\n")
+cat("Variables clave: MPG (millas/galón), HP (caballos), WT (peso)\n\n")
+print(summary(datos[c("mpg", "hp", "wt")]))
+
+cat("\n")
+cat("=" , rep("=", 50), "\n")
+cat("📊 CREANDO VISUALIZACIÓN\n")
+cat("=" , rep("=", 50), "\n")
+
+# Crear gráfico de dispersión
+plot(datos$wt, datos$mpg, 
+     main="📊 Relación entre Peso y Eficiencia de Combustible",
+     xlab="Peso del automóvil (1000 lbs)", 
+     ylab="Millas por galón (MPG)",
+     pch=19,
+     col="blue",
+     cex=1.2)
+
+# Añadir línea de tendencia
+abline(lm(mpg ~ wt, data=datos), col="red", lwd=2)
+
+# Añadir leyenda
+legend("topright", 
+       legend=c("Datos", "Tendencia"), 
+       col=c("blue", "red"), 
+       pch=c(19, NA), 
+       lty=c(NA, 1), 
+       lwd=c(NA, 2))
+
+cat("\n🎯 ¡Análisis completado exitosamente!\n")
+cat("💡 Conclusión: Los autos más pesados tienden a consumir más combustible.\n")
+cat("📊 La línea roja muestra la relación negativa entre peso y eficiencia.\n")</span>
+                    </div>
+                    <p><strong>Clic en "Run" para ejecutar todo el código</strong></p>
+                </div>
+
+                <div class="success-box">
+                    <h4>✅ QUÉ DEBES VER EN LOS RESULTADOS:</h4>
+                    <ol>
+                        <li><strong>Mensajes de confirmación</strong> (✅ Datos cargados...)</li>
+                        <li><strong>Tabla con información de autos</strong> (mpg, hp, wt, etc.)</li>
+                        <li><strong>Resumen estadístico</strong> con Min, Max, Media</li>
+                        <li><strong>Gráfico de puntos azules</strong> con línea roja de tendencia</li>
+                        <li><strong>Leyenda explicativa</strong> y conclusiones del análisis</li>
+                    </ol>
+                </div>
+
+                <div class="warning-box">
+                    <p><strong>⚠️ SI NO FUNCIONA:</strong></p>
+                    <ul>
+                        <li>Verifica que estés en <strong>rdrr.io/snippets/</strong></li>
+                        <li>Usa el botón "Copiar" de arriba para evitar errores</li>
+                        <li>Espera unos segundos después de hacer clic en "Run"</li>
+                        <li>Si hay error, borra todo y vuelve a pegar el código completo</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Evidencia Software -->
+        <div id="evidencia" class="content-section">
+            <h2>📸 EVIDENCIA DE SOFTWARE EN EL DOCUMENTO</h2>
+
+            <div class="step">
+                <h3><span class="step-number">📋</span>CÓMO INCLUIR LAS CAPTURAS EN WORD</h3>
+                
+                <div class="highlight-box">
+                    <h4>📸 PROCESO PASO A PASO:</h4>
+                    <ol>
+                        <li><strong>Tomar captura:</strong> Alt + Impr Pant (ventana activa)</li>
+                        <li><strong>En Word:</strong> Ctrl + V para pegar</li>
+                        <li><strong>Ajustar tamaño:</strong> Clic derecho → Tamaño y propiedades</li>
+                        <li><strong>Añadir descripción</strong> debajo de cada imagen</li>
+                        <li><strong>Ubicación:</strong> Después del cuadro comparativo</li>
+                    </ol>
+                </div>
