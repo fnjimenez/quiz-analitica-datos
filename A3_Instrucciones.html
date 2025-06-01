@@ -179,7 +179,7 @@
 
         .software-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 20px;
             margin: 20px 0;
         }
@@ -236,26 +236,66 @@
             background: #ffed4a;
         }
 
-        .example-table {
+        .download-section {
+            background: #ffd700;
+            color: #1e3c72;
+            padding: 30px;
+            border-radius: 20px;
+            margin: 30px 0;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+        }
+
+        .download-btn {
+            background: #667eea;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            display: inline-block;
+            margin: 15px;
+            border: 3px solid white;
+            transition: all 0.3s ease;
+        }
+
+        .download-btn:hover {
+            background: #764ba2;
+            transform: translateY(-2px);
+        }
+
+        .comparison-table {
             width: 100%;
             border-collapse: collapse;
-            margin: 20px 0;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 10px;
+            margin: 30px 0;
+            background: rgba(0, 0, 0, 0.3);
+            border: 3px solid #ffd700;
+            border-radius: 15px;
             overflow: hidden;
         }
 
-        .example-table th,
-        .example-table td {
-            padding: 12px;
-            text-align: left;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        .comparison-table th {
+            background: #ffd700;
+            color: #1e3c72;
+            padding: 15px;
+            font-weight: bold;
+            border: 1px solid #ddd;
         }
 
-        .example-table th {
-            background: rgba(255, 215, 0, 0.2);
-            font-weight: bold;
-            color: #ffd700;
+        .comparison-table td {
+            padding: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            vertical-align: top;
+        }
+
+        .comparison-table tr:nth-child(even) {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .comparison-table tr:nth-child(odd) {
+            background: rgba(255, 255, 255, 0.02);
         }
 
         @media (max-width: 768px) {
@@ -265,6 +305,7 @@
             .navigation-tabs { flex-direction: column; align-items: center; }
             .tab-btn { width: 90%; text-align: center; }
             .code-block { font-size: 12px; padding: 15px; }
+            .comparison-table { font-size: 12px; }
         }
     </style>
 </head>
@@ -280,12 +321,59 @@
 
         <!-- Navigation -->
         <div class="navigation-tabs">
-            <button class="tab-btn active" data-section="instrucciones">📋 Instrucciones</button>
-            <button class="tab-btn" data-section="pasos">🔧 Pasos Detallados</button>
-            <button class="tab-btn" data-section="software">💻 Software Express</button>
-            <button class="tab-btn" data-section="evidencia">📸 Evidencia Software</button>
-            <button class="tab-btn" data-section="rubrica">📊 Rúbrica</button>
-            <button class="tab-btn" data-section="checklist">✅ Checklist Final</button>
+            <button class="tab-btn active" onclick="
+                var sections = document.getElementsByClassName('content-section');
+                for (var i = 0; i < sections.length; i++) { sections[i].classList.remove('active'); }
+                var buttons = document.getElementsByClassName('tab-btn');
+                for (var i = 0; i < buttons.length; i++) { buttons[i].classList.remove('active'); }
+                document.getElementById('instrucciones').classList.add('active');
+                this.classList.add('active');
+            ">📋 Instrucciones</button>
+            
+            <button class="tab-btn" onclick="
+                var sections = document.getElementsByClassName('content-section');
+                for (var i = 0; i < sections.length; i++) { sections[i].classList.remove('active'); }
+                var buttons = document.getElementsByClassName('tab-btn');
+                for (var i = 0; i < buttons.length; i++) { buttons[i].classList.remove('active'); }
+                document.getElementById('pasos').classList.add('active');
+                this.classList.add('active');
+            ">🔧 Pasos Detallados</button>
+            
+            <button class="tab-btn" onclick="
+                var sections = document.getElementsByClassName('content-section');
+                for (var i = 0; i < sections.length; i++) { sections[i].classList.remove('active'); }
+                var buttons = document.getElementsByClassName('tab-btn');
+                for (var i = 0; i < buttons.length; i++) { buttons[i].classList.remove('active'); }
+                document.getElementById('software').classList.add('active');
+                this.classList.add('active');
+            ">💻 Software Express</button>
+            
+            <button class="tab-btn" onclick="
+                var sections = document.getElementsByClassName('content-section');
+                for (var i = 0; i < sections.length; i++) { sections[i].classList.remove('active'); }
+                var buttons = document.getElementsByClassName('tab-btn');
+                for (var i = 0; i < buttons.length; i++) { buttons[i].classList.remove('active'); }
+                document.getElementById('evidencia').classList.add('active');
+                this.classList.add('active');
+            ">📸 Evidencia Software</button>
+            
+            <button class="tab-btn" onclick="
+                var sections = document.getElementsByClassName('content-section');
+                for (var i = 0; i < sections.length; i++) { sections[i].classList.remove('active'); }
+                var buttons = document.getElementsByClassName('tab-btn');
+                for (var i = 0; i < buttons.length; i++) { buttons[i].classList.remove('active'); }
+                document.getElementById('rubrica').classList.add('active');
+                this.classList.add('active');
+            ">📊 Rúbrica</button>
+            
+            <button class="tab-btn" onclick="
+                var sections = document.getElementsByClassName('content-section');
+                for (var i = 0; i < sections.length; i++) { sections[i].classList.remove('active'); }
+                var buttons = document.getElementsByClassName('tab-btn');
+                for (var i = 0; i < buttons.length; i++) { buttons[i].classList.remove('active'); }
+                document.getElementById('checklist').classList.add('active');
+                this.classList.add('active');
+            ">✅ Checklist Final</button>
         </div>
 
         <!-- Instrucciones Generales -->
@@ -332,6 +420,20 @@
         <div id="pasos" class="content-section">
             <h2>🔧 PASOS DETALLADOS</h2>
 
+            <!-- PLANTILLA DESCARGA -->
+            <div class="download-section">
+                <h3 style="font-size: 1.5rem; margin-bottom: 15px;">📥 PLANTILLA OFICIAL DISPONIBLE</h3>
+                <p style="font-size: 1.1rem; margin-bottom: 25px; font-weight: bold;">Descarga la plantilla oficial en Word para facilitar tu trabajo:</p>
+                
+                <a href="https://fnjimenez.github.io/curso-analitica-datos/CuadroComparativo_U23xxxxxxxx.docx" 
+                   download="CuadroComparativo_U23xxxxxxxx.docx"
+                   class="download-btn">
+                    📄 DESCARGAR PLANTILLA WORD
+                </a>
+                
+                <p style="margin-top: 20px; font-weight: bold;">💡 Tip: Cambia "U23xxxxxxxx" por tu matrícula real</p>
+            </div>
+
             <div class="step">
                 <h3><span class="step-number">1</span>CREAR LA PORTADA</h3>
                 <p><strong>Para obtener 2 puntos completos, incluye TODOS estos datos:</strong></p>
@@ -346,280 +448,201 @@
 
             <div class="step">
                 <h3><span class="step-number">2</span>INVESTIGAR LAS TÉCNICAS</h3>
-                <p><strong>Investiga estas 4 técnicas de exploración de datos:</strong></p>
+                <p><strong>Investiga estas 8 técnicas de exploración de datos:</strong></p>
                 
                 <div class="software-grid">
                     <div class="software-card">
-                        <div class="icon">📊</div>
-                        <h4>Análisis Descriptivo</h4>
-                        <p>Estadísticas básicas, medidas de tendencia central, distribuciones</p>
-                    </div>
-                    <div class="software-card">
-                        <div class="icon">🔍</div>
-                        <h4>Análisis Exploratorio</h4>
-                        <p>Patrones, correlaciones, visualizaciones iniciales</p>
-                    </div>
-                    <div class="software-card">
-                        <div class="icon">⛏️</div>
-                        <h4>Minería de Datos</h4>
-                        <p>Descubrimiento de patrones, algoritmos, clustering</p>
+                        <div class="icon">🧠</div>
+                        <h4>Redes Neuronales</h4>
+                        <p>Modelos inspirados en el cerebro humano para reconocimiento de patrones</p>
                     </div>
                     <div class="software-card">
                         <div class="icon">📈</div>
-                        <h4>Visualización de Datos</h4>
-                        <p>Gráficos, dashboards, representación visual</p>
+                        <h4>Regresión Lineal</h4>
+                        <p>Modelado de relaciones lineales entre variables</p>
+                    </div>
+                    <div class="software-card">
+                        <div class="icon">🌳</div>
+                        <h4>Árboles de Decisión</h4>
+                        <p>Estructuras jerárquicas para toma de decisiones</p>
+                    </div>
+                    <div class="software-card">
+                        <div class="icon">📊</div>
+                        <h4>Análisis de Varianza</h4>
+                        <p>Comparación estadística de medias entre grupos</p>
+                    </div>
+                    <div class="software-card">
+                        <div class="icon">🔍</div>
+                        <h4>Análisis Discriminante</h4>
+                        <p>Clasificación de observaciones en grupos predefinidos</p>
+                    </div>
+                    <div class="software-card">
+                        <div class="icon">🤖</div>
+                        <h4>Inteligencia Artificial</h4>
+                        <p>Sistemas que simulan inteligencia humana</p>
+                    </div>
+                    <div class="software-card">
+                        <div class="icon">💡</div>
+                        <h4>Sistemas Expertos</h4>
+                        <p>IA que emula conocimiento de especialistas</p>
+                    </div>
+                    <div class="software-card">
+                        <div class="icon">⚙️</div>
+                        <h4>Análisis Factorial</h4>
+                        <p>Reducción de dimensionalidad e identificación de factores</p>
                     </div>
                 </div>
             </div>
 
             <div class="step">
-                <h3><span class="step-number">💻</span>FORMATO REQUERIDO PARA CADA CAPTURA</h3>
+                <h3><span class="step-number">3</span>CREAR EL CUADRO COMPARATIVO</h3>
+                <p><strong>Completa el cuadro comparativo siguiendo el formato mostrado en el ejemplo:</strong></p>
+
+                <div class="success-box">
+                    <h4>🎯 INSTRUCCIONES PARA COMPLETAR:</h4>
+                    <ul>
+                        <li><strong>Usa el formato del ejemplo:</strong> Concepto en negritas + explicación breve</li>
+                        <li><strong>Agrega citas APA</strong> al final de cada concepto: (Apellido, año)</li>
+                        <li><strong>Completa TODAS las celdas</strong> marcadas con <em>[Completa con...]</em></li>
+                        <li><strong>Mínimo 4 conceptos</strong> por técnica con sus respectivas citas</li>
+                        <li><strong>Características y aplicaciones</strong> en formato de viñetas</li>
+                    </ul>
+                </div>
+
+                <div class="warning-box">
+                    <h4>⚠️ EJEMPLO DE FORMATO CORRECTO:</h4>
+                    <p><strong>Concepto principal</strong><br>
+                    Definición clara y concisa del concepto (Apellido del autor, año).</p>
+                    <p><strong>NO olvides:</strong> Cada celda debe tener contenido original con cita APA correspondiente.</p>
+                </div>
+
+                <!-- CUADRO COMPARATIVO -->
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>TÉCNICA</th>
+                            <th>CONCEPTO 1</th>
+                            <th>CONCEPTO 2</th>
+                            <th>CONCEPTO 3</th>
+                            <th>CONCEPTO 4</th>
+                            <th>CARACTERÍSTICAS</th>
+                            <th>APLICACIONES</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Redes Neuronales</strong></td>
+                            <td><strong>Neuronas artificiales</strong><br>Unidades de procesamiento que imitan neuronas biológicas (García, 2023)</td>
+                            <td><em>[Completa con concepto y cita APA]</em></td>
+                            <td><em>[Completa con concepto y cita APA]</em></td>
+                            <td><em>[Completa con concepto y cita APA]</em></td>
+                            <td><em>[Completa con características principales]</em></td>
+                            <td><em>[Completa con aplicaciones prácticas]</em></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Regresión Lineal</strong></td>
+                            <td><em>[Completa con concepto y cita APA]</em></td>
+                            <td><strong>Coeficientes</strong><br>Parámetros que determinan la pendiente de la línea (Sánchez, 2023)</td>
+                            <td><em>[Completa con concepto y cita APA]</em></td>
+                            <td><em>[Completa con concepto y cita APA]</em></td>
+                            <td><em>[Completa con características principales]</em></td>
+                            <td><em>[Completa con aplicaciones prácticas]</em></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Árboles de Decisión</strong></td>
+                            <td><em>[Completa con concepto y cita APA]</em></td>
+                            <td><em>[Completa con concepto y cita APA]</em></td>
+                            <td><strong>Entropía</strong><br>Medida de impureza usada para seleccionar divisiones (Morales, 2023)</td>
+                            <td><em>[Completa con concepto y cita APA]</em></td>
+                            <td><em>[Completa con características principales]</em></td>
+                            <td><em>[Completa con aplicaciones prácticas]</em></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Análisis de Varianza</strong></td>
+                            <td><em>[Completa con concepto y cita APA]</em></td>
+                            <td><em>[Completa con concepto y cita APA]</em></td>
+                            <td><em>[Completa con concepto y cita APA]</em></td>
+                            <td><strong>Valor p</strong><br>Probabilidad de obtener resultados por azar (Silva, 2023)</td>
+                            <td><em>[Completa con características principales]</em></td>
+                            <td><em>[Completa con aplicaciones prácticas]</em></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Análisis Discriminante</strong></td>
+                            <td><em>[Completa con concepto y cita APA]</em></td>
+                            <td><em>[Completa con concepto y cita APA]</em></td>
+                            <td><em>[Completa con concepto y cita APA]</em></td>
+                            <td><em>[Completa con concepto y cita APA]</em></td>
+                            <td><em>[Completa con características principales]</em></td>
+                            <td><em>[Completa con aplicaciones prácticas]</em></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Inteligencia Artificial</strong></td>
+                            <td><strong>Algoritmos de aprendizaje</strong><br>Métodos que permiten a las máquinas aprender de datos (Davis, 2023)</td>
+                            <td><em>[Completa con concepto y cita APA]</em></td>
+                            <td><em>[Completa con concepto y cita APA]</em></td>
+                            <td><em>[Completa con concepto y cita APA]</em></td>
+                            <td><em>[Completa con características principales]</em></td>
+                            <td><em>[Completa con aplicaciones prácticas]</em></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Sistemas Expertos</strong></td>
+                            <td><em>[Completa con concepto y cita APA]</em></td>
+                            <td><em>[Completa con concepto y cita APA]</em></td>
+                            <td><em>[Completa con concepto y cita APA]</em></td>
+                            <td><em>[Completa con concepto y cita APA]</em></td>
+                            <td><em>[Completa con características principales]</em></td>
+                            <td><em>[Completa con aplicaciones prácticas]</em></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Análisis Factorial</strong></td>
+                            <td><em>[Completa con concepto y cita APA]</em></td>
+                            <td><strong>Cargas factoriales</strong><br>Correlaciones entre variables observadas y factores (Williams, 2023)</td>
+                            <td><em>[Completa con concepto y cita APA]</em></td>
+                            <td><em>[Completa con concepto y cita APA]</em></td>
+                            <td><em>[Completa con características principales]</em></td>
+                            <td><em>[Completa con aplicaciones prácticas]</em></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="step">
+                <h3><span class="step-number">4</span>INCLUIR EVIDENCIA DE SOFTWARE</h3>
+                <p><strong>Agregar las capturas de pantalla después del cuadro comparativo:</strong></p>
                 
+                <div class="highlight-box">
+                    <h4>📸 UBICACIÓN Y FORMATO:</h4>
+                    <ul>
+                        <li><strong>Ubicación:</strong> Después del cuadro comparativo en Word</li>
+                        <li><strong>Título:</strong> "EVIDENCIA DE SOFTWARE"</li>
+                        <li><strong>3 capturas:</strong> Power BI, Python/Colab, R Online</li>
+                        <li><strong>Formato:</strong> Figura X. [Software] - [Descripción]</li>
+                    </ul>
+                </div>
+
                 <div class="software-grid">
                     <div class="software-card">
                         <div class="icon">📊</div>
                         <h4>Captura 1: Power BI</h4>
-                        <p><strong>Título:</strong> "Figura 1. Power BI Desktop - Análisis de datos"<br>
-                        <strong>Descripción:</strong> Visualización de datos mostrando gráficos creados.</p>
+                        <p><strong>Título:</strong> "Figura 1. Power BI - Análisis Iris"<br>
+                        <strong>Descripción:</strong> Visualización con gráficos y tabla de especies.</p>
                     </div>
                     
                     <div class="software-card">
                         <div class="icon">🐍</div>
                         <h4>Captura 2: Python/Colab</h4>
-                        <p><strong>Título:</strong> "Figura 2. Google Colab - Análisis con Python"<br>
-                        <strong>Descripción:</strong> Código Python ejecutado con resultados visibles.</p>
+                        <p><strong>Título:</strong> "Figura 2. Google Colab - Python"<br>
+                        <strong>Descripción:</strong> Código ejecutado con gráficos de propinas.</p>
                     </div>
                     
                     <div class="software-card">
                         <div class="icon">📈</div>
                         <h4>Captura 3: R Online</h4>
                         <p><strong>Título:</strong> "Figura 3. R - Análisis estadístico"<br>
-                        <strong>Descripción:</strong> Entorno de R con comandos ejecutados.</p>
+                        <strong>Descripción:</strong> Correlación peso-combustible automóviles.</p>
                     </div>
                 </div>
             </div>
-        </div>
-
-        <!-- Rúbrica -->
-        <div id="rubrica" class="content-section">
-            <h2>📊 RÚBRICA DE EVALUACIÓN</h2>
-            <p style="text-align: center; margin-bottom: 30px; font-size: 1.2rem;">
-                <strong>Total: 10 puntos</strong> | Revisa cada criterio para obtener la máxima calificación
-            </p>
-
-            <div class="step">
-                <h3><span class="step-number">📋</span>PRESENTACIÓN (2 puntos)</h3>
-                <p>Incluye portada completa con: materia, alumno, tutor, actividad y fecha de entrega.</p>
-            </div>
-
-            <div class="step">
-                <h3><span class="step-number">📚</span>CONTENIDO (2 puntos)</h3>
-                <p>4+ conceptos principales por técnica. Identifica semejanzas y diferencias claramente.</p>
-            </div>
-
-            <div class="step">
-                <h3><span class="step-number">🎨</span>DISEÑO (2 puntos)</h3>
-                <p>Formato correcto, ideas en negritas, organizado simple→complejo, sin errores ortográficos.</p>
-            </div>
-
-            <div class="step">
-                <h3><span class="step-number">📋</span>ORGANIZACIÓN (2 puntos)</h3>
-                <p>Descripción clara, detalles significativos, presentación bien organizada.</p>
-            </div>
-
-            <div class="step">
-                <h3><span class="step-number">📖</span>BIBLIOGRAFÍA (2 puntos)</h3>
-                <p>Citas y referencias APA correctas en todos los casos necesarios.</p>
-            </div>
-        </div>
-
-        <!-- Checklist Final -->
-        <div id="checklist" class="content-section">
-            <h2>✅ CHECKLIST FINAL</h2>
-
-            <div style="background: rgba(255, 255, 255, 0.05); padding: 25px; border-radius: 15px; margin: 20px 0;">
-                <h3 style="color: #ffd700; margin-bottom: 15px;">📋 ANTES DE ENTREGAR, VERIFICA:</h3>
-                
-                <div style="margin-bottom: 15px;">
-                    <input type="checkbox" id="check1" style="margin-right: 10px;">
-                    <label for="check1">✅ <strong>PORTADA:</strong> Todos los datos completos</label>
-                </div>
-                
-                <div style="margin-bottom: 15px;">
-                    <input type="checkbox" id="check2" style="margin-right: 10px;">
-                    <label for="check2">📊 <strong>CUADRO:</strong> 4 técnicas con 4+ conceptos cada una</label>
-                </div>
-                
-                <div style="margin-bottom: 15px;">
-                    <input type="checkbox" id="check3" style="margin-right: 10px;">
-                    <label for="check3">🔍 <strong>ANÁLISIS:</strong> Semejanzas y diferencias identificadas</label>
-                </div>
-                
-                <div style="margin-bottom: 15px;">
-                    <input type="checkbox" id="check4" style="margin-right: 10px;">
-                    <label for="check4">🎨 <strong>FORMATO:</strong> Negritas, organización correcta</label>
-                </div>
-                
-                <div style="margin-bottom: 15px;">
-                    <input type="checkbox" id="check5" style="margin-right: 10px;">
-                    <label for="check5">📝 <strong>ORTOGRAFÍA:</strong> Sin errores de escritura</label>
-                </div>
-                
-                <div style="margin-bottom: 15px;">
-                    <input type="checkbox" id="check6" style="margin-right: 10px;">
-                    <label for="check6">📸 <strong>CAPTURAS:</strong> 3 capturas de software funcionando</label>
-                </div>
-                
-                <div style="margin-bottom: 15px;">
-                    <input type="checkbox" id="check7" style="margin-right: 10px;">
-                    <label for="check7">📚 <strong>CITAS APA:</strong> Correctas en el texto</label>
-                </div>
-                
-                <div style="margin-bottom: 15px;">
-                    <input type="checkbox" id="check8" style="margin-right: 10px;">
-                    <label for="check8">📖 <strong>REFERENCIAS:</strong> Bibliografía APA completa</label>
-                </div>
-                
-                <div style="margin-bottom: 15px;">
-                    <input type="checkbox" id="check9" style="margin-right: 10px;">
-                    <label for="check9">💾 <strong>ARCHIVO:</strong> Nombre CuadroComparativo_[MATRÍCULA].docx</label>
-                </div>
-                
-                <div style="margin-bottom: 15px;">
-                    <input type="checkbox" id="check10" style="margin-right: 10px;">
-                    <label for="check10">📤 <strong>ENTREGA:</strong> Subido al campus antes del límite</label>
-                </div>
-            </div>
-
-            <div class="success-box">
-                <h3>🎯 RESUMEN PARA 10/10</h3>
-                <ul>
-                    <li>✅ Portada completa (2 pts)</li>
-                    <li>✅ Cuadro con 4+ conceptos por técnica (2 pts)</li>
-                    <li>✅ Formato perfecto sin errores (2 pts)</li>
-                    <li>✅ Organización excelente (2 pts)</li>
-                    <li>✅ Citas APA perfectas (2 pts)</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        // Función para cambiar secciones usando data attributes
-        function initializeNavigation() {
-            const buttons = document.querySelectorAll('.tab-btn');
-            const sections = document.querySelectorAll('.content-section');
-
-            buttons.forEach(button => {
-                button.addEventListener('click', function() {
-                    const targetSection = this.getAttribute('data-section');
-                    
-                    // Remover clase active de todos los botones
-                    buttons.forEach(btn => btn.classList.remove('active'));
-                    
-                    // Remover clase active de todas las secciones
-                    sections.forEach(section => section.classList.remove('active'));
-                    
-                    // Agregar clase active al botón clickeado
-                    this.classList.add('active');
-                    
-                    // Mostrar la sección correspondiente
-                    const targetElement = document.getElementById(targetSection);
-                    if (targetElement) {
-                        targetElement.classList.add('active');
-                    }
-                    
-                    console.log('Navegando a:', targetSection);
-                });
-            });
-        }
-
-        // Función para copiar código al portapapeles
-        function copyToClipboard(elementId) {
-            const element = document.getElementById(elementId);
-            const text = element.textContent;
-            
-            // Función para mostrar feedback visual
-            function showCopyFeedback(button) {
-                const originalText = button.textContent;
-                button.textContent = '¡Copiado!';
-                button.style.backgroundColor = '#46df71';
-                
-                setTimeout(() => {
-                    button.textContent = originalText;
-                    button.style.backgroundColor = '#ffd700';
-                }, 2000);
-            }
-            
-            // Encontrar el botón que activó la función
-            const button = element.parentElement.querySelector('.copy-btn');
-            
-            // Intentar copiar con la API moderna
-            if (navigator.clipboard && navigator.clipboard.writeText) {
-                navigator.clipboard.writeText(text)
-                    .then(() => {
-                        showCopyFeedback(button);
-                        console.log('Texto copiado:', text.substring(0, 50) + '...');
-                    })
-                    .catch(err => {
-                        console.error('Error al copiar:', err);
-                        // Fallback method
-                        fallbackCopy(text, button);
-                    });
-            } else {
-                // Método alternativo para navegadores más antiguos
-                fallbackCopy(text, button);
-            }
-        }
-
-        // Método alternativo para copiar texto
-        function fallbackCopy(text, button) {
-            const textArea = document.createElement('textarea');
-            textArea.value = text;
-            textArea.style.position = 'fixed';
-            textArea.style.left = '-999999px';
-            textArea.style.top = '-999999px';
-            document.body.appendChild(textArea);
-            textArea.focus();
-            textArea.select();
-            
-            try {
-                const successful = document.execCommand('copy');
-                document.body.removeChild(textArea);
-                
-                if (successful) {
-                    const originalText = button.textContent;
-                    button.textContent = '¡Copiado!';
-                    button.style.backgroundColor = '#46df71';
-                    
-                    setTimeout(() => {
-                        button.textContent = originalText;
-                        button.style.backgroundColor = '#ffd700';
-                    }, 2000);
-                    
-                    console.log('Texto copiado con método alternativo');
-                } else {
-                    console.error('No se pudo copiar el texto');
-                }
-            } catch (err) {
-                document.body.removeChild(textArea);
-                console.error('Error en método alternativo:', err);
-            }
-        }
-
-        // Inicializar cuando el DOM esté listo
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log('DOM cargado, inicializando navegación...');
-            initializeNavigation();
-            console.log('Navegación inicializada correctamente');
-        });
-
-        // Hacer funciones disponibles globalmente
-        window.copyToClipboard = copyToClipboard;
-    </script>
-</body>
-</html>
-
         </div>
 
         <!-- Software Express -->
@@ -627,11 +650,8 @@
             <h2>💻 ACTIVIDAD EXPRESS: EVIDENCIA DE SOFTWARE</h2>
             
             <div class="highlight-box">
-                <div style="background: rgba(255, 193, 7, 0.2); padding: 10px 20px; border-radius: 25px; display: inline-block; font-weight: bold; margin-bottom: 15px;">
-                    ⏰ Tiempo total: 30 minutos
-                </div>
                 <h3>🎯 Objetivo: Obtener capturas de pantalla de software funcionando</h3>
-                <p>Realizarás una actividad rápida en el centro de cómputo para obtener evidencia del uso de 3 herramientas de análisis de datos.</p>
+                <p>Realizarás una actividad rápida para obtener evidencia del uso de 3 herramientas de análisis de datos.</p>
             </div>
 
             <div class="step">
@@ -644,7 +664,20 @@
                         <li>Clic en <strong>"Obtener datos"</strong> → seleccionar <strong>"Web"</strong></li>
                         <li><strong>Copiar y pegar esta URL exactamente:</strong></li>
                         <div class="code-block">
-                            <button class="copy-btn" onclick="copyToClipboard('powerbi-url')">Copiar</button>
+                            <button class="copy-btn" onclick="
+                                var element = document.getElementById('powerbi-url');
+                                var text = element.textContent;
+                                var textArea = document.createElement('textarea');
+                                textArea.value = text;
+                                document.body.appendChild(textArea);
+                                textArea.select();
+                                document.execCommand('copy');
+                                document.body.removeChild(textArea);
+                                this.textContent = '¡Copiado!';
+                                this.style.backgroundColor = '#46df71';
+                                var btn = this;
+                                setTimeout(function() { btn.textContent = 'Copiar'; btn.style.backgroundColor = '#ffd700'; }, 2000);
+                            ">Copiar</button>
                             <span id="powerbi-url">https://raw.githubusercontent.com/plotly/datasets/master/iris.csv</span>
                         </div>
                         <li>Clic en <strong>"Aceptar"</strong> → <strong>"Cargar"</strong></li>
@@ -682,7 +715,20 @@
                     <h4>📦 PASO 2: Importar librerías (Primera celda)</h4>
                     <p><strong>Copia este código en la primera celda:</strong></p>
                     <div class="code-block">
-                        <button class="copy-btn" onclick="copyToClipboard('python-imports')">Copiar</button>
+                        <button class="copy-btn" onclick="
+                            var element = document.getElementById('python-imports');
+                            var text = element.textContent;
+                            var textArea = document.createElement('textarea');
+                            textArea.value = text;
+                            document.body.appendChild(textArea);
+                            textArea.select();
+                            document.execCommand('copy');
+                            document.body.removeChild(textArea);
+                            this.textContent = '¡Copiado!';
+                            this.style.backgroundColor = '#46df71';
+                            var btn = this;
+                            setTimeout(function() { btn.textContent = 'Copiar'; btn.style.backgroundColor = '#ffd700'; }, 2000);
+                        ">Copiar</button>
                         <span id="python-imports">import pandas as pd
 import matplotlib.pyplot as plt</span>
                     </div>
@@ -693,7 +739,20 @@ import matplotlib.pyplot as plt</span>
                     <h4>📥 PASO 3: Cargar datos (Segunda celda)</h4>
                     <p><strong>En una NUEVA celda, copia este código:</strong></p>
                     <div class="code-block">
-                        <button class="copy-btn" onclick="copyToClipboard('python-load-data')">Copiar</button>
+                        <button class="copy-btn" onclick="
+                            var element = document.getElementById('python-load-data');
+                            var text = element.textContent;
+                            var textArea = document.createElement('textarea');
+                            textArea.value = text;
+                            document.body.appendChild(textArea);
+                            textArea.select();
+                            document.execCommand('copy');
+                            document.body.removeChild(textArea);
+                            this.textContent = '¡Copiado!';
+                            this.style.backgroundColor = '#46df71';
+                            var btn = this;
+                            setTimeout(function() { btn.textContent = 'Copiar'; btn.style.backgroundColor = '#ffd700'; }, 2000);
+                        ">Copiar</button>
                         <span id="python-load-data"># Cargar datos desde internet
 url = "https://raw.githubusercontent.com/plotly/datasets/master/tips.csv"
 datos = pd.read_csv(url)
@@ -710,7 +769,20 @@ print("📋 Columnas disponibles:", list(datos.columns))</span>
                     <h4>👀 PASO 4: Ver los datos (Tercera celda)</h4>
                     <p><strong>En una NUEVA celda, copia este código:</strong></p>
                     <div class="code-block">
-                        <button class="copy-btn" onclick="copyToClipboard('python-show-data')">Copiar</button>
+                        <button class="copy-btn" onclick="
+                            var element = document.getElementById('python-show-data');
+                            var text = element.textContent;
+                            var textArea = document.createElement('textarea');
+                            textArea.value = text;
+                            document.body.appendChild(textArea);
+                            textArea.select();
+                            document.execCommand('copy');
+                            document.body.removeChild(textArea);
+                            this.textContent = '¡Copiado!';
+                            this.style.backgroundColor = '#46df71';
+                            var btn = this;
+                            setTimeout(function() { btn.textContent = 'Copiar'; btn.style.backgroundColor = '#ffd700'; }, 2000);
+                        ">Copiar</button>
                         <span id="python-show-data"># Mostrar las primeras filas
 print("📋 Primeras 5 filas de los datos:")
 datos.head()</span>
@@ -722,7 +794,20 @@ datos.head()</span>
                     <h4>📊 PASO 5: Crear gráfico de barras (Cuarta celda)</h4>
                     <p><strong>En una NUEVA celda, copia este código:</strong></p>
                     <div class="code-block">
-                        <button class="copy-btn" onclick="copyToClipboard('python-bar-chart')">Copiar</button>
+                        <button class="copy-btn" onclick="
+                            var element = document.getElementById('python-bar-chart');
+                            var text = element.textContent;
+                            var textArea = document.createElement('textarea');
+                            textArea.value = text;
+                            document.body.appendChild(textArea);
+                            textArea.select();
+                            document.execCommand('copy');
+                            document.body.removeChild(textArea);
+                            this.textContent = '¡Copiado!';
+                            this.style.backgroundColor = '#46df71';
+                            var btn = this;
+                            setTimeout(function() { btn.textContent = 'Copiar'; btn.style.backgroundColor = '#ffd700'; }, 2000);
+                        ">Copiar</button>
                         <span id="python-bar-chart"># Crear gráfico de barras
 plt.figure(figsize=(8, 6))
 datos['day'].value_counts().plot(kind='bar', color='skyblue')
@@ -739,7 +824,20 @@ plt.show()</span>
                     <h4>📈 PASO 6: Crear histograma (Quinta celda)</h4>
                     <p><strong>En una NUEVA celda, copia este código:</strong></p>
                     <div class="code-block">
-                        <button class="copy-btn" onclick="copyToClipboard('python-histogram')">Copiar</button>
+                        <button class="copy-btn" onclick="
+                            var element = document.getElementById('python-histogram');
+                            var text = element.textContent;
+                            var textArea = document.createElement('textarea');
+                            textArea.value = text;
+                            document.body.appendChild(textArea);
+                            textArea.select();
+                            document.execCommand('copy');
+                            document.body.removeChild(textArea);
+                            this.textContent = '¡Copiado!';
+                            this.style.backgroundColor = '#46df71';
+                            var btn = this;
+                            setTimeout(function() { btn.textContent = 'Copiar'; btn.style.backgroundColor = '#ffd700'; }, 2000);
+                        ">Copiar</button>
                         <span id="python-histogram"># Crear histograma
 plt.figure(figsize=(8, 6))
 plt.hist(datos['total_bill'], bins=20, color='orange', alpha=0.7)
@@ -770,113 +868,349 @@ print("🎯 ¡Análisis completado exitosamente!")</span>
                 <h3><span class="step-number">3</span>R ONLINE (8 minutos)</h3>
                 
                 <div class="highlight-box">
-                    <h4>📊 PASO 1: Ir a R Online</h4>
-                    <p>En el navegador, ve a: <strong>rdrr.io/snippets/</strong><br>
-                    (No necesitas crear cuenta)</p>
+                    <h4>📊 ACCESO A R ONLINE:</h4>
+                    <p>Ve a: <strong>posit.cloud</strong> (anteriormente RStudio Cloud)<br>
+                    Crea una cuenta gratuita o inicia sesión<br>
+                    Clic en <strong>"New Project"</strong> → <strong>"New RStudio Project"</strong></p>
                 </div>
 
                 <div class="highlight-box">
-                    <h4>📝 PASO 2: Copiar código completo</h4>
-                    <p><strong>Copia EXACTAMENTE todo este código en la caja de texto:</strong></p>
+                    <h4>📈 CÓDIGO R COMPLETO PARA ANÁLISIS DE AUTOS:</h4>
+                    <p><strong>Copia EXACTAMENTE este código en la consola de R:</strong></p>
                     <div class="code-block">
-                        <button class="copy-btn" onclick="copyToClipboard('r-complete-code')">Copiar</button>
-                        <span id="r-complete-code"># =================================================
-# ANÁLISIS DE DATOS DE AUTOMÓVILES CON R
-# =================================================
+                        <button class="copy-btn" onclick="
+                            var element = document.getElementById('r-complete-script');
+                            var text = element.textContent;
+                            var textArea = document.createElement('textarea');
+                            textArea.value = text;
+                            document.body.appendChild(textArea);
+                            textArea.select();
+                            document.execCommand('copy');
+                            document.body.removeChild(textArea);
+                            this.textContent = '¡Copiado!';
+                            this.style.backgroundColor = '#46df71';
+                            var btn = this;
+                            setTimeout(function() { btn.textContent = 'Copiar'; btn.style.backgroundColor = '#ffd700'; }, 2000);
+                        ">Copiar</button>
+                        <span id="r-complete-script"># -------------------------------------
+# 🚗 Análisis de autos - Dataset mtcars
+# -------------------------------------
 
-cat("🔄 Iniciando análisis de datos...\n\n")
-
-# Cargar datos desde internet
-cat("📥 Cargando datos de automóviles...\n")
+# 📥 Cargar datos desde internet
+cat("🔄 Cargando datos...\n")
 url <- "https://raw.githubusercontent.com/plotly/datasets/master/mtcars.csv"
 datos <- read.csv(url)
-
 cat("✅ ¡Datos cargados exitosamente!\n")
-cat("📊 Número de automóviles:", nrow(datos), "\n")
-cat("📋 Número de variables:", ncol(datos), "\n\n")
+cat("📊 Número de autos en el dataset:", nrow(datos), "\n\n")
 
-# Mostrar información básica de los datos
-cat("=" , rep("=", 50), "\n")
-cat("📋 INFORMACIÓN DE LOS DATOS\n")
-cat("=" , rep("=", 50), "\n")
-print(head(datos, 6))
+# 📋 Mostrar tabla de datos (primeras 8 filas)
+cat("📋 TABLA DE DATOS (primeras 8 filas):\n")
+cat(strrep("=", 50), "\n")
+print(head(datos, 8))
+cat(strrep("=", 50), "\n\n")
 
-cat("\n")
-cat("=" , rep("=", 50), "\n")
-cat("📈 RESUMEN ESTADÍSTICO\n")
-cat("=" , rep("=", 50), "\n")
-cat("Variables clave: MPG (millas/galón), HP (caballos), WT (peso)\n\n")
+# 📈 Resumen estadístico de variables clave
+cat("📈 RESUMEN ESTADÍSTICO:\n")
+cat("Variables: MPG (millas por galón), HP (caballos de fuerza), WT (peso)\n\n")
 print(summary(datos[c("mpg", "hp", "wt")]))
+cat(strrep("=", 50), "\n\n")
 
-cat("\n")
-cat("=" , rep("=", 50), "\n")
-cat("📊 CREANDO VISUALIZACIÓN\n")
-cat("=" , rep("=", 50), "\n")
+# 📊 Crear gráfico de dispersión entre Peso y Consumo
+cat("📊 CREANDO GRÁFICO...\n")
+plot(
+  datos$wt, datos$mpg,
+  main = "Relación entre Peso y Consumo de Combustible",
+  xlab = "Peso del auto (1000 lbs)",
+  ylab = "Millas por galón (MPG)",
+  pch = 19,       # Puntos sólidos
+  col = "blue",   # Color azul
+  cex = 1.2       # Tamaño de puntos
+)
 
-# Crear gráfico de dispersión
-plot(datos$wt, datos$mpg, 
-     main="📊 Relación entre Peso y Eficiencia de Combustible",
-     xlab="Peso del automóvil (1000 lbs)", 
-     ylab="Millas por galón (MPG)",
-     pch=19,
-     col="blue",
-     cex=1.2)
+# 📉 Añadir línea de tendencia (regresión lineal)
+abline(lm(mpg ~ wt, data = datos), col = "red", lwd = 2)
 
-# Añadir línea de tendencia
-abline(lm(mpg ~ wt, data=datos), col="red", lwd=2)
-
-# Añadir leyenda
-legend("topright", 
-       legend=c("Datos", "Tendencia"), 
-       col=c("blue", "red"), 
-       pch=c(19, NA), 
-       lty=c(NA, 1), 
-       lwd=c(NA, 2))
-
-cat("\n🎯 ¡Análisis completado exitosamente!\n")
-cat("💡 Conclusión: Los autos más pesados tienden a consumir más combustible.\n")
-cat("📊 La línea roja muestra la relación negativa entre peso y eficiencia.\n")</span>
+cat("🎯 ¡Análisis completado!\n")
+cat("💡 El gráfico muestra que autos más pesados consumen más combustible.\n")</span>
                     </div>
-                    <p><strong>Clic en "Run" para ejecutar todo el código</strong></p>
+                    <p><strong>Presiona Enter después de pegar el código completo</strong></p>
                 </div>
 
                 <div class="success-box">
-                    <h4>✅ QUÉ DEBES VER EN LOS RESULTADOS:</h4>
-                    <ol>
-                        <li><strong>Mensajes de confirmación</strong> (✅ Datos cargados...)</li>
-                        <li><strong>Tabla con información de autos</strong> (mpg, hp, wt, etc.)</li>
-                        <li><strong>Resumen estadístico</strong> con Min, Max, Media</li>
-                        <li><strong>Gráfico de puntos azules</strong> con línea roja de tendencia</li>
-                        <li><strong>Leyenda explicativa</strong> y conclusiones del análisis</li>
-                    </ol>
+                    <h4>✅ QUÉ DEBES VER EN R:</h4>
+                    <ul>
+                        <li>✅ Mensaje "¡Datos cargados exitosamente!"</li>
+                        <li>📊 Número total de autos (32)</li>
+                        <li>📋 Tabla con 8 filas mostrando modelos de autos</li>
+                        <li>📈 Resumen estadístico de MPG, HP, WT</li>
+                        <li>📊 Gráfico de dispersión azul con línea roja</li>
+                        <li>🎯 Mensaje "¡Análisis completado!"</li>
+                    </ul>
                 </div>
 
                 <div class="warning-box">
-                    <p><strong>⚠️ SI NO FUNCIONA:</strong></p>
+                    <h4>⚠️ IMPORTANTE PARA LA CAPTURA:</h4>
                     <ul>
-                        <li>Verifica que estés en <strong>rdrr.io/snippets/</strong></li>
-                        <li>Usa el botón "Copiar" de arriba para evitar errores</li>
-                        <li>Espera unos segundos después de hacer clic en "Run"</li>
-                        <li>Si hay error, borra todo y vuelve a pegar el código completo</li>
+                        <li><strong>Captura toda la pantalla</strong> cuando veas el gráfico</li>
+                        <li><strong>Asegúrate de que se vea:</strong> el código, los resultados Y el gráfico</li>
+                        <li><strong>Si el gráfico no aparece:</strong> haz clic en "Plots" en el panel derecho</li>
                     </ul>
+                </div>
+            </div>
+
+            <div class="step">
+                <h3><span class="step-number">📸</span>FORMATO PARA WORD</h3>
+                <p><strong>Al insertar las 3 capturas en tu documento Word, usa este formato:</strong></p>
+                
+                <div class="code-block">
+                    <button class="copy-btn" onclick="
+                        var element = document.getElementById('word-format');
+                        var text = element.textContent;
+                        var textArea = document.createElement('textarea');
+                        textArea.value = text;
+                        document.body.appendChild(textArea);
+                        textArea.select();
+                        document.execCommand('copy');
+                        document.body.removeChild(textArea);
+                        this.textContent = '¡Copiado!';
+                        this.style.backgroundColor = '#46df71';
+                        var btn = this;
+                        setTimeout(function() { btn.textContent = 'Copiar'; btn.style.backgroundColor = '#ffd700'; }, 2000);
+                    ">Copiar</button>
+                    <span id="word-format">EVIDENCIA DE SOFTWARE
+
+Figura 1. Power BI Desktop - Análisis del dataset Iris
+[Insertar captura de Power BI aquí]
+
+Figura 2. Google Colab - Análisis de propinas con Python
+[Insertar captura de Google Colab aquí]
+
+Figura 3. Posit Cloud (R) - Correlación peso-combustible en automóviles
+[Insertar captura de R Online aquí]</span>
                 </div>
             </div>
         </div>
 
         <!-- Evidencia Software -->
         <div id="evidencia" class="content-section">
-            <h2>📸 EVIDENCIA DE SOFTWARE EN EL DOCUMENTO</h2>
+            <h2>📸 EVIDENCIA DE SOFTWARE</h2>
+            
+            <div class="step">
+                <h3><span class="step-number">📋</span>EJEMPLO DE EVIDENCIA CORRECTA</h3>
+                <p>A continuación se muestra el formato exacto de cómo deben verse tus capturas:</p>
+                
+                <div class="software-grid">
+                    <div class="software-card">
+                        <div class="icon">📊</div>
+                        <h4>Power BI - CORRECTO ✅</h4>
+                        <p><strong>Se debe ver:</strong><br>
+                        • Panel "Campos" con datos iris<br>
+                        • Al menos 2 visualizaciones<br>
+                        • Datos de flores (setosa, versicolor, virginica)<br>
+                        • Interfaz completa de Power BI</p>
+                    </div>
+                    
+                    <div class="software-card">
+                        <div class="icon">🐍</div>
+                        <h4>Google Colab - CORRECTO ✅</h4>
+                        <p><strong>Se debe ver:</strong><br>
+                        • Celdas de código ejecutadas<br>
+                        • Gráfico de barras (días semana)<br>
+                        • Histograma (total cuentas)<br>
+                        • Mensaje "¡Análisis completado!"</p>
+                    </div>
+                    
+                    <div class="software-card">
+                        <div class="icon">📈</div>
+                        <h4>R Online - CORRECTO ✅</h4>
+                        <p><strong>Se debe ver:</strong><br>
+                        • Consola con código ejecutado<br>
+                        • Tabla de datos mtcars<br>
+                        • Gráfico dispersión azul/rojo<br>
+                        • Estadísticas de resumen</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="warning-box">
+                <h3>❌ ERRORES COMUNES A EVITAR</h3>
+                <ul>
+                    <li><strong>Capturas parciales:</strong> No capturar solo el gráfico, sino toda la pantalla del software</li>
+                    <li><strong>Datos incorrectos:</strong> Usar datasets diferentes a los especificados</li>
+                    <li><strong>Software equivocado:</strong> Usar R Studio local en lugar de posit.cloud</li>
+                    <li><strong>Sin ejecución:</strong> Capturar código sin ejecutar</li>
+                    <li><strong>Formato incorrecto:</strong> No seguir el formato "Figura X. Software - Descripción"</li>
+                </ul>
+            </div>
+
+            <div class="success-box">
+                <h3>✅ CHECKLIST ANTES DE ENTREGAR</h3>
+                <ul>
+                    <li>📊 <strong>Power BI:</strong> ¿Se ven al menos 2 visualizaciones del dataset iris?</li>
+                    <li>🐍 <strong>Python:</strong> ¿Se ven ambos gráficos (barras + histograma) del dataset tips?</li>
+                    <li>📈 <strong>R:</strong> ¿Se ve el gráfico de dispersión peso vs mpg del dataset mtcars?</li>
+                    <li>📄 <strong>Formato:</strong> ¿Cada captura tiene su título "Figura X..."?</li>
+                    <li>🎯 <strong>Calidad:</strong> ¿Las capturas son claras y se puede leer el texto?</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Rúbrica -->
+        <div id="rubrica" class="content-section">
+            <h2>📊 RÚBRICA DE EVALUACIÓN</h2>
+            
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>CRITERIO</th>
+                        <th style="background: #ff6b6b; color: white;">DEFICIENTE<br>0 puntos</th>
+                        <th style="background: #ffa500; color: white;">REGULAR<br>1 punto</th>
+                        <th style="background: #46df71; color: white;">EXCELENTE<br>2 puntos</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Presentación</strong></td>
+                        <td>No ha incluido una portada en su actividad.</td>
+                        <td>Incluye una portada donde enuncia al menos tres de los siguientes datos: nombre de la materia, alumno, nombre del tutor, nombre de la actividad y fecha de entrega.</td>
+                        <td>Incluye una portada donde enuncia los datos de la materia, alumno, nombre del tutor, nombre de la actividad y fecha de entrega.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Contenido</strong></td>
+                        <td>La información que aborda es poco clara para entender y comparar los elementos y características de cada técnica de exploración de datos. Plantea dos conceptos principales de cada técnica, demuestra que no se hizo el análisis elemental de los textos. No identifica las semejanzas y diferencias de los elementos comparados.</td>
+                        <td>Aborda la mayoría de la información para comprender y diferenciar los elementos y las características de cada técnica de exploración de datos. Plantea cuatro conceptos principales de cada técnica, siendo los mínimos para demostrar la lectura y análisis de los textos. Identifica varias de las semejanzas y diferencias entre los elementos comparados.</td>
+                        <td>Aborda toda la información necesaria para comprender y diferenciar los elementos y las características de las técnica de exploración de datos. Plantea todos los conceptos principales de cada técnica que demuestra la lectura y análisis de los textos. Identifica de manera clara y precisa las semejanzas y diferencias entre los elementos comparados.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Diseño</strong></td>
+                        <td>Cuadro simple que cumple con uno de los criterios de diseño, con más de diez errores de ortografía (seguir el orden del formato establecido por el profesor, señalar en negritas las ideas y conceptos principales, escribir de arriba a abajo, de lo simple a lo complejo).</td>
+                        <td>Cuadro que cumple con dos de los criterios de diseño, con errores de ortografía (seguir el orden del formato establecido por el profesor, señalar en negritas las ideas y conceptos principales, escribir de arriba a abajo, de lo simple a lo complejo).</td>
+                        <td>Cuadro que cumple con todos los criterios de diseño, sin errores de ortografía (seguir el orden del formato establecido por el profesor, señalar en negritas las ideas y conceptos principales, escribir de arriba a abajo, de lo simple a lo complejo).</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Organización de información</strong></td>
+                        <td>Descripción poco clara del cuadro, contiene pocos detalles significativos (ideas principales de cada técnica). La presentación no está bien organizada y dificulta el seguimiento.</td>
+                        <td>Descripción precisa y clara del cuadro, con buena calidad de detalles significativos (ideas principales de cada técnica). La presentación está organizada.</td>
+                        <td>Descripción precisa y clara del cuadro, con excelente calidad de detalles significativos (ideas principales de cada técnica). La presentación está bien organizada.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Bibliografía</strong></td>
+                        <td>Se emplearon conceptos derivados de otros autores sin realizar las citas y referencias pertinentes en formato APA en todos casos necesarios.</td>
+                        <td>Se emplearon conceptos derivados de otros autores, con omisiones o errores técnicos en citas y referencias respecto al formato APA.</td>
+                        <td>Se incluyeron las citas y referencias pertinentes en formato APA en todos casos necesarios.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="highlight-box">
+                <h3>🎯 DISTRIBUCIÓN DE PUNTOS - TOTAL: 10 PUNTOS</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 20px;">
+                    <div style="background: rgba(255, 255, 255, 0.1); padding: 15px; border-radius: 10px;">
+                        <h4 style="color: #ffd700; margin-bottom: 10px;">📄 Presentación</h4>
+                        <p><strong>2 puntos máximo</strong><br>Portada con todos los datos requeridos</p>
+                    </div>
+                    <div style="background: rgba(255, 255, 255, 0.1); padding: 15px; border-radius: 10px;">
+                        <h4 style="color: #ffd700; margin-bottom: 10px;">📚 Contenido</h4>
+                        <p><strong>2 puntos máximo</strong><br>Información completa y análisis profundo</p>
+                    </div>
+                    <div style="background: rgba(255, 255, 255, 0.1); padding: 15px; border-radius: 10px;">
+                        <h4 style="color: #ffd700; margin-bottom: 10px;">🎨 Diseño</h4>
+                        <p><strong>2 puntos máximo</strong><br>Formato correcto sin errores</p>
+                    </div>
+                    <div style="background: rgba(255, 255, 255, 0.1); padding: 15px; border-radius: 10px;">
+                        <h4 style="color: #ffd700; margin-bottom: 10px;">📋 Organización</h4>
+                        <p><strong>2 puntos máximo</strong><br>Descripción clara y bien estructurada</p>
+                    </div>
+                    <div style="background: rgba(255, 255, 255, 0.1); padding: 15px; border-radius: 10px;">
+                        <h4 style="color: #ffd700; margin-bottom: 10px;">📖 Bibliografía</h4>
+                        <p><strong>2 puntos máximo</strong><br>Citas APA correctas en todos los casos</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="warning-box">
+                <h3>⚠️ PUNTOS CLAVE PARA OBTENER MÁXIMA CALIFICACIÓN</h3>
+                <ul>
+                    <li><strong>Portada completa:</strong> Materia, alumno, tutor, actividad y fecha</li>
+                    <li><strong>Cuadro completo:</strong> Todos los conceptos con análisis profundo</li>
+                    <li><strong>Formato perfecto:</strong> Negritas, orden correcto, sin errores ortográficos</li>
+                    <li><strong>Organización excelente:</strong> Descripción clara de cada técnica</li>
+                    <li><strong>Citas APA correctas:</strong> En todos los conceptos sin excepción</li>
+                </ul>
+            </div>
+
+            <div class="success-box">
+                <h3>✅ EJEMPLO DE CITA APA CORRECTA</h3>
+                <p><strong>Formato:</strong> <em>(Apellido del autor, año)</em></p>
+                <p><strong>Ejemplo en el cuadro:</strong><br>
+                <strong>Redes neuronales</strong><br>
+                Sistema de procesamiento inspirado en el funcionamiento del cerebro humano para reconocimiento de patrones complejos (García, 2023).</p>
+            </div>
+        </div>
+
+        <!-- Checklist Final -->
+        <div id="checklist" class="content-section">
+            <h2>✅ CHECKLIST FINAL ANTES DE ENTREGAR</h2>
+            
+            <div class="step">
+                <h3><span class="step-number">📄</span>DOCUMENTO WORD</h3>
+                <ul>
+                    <li>☐ <strong>Portada completa</strong> con todos los datos requeridos</li>
+                    <li>☐ <strong>Cuadro comparativo</strong> completamente lleno</li>
+                    <li>☐ <strong>Todas las celdas</strong> tienen contenido (no quedan [Completa con...])</li>
+                    <li>☐ <strong>Citas APA</strong> en cada concepto (Apellido, año)</li>
+                    <li>☐ <strong>Formato correcto</strong> con negritas en conceptos principales</li>
+                    <li>☐ <strong>Sin errores ortográficos</strong></li>
+                </ul>
+            </div>
 
             <div class="step">
-                <h3><span class="step-number">📋</span>CÓMO INCLUIR LAS CAPTURAS EN WORD</h3>
-                
-                <div class="highlight-box">
-                    <h4>📸 PROCESO PASO A PASO:</h4>
-                    <ol>
-                        <li><strong>Tomar captura:</strong> Alt + Impr Pant (ventana activa)</li>
-                        <li><strong>En Word:</strong> Ctrl + V para pegar</li>
-                        <li><strong>Ajustar tamaño:</strong> Clic derecho → Tamaño y propiedades</li>
-                        <li><strong>Añadir descripción</strong> debajo de cada imagen</li>
-                        <li><strong>Ubicación:</strong> Después del cuadro comparativo</li>
-                    </ol>
-                </div>
+                <h3><span class="step-number">📸</span>EVIDENCIA DE SOFTWARE</h3>
+                <ul>
+                    <li>☐ <strong>3 capturas incluidas</strong> después del cuadro comparativo</li>
+                    <li>☐ <strong>Figura 1:</strong> Power BI con dataset iris</li>
+                    <li>☐ <strong>Figura 2:</strong> Google Colab con dataset tips</li>
+                    <li>☐ <strong>Figura 3:</strong> R Online con dataset mtcars</li>
+                    <li>☐ <strong>Todas las capturas</strong> son claras y legibles</li>
+                    <li>☐ <strong>Formato de títulos</strong> correcto para cada figura</li>
+                </ul>
+            </div>
+
+            <div class="step">
+                <h3><span class="step-number">📤</span>ARCHIVO FINAL</h3>
+                <ul>
+                    <li>☐ <strong>Nombre correcto:</strong> CuadroComparativo_[TU_MATRÍCULA].docx</li>
+                    <li>☐ <strong>Formato:</strong> .docx (Microsoft Word)</li>
+                    <li>☐ <strong>Tamaño:</strong> Menor a 20 MB</li>
+                    <li>☐ <strong>Entrega antes:</strong> Lunes, 2 de junio de 2025, 23:59</li>
+                </ul>
+            </div>
+
+            <div class="success-box">
+                <h3>🎯 ¡TODO LISTO!</h3>
+                <p>Si has marcado todas las casillas ☐, tu actividad está completa y lista para entregar.</p>
+                <p><strong>¡Buena suerte! 🚀</strong></p>
+            </div>
+
+            <div class="highlight-box">
+                <h3>📞 ¿NECESITAS AYUDA?</h3>
+                <p>Si tienes dudas sobre algún paso, revisa los videos tutoriales en el aula virtual o contacta al profesor durante las horas de consulta.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Funcionalidad para copiar texto
+        function copyToClipboard(text, button) {
+            navigator.clipboard.writeText(text).then(function() {
+                button.textContent = '¡Copiado!';
+                button.style.backgroundColor = '#46df71';
+                setTimeout(function() {
+                    button.textContent = 'Copiar';
+                    button.style.backgroundColor = '#ffd700';
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>
