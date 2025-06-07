@@ -1,219 +1,1034 @@
-<!DOCTYPE html>
+<div class="code-block">
+#<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Análítica de Datos</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #1e293b;
-      color: white;
-    }
-    .header {
-      display: flex;
-      align-items: center;
-      padding: 20px;
-      background-color: #1e293b;
-    }
-    .logo {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      overflow: hidden;
-      margin-right: 10px;
-    }
-    .logo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    .header h1 {
-      font-size: 2em;
-      margin: 0;
-    }
-    .header p {
-      font-size: 0.9em;
-      margin: 0;
-    }
-    .content {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: calc(100vh - 150px);
-      background-color: #1e293b;
-      color: white;
-      text-align: center;
-    }
-    .slide {
-      display: none;
-      font-size: 1.5em;
-      padding: 20px;
-      background-color: #f0f0f0;
-      color: black;
-      border-radius: 10px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-    .slide.active {
-      display: block;
-    }
-    .controls {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px;
-      background-color: #1e293b;
-      color: white;
-    }
-    .controls button {
-      padding: 10px 20px;
-      font-size: 1em;
-      border: none;
-      border-radius: 20px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-    .controls button:hover {
-      background-color: #ff6b6b;
-    }
-    .controls .current-slide {
-      background-color: #344054;
-      color: white;
-      padding: 10px 20px;
-      border-radius: 20px;
-      font-size: 1em;
-    }
-    .controls .time {
-      background-color: #ff6b6b;
-      color: white;
-      padding: 10px 20px;
-      border-radius: 20px;
-      font-size: 1em;
-    }
-    .controls .additional-controls {
-      display: flex;
-      gap: 10px;
-    }
-    .controls .additional-controls button {
-      background-color: transparent;
-      color: white;
-      border: none;
-      font-size: 1.5em;
-    }
-    .controls .additional-controls button:hover {
-      background-color: #344054;
-    }
-    .time {
-      position: relative;
-      display: inline-block;
-      padding: 10px 20px;
-      border-radius: 20px;
-      background-color: #ff6b6b;
-      color: white;
-      font-size: 1.5em;
-    }
-    .time::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border: 2px solid red;
-      border-radius: 20px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad 4: Herramientas Disponibles | Universidad del SABES</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: white;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .university-logo {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto 15px;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            color: #ff6b9d;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .navigation-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .tab-btn.active {
+            background: linear-gradient(135deg, #ff6b9d, #c44569);
+            border-color: #ff6b9d;
+        }
+
+        .tab-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .content-section {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: none;
+            position: relative;
+            z-index: 1;
+        }
+
+        .content-section.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .content-section h2 {
+            font-size: 2rem;
+            color: #ff6b9d;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .step {
+            background: rgba(255, 255, 255, 0.05);
+            border-left: 4px solid #ff6b9d;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 10px;
+        }
+
+        .step h3 {
+            font-size: 1.3rem;
+            color: #ff6b9d;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .step-number {
+            background: #ff6b9d;
+            color: #764ba2;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+        .step ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .step li {
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+
+        .highlight-box {
+            background: rgba(255, 107, 157, 0.2);
+            border: 2px solid rgba(255, 107, 157, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .warning-box {
+            background: rgba(255, 107, 107, 0.2);
+            border: 2px solid rgba(255, 107, 107, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .success-box {
+            background: rgba(46, 213, 115, 0.2);
+            border: 2px solid rgba(46, 213, 115, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .tool-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .tool-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .tool-card:hover {
+            transform: translateY(-5px);
+            border-color: #ff6b9d;
+        }
+
+        .tool-card h4 {
+            color: #ff6b9d;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        .tool-card .icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .download-section {
+            background: #ff6b9d;
+            color: #764ba2;
+            padding: 30px;
+            border-radius: 20px;
+            margin: 30px 0;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(255, 107, 157, 0.3);
+        }
+
+        .download-btn {
+            background: #667eea;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            display: inline-block;
+            margin: 15px;
+            border: 3px solid white;
+            transition: all 0.3s ease;
+        }
+
+        .download-btn:hover {
+            background: #764ba2;
+            transform: translateY(-2px);
+        }
+
+        .code-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 15px;
+            background: rgba(255, 107, 157, 0.3);
+            border-radius: 8px 8px 0 0;
+            margin-bottom: 0;
+        }
+
+        .code-title {
+            color: #ff6b9d;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .code-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .code-btn {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 5px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 11px;
+            transition: all 0.3s ease;
+        }
+
+        .code-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            border-color: #ff6b9d;
+        }
+
+        .code-btn.success {
+            background: rgba(70, 223, 113, 0.3);
+            border-color: #46df71;
+        }
+
+        .code-content {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 0 0 8px 8px;
+            font-family: 'Courier New', monospace;
+            color: white;
+            white-space: pre-wrap;
+            font-size: 14px;
+            line-height: 1.5;
+            overflow-x: auto;
+            user-select: all;
+        }
+
+        .code-block {
+            margin: 15px 0;
+            border-left: 4px solid #ff6b9d;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #ff6b9d;
+            color: #764ba2;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: bold;
+            z-index: 10;
+        }
+
+        .copy-btn:hover {
+            background: #ff8fab;
+        }
+
+        @media (max-width: 768px) {
+            .container { padding: 15px; }
+            .content-section { padding: 25px; }
+            .header h1 { font-size: 2rem; }
+            .navigation-tabs { flex-direction: column; align-items: center; }
+            .tab-btn { width: 90%; text-align: center; }
+            .code-block { font-size: 12px; padding: 15px; }
+        }
+    </style>
 </head>
 <body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="university-logo">🛠️</div>
+            <h1>ACTIVIDAD 4</h1>
+            <p>Herramientas Disponibles - Cuadro Comparativo</p>
+            <p><strong>Universidad del SABES</strong> | Analítica de Datos | Prof. Fausto Noé Jiménez</p>
+        </div>
 
-  <!-- Encabezado -->
-  <div class="header">
-    <div class="logo">
-      <img src="https://via.placeholder.com/50"  alt="Logo">
+        <!-- Navigation -->
+        <div class="navigation-tabs">
+            <button class="tab-btn active" onclick="showSection('instrucciones', this)">📋 Instrucciones</button>
+            <button class="tab-btn" onclick="showSection('investigacion', this)">🔍 Investigación</button>
+            <button class="tab-btn" onclick="showSection('cuadro', this)">📊 Cuadro Comparativo</button>
+            <button class="tab-btn" onclick="showSection('ejercicios', this)">💻 Ejercicios Prácticos</button>
+            <button class="tab-btn" onclick="showSection('formato', this)">📄 Formato APA</button>
+            <button class="tab-btn" onclick="showSection('checklist', this)">✅ Checklist</button>
+        </div>
+
+        <!-- Instrucciones Generales -->
+        <div id="instrucciones" class="content-section active">
+            <h2>📋 INSTRUCCIONES GENERALES</h2>
+
+            <div class="highlight-box">
+                <h3>🎯 OBJETIVO</h3>
+                <p>Realizar una investigación documental sobre cinco plataformas adicionales para análisis de información, crear un cuadro comparativo que muestre ventajas y desventajas, realizar ejercicios prácticos en 3 herramientas, y aplicar formato APA correctamente.</p>
+            </div>
+
+            <div class="step">
+                <h3><span class="step-number">📅</span>FECHAS IMPORTANTES</h3>
+                <ul>
+                    <li><strong>Fecha límite:</strong> Lunes, 9 de junio de 2025, 23:59</li>
+                    <li><strong>Tiempo estimado:</strong> 2 horas</li>
+                    <li><strong>Estado:</strong> Pendiente</li>
+                </ul>
+            </div>
+
+            <div class="step">
+                <h3><span class="step-number">📄</span>FORMATO DE ENTREGA</h3>
+                <ul>
+                    <li><strong>Archivo:</strong> CuadroComparativoHerramientas_[TU_MATRÍCULA].docx</li>
+                    <li><strong>Ejemplo:</strong> CuadroComparativoHerramientas_U2904053R0022.docx</li>
+                    <li><strong>Software:</strong> Microsoft Word (.docx)</li>
+                    <li><strong>Páginas estimadas:</strong> 4-6 páginas</li>
+                </ul>
+            </div>
+
+            <div class="step">
+                <h3><span class="step-number">📚</span>REQUISITOS OBLIGATORIOS</h3>
+                <ul>
+                    <li>✅ <strong>Leer:</strong> Material de plataforma correspondiente a la unidad</li>
+                    <li>✅ <strong>Investigar:</strong> 5 plataformas adicionales a las presentadas en clase</li>
+                    <li>✅ <strong>Documentar:</strong> Ventajas y desventajas de cada plataforma</li>
+                    <li>✅ <strong>Crear:</strong> Cuadro comparativo con representación visual clara</li>
+                    <li>✅ <strong>Realizar:</strong> 1 ejercicio práctico en Power BI, Python Colab y R Posit</li>
+                    <li>✅ <strong>Evidenciar:</strong> Capturas de pantalla con explicaciones detalladas</li>
+                    <li>✅ <strong>Citar:</strong> Fuentes consultadas en formato APA</li>
+                </ul>
+            </div>
+
+            <div class="warning-box">
+                <h3>⚠️ IMPORTANTE</h3>
+                <ul>
+                    <li>Las plataformas deben ser <strong>adicionales</strong> a las vistas en clase</li>
+                    <li>Usar <strong>fuentes confiables</strong> para la investigación</li>
+                    <li>El cuadro debe favorecer la <strong>lectura visual</strong></li>
+                    <li>Los ejercicios prácticos son <strong>obligatorios</strong></li>
+                    <li>Citas APA <strong>obligatorias</strong> para todas las fuentes</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Investigación -->
+        <div id="investigacion" class="content-section">
+            <h2>🔍 GUÍA DE INVESTIGACIÓN</h2>
+
+            <div class="download-section">
+                <h3 style="font-size: 1.5rem; margin-bottom: 15px;">📥 PLANTILLA OFICIAL DISPONIBLE</h3>
+                <p style="font-size: 1.1rem; margin-bottom: 25px; font-weight: bold;">Descarga la plantilla oficial en Word para facilitar tu trabajo:</p>
+                
+                <a href="https://fnjimenez.github.io/curso-analitica-datos/CuadroComparativoHerramientas_U29xxxxxxxx.docx" 
+                   download="CuadroComparativoHerramientas_U29xxxxxxxx.docx"
+                   class="download-btn">
+                    📄 DESCARGAR PLANTILLA WORD
+                </a>
+                
+                <p style="margin-top: 20px; font-weight: bold;">💡 Tip: Cambia "U29xxxxxxxx" por tu matrícula real</p>
+            </div>
+
+            <div class="step">
+                <h3><span class="step-number">1</span>SELECCIONAR PLATAFORMAS PARA INVESTIGAR</h3>
+                <p><strong>Elige 5 plataformas de análisis de datos de esta lista (adicionales a las vistas en clase):</strong></p>
+                
+                <div class="tool-grid">
+                    <div class="tool-card">
+                        <div class="icon">📊</div>
+                        <h4>Qlik Sense</h4>
+                        <p>Plataforma de business intelligence con visualizaciones interactivas</p>
+                    </div>
+                    <div class="tool-card">
+                        <div class="icon">📈</div>
+                        <h4>SAS Visual Analytics</h4>
+                        <p>Herramienta empresarial para análisis estadístico avanzado</p>
+                    </div>
+                    <div class="tool-card">
+                        <div class="icon">🔍</div>
+                        <h4>Splunk</h4>
+                        <p>Plataforma para búsqueda y análisis de big data en tiempo real</p>
+                    </div>
+                    <div class="tool-card">
+                        <div class="icon">📋</div>
+                        <h4>Looker</h4>
+                        <p>Plataforma de business intelligence moderna basada en la nube</p>
+                    </div>
+                    <div class="tool-card">
+                        <div class="icon">🌐</div>
+                        <h4>AWS QuickSight</h4>
+                        <p>Servicio de business intelligence de Amazon Web Services</p>
+                    </div>
+                    <div class="tool-card">
+                        <div class="icon">⚡</div>
+                        <h4>Apache Spark</h4>
+                        <p>Motor de análisis unificado para procesamiento de big data</p>
+                    </div>
+                    <div class="tool-card">
+                        <div class="icon">📊</div>
+                        <h4>Domo</h4>
+                        <p>Plataforma de business intelligence en la nube</p>
+                    </div>
+                    <div class="tool-card">
+                        <div class="icon">🎯</div>
+                        <h4>Sisense</h4>
+                        <p>Plataforma de analytics que simplifica datos complejos</p>
+                    </div>
+                    <div class="tool-card">
+                        <div class="icon">📱</div>
+                        <h4>Palantir</h4>
+                        <p>Plataforma de análisis de big data para organizaciones</p>
+                    </div>
+                    <div class="tool-card">
+                        <div class="icon">🔬</div>
+                        <h4>DataRobot</h4>
+                        <p>Plataforma automatizada de machine learning</p>
+                    </div>
+                    <div class="tool-card">
+                        <div class="icon">🌟</div>
+                        <h4>Alteryx</h4>
+                        <p>Plataforma de análisis self-service para científicos de datos</p>
+                    </div>
+                    <div class="tool-card">
+                        <div class="icon">🔍</div>
+                        <h4>Knime</h4>
+                        <p>Plataforma open source para análisis de datos y machine learning</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cuadro Comparativo -->
+        <div id="cuadro" class="content-section">
+            <h2>📊 ESTRUCTURA DEL CUADRO COMPARATIVO</h2>
+
+            <div class="step">
+                <h3><span class="step-number">📝</span>ESTRUCTURA DEL DOCUMENTO COMPLETO</h3>
+                <p><strong>Tu documento Word debe contener, en orden:</strong></p>
+
+                <div class="highlight-box">
+                    <h4>📄 SECCIONES DEL DOCUMENTO:</h4>
+                    <ol>
+                        <li><strong>Portada</strong>
+                            <ul>
+                                <li>Nombre de la universidad</li>
+                                <li>Nombre de la materia: ANALÍTICA DE DATOS</li>
+                                <li>Título: Actividad 4 - Herramientas Disponibles</li>
+                                <li>Nombre del estudiante</li>
+                                <li>Matrícula</li>
+                                <li>Nombre del profesor: Prof. Fausto Noé Jiménez</li>
+                                <li>Fecha de entrega</li>
+                            </ul>
+                        </li>
+                        <li><strong>Introducción</strong> (1 párrafo)
+                            <ul>
+                                <li>Breve explicación del objetivo</li>
+                                <li>Importancia de conocer diversas herramientas</li>
+                            </ul>
+                        </li>
+                        <li><strong>Cuadro Comparativo</strong>
+                            <ul>
+                                <li>Tabla con las 5 plataformas investigadas</li>
+                                <li>Formato visual atractivo</li>
+                            </ul>
+                        </li>
+                        <li><strong>Ejercicios Prácticos</strong> ← NUEVA SECCIÓN
+                            <ul>
+                                <li>4.1 Ejercicio Power BI</li>
+                                <li>4.2 Ejercicio Python Colab</li>
+                                <li>4.3 Ejercicio R Posit</li>
+                            </ul>
+                        </li>
+                        <li><strong>Conclusiones</strong> (2-3 párrafos)
+                            <ul>
+                                <li>Análisis comparativo general</li>
+                                <li>Recomendaciones de uso</li>
+                                <li>Reflexión sobre ejercicios prácticos</li>
+                                <li>Reflexión personal</li>
+                            </ul>
+                        </li>
+                        <li><strong>Referencias Bibliográficas</strong>
+                            <ul>
+                                <li>Formato APA 7ª edición</li>
+                                <li>Mínimo 10 referencias</li>
+                                <li>Ordenadas alfabéticamente</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ejercicios Prácticos -->
+        <div id="ejercicios" class="content-section">
+            <h2>💻 EJERCICIOS PRÁCTICOS OBLIGATORIOS</h2>
+
+            <div class="highlight-box">
+                <h3>🎯 OBJETIVO DE LOS EJERCICIOS</h3>
+                <p>Complementar tu investigación teórica con experiencia práctica en 3 herramientas fundamentales de análisis de datos. Debes realizar los ejercicios paso a paso, capturar evidencias y <strong>explicar cada resultado obtenido</strong>.</p>
+            </div>
+
+            <div class="step">
+                <h3><span class="step-number">1</span>EJERCICIO POWER BI - ANÁLISIS DE VENTAS (15 minutos)</h3>
+                
+                <div class="success-box">
+                    <h4>📊 PASOS A SEGUIR EN POWER BI:</h4>
+                    <ol>
+                        <li><strong>Abrir Power BI Desktop</strong></li>
+                        <li><strong>Obtener datos desde web:</strong>
+                            <ul>
+                                <li>Ir a "Obtener datos" → "Web"</li>
+                                <li>URL: <code>https://raw.githubusercontent.com/plotly/datasets/master/2014_world_gdp_with_codes.csv</code></li>
+                                <li>Hacer clic en "Cargar"</li>
+                            </ul>
+                        </li>
+                        <li><strong>Crear 3 visualizaciones:</strong>
+                            <ul>
+                                <li>📋 <strong>Tabla:</strong> Mostrar COUNTRY, GDP (BILLIONS), CODE</li>
+                                <li>📊 <strong>Gráfico de barras:</strong> COUNTRY (Eje X) + GDP (Eje Y, top 10)</li>
+                                <li>🗺️ <strong>Mapa:</strong> Ubicación por CODE + Tamaño por GDP</li>
+                            </ul>
+                        </li>
+                        <li><strong>Aplicar filtros:</strong>
+                            <ul>
+                                <li>Filtrar top 15 países por GDP</li>
+                                <li>Crear segmentador por GDP (rangos)</li>
+                            </ul>
+                        </li>
+                        <li><strong>Capturar pantalla completa</strong> del dashboard</li>
+                    </ol>
+                </div>
+
+                <div class="warning-box">
+                    <h4>📝 LO QUE DEBES EXPLICAR EN TU REPORTE:</h4>
+                    <ul>
+                        <li><strong>Paso 2:</strong> ¿Qué datos se cargaron? ¿Cuántos países y qué información contiene?</li>
+                        <li><strong>Paso 3:</strong> ¿Qué información muestra cada visualización?</li>
+                        <li><strong>Gráfico de barras:</strong> ¿Cuáles son los 5 países con mayor GDP? ¿Qué patrones observas?</li>
+                        <li><strong>Mapa:</strong> ¿Cómo se distribuye geográficamente la riqueza mundial?</li>
+                        <li><strong>Paso 4:</strong> ¿Cómo cambian los resultados al aplicar filtros?</li>
+                        <li><strong>Conclusión:</strong> ¿Qué insights económicos obtuviste de este análisis?</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="step">
+                <h3><span class="step-number">2</span>EJERCICIO PYTHON COLAB - ANÁLISIS ESTADÍSTICO (15 minutos)</h3>
+                
+                <div class="success-box">
+                    <h4>🐍 CÓDIGO COMPLETO PARA GOOGLE COLAB:</h4>
+                    <p><strong>Copia y ejecuta cada celda, explicando los resultados:</strong></p>
+
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-title">📋 Código Python para Google Colab</span>
+                            <div class="code-actions">
+                                <button class="code-btn" onclick="selectText(this.parentElement.parentElement.nextElementSibling)">📄 Seleccionar</button>
+                                <button class="code-btn" onclick="copyCode(this.parentElement.parentElement.nextElementSibling, this)">📋 Copiar</button>
+                            </div>
+                        </div>
+                        <div class="code-content" id="python-code">
+# CELDA 1: Importar librerías
+import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
+print("✅ Librerías importadas correctamente")
+
+# CELDA 2: Cargar y explorar datos de población mundial
+url = "https://raw.githubusercontent.com/plotly/datasets/master/2014_world_gdp_with_codes.csv"
+datos = pd.read_csv(url)
+
+print("📊 Información del dataset:")
+print(f"Países: {len(datos)}")
+print(f"Columnas: {list(datos.columns)}")
+print("\n📋 Primeros 5 países:")
+print(datos.head())
+
+# CELDA 3: Estadísticas descriptivas
+print("📈 ESTADÍSTICAS DEL GDP MUNDIAL:")
+print(datos['GDP (BILLIONS)'].describe())
+print(f"\n🌍 Total GDP Mundial: ${datos['GDP (BILLIONS)'].sum():.1f} billones")
+print(f"📊 País más rico: {datos.loc[datos['GDP (BILLIONS)'].idxmax(), 'COUNTRY']}")
+print(f"📉 País más pobre: {datos.loc[datos['GDP (BILLIONS)'].idxmin(), 'COUNTRY']}")
+
+# CELDA 4: Visualización - Histograma
+plt.figure(figsize=(10, 6))
+plt.hist(datos['GDP (BILLIONS)'], bins=20, color='skyblue', edgecolor='black')
+plt.title('Distribución del GDP Mundial (2014)')
+plt.xlabel('GDP en Billones de Dólares')
+plt.ylabel('Número de Países')
+plt.grid(True, alpha=0.3)
+plt.show()
+
+# CELDA 5: Top 10 países
+plt.figure(figsize=(12, 6))
+top10 = datos.nlargest(10, 'GDP (BILLIONS)')
+plt.bar(top10['COUNTRY'], top10['GDP (BILLIONS)'], color='gold', edgecolor='black')
+plt.title('Top 10 Países por GDP (2014)')
+plt.xlabel('País')
+plt.ylabel('GDP (Billones USD)')
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.show()
+
+print("🎯 ¡Análisis económico mundial completado!")
+                        </div>
+                    </div>
+                </div>
+
+                <div class="warning-box">
+                    <h4>📝 LO QUE DEBES EXPLICAR EN TU REPORTE:</h4>
+                    <ul>
+                        <li><strong>Celda 2:</strong> ¿Cuántos países tiene el dataset? ¿Qué información económica contiene?</li>
+                        <li><strong>Celda 3:</strong> ¿Cuál es el GDP promedio mundial? ¿Cuáles son los países más y menos ricos?</li>
+                        <li><strong>Celda 4:</strong> ¿Cómo se distribuye la riqueza mundial según el histograma? ¿Es equitativa?</li>
+                        <li><strong>Celda 5:</strong> ¿Qué países dominan la economía mundial? ¿Qué porcentaje representan del total?</li>
+                        <li><strong>Conclusión:</strong> ¿Qué patrones de desigualdad económica global identificaste?</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="step">
+                <h3><span class="step-number">3</span>EJERCICIO R POSIT - ANÁLISIS DE CORRELACIÓN (15 minutos)</h3>
+                
+                <div class="success-box">
+                    <h4>📈 CÓDIGO COMPLETO PARA R (POSIT CLOUD):</h4>
+                    <p><strong>Ve a posit.cloud, crea nuevo proyecto y ejecuta este código:</strong></p>
+
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-title">📊 Código R para Posit Cloud</span>
+                            <div class="code-actions">
+                                <button class="code-btn" onclick="selectText(this.parentElement.parentElement.nextElementSibling)">📄 Seleccionar</button>
+                                <button class="code-btn" onclick="copyCode(this.parentElement.parentElement.nextElementSibling, this)">📋 Copiar</button>
+                            </div>
+                        </div>
+                        <div class="code-content" id="r-code">
+# ===============================================
+# 📊 Análisis de Datos Económicos con R - Actividad 4
+# ===============================================
+
+cat("🔄 Iniciando análisis económico mundial...\n")
+
+# Cargar datos económicos desde internet
+url <- "https://raw.githubusercontent.com/plotly/datasets/master/2014_world_gdp_with_codes.csv"
+datos <- read.csv(url)
+
+cat("✅ Datos económicos cargados exitosamente\n")
+cat("📊 Países en el dataset:", nrow(datos), "\n")
+cat("📋 Variables:", names(datos), "\n\n")
+
+# Limpiar y preparar datos
+datos$GDP_BILLIONS <- as.numeric(datos$GDP..BILLIONS.)
+datos <- datos[!is.na(datos$GDP_BILLIONS), ]
+
+cat("📈 ESTADÍSTICAS ECONÓMICAS MUNDIALES:\n")
+cat("=====================================\n")
+print(summary(datos$GDP_BILLIONS))
+cat("=====================================\n\n")
+
+# Identificar países por rangos económicos
+ricos <- datos[datos$GDP_BILLIONS > 10, ]
+medios <- datos[datos$GDP_BILLIONS >= 1 & datos$GDP_BILLIONS <= 10, ]
+pobres <- datos[datos$GDP_BILLIONS < 1, ]
+
+cat("🌍 CLASIFICACIÓN ECONÓMICA MUNDIAL:\n")
+cat("💰 Países ricos (>$10B):", nrow(ricos), "países\n")
+cat("📊 Países medios ($1-10B):", nrow(medios), "países\n") 
+cat("📉 Países pobres (<$1B):", nrow(pobres), "países\n\n")
+
+# Crear gráfico de dispersión con clasificación
+cat("📊 Creando análisis visual...\n")
+plot(1:nrow(datos), datos$GDP_BILLIONS,
+     main="Distribución del GDP Mundial por País (2014)",
+     xlab="Índice de País",
+     ylab="GDP (Billones de USD)",
+     pch=19,
+     col=ifelse(datos$GDP_BILLIONS > 10, "gold",
+               ifelse(datos$GDP_BILLIONS >= 1, "orange", "red")),
+     cex=1.2)
+
+# Agregar líneas de referencia
+abline(h=10, col="blue", lwd=2, lty=2)
+abline(h=1, col="green", lwd=2, lty=2)
+
+# Leyenda
+legend("topright", 
+       legend=c("Ricos (>$10B)", "Medios ($1-10B)", "Pobres (<$1B)", "Línea $10B", "Línea $1B"),
+       col=c("gold", "orange", "red", "blue", "green"),
+       pch=c(19, 19, 19, NA, NA),
+       lty=c(NA, NA, NA, 2, 2),
+       lwd=c(NA, NA, NA, 2, 2))
+
+# Análisis de concentración de riqueza
+top5_gdp <- sum(head(sort(datos$GDP_BILLIONS, decreasing=TRUE), 5))
+total_gdp <- sum(datos$GDP_BILLIONS)
+concentracion <- (top5_gdp / total_gdp) * 100
+
+cat("🎯 ANÁLISIS DE CONCENTRACIÓN ECONÓMICA:\n")
+cat("💡 Top 5 países concentran:", round(concentracion, 1), "% del GDP mundial\n")
+cat("📊 Esto indica alta concentración de riqueza global\n\n")
+
+# Mostrar top 5 países
+top5_paises <- datos[order(datos$GDP_BILLIONS, decreasing=TRUE)[1:5], ]
+cat("🏆 TOP 5 ECONOMÍAS MUNDIALES:\n")
+for(i in 1:5) {
+  cat(i, ".", top5_paises$COUNTRY[i], "- $", top5_paises$GDP_BILLIONS[i], "B\n")
+}
+
+cat("\n🎯 ¡Análisis económico completado exitosamente!\n")
+cat("💡 Revisa el gráfico en el panel 'Plots' para ver la distribución visual →\n")
+                        </div>
+                    </div>
+                </div>
+
+                <div class="warning-box">
+                    <h4>📝 LO QUE DEBES EXPLICAR EN TU REPORTE:</h4>
+                    <ul>
+                        <li><strong>Carga de datos:</strong> ¿Cuántos países se analizaron? ¿Qué variables económicas se estudiaron?</li>
+                        <li><strong>Estadísticas:</strong> ¿Cuál es el GDP promedio, máximo y mínimo mundial?</li>
+                        <li><strong>Clasificación:</strong> ¿Cómo se distribuyen los países en ricos, medios y pobres?</li>
+                        <li><strong>Gráfico de dispersión:</strong> ¿Qué patrón muestra la distribución de riqueza? ¿Hay mucha desigualdad?</li>
+                        <li><strong>Concentración:</strong> ¿Qué porcentaje de la riqueza concentran los 5 países más ricos?</li>
+                        <li><strong>Top 5:</strong> ¿Cuáles son las 5 economías más grandes del mundo?</li>
+                        <li><strong>Conclusión:</strong> ¿Qué conclusiones puedes extraer sobre la economía mundial de 2014?</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="step">
+                <h3><span class="step-number">📸</span>FORMATO DE EVIDENCIAS REQUERIDO</h3>
+                <p><strong>Para cada ejercicio, incluye en tu reporte:</strong></p>
+
+                <div class="highlight-box">
+                    <h4>📋 ESTRUCTURA POR EJERCICIO:</h4>
+                    <ol>
+                        <li><strong>Título del ejercicio</strong> (ej: "4.1 Ejercicio Power BI - Análisis de GDP Mundial")</li>
+                        <li><strong>Captura de pantalla completa</strong> mostrando los resultados</li>
+                        <li><strong>Explicación paso a paso</strong> de cada resultado obtenido</li>
+                        <li><strong>Análisis de insights</strong> encontrados en los datos</li>
+                        <li><strong>Conclusión personal</strong> sobre la herramienta utilizada</li>
+                    </ol>
+                </div>
+
+                <div class="success-box">
+                    <h4>✅ CALIDAD DE LAS CAPTURAS:</h4>
+                    <ul>
+                        <li>📸 <strong>Pantalla completa</strong> - No solo una parte del programa</li>
+                        <li>🔍 <strong>Resolución clara</strong> - Texto legible en la imagen</li>
+                        <li>📊 <strong>Resultados visibles</strong> - Gráficos y datos claramente mostrados</li>
+                        <li>🖥️ <strong>Interfaz completa</strong> - Se debe ver el entorno de trabajo</li>
+                    </ul>
+                </div>
+
+                <div class="warning-box">
+                    <h4>📝 EJEMPLO DE REDACCIÓN PARA TUS EXPLICACIONES:</h4>
+                    <p><strong>"Al ejecutar el análisis en Python (Celda 3), obtuve las siguientes estadísticas del GDP mundial: el promedio es de $1.2 billones, con Estados Unidos liderando con $17.4 billones y Tuvalu siendo el más bajo con $0.04 billones. Esto revela una enorme desigualdad económica global, donde...</strong></p>
+                    <p><strong>Evita explicaciones superficiales como "se ejecutó el código" o "aparecieron gráficos". Enfócate en interpretar QUÉ significan los resultados."</strong></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Formato APA -->
+        <div id="formato" class="content-section">
+            <h2>📄 GUÍA DE FORMATO APA</h2>
+
+            <div class="step">
+                <h3><span class="step-number">📖</span>CITAS EN EL TEXTO</h3>
+                <p><strong>Utiliza este formato para citas dentro del cuadro:</strong></p>
+
+                <div class="highlight-box">
+                    <h4>✅ EJEMPLOS DE CITAS CORRECTAS:</h4>
+                    <ul>
+                        <li><strong>Un autor:</strong> (García, 2024)</li>
+                        <li><strong>Dos autores:</strong> (Smith & Johnson, 2024)</li>
+                        <li><strong>Tres o más autores:</strong> (López et al., 2024)</li>
+                        <li><strong>Sin autor:</strong> (Título del artículo, 2024)</li>
+                        <li><strong>Sitio web corporativo:</strong> (Qlik Technologies, 2024)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="step">
+                <h3><span class="step-number">📚</span>REFERENCIAS BIBLIOGRÁFICAS</h3>
+                <p><strong>Formato APA 7ª edición para diferentes tipos de fuentes:</strong></p>
+
+                <div class="highlight-box">
+                    <h4>🌐 PÁGINAS WEB CORPORATIVAS:</h4>
+                    <p><strong>Formato:</strong><br>
+                    Nombre de la organización. (Año). <em>Título de la página</em>. Sitio web. URL</p>
+                    <p><strong>Ejemplo:</strong><br>
+                    Qlik Technologies. (2024). <em>Qlik Sense: Plataforma de análisis de datos</em>. Qlik. https://www.qlik.com/us/products/qlik-sense</p>
+                </div>
+
+                <div class="highlight-box">
+                    <h4>📰 ARTÍCULOS DE REVISTAS EN LÍNEA:</h4>
+                    <p><strong>Formato:</strong><br>
+                    Apellido, A. A. (Año). Título del artículo. <em>Nombre de la revista</em>, <em>Volumen</em>(Número), páginas. https://doi.org/xxxxx</p>
+                    <p><strong>Ejemplo:</strong><br>
+                    García, M. J. (2024). Análisis comparativo de herramientas de business intelligence. <em>Revista de Tecnología y Datos</em>, <em>15</em>(3), 45-62. https://doi.org/10.1234/rtd.2024.15.3.45</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Checklist Final -->
+        <div id="checklist" class="content-section">
+            <h2>✅ CHECKLIST FINAL</h2>
+
+            <div class="step">
+                <h3><span class="step-number">📄</span>CONTENIDO DEL DOCUMENTO</h3>
+                <ul>
+                    <li>☐ <strong>Portada completa</strong> con todos los datos requeridos</li>
+                    <li>☐ <strong>Introducción</strong> que explique el objetivo</li>
+                    <li>☐ <strong>5 plataformas investigadas</strong> (adicionales a las de clase)</li>
+                    <li>☐ <strong>Cuadro comparativo completo</strong> con ventajas y desventajas</li>
+                    <li>☐ <strong>Sección de ejercicios prácticos</strong> completa</li>
+                    <li>☐ <strong>Conclusiones</strong> con análisis personal y reflexión sobre ejercicios</li>
+                </ul>
+            </div>
+
+            <div class="step">
+                <h3><span class="step-number">💻</span>EJERCICIOS PRÁCTICOS</h3>
+                <ul>
+                    <li>☐ <strong>Ejercicio Power BI</strong> realizado y documentado</li>
+                    <li>☐ <strong>Ejercicio Python Colab</strong> ejecutado con explicaciones</li>
+                    <li>☐ <strong>Ejercicio R Posit</strong> completado con análisis</li>
+                    <li>☐ <strong>3 capturas de pantalla</strong> claras y completas</li>
+                    <li>☐ <strong>Explicaciones paso a paso</strong> de cada resultado</li>
+                    <li>☐ <strong>Identificación de insights</strong> en los datos analizados</li>
+                    <li>☐ <strong>Evaluación personal</strong> de cada herramienta utilizada</li>
+                </ul>
+            </div>
+
+            <div class="step">
+                <h3><span class="step-number">📚</span>REFERENCIAS Y CITAS</h3>
+                <ul>
+                    <li>☐ <strong>Mínimo 10 referencias</strong> de fuentes confiables</li>
+                    <li>☐ <strong>Formato APA correcto</strong> en todas las referencias</li>
+                    <li>☐ <strong>Citas en el texto</strong> para cada información</li>
+                    <li>☐ <strong>Referencias ordenadas</strong> alfabéticamente</li>
+                </ul>
+            </div>
+
+            <div class="step">
+                <h3><span class="step-number">📤</span>ARCHIVO FINAL</h3>
+                <ul>
+                    <li>☐ <strong>Nombre correcto:</strong> CuadroComparativoHerramientas_[TU_MATRÍCULA].docx</li>
+                    <li>☐ <strong>Formato:</strong> .docx (Microsoft Word)</li>
+                    <li>☐ <strong>4-6 páginas</strong> de extensión (incluyendo ejercicios)</li>
+                    <li>☐ <strong>Entrega antes:</strong> Lunes, 9 de junio de 2025, 23:59</li>
+                </ul>
+            </div>
+
+            <div class="success-box">
+                <h3>🎯 ¡TODO LISTO!</h3>
+                <p>Si has marcado todas las casillas ☐, tu actividad está completa y lista para entregar.</p>
+                <p><strong>Recuerda:</strong> Los ejercicios prácticos son obligatorios y complementan tu investigación teórica.</p>
+                <p><strong>¡Buena suerte! 🚀</strong></p>
+            </div>
+
+            <div class="warning-box">
+                <h3>⏰ TIEMPO ESTIMADO ACTUALIZADO</h3>
+                <ul>
+                    <li><strong>Investigación de 5 plataformas:</strong> 30 minutos</li>
+                    <li><strong>Creación del cuadro comparativo:</strong> 20 minutos</li>
+                    <li><strong>Ejercicio Power BI:</strong> 15 minutos</li>
+                    <li><strong>Ejercicio Python Colab:</strong> 15 minutos</li>
+                    <li><strong>Ejercicio R Posit:</strong> 15 minutos</li>
+                    <li><strong>Redacción de explicaciones:</strong> 20 minutos</li>
+                    <li><strong>Formato final y referencias:</strong> 15 minutos</li>
+                    <li><strong>🕐 TOTAL ESTIMADO: 2 horas 10 minutos</strong></li>
+                </ul>
+            </div>
+        </div>
     </div>
-    <div>
-      <h1>ANÁLÍTICA DE DATOS</h1>
-      <p>Universidad del SABES | Sesión 4 de 12 | 03 de junio 2025</p>
-      <p>Prof. Fausto Noé Jiménez | fausto.noej@sabes.edu.mx</p>
-    </div>
-  </div>
 
-  <!-- Contenido principal -->
-  <div class="content">
-    <div class="slide active">Slide 1</div>
-    <div class="slide">Slide 2</div>
-    <div class="slide">Slide 3</div>
-    <div class="slide">Slide 4</div>
-    <div class="slide">Slide 5</div>
-    <div class="slide">Slide 6</div>
-    <div class="slide">Slide 7</div>
-    <div class="slide">Slide 8</div>
-    <div class="slide">Slide 9</div>
-    <div class="slide">Slide 10</div>
-    <div class="slide">Slide 11</div>
-    <div class="slide">Slide 12</div>
-    <div class="slide">Slide 13</div>
-    <div class="slide">Slide 14</div>
-    <div class="slide">Slide 15</div>
-    <div class="slide">Slide 16</div>
-  </div>
+    <script>
+        // Funcionalidad para mostrar secciones
+        function showSection(sectionId, buttonElement) {
+            // Ocultar todas las secciones
+            var sections = document.getElementsByClassName('content-section');
+            for (var i = 0; i < sections.length; i++) {
+                sections[i].classList.remove('active');
+            }
+            
+            // Remover clase active de todos los botones
+            var buttons = document.getElementsByClassName('tab-btn');
+            for (var i = 0; i < buttons.length; i++) {
+                buttons[i].classList.remove('active');
+            }
+            
+            // Mostrar la sección seleccionada
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Activar el botón seleccionado
+            buttonElement.classList.add('active');
+        }
 
-  <!-- Barra de control -->
-  <div class="controls">
-    <button onclick="prevSlide()">&#8592; Anterior</button>
-    <div class="current-slide">Diapositiva <span id="slide-number">1</span> / 16</div>
-    <button onclick="nextSlide()">Siguiente &#8594;</button>
-    <div class="time">45:00</div>
-    <div class="additional-controls">
-      <button onclick="playPause()">&#9654;</button>
-      <button onclick="rewind()">&#9198;</button>
-      <button onclick="restart()">&#8635;</button>
-    </div>
-  </div>
+        // Funcionalidad para seleccionar texto
+        function selectText(element) {
+            var range = document.createRange();
+            range.selectNodeContents(element);
+            var selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            
+            // Feedback visual
+            var button = element.previousElementSibling.querySelector('.code-btn');
+            button.textContent = '✅ Seleccionado';
+            button.classList.add('success');
+            
+            setTimeout(function() {
+                button.textContent = '📄 Seleccionar';
+                button.classList.remove('success');
+            }, 2000);
+        }
 
-  <script>
-    let currentIndex = 0;
-    const slides = document.querySelectorAll('.slide');
-    const slideNumberElement = document.getElementById('slide-number');
+        // Funcionalidad para copiar código
+        function copyCode(element, button) {
+            var text = element.textContent || element.innerText;
+            
+            // Intentar usar la API moderna del portapapeles
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(text).then(function() {
+                    showCopySuccess(button);
+                }).catch(function(err) {
+                    fallbackCopy(text, button);
+                });
+            } else {
+                // Fallback para navegadores que no soportan la API moderna
+                fallbackCopy(text, button);
+            }
+        }
 
-    function navigateSlide(n) {
-      if (n < 0 || n >= slides.length) return;
-      slides.forEach((slide, index) => {
-        slide.classList.toggle('active', index === n);
-      });
-      currentIndex = n;
-      updateSlideNumber();
-    }
+        // Función de fallback para copiar
+        function fallbackCopy(text, button) {
+            var textArea = document.createElement('textarea');
+            textArea.value = text;
+            textArea.style.position = 'fixed';
+            textArea.style.left = '-999999px';
+            textArea.style.top = '-999999px';
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            
+            try {
+                document.execCommand('copy');
+                showCopySuccess(button);
+            } catch (err) {
+                console.error('Error al copiar:', err);
+                button.textContent = '❌ Error';
+                setTimeout(function() {
+                    button.textContent = '📋 Copiar';
+                }, 2000);
+            }
+            
+            document.body.removeChild(textArea);
+        }
 
-    function updateSlideNumber() {
-      slideNumberElement.textContent = currentIndex + 1;
-    }
-
-    function nextSlide() {
-      navigateSlide(currentIndex + 1);
-    }
-
-    function prevSlide() {
-      navigateSlide(currentIndex - 1);
-    }
-
-    function playPause() {
-      console.log("Reproducción/Pausa");
-    }
-
-    function rewind() {
-      console.log("Rebobinado");
-    }
-
-    function restart() {
-      navigateSlide(0);
-    }
-
-    // Inicialización
-    navigateSlide(currentIndex);
-  </script>
-
+        // Mostrar feedback de éxito al copiar
+        function showCopySuccess(button) {
+            button.textContent = '✅ ¡Copiado!';
+            button.classList.add('success');
+            
+            setTimeout(function() {
+                button.textContent = '📋 Copiar';
+                button.classList.remove('success');
+            }, 2000);
+        }
+    </script>
 </body>
 </html>
