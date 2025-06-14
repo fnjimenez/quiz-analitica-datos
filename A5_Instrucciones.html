@@ -600,7 +600,7 @@
             </div>
         </div>
 
-        <!-- POWER BI SECTION -->
+        <!-- POWER BI SECTION CORREGIDA -->
         <div class="section">
             <h2>
                 <div class="platform-logo powerbi-logo">PBI</div>
@@ -637,17 +637,213 @@
 
                 <div class="checkpoint" onclick="toggleCheckpoint(this)">
                     <input type="checkbox" id="pbi-completed">
-                    <label for="pbi-completed">✅ Dataset limpio cargado exitosamente en Power BI</label>
+                    <label for="pbi-completed">✅ Dataset cargado en Power Query Editor</label>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-header">
+                    <div class="step-number">2</div>
+                    <div class="step-title">Exploración Inicial en Power Query</div>
+                    <div class="time-estimate">⏱️ 5 min</div>
+                </div>
+                
+                <div style="background: rgba(52, 152, 219, 0.1); padding: 15px; border-radius: 10px; margin: 10px 0;">
+                    <h4>🔍 Interface de Power Query Editor:</h4>
+                    <ul>
+                        <li><strong>Panel izquierdo:</strong> Lista de consultas (Queries)</li>
+                        <li><strong>Centro:</strong> Vista previa de datos</li>
+                        <li><strong>Panel derecho:</strong> Pasos aplicados (Applied Steps)</li>
+                        <li><strong>Cinta superior:</strong> Herramientas de transformación</li>
+                    </ul>
+                </div>
+
+                <ol>
+                    <li><strong>Examinar las columnas:</strong> Observa los tipos de datos en la parte superior de cada columna</li>
+                    <li><strong>Ver estadísticas:</strong> Clic en "View" → "Column Quality" para ver % de errores/vacíos</li>
+                    <li><strong>Activar perfil:</strong> Clic en "View" → "Column Profile" para estadísticas detalladas</li>
+                    <li><strong>Verificar distribución:</strong> Clic en "View" → "Column Distribution" para ver frecuencias</li>
+                </ol>
+
+                <div class="alert alert-success">
+                    <span style="font-size: 1.2rem;">💡</span>
+                    <strong>Ventaja de Power BI:</strong> Los indicadores visuales te muestran inmediatamente 
+                    la calidad de cada columna sin escribir código.
+                </div>
+
+                <div class="checkpoint" onclick="toggleCheckpoint(this)">
+                    <input type="checkbox" id="pbi-exploration">
+                    <label for="pbi-exploration">✅ He explorado mi dataset y activado todas las vistas de calidad</label>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-header">
+                    <div class="step-number">3</div>
+                    <div class="step-title">Limpieza Básica</div>
+                    <div class="time-estimate">⏱️ 10 min</div>
+                </div>
+
+                <h4>A) Eliminar duplicados:</h4>
+                <ol>
+                    <li>Seleccionar todas las columnas (Ctrl+A)</li>
+                    <li>Ir a "Home" → "Remove Rows" → "Remove Duplicates"</li>
+                    <li>Observar cuántas filas se eliminaron en el mensaje</li>
+                </ol>
+
+                <h4>B) Limpiar nombres de columnas:</h4>
+                <ol>
+                    <li>Seleccionar todas las columnas</li>
+                    <li>Clic derecho → "Rename" o usar "Transform" → "Format" → "Trim" para espacios</li>
+                    <li>Reemplazar espacios por guiones bajos si es necesario</li>
+                </ol>
+
+                <h4>C) Corregir tipos de datos:</h4>
+                <ol>
+                    <li>Hacer clic en el ícono de tipo de dato en cada columna</li>
+                    <li>Seleccionar el tipo correcto (Text, Whole Number, Decimal, Date, etc.)</li>
+                    <li>Si hay errores, Power BI te lo indicará visualmente</li>
+                </ol>
+
+                <div class="checkpoint" onclick="toggleCheckpoint(this)">
+                    <input type="checkbox" id="pbi-basic-cleaning">
+                    <label for="pbi-basic-cleaning">✅ Duplicados eliminados, columnas renombradas, tipos corregidos</label>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-header">
+                    <div class="step-number">4</div>
+                    <div class="step-title">Manejar Valores Faltantes</div>
+                    <div class="time-estimate">⏱️ 8 min</div>
+                </div>
+
+                <div style="background: rgba(255, 193, 7, 0.1); padding: 15px; border-radius: 10px; margin: 10px 0;">
+                    <h4>🎯 Estrategias en Power BI:</h4>
+                    <ul>
+                        <li><strong>Remove Rows:</strong> Para eliminar filas con valores nulos</li>
+                        <li><strong>Fill Down/Up:</strong> Para propagar valores</li>
+                        <li><strong>Replace Values:</strong> Para reemplazar nulos con valores específicos</li>
+                    </ul>
+                </div>
+
+                <h4>Para columnas numéricas:</h4>
+                <ol>
+                    <li>Seleccionar la columna numérica</li>
+                    <li>Ir a "Transform" → "Replace Values"</li>
+                    <li>En "Value to Find" dejar en blanco</li>
+                    <li>En "Replace With" poner un valor como 0 o la media estimada</li>
+                </ol>
+
+                <h4>Para columnas de texto:</h4>
+                <ol>
+                    <li>Seleccionar la columna de texto</li>
+                    <li>Ir a "Transform" → "Replace Values"</li>
+                    <li>Reemplazar valores en blanco con "Unknown" o "No Data"</li>
+                </ol>
+
+                <div class="checkpoint" onclick="toggleCheckpoint(this)">
+                    <input type="checkbox" id="pbi-missing-values">
+                    <label for="pbi-missing-values">✅ Valores faltantes tratados en columnas numéricas y de texto</label>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-header">
+                    <div class="step-number">5</div>
+                    <div class="step-title">Detección de Outliers en Power BI</div>
+                    <div class="time-estimate">⏱️ 6 min</div>
+                </div>
+
+                <div style="background: rgba(255, 193, 7, 0.1); padding: 15px; border-radius: 10px; margin: 10px 0;">
+                    <h4>🎯 Detección de Outliers en Power BI:</h4>
+                    <ul>
+                        <li><strong>Método Visual:</strong> Usar gráficos de boxplot para identificar outliers</li>
+                        <li><strong>Filtros avanzados:</strong> Crear filtros basados en percentiles</li>
+                        <li><strong>Columnas calculadas:</strong> Usar DAX para marcar outliers</li>
+                    </ul>
+                </div>
+
+                <h4>A) Crear columna calculada para detectar outliers:</h4>
+                <ol>
+                    <li>En Power Query, ir a "Add Column" → "Custom Column"</li>
+                    <li>Nombrar la columna: "Es_Outlier"</li>
+                    <li>Usar fórmula para detectar outliers basada en percentiles</li>
+                    <li>Marcar valores que estén fuera del rango Q1-1.5*IQR a Q3+1.5*IQR</li>
+                </ol>
+
+                <h4>B) Aplicar transformaciones a outliers:</h4>
+                <ol>
+                    <li>Filtrar filas donde "Es_Outlier" = true</li>
+                    <li>Decidir estrategia: eliminar, winsorizar o mantener</li>
+                    <li>Aplicar "Replace Values" para corregir outliers extremos</li>
+                    <li>Documentar decisiones en los "Applied Steps"</li>
+                </ol>
+
+                <div class="checkpoint" onclick="toggleCheckpoint(this)">
+                    <input type="checkbox" id="pbi-outliers">
+                    <label for="pbi-outliers">✅ Outliers detectados y tratados usando columnas calculadas</label>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-header">
+                    <div class="step-number">6</div>
+                    <div class="step-title">Transformaciones de Datos</div>
+                    <div class="time-estimate">⏱️ 5 min</div>
+                </div>
+
+                <h4>A) Estandarizar formatos de texto:</h4>
+                <ol>
+                    <li>Seleccionar columnas de texto</li>
+                    <li>Ir a "Transform" → "Format" → "UPPERCASE/lowercase/Proper Case"</li>
+                    <li>Aplicar "Trim" para eliminar espacios extra</li>
+                    <li>Usar "Clean" para caracteres no imprimibles</li>
+                </ol>
+
+                <h4>B) Crear columnas derivadas:</h4>
+                <ol>
+                    <li>Ir a "Add Column" → "Custom Column"</li>
+                    <li>Crear categorías basadas en rangos numéricos</li>
+                    <li>Generar flags booleanos para condiciones especiales</li>
+                    <li>Calcular métricas derivadas (ej: IMC, ratios, etc.)</li>
+                </ol>
+
+                <div class="checkpoint" onclick="toggleCheckpoint(this)">
+                    <input type="checkbox" id="pbi-transformations">
+                    <label for="pbi-transformations">✅ Transformaciones de formato y columnas derivadas aplicadas</label>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-header">
+                    <div class="step-number">7</div>
+                    <div class="step-title">Validación y Carga Final</div>
+                    <div class="time-estimate">⏱️ 4 min</div>
+                </div>
+                
+                <ol>
+                    <li><strong>Revisar pasos aplicados:</strong> En el panel "Applied Steps" verifica cada transformación</li>
+                    <li><strong>Verificar calidad:</strong> Asegúrate de que "Column Quality" muestre 100% Valid</li>
+                    <li><strong>Renombrar consulta:</strong> Clic derecho en "Query1" → Rename → "DatosLimpios"</li>
+                    <li><strong>Cargar datos:</strong> Clic en "Home" → "Close & Apply"</li>
+                </ol>
+
+                <div class="alert alert-success">
+                    <span style="font-size: 1.2rem;">🎉</span>
+                    <strong>¡Excelente!</strong> Tu dataset está limpio y listo para análisis en Power BI.
+                    Observa cómo cada paso queda documentado automáticamente.
+                </div>
+
+                <div class="checkpoint" onclick="toggleCheckpoint(this)">
+                    <input type="checkbox" id="pbi-final">
+                    <label for="pbi-final">✅ Validación completada y datos cargados exitosamente</label>
                 </div>
             </div>
         </div>
 
         <!-- PYTHON SECTION -->
         <div class="section">
-            <h2>
-                <div class="platform-logo python-logo">🐍</div>
-                LIMPIEZA EN PYTHON (GOOGLE COLAB)
-            </h2>
             <h2>
                 <div class="platform-logo python-logo">🐍</div>
                 LIMPIEZA EN PYTHON (GOOGLE COLAB)
@@ -916,40 +1112,7 @@ plt.tight_layout()
 plt.show()
 
 <span class="code-keyword">print</span>(<span class="code-string">"📊 Visualizaciones de diagnóstico generadas exitosamente"</span>)</div>
-                </div> Valores Faltantes')
-else:
-    axes[0,0].text(0.5, 0.5, '✅ Sin valores faltantes', 
-                   ha='center', va='center', transform=axes[0,0].transAxes)
-    axes[0,0].set_title('🔍 Valores Faltantes por Columna')
-
-# 2. Distribución de tipos de datos
-df.dtypes.value_counts().plot(kind='pie', ax=axes[0,1], autopct='%1.1f%%')
-axes[0,1].set_title('📊 Distribución de Tipos de Datos')
-
-# 3. Heatmap de correlación para columnas numéricas
-numeric_cols = df.select_dtypes(include=[np.number]).columns
-if len(numeric_cols) > 1:
-    correlation_matrix = df[numeric_cols].corr()
-    sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', 
-                center=0, ax=axes[1,0])
-    axes[1,0].set_title('🔥 Mapa de Correlación')
-else:
-    axes[1,0].text(0.5, 0.5, 'Pocas columnas\nnuméricas', 
-                   ha='center', va='center', transform=axes[1,0].transAxes)
-    axes[1,0].set_title('🔥 Mapa de Correlación')
-
-# 4. Distribución de duplicados
-duplicate_info = ['Únicos', 'Duplicados']
-duplicate_counts = [len(df) - df.duplicated().sum(), df.duplicated().sum()]
-axes[1,1].pie(duplicate_counts, labels=duplicate_info, autopct='%1.1f%%', 
-              colors=['lightgreen', 'lightcoral'])
-axes[1,1].set_title('🔄 Distribución de Duplicados')
-
-plt.tight_layout()
-plt.show()
-
-print("📊 Visualizaciones generadas exitosamente")
-</div>
+                </div>
 
                 <div class="checkpoint" onclick="toggleCheckpoint(this)">
                     <input type="checkbox" id="python-exploration">
@@ -1270,124 +1433,7 @@ summary_df = pd.DataFrame(summary_report)
 
 <span class="code-keyword">print</span>(<span class="code-string">"\n🎉 ¡PROCESO DE LIMPIEZA COMPLETADO EXITOSAMENTE!"</span>)
 <span class="code-keyword">print</span>(<span class="code-string">"📋 Tu dataset está listo para análisis y modelado."</span>)</div>
-                </div>mode()[0]
-        df_clean[col] = df_clean[col].fillna(fill_value)
-        print(f"📝 {col}: {missing_count} valores faltantes → '{fill_value}'")
-
-# Para columnas de fecha: estrategia especial
-date_cols = df_clean.select_dtypes(include=['datetime64']).columns
-for col in date_cols:
-    missing_count = df_clean[col].isnull().sum()
-    if missing_count > 0:
-        # Usar la fecha más frecuente o una fecha por defecto
-        mode_date = df_clean[col].mode()
-        if not mode_date.empty:
-            fill_value = mode_date[0]
-        else:
-            fill_value = pd.to_datetime('1900-01-01')
-        df_clean[col] = df_clean[col].fillna(fill_value)
-        print(f"📅 {col}: {missing_count} valores faltantes → {fill_value}")
-
-print(f"\n✅ Valores faltantes restantes: {df_clean.isnull().sum().sum()}")
-</div>
-
-                <div class="code-header">
-                    🎯 Celda 7: Detección y tratamiento de outliers
                 </div>
-                <div class="code-block"># Detección de outliers usando método IQR
-print("\n🎯 DETECCIÓN DE OUTLIERS:")
-
-def detect_outliers_iqr(df, column):
-    """Detecta outliers usando el método IQR"""
-    Q1 = df[column].quantile(0.25)
-    Q3 = df[column].quantile(0.75)
-    IQR = Q3 - Q1
-    lower_bound = Q1 - 1.5 * IQR
-    upper_bound = Q3 + 1.5 * IQR
-    
-    outliers = df[(df[column] < lower_bound) | (df[column] > upper_bound)]
-    return outliers, lower_bound, upper_bound
-
-outliers_summary = []
-
-for col in numeric_cols:
-    outliers, lower, upper = detect_outliers_iqr(df_clean, col)
-    outlier_count = len(outliers)
-    outlier_percentage = (outlier_count / len(df_clean)) * 100
-    
-    outliers_summary.append({
-        'Columna': col,
-        'Outliers': outlier_count,
-        'Porcentaje': f"{outlier_percentage:.2f}%",
-        'Rango_Normal': f"[{lower:.2f}, {upper:.2f}]"
-    })
-    
-    # Si hay muchos outliers (>5%), aplicar winsorización
-    if outlier_percentage > 5:
-        df_clean[col] = np.where(df_clean[col] < lower, lower, df_clean[col])
-        df_clean[col] = np.where(df_clean[col] > upper, upper, df_clean[col])
-        print(f"🔧 {col}: {outlier_count} outliers winsorización aplicada")
-    else:
-        print(f"📊 {col}: {outlier_count} outliers ({outlier_percentage:.2f}%) - mantenidos")
-
-# Mostrar resumen de outliers
-outliers_df = pd.DataFrame(outliers_summary)
-print("\n📋 RESUMEN DE OUTLIERS:")
-display(outliers_df)
-</div>
-
-                <div class="checkpoint" onclick="toggleCheckpoint(this)">
-                    <input type="checkbox" id="python-cleaning">
-                    <label for="python-cleaning">✅ Limpieza sistemática completada (duplicados, faltantes, outliers)</label>
-                </div>
-            </div>
-
-            <div class="step">
-                <div class="step-header">
-                    <div class="step-number">5</div>
-                    <div class="step-title">Validación y Reporte Final</div>
-                    <div class="time-estimate">⏱️ 5 min</div>
-                </div>
-
-                <div class="code-header">
-                    ✅ Celda 8: Validación y comparación antes/después
-                </div>
-                <div class="code-block"># Reporte comparativo final
-print("="*60)
-print("📊 REPORTE FINAL DE LIMPIEZA")
-print("="*60)
-
-print("\n📏 DIMENSIONES:")
-print(f"Antes:  {df_original.shape[0]:,} filas × {df_original.shape[1]} columnas")
-print(f"Después: {df_clean.shape[0]:,} filas × {df_clean.shape[1]} columnas")
-print(f"Cambio: {df_clean.shape[0] - df_original.shape[0]:,} filas")
-
-print("\n❓ VALORES FALTANTES:")
-missing_before = df_original.isnull().sum().sum()
-missing_after = df_clean.isnull().sum().sum()
-print(f"Antes:  {missing_before:,} valores faltantes")
-print(f"Después: {missing_after:,} valores faltantes")
-print(f"Mejoría: {missing_before - missing_after:,} valores corregidos")
-
-print("\n🔄 DUPLICADOS:")
-dup_before = df_original.duplicated().sum()
-dup_after = df_clean.duplicated().sum()
-print(f"Antes:  {dup_before:,} filas duplicadas")
-print(f"Después: {dup_after:,} filas duplicadas")
-
-print("\n💾 MEMORIA:")
-memory_before = df_original.memory_usage(deep=True).sum() / 1024**2
-memory_after = df_clean.memory_usage(deep=True).sum() / 1024**2
-print(f"Antes:  {memory_before:.2f} MB")
-print(f"Después: {memory_after:.2f} MB")
-print(f"Optimización: {memory_before - memory_after:.2f} MB ahorrados")
-
-# Guardar dataset limpio
-df_clean.to_csv('dataset_limpio_python.csv', index=False)
-print("\n💾 Dataset limpio guardado como 'dataset_limpio_python.csv'")
-
-print("\n🎉 ¡LIMPIEZA COMPLETADA EXITOSAMENTE!")
-</div>
 
                 <div class="alert alert-success">
                     <span style="font-size: 1.2rem;">🚀</span>
@@ -1454,31 +1500,39 @@ print("\n🎉 ¡LIMPIEZA COMPLETADA EXITOSAMENTE!")
                     <div class="time-estimate">⏱️ 4 min</div>
                 </div>
 
-                <div class="code-header">
-                    📦 Script R: Instalación y carga de librerías
+                <div class="code-container">
+                    <div class="code-header">
+                        <div class="code-title">
+                            <span>📦</span>
+                            <span>Script R: Instalación y carga de librerías</span>
+                        </div>
+                        <div class="code-actions">
+                            <button class="code-btn" onclick="selectCode(this)">📋 Seleccionar</button>
+                            <button class="code-btn" onclick="copyCode(this)">📄 Copiar</button>
+                        </div>
+                    </div>
+                    <div class="code-block"><span class="code-comment"># Instalar librerías necesarias (solo primera vez)</span>
+install.packages(c(<span class="code-string">"dplyr"</span>, <span class="code-string">"tidyr"</span>, <span class="code-string">"readr"</span>, <span class="code-string">"ggplot2"</span>, 
+                   <span class="code-string">"VIM"</span>, <span class="code-string">"mice"</span>, <span class="code-string">"corrplot"</span>, <span class="code-string">"lubridate"</span>, 
+                   <span class="code-string">"stringr"</span>, <span class="code-string">"forcats"</span>))
+
+<span class="code-comment"># Cargar librerías esenciales</span>
+library(dplyr)      <span class="code-comment"># Manipulación de datos</span>
+library(tidyr)      <span class="code-comment"># Reorganización de datos</span>
+library(readr)      <span class="code-comment"># Lectura de datos</span>
+library(ggplot2)    <span class="code-comment"># Visualización elegante</span>
+library(VIM)        <span class="code-comment"># Visualización de valores faltantes</span>
+library(mice)       <span class="code-comment"># Imputación múltiple</span>
+library(corrplot)   <span class="code-comment"># Matrices de correlación</span>
+library(lubridate)  <span class="code-comment"># Manejo de fechas</span>
+library(stringr)    <span class="code-comment"># Manipulación de strings</span>
+library(forcats)    <span class="code-comment"># Manejo de factores</span>
+
+<span class="code-comment"># Verificar instalación</span>
+cat(<span class="code-string">"✅ Librerías cargadas exitosamente\n"</span>)
+cat(<span class="code-string">"📊 Tidyverse ecosystem listo\n"</span>)
+cat(<span class="code-string">"🔢 R versión:"</span>, R.version.string, <span class="code-string">"\n"</span>)</div>
                 </div>
-                <div class="code-block"># Instalar librerías necesarias (solo primera vez)
-install.packages(c("dplyr", "tidyr", "readr", "ggplot2", 
-                   "VIM", "mice", "corrplot", "lubridate", 
-                   "stringr", "forcats"))
-
-# Cargar librerías esenciales
-library(dplyr)      # Manipulación de datos
-library(tidyr)      # Reorganización de datos
-library(readr)      # Lectura de datos
-library(ggplot2)    # Visualización elegante
-library(VIM)        # Visualización de valores faltantes
-library(mice)       # Imputación múltiple
-library(corrplot)   # Matrices de correlación
-library(lubridate)  # Manejo de fechas
-library(stringr)    # Manipulación de strings
-library(forcats)    # Manejo de factores
-
-# Verificar instalación
-cat("✅ Librerías cargadas exitosamente\n")
-cat("📊 Tidyverse ecosystem listo\n")
-cat("🔢 R versión:", R.version.string, "\n")
-</div>
 
                 <div class="alert alert-warning">
                     <span style="font-size: 1.2rem;">⚡</span>
@@ -1499,63 +1553,79 @@ cat("🔢 R versión:", R.version.string, "\n")
                     <div class="time-estimate">⏱️ 6 min</div>
                 </div>
 
-                <div class="code-header">
-                    📁 Cargar dataset
-                </div>
-                <div class="code-block"># Subir archivo (usar Files panel en RStudio)
-# Opción 1: Upload button en Files panel, luego:
-df <- read_csv("tu_archivo.csv")
+                <div class="code-container">
+                    <div class="code-header">
+                        <div class="code-title">
+                            <span>📁</span>
+                            <span>Cargar dataset</span>
+                        </div>
+                        <div class="code-actions">
+                            <button class="code-btn" onclick="selectCode(this)">📋 Seleccionar</button>
+                            <button class="code-btn" onclick="copyCode(this)">📄 Copiar</button>
+                        </div>
+                    </div>
+                    <div class="code-block"><span class="code-comment"># Subir archivo (usar Files panel en RStudio)</span>
+<span class="code-comment"># Opción 1: Upload button en Files panel, luego:</span>
+df <- read_csv(<span class="code-string">"tu_archivo.csv"</span>)
 
-# Opción 2: Desde URL
-# df <- read_csv("https://tu-url-del-dataset.csv")
+<span class="code-comment"># Opción 2: Desde URL</span>
+<span class="code-comment"># df <- read_csv("https://tu-url-del-dataset.csv")</span>
 
-# Información básica del dataset
-cat("📊 INFORMACIÓN BÁSICA DEL DATASET\n")
-cat("==================================\n")
-cat("Dimensiones:", dim(df), "\n")
-cat("Filas:", nrow(df), "\n")
-cat("Columnas:", ncol(df), "\n")
-cat("Tamaño en memoria:", format(object.size(df), units = "MB"), "\n")
+<span class="code-comment"># Información básica del dataset</span>
+cat(<span class="code-string">"📊 INFORMACIÓN BÁSICA DEL DATASET\n"</span>)
+cat(<span class="code-string">"==================================\n"</span>)
+cat(<span class="code-string">"Dimensiones:"</span>, dim(df), <span class="code-string">"\n"</span>)
+cat(<span class="code-string">"Filas:"</span>, nrow(df), <span class="code-string">"\n"</span>)
+cat(<span class="code-string">"Columnas:"</span>, ncol(df), <span class="code-string">"\n"</span>)
+cat(<span class="code-string">"Tamaño en memoria:"</span>, format(object.size(df), units = <span class="code-string">"MB"</span>), <span class="code-string">"\n"</span>)
 
-# Estructura del dataset
-cat("\n📋 ESTRUCTURA DE DATOS:\n")
+<span class="code-comment"># Estructura del dataset</span>
+cat(<span class="code-string">"\n📋 ESTRUCTURA DE DATOS:\n"</span>)
 str(df)
 
-# Primeras filas
-cat("\n👀 PRIMERAS 6 FILAS:\n")
-head(df)
-</div>
-
-                <div class="code-header">
-                    🔍 Análisis de calidad de datos (lo que R hace mejor)
+<span class="code-comment"># Primeras filas</span>
+cat(<span class="code-string">"\n👀 PRIMERAS 6 FILAS:\n"</span>)
+head(df)</div>
                 </div>
-                <div class="code-block"># Análisis estadístico completo
-cat("\n📊 RESUMEN ESTADÍSTICO:\n")
+
+                <div class="code-container">
+                    <div class="code-header">
+                        <div class="code-title">
+                            <span>🔍</span>
+                            <span>Análisis de calidad de datos</span>
+                        </div>
+                        <div class="code-actions">
+                            <button class="code-btn" onclick="selectCode(this)">📋 Seleccionar</button>
+                            <button class="code-btn" onclick="copyCode(this)">📄 Copiar</button>
+                        </div>
+                    </div>
+                    <div class="code-block"><span class="code-comment"># Análisis estadístico completo</span>
+cat(<span class="code-string">"\n📊 RESUMEN ESTADÍSTICO:\n"</span>)
 summary(df)
 
-# Valores faltantes con visualización elegante
-cat("\n❓ ANÁLISIS DE VALORES FALTANTES:\n")
+<span class="code-comment"># Valores faltantes con visualización elegante</span>
+cat(<span class="code-string">"\n❓ ANÁLISIS DE VALORES FALTANTES:\n"</span>)
 missing_data <- df %>%
   summarise_all(~sum(is.na(.))) %>%
-  gather(key = "variable", value = "missing_count") %>%
-  mutate(missing_percent = round(100 * missing_count / nrow(df), 2)) %>%
+  gather(key = <span class="code-string">"variable"</span>, value = <span class="code-string">"missing_count"</span>) %>%
+  mutate(missing_percent = round(<span class="code-keyword">100</span> * missing_count / nrow(df), <span class="code-keyword">2</span>)) %>%
   arrange(desc(missing_count))
 
 print(missing_data)
 
-# Visualización de patrones de datos faltantes (especialidad de R)
-if(sum(missing_data$missing_count) > 0) {
-  cat("\n📈 VISUALIZACIÓN DE PATRONES FALTANTES:\n")
-  VIM::aggr(df, col = c('navyblue','red'), 
-            numbers = TRUE, sortVars = TRUE,
-            main = "Patrón de Valores Faltantes")
+<span class="code-comment"># Visualización de patrones de datos faltantes</span>
+<span class="code-keyword">if</span>(sum(missing_data$missing_count) > <span class="code-keyword">0</span>) {
+  cat(<span class="code-string">"\n📈 VISUALIZACIÓN DE PATRONES FALTANTES:\n"</span>)
+  VIM::aggr(df, col = c(<span class="code-string">'navyblue'</span>,<span class="code-string">'red'</span>), 
+            numbers = <span class="code-keyword">TRUE</span>, sortVars = <span class="code-keyword">TRUE</span>,
+            main = <span class="code-string">"Patrón de Valores Faltantes"</span>)
 }
 
-# Duplicados
+<span class="code-comment"># Duplicados</span>
 duplicates <- sum(duplicated(df))
-cat("\n🔄 DUPLICADOS ENCONTRADOS:", duplicates, "\n")
-cat("Porcentaje de duplicados:", round(100 * duplicates / nrow(df), 2), "%\n")
-</div>
+cat(<span class="code-string">"\n🔄 DUPLICADOS ENCONTRADOS:"</span>, duplicates, <span class="code-string">"\n"</span>)
+cat(<span class="code-string">"Porcentaje de duplicados:"</span>, round(<span class="code-keyword">100</span> * duplicates / nrow(df), <span class="code-keyword">2</span>), <span class="code-string">"%\n"</span>)</div>
+                </div>
 
                 <div class="checkpoint" onclick="toggleCheckpoint(this)">
                     <input type="checkbox" id="r-exploration">
@@ -1576,85 +1646,101 @@ cat("Porcentaje de duplicados:", round(100 * duplicates / nrow(df), 2), "%\n")
                     Cada función hace una cosa y la hace bien.</p>
                 </div>
 
-                <div class="code-header">
-                    🧹 Pipeline de limpieza con dplyr
-                </div>
-                <div class="code-block"># Pipeline de limpieza completo usando tidyverse
+                <div class="code-container">
+                    <div class="code-header">
+                        <div class="code-title">
+                            <span>🧹</span>
+                            <span>Pipeline de limpieza con dplyr</span>
+                        </div>
+                        <div class="code-actions">
+                            <button class="code-btn" onclick="selectCode(this)">📋 Seleccionar</button>
+                            <button class="code-btn" onclick="copyCode(this)">📄 Copiar</button>
+                        </div>
+                    </div>
+                    <div class="code-block"><span class="code-comment"># Pipeline de limpieza completo usando tidyverse</span>
 df_clean <- df %>%
-  # 1. Eliminar duplicados
+  <span class="code-comment"># 1. Eliminar duplicados</span>
   distinct() %>%
   
-  # 2. Limpiar nombres de columnas
-  rename_all(~ gsub(" ", "_", tolower(trimws(.)))) %>%
+  <span class="code-comment"># 2. Limpiar nombres de columnas</span>
+  rename_all(~ gsub(<span class="code-string">" "</span>, <span class="code-string">"_"</span>, tolower(trimws(.)))) %>%
   
-  # 3. Convertir tipos de datos apropiados
-  mutate_if(is.character, as.factor) %>%  # Caracteres a factores
+  <span class="code-comment"># 3. Convertir tipos de datos apropiados</span>
+  mutate_if(is.character, as.factor) %>%  <span class="code-comment"># Caracteres a factores</span>
   
-  # 4. Manejo inteligente de outliers usando IQR
+  <span class="code-comment"># 4. Manejo inteligente de outliers usando IQR</span>
   mutate_if(is.numeric, ~ ifelse(
-    abs(. - median(., na.rm = TRUE)) > 3 * IQR(., na.rm = TRUE),
-    median(., na.rm = TRUE), 
+    abs(. - median(., na.rm = <span class="code-keyword">TRUE</span>)) > <span class="code-keyword">3</span> * IQR(., na.rm = <span class="code-keyword">TRUE</span>),
+    median(., na.rm = <span class="code-keyword">TRUE</span>), 
     .
   )) %>%
   
-  # 5. Imputación de valores faltantes por tipo
-  mutate_if(is.numeric, ~ ifelse(is.na(.), median(., na.rm = TRUE), .)) %>%
+  <span class="code-comment"># 5. Imputación de valores faltantes por tipo</span>
+  mutate_if(is.numeric, ~ ifelse(is.na(.), median(., na.rm = <span class="code-keyword">TRUE</span>), .)) %>%
   mutate_if(is.factor, ~ ifelse(is.na(.), 
-                               names(sort(table(.), decreasing = TRUE))[1], 
+                               names(sort(table(.), decreasing = <span class="code-keyword">TRUE</span>))[<span class="code-keyword">1</span>], 
                                as.character(.))) %>%
   mutate_if(is.factor, as.factor)
 
-# Reportar cambios
-cat("🧹 RESULTADOS DE LA LIMPIEZA:\n")
-cat("=============================\n")
-cat("Filas originales:", nrow(df), "\n")
-cat("Filas después de limpieza:", nrow(df_clean), "\n")
-cat("Filas eliminadas:", nrow(df) - nrow(df_clean), "\n")
-cat("Valores faltantes originales:", sum(is.na(df)), "\n")
-cat("Valores faltantes después:", sum(is.na(df_clean)), "\n")
-</div>
-
-                <div class="code-header">
-                    📊 Validación estadística (fortaleza de R)
+<span class="code-comment"># Reportar cambios</span>
+cat(<span class="code-string">"🧹 RESULTADOS DE LA LIMPIEZA:\n"</span>)
+cat(<span class="code-string">"=============================\n"</span>)
+cat(<span class="code-string">"Filas originales:"</span>, nrow(df), <span class="code-string">"\n"</span>)
+cat(<span class="code-string">"Filas después de limpieza:"</span>, nrow(df_clean), <span class="code-string">"\n"</span>)
+cat(<span class="code-string">"Filas eliminadas:"</span>, nrow(df) - nrow(df_clean), <span class="code-string">"\n"</span>)
+cat(<span class="code-string">"Valores faltantes originales:"</span>, sum(is.na(df)), <span class="code-string">"\n"</span>)
+cat(<span class="code-string">"Valores faltantes después:"</span>, sum(is.na(df_clean)), <span class="code-string">"\n"</span>)</div>
                 </div>
-                <div class="code-block"># Análisis comparativo antes/después
-cat("\n📊 COMPARACIÓN ESTADÍSTICA ANTES/DESPUÉS:\n")
 
-# Función para comparar estadísticas
+                <div class="code-container">
+                    <div class="code-header">
+                        <div class="code-title">
+                            <span>📊</span>
+                            <span>Validación estadística</span>
+                        </div>
+                        <div class="code-actions">
+                            <button class="code-btn" onclick="selectCode(this)">📋 Seleccionar</button>
+                            <button class="code-btn" onclick="copyCode(this)">📄 Copiar</button>
+                        </div>
+                    </div>
+                    <div class="code-block"><span class="code-comment"># Análisis comparativo antes/después</span>
+cat(<span class="code-string">"\n📊 COMPARACIÓN ESTADÍSTICA ANTES/DESPUÉS:\n"</span>)
+
+<span class="code-comment"># Función para comparar estadísticas</span>
 compare_stats <- function(original, cleaned, col_name) {
-  if(is.numeric(original[[col_name]])) {
-    cat("\nColumna:", col_name, "\n")
-    cat("  Media original:", round(mean(original[[col_name]], na.rm = TRUE), 2), "\n")
-    cat("  Media limpia:", round(mean(cleaned[[col_name]], na.rm = TRUE), 2), "\n")
-    cat("  Desv. estándar original:", round(sd(original[[col_name]], na.rm = TRUE), 2), "\n")
-    cat("  Desv. estándar limpia:", round(sd(cleaned[[col_name]], na.rm = TRUE), 2), "\n")
+  <span class="code-keyword">if</span>(is.numeric(original[[col_name]])) {
+    cat(<span class="code-string">"\nColumna:"</span>, col_name, <span class="code-string">"\n"</span>)
+    cat(<span class="code-string">"  Media original:"</span>, round(mean(original[[col_name]], na.rm = <span class="code-keyword">TRUE</span>), <span class="code-keyword">2</span>), <span class="code-string">"\n"</span>)
+    cat(<span class="code-string">"  Media limpia:"</span>, round(mean(cleaned[[col_name]], na.rm = <span class="code-keyword">TRUE</span>), <span class="code-keyword">2</span>), <span class="code-string">"\n"</span>)
+    cat(<span class="code-string">"  Desv. estándar original:"</span>, round(sd(original[[col_name]], na.rm = <span class="code-keyword">TRUE</span>), <span class="code-keyword">2</span>), <span class="code-string">"\n"</span>)
+    cat(<span class="code-string">"  Desv. estándar limpia:"</span>, round(sd(cleaned[[col_name]], na.rm = <span class="code-keyword">TRUE</span>), <span class="code-keyword">2</span>), <span class="code-string">"\n"</span>)
   }
 }
 
-# Aplicar comparación a columnas numéricas
+<span class="code-comment"># Aplicar comparación a columnas numéricas</span>
 numeric_columns <- names(select_if(df, is.numeric))
-for(col in numeric_columns) {
+<span class="code-keyword">for</span>(col <span class="code-keyword">in</span> numeric_columns) {
   compare_stats(df, df_clean, col)
 }
 
-# Visualización de mejoras (lo que R hace excepcionalmente bien)
-if(length(numeric_columns) >= 2) {
-  # Gráfico de correlación antes y después
-  par(mfrow = c(1, 2))
+<span class="code-comment"># Visualización de mejoras</span>
+<span class="code-keyword">if</span>(length(numeric_columns) >= <span class="code-keyword">2</span>) {
+  <span class="code-comment"># Gráfico de correlación antes y después</span>
+  par(mfrow = c(<span class="code-keyword">1</span>, <span class="code-keyword">2</span>))
   
-  # Correlación original
-  cor_original <- cor(select_if(df, is.numeric), use = "complete.obs")
-  corrplot(cor_original, method = "color", title = "Correlaciones Originales",
-           mar = c(0,0,1,0))
+  <span class="code-comment"># Correlación original</span>
+  cor_original <- cor(select_if(df, is.numeric), use = <span class="code-string">"complete.obs"</span>)
+  corrplot(cor_original, method = <span class="code-string">"color"</span>, title = <span class="code-string">"Correlaciones Originales"</span>,
+           mar = c(<span class="code-keyword">0</span>,<span class="code-keyword">0</span>,<span class="code-keyword">1</span>,<span class="code-keyword">0</span>))
   
-  # Correlación después de limpieza
-  cor_clean <- cor(select_if(df_clean, is.numeric), use = "complete.obs")
-  corrplot(cor_clean, method = "color", title = "Correlaciones Post-Limpieza",
-           mar = c(0,0,1,0))
+  <span class="code-comment"># Correlación después de limpieza</span>
+  cor_clean <- cor(select_if(df_clean, is.numeric), use = <span class="code-string">"complete.obs"</span>)
+  corrplot(cor_clean, method = <span class="code-string">"color"</span>, title = <span class="code-string">"Correlaciones Post-Limpieza"</span>,
+           mar = c(<span class="code-keyword">0</span>,<span class="code-keyword">0</span>,<span class="code-keyword">1</span>,<span class="code-keyword">0</span>))
   
-  cat("\n📈 Gráficos de correlación generados\n")
-}
-</div>
+  cat(<span class="code-string">"\n📈 Gráficos de correlación generados\n"</span>)
+}</div>
+                </div>
 
                 <div class="checkpoint" onclick="toggleCheckpoint(this)">
                     <input type="checkbox" id="r-cleaning">
@@ -1675,48 +1761,56 @@ if(length(numeric_columns) >= 2) {
                     imputaciones basadas en patrones estadísticos de los datos.</p>
                 </div>
 
-                <div class="code-header">
-                    🔬 Imputación avanzada con MICE (solo si hay valores faltantes)
-                </div>
-                <div class="code-block"># Solo ejecutar si hay valores faltantes significativos
-if(sum(is.na(df)) > 0) {
-  cat("🔬 INICIANDO IMPUTACIÓN AVANZADA CON MICE\n")
+                <div class="code-container">
+                    <div class="code-header">
+                        <div class="code-title">
+                            <span>🔬</span>
+                            <span>Imputación avanzada con MICE</span>
+                        </div>
+                        <div class="code-actions">
+                            <button class="code-btn" onclick="selectCode(this)">📋 Seleccionar</button>
+                            <button class="code-btn" onclick="copyCode(this)">📄 Copiar</button>
+                        </div>
+                    </div>
+                    <div class="code-block"><span class="code-comment"># Solo ejecutar si hay valores faltantes significativos</span>
+<span class="code-keyword">if</span>(sum(is.na(df)) > <span class="code-keyword">0</span>) {
+  cat(<span class="code-string">"🔬 INICIANDO IMPUTACIÓN AVANZADA CON MICE\n"</span>)
   
-  # Preparar datos para MICE (solo columnas con faltantes)
-  cols_with_missing <- names(df)[colSums(is.na(df)) > 0]
+  <span class="code-comment"># Preparar datos para MICE (solo columnas con faltantes)</span>
+  cols_with_missing <- names(df)[colSums(is.na(df)) > <span class="code-keyword">0</span>]
   
-  if(length(cols_with_missing) > 0) {
-    cat("Columnas con valores faltantes:", paste(cols_with_missing, collapse = ", "), "\n")
+  <span class="code-keyword">if</span>(length(cols_with_missing) > <span class="code-keyword">0</span>) {
+    cat(<span class="code-string">"Columnas con valores faltantes:"</span>, paste(cols_with_missing, collapse = <span class="code-string">", "</span>), <span class="code-string">"\n"</span>)
     
-    # Configurar MICE
-    mice_setup <- mice(df, m = 5, method = 'pmm', printFlag = FALSE)
+    <span class="code-comment"># Configurar MICE</span>
+    mice_setup <- mice(df, m = <span class="code-keyword">5</span>, method = <span class="code-string">'pmm'</span>, printFlag = <span class="code-keyword">FALSE</span>)
     
-    # Realizar imputación múltiple
-    cat("Ejecutando imputación múltiple...\n")
+    <span class="code-comment"># Realizar imputación múltiple</span>
+    cat(<span class="code-string">"Ejecutando imputación múltiple...\n"</span>)
     mice_result <- complete(mice_setup)
     
-    # Comparar resultados
-    cat("\n📊 COMPARACIÓN MICE vs IMPUTACIÓN SIMPLE:\n")
-    for(col in cols_with_missing) {
-      if(is.numeric(df[[col]])) {
-        original_mean <- mean(df[[col]], na.rm = TRUE)
-        simple_mean <- mean(df_clean[[col]], na.rm = TRUE)
-        mice_mean <- mean(mice_result[[col]], na.rm = TRUE)
+    <span class="code-comment"># Comparar resultados</span>
+    cat(<span class="code-string">"\n📊 COMPARACIÓN MICE vs IMPUTACIÓN SIMPLE:\n"</span>)
+    <span class="code-keyword">for</span>(col <span class="code-keyword">in</span> cols_with_missing) {
+      <span class="code-keyword">if</span>(is.numeric(df[[col]])) {
+        original_mean <- mean(df[[col]], na.rm = <span class="code-keyword">TRUE</span>)
+        simple_mean <- mean(df_clean[[col]], na.rm = <span class="code-keyword">TRUE</span>)
+        mice_mean <- mean(mice_result[[col]], na.rm = <span class="code-keyword">TRUE</span>)
         
-        cat("Columna", col, ":\n")
-        cat("  Media original (sin NAs):", round(original_mean, 2), "\n")
-        cat("  Media imputación simple:", round(simple_mean, 2), "\n")
-        cat("  Media imputación MICE:", round(mice_mean, 2), "\n\n")
+        cat(<span class="code-string">"Columna"</span>, col, <span class="code-string">":\n"</span>)
+        cat(<span class="code-string">"  Media original (sin NAs):"</span>, round(original_mean, <span class="code-keyword">2</span>), <span class="code-string">"\n"</span>)
+        cat(<span class="code-string">"  Media imputación simple:"</span>, round(simple_mean, <span class="code-keyword">2</span>), <span class="code-string">"\n"</span>)
+        cat(<span class="code-string">"  Media imputación MICE:"</span>, round(mice_mean, <span class="code-keyword">2</span>), <span class="code-string">"\n\n"</span>)
       }
     }
     
-    # Opción de usar resultado MICE
-    cat("💡 MICE completado. Usando imputación simple para este ejercicio.\n")
+    <span class="code-comment"># Opción de usar resultado MICE</span>
+    cat(<span class="code-string">"💡 MICE completado. Usando imputación simple para este ejercicio.\n"</span>)
   }
-} else {
-  cat("✅ No hay valores faltantes para imputación avanzada\n")
-}
-</div>
+} <span class="code-keyword">else</span> {
+  cat(<span class="code-string">"✅ No hay valores faltantes para imputación avanzada\n"</span>)
+}</div>
+                </div>
 
                 <div class="alert alert-success">
                     <span style="font-size: 1.2rem;">🏆</span>
@@ -1737,78 +1831,86 @@ if(sum(is.na(df)) > 0) {
                     <div class="time-estimate">⏱️ 7 min</div>
                 </div>
 
-                <div class="code-header">
-                    📈 Crear visualización final (ggplot2 - lo mejor de R)
-                </div>
-                <div class="code-block"># Crear dashboard de validación con ggplot2
+                <div class="code-container">
+                    <div class="code-header">
+                        <div class="code-title">
+                            <span>📈</span>
+                            <span>Crear visualización final (ggplot2)</span>
+                        </div>
+                        <div class="code-actions">
+                            <button class="code-btn" onclick="selectCode(this)">📋 Seleccionar</button>
+                            <button class="code-btn" onclick="copyCode(this)">📄 Copiar</button>
+                        </div>
+                    </div>
+                    <div class="code-block"><span class="code-comment"># Crear dashboard de validación con ggplot2</span>
 library(gridExtra)
 
-# 1. Comparación de distribuciones antes/después
+<span class="code-comment"># 1. Comparación de distribuciones antes/después</span>
 create_comparison_plot <- function(original, cleaned, column_name) {
-  if(is.numeric(original[[column_name]])) {
-    # Preparar datos para ggplot
+  <span class="code-keyword">if</span>(is.numeric(original[[column_name]])) {
+    <span class="code-comment"># Preparar datos para ggplot</span>
     plot_data <- data.frame(
       Valor = c(original[[column_name]], cleaned[[column_name]]),
-      Tipo = rep(c("Original", "Limpio"), 
+      Tipo = rep(c(<span class="code-string">"Original"</span>, <span class="code-string">"Limpio"</span>), 
                  times = c(length(original[[column_name]]), 
                           length(cleaned[[column_name]])))
     )
     
-    # Crear gráfico de densidad
+    <span class="code-comment"># Crear gráfico de densidad</span>
     ggplot(plot_data, aes(x = Valor, fill = Tipo)) +
-      geom_density(alpha = 0.7) +
-      scale_fill_manual(values = c("Original" = "coral", "Limpio" = "lightblue")) +
-      labs(title = paste("Distribución:", column_name),
-           x = column_name, y = "Densidad") +
+      geom_density(alpha = <span class="code-keyword">0.7</span>) +
+      scale_fill_manual(values = c(<span class="code-string">"Original"</span> = <span class="code-string">"coral"</span>, <span class="code-string">"Limpio"</span> = <span class="code-string">"lightblue"</span>)) +
+      labs(title = paste(<span class="code-string">"Distribución:"</span>, column_name),
+           x = column_name, y = <span class="code-string">"Densidad"</span>) +
       theme_minimal() +
-      theme(legend.position = "bottom")
+      theme(legend.position = <span class="code-string">"bottom"</span>)
   }
 }
 
-# Generar gráficos para las primeras 4 columnas numéricas
-numeric_cols <- names(select_if(df, is.numeric))[1:min(4, length(names(select_if(df, is.numeric))))]
+<span class="code-comment"># Generar gráficos para las primeras 4 columnas numéricas</span>
+numeric_cols <- names(select_if(df, is.numeric))[<span class="code-keyword">1</span>:min(<span class="code-keyword">4</span>, length(names(select_if(df, is.numeric))))]
 plots <- list()
 
-for(i in seq_along(numeric_cols)) {
+<span class="code-keyword">for</span>(i <span class="code-keyword">in</span> seq_along(numeric_cols)) {
   plots[[i]] <- create_comparison_plot(df, df_clean, numeric_cols[i])
 }
 
-# Combinar gráficos
-if(length(plots) > 0) {
-  do.call(grid.arrange, c(plots, ncol = 2))
-  cat("📊 Gráficos de comparación generados\n")
+<span class="code-comment"># Combinar gráficos</span>
+<span class="code-keyword">if</span>(length(plots) > <span class="code-keyword">0</span>) {
+  do.call(grid.arrange, c(plots, ncol = <span class="code-keyword">2</span>))
+  cat(<span class="code-string">"📊 Gráficos de comparación generados\n"</span>)
 }
 
-# 2. Resumen final elegante
-cat("\n" , "="*60, "\n")
-cat("🎉 REPORTE FINAL DE LIMPIEZA EN R\n")
-cat("="*60, "\n")
+<span class="code-comment"># 2. Resumen final elegante</span>
+cat(<span class="code-string">"\n"</span> , <span class="code-string">"="</span>*<span class="code-keyword">60</span>, <span class="code-string">"\n"</span>)
+cat(<span class="code-string">"🎉 REPORTE FINAL DE LIMPIEZA EN R\n"</span>)
+cat(<span class="code-string">"="</span>*<span class="code-keyword">60</span>, <span class="code-string">"\n"</span>)
 
 summary_data <- data.frame(
-  Métrica = c("Filas totales", "Columnas", "Valores faltantes", 
-              "Duplicados", "Memoria (MB)"),
+  Métrica = c(<span class="code-string">"Filas totales"</span>, <span class="code-string">"Columnas"</span>, <span class="code-string">"Valores faltantes"</span>, 
+              <span class="code-string">"Duplicados"</span>, <span class="code-string">"Memoria (MB)"</span>),
   Antes = c(nrow(df), ncol(df), sum(is.na(df)), 
            sum(duplicated(df)), 
-           round(as.numeric(object.size(df)) / 1024^2, 2)),
+           round(as.numeric(object.size(df)) / <span class="code-keyword">1024</span>^<span class="code-keyword">2</span>, <span class="code-keyword">2</span>)),
   Después = c(nrow(df_clean), ncol(df_clean), sum(is.na(df_clean)), 
              sum(duplicated(df_clean)), 
-             round(as.numeric(object.size(df_clean)) / 1024^2, 2))
+             round(as.numeric(object.size(df_clean)) / <span class="code-keyword">1024</span>^<span class="code-keyword">2</span>, <span class="code-keyword">2</span>))
 )
 
 summary_data$Cambio <- summary_data$Después - summary_data$Antes
 print(summary_data)
 
-# 3. Guardar resultados
-write_csv(df_clean, "dataset_limpio_r.csv")
-cat("\n💾 Dataset limpio guardado como 'dataset_limpio_r.csv'\n")
+<span class="code-comment"># 3. Guardar resultados</span>
+write_csv(df_clean, <span class="code-string">"dataset_limpio_r.csv"</span>)
+cat(<span class="code-string">"\n💾 Dataset limpio guardado como 'dataset_limpio_r.csv'\n"</span>)
 
-# 4. Crear reporte HTML (bonus de R)
-cat("\n📄 Generando reporte HTML...\n")
-rmarkdown::render(input = "reporte_limpieza.Rmd", 
-                  output_file = "reporte_limpieza.html",
-                  quiet = TRUE)
-cat("✅ Reporte HTML generado: 'reporte_limpieza.html'\n")
-</div>
+<span class="code-comment"># 4. Crear reporte HTML</span>
+cat(<span class="code-string">"\n📄 Generando reporte HTML...\n"</span>)
+rmarkdown::render(input = <span class="code-string">"reporte_limpieza.Rmd"</span>, 
+                  output_file = <span class="code-string">"reporte_limpieza.html"</span>,
+                  quiet = <span class="code-keyword">TRUE</span>)
+cat(<span class="code-string">"✅ Reporte HTML generado: 'reporte_limpieza.html'\n"</span>)</div>
+                </div>
 
                 <div class="alert alert-success">
                     <span style="font-size: 1.2rem;">🎨</span>
@@ -2039,7 +2141,7 @@ cat("✅ Reporte HTML generado: 'reporte_limpieza.html'\n")
 
         function updateProgress() {
             // Calcular progreso por plataforma con checkpoints actualizados
-            const powerbiChecks = ['dataset-downloaded', 'pbi-data-loaded', 'pbi-exploration', 'pbi-basic-cleaning', 'pbi-missing-values', 'pbi-outliers', 'pbi-transformations', 'pbi-completed'];
+            const powerbiChecks = ['dataset-downloaded', 'pbi-completed', 'pbi-exploration', 'pbi-basic-cleaning', 'pbi-missing-values', 'pbi-outliers', 'pbi-transformations', 'pbi-final'];
             const pythonChecks = ['colab-setup', 'python-data-loaded', 'python-exploration', 'python-cleaning', 'python-completed'];
             const rChecks = ['r-setup', 'r-libraries', 'r-exploration', 'r-cleaning', 'r-mice', 'r-completed'];
             
@@ -2134,191 +2236,4 @@ cat("✅ Reporte HTML generado: 'reporte_limpieza.html'\n")
         });
     </script>
 </body>
-</html>Checkpoint(this)">
-                    <input type="checkbox" id="pbi-data-loaded">
-                    <label for="pbi-data-loaded">✅ Dataset cargado en Power Query Editor</label>
-                </div>
-            </div>
-
-            <div class="step">
-                <div class="step-header">
-                    <div class="step-number">2</div>
-                    <div class="step-title">Exploración Inicial en Power Query</div>
-                    <div class="time-estimate">⏱️ 5 min</div>
-                </div>
-                
-                <div style="background: rgba(52, 152, 219, 0.1); padding: 15px; border-radius: 10px; margin: 10px 0;">
-                    <h4>🔍 Interface de Power Query Editor:</h4>
-                    <ul>
-                        <li><strong>Panel izquierdo:</strong> Lista de consultas (Queries)</li>
-                        <li><strong>Centro:</strong> Vista previa de datos</li>
-                        <li><strong>Panel derecho:</strong> Pasos aplicados (Applied Steps)</li>
-                        <li><strong>Cinta superior:</strong> Herramientas de transformación</li>
-                    </ul>
-                </div>
-
-                <ol>
-                    <li><strong>Examinar las columnas:</strong> Observa los tipos de datos en la parte superior de cada columna</li>
-                    <li><strong>Ver estadísticas:</strong> Clic en "View" → "Column Quality" para ver % de errores/vacíos</li>
-                    <li><strong>Activar perfil:</strong> Clic en "View" → "Column Profile" para estadísticas detalladas</li>
-                    <li><strong>Verificar distribución:</strong> Clic en "View" → "Column Distribution" para ver frecuencias</li>
-                </ol>
-
-                <div class="alert alert-success">
-                    <span style="font-size: 1.2rem;">💡</span>
-                    <strong>Ventaja de Power BI:</strong> Los indicadores visuales te muestran inmediatamente 
-                    la calidad de cada columna sin escribir código.
-                </div>
-
-                <div class="checkpoint" onclick="toggleCheckpoint(this)">
-                    <input type="checkbox" id="pbi-exploration">
-                    <label for="pbi-exploration">✅ He explorado mi dataset y activado todas las vistas de calidad</label>
-                </div>
-            </div>
-
-            <div class="step">
-                <div class="step-header">
-                    <div class="step-number">3</div>
-                    <div class="step-title">Limpieza Básica</div>
-                    <div class="time-estimate">⏱️ 10 min</div>
-                </div>
-
-                <h4>A) Eliminar duplicados:</h4>
-                <ol>
-                    <li>Seleccionar todas las columnas (Ctrl+A)</li>
-                    <li>Ir a "Home" → "Remove Rows" → "Remove Duplicates"</li>
-                    <li>Observar cuántas filas se eliminaron en el mensaje</li>
-                </ol>
-
-                <h4>B) Limpiar nombres de columnas:</h4>
-                <ol>
-                    <li>Seleccionar todas las columnas</li>
-                    <li>Clic derecho → "Rename" o usar "Transform" → "Format" → "Trim" para espacios</li>
-                    <li>Reemplazar espacios por guiones bajos si es necesario</li>
-                </ol>
-
-                <h4>C) Corregir tipos de datos:</h4>
-                <ol>
-                    <li>Hacer clic en el ícono de tipo de dato en cada columna</li>
-                    <li>Seleccionar el tipo correcto (Text, Whole Number, Decimal, Date, etc.)</li>
-                    <li>Si hay errores, Power BI te lo indicará visualmente</li>
-                </ol>
-
-                <div class="checkpoint" onclick="toggleCheckpoint(this)">
-                    <input type="checkbox" id="pbi-basic-cleaning">
-                    <label for="pbi-basic-cleaning">✅ Duplicados eliminados, columnas renombradas, tipos corregidos</label>
-                </div>
-            </div>
-
-            <div class="step">
-                <div class="step-header">
-                    <div class="step-number">4</div>
-                    <div class="step-title">Manejar Valores Faltantes</div>
-                    <div class="time-estimate">⏱️ 8 min</div>
-                </div>
-
-                <div style="background: rgba(255, 193, 7, 0.1); padding: 15px; border-radius: 10px; margin: 10px 0;">
-                    <h4>🎯 Estrategias en Power BI:</h4>
-                    <ul>
-                        <li><strong>Remove Rows:</strong> Para eliminar filas con valores nulos</li>
-                        <li><strong>Fill Down/Up:</strong> Para propagar valores</li>
-                        <li><strong>Replace Values:</strong> Para reemplazar nulos con valores específicos</li>
-                    </ul>
-                </div>
-
-                <h4>Para columnas numéricas:</h4>
-                <ol>
-                    <li>Seleccionar la columna numérica</li>
-                    <li>Ir a "Transform" → "Replace Values"</li>
-                    <li>En "Value to Find" dejar en blanco</li>
-                    <li>En "Replace With" poner un valor como 0 o la media estimada</li>
-                </ol>
-
-                <h4>Para columnas de texto:</h4>
-                <ol>
-                    <li>Seleccionar la columna de texto</li>
-                    <li>Ir a "Transform" → "Replace Values"</li>
-                    <li>Reemplazar valores en blanco con "Unknown" o "No Data"</li>
-                </ol>
-
-            <div class="step">
-                <div class="step-header">
-                    <div class="step-number">5</div>
-                    <div class="step-title">Detección de Outliers en Power BI</div>
-                    <div class="time-estimate">⏱️ 6 min</div>
-                </div>
-
-                <div style="background: rgba(255, 193, 7, 0.1); padding: 15px; border-radius: 10px; margin: 10px 0;">
-                    <h4>🎯 Detección de Outliers en Power BI:</h4>
-                    <ul>
-                        <li><strong>Método Visual:</strong> Usar gráficos de boxplot para identificar outliers</li>
-                        <li><strong>Filtros avanzados:</strong> Crear filtros basados en percentiles</li>
-                        <li><strong>Columnas calculadas:</strong> Usar DAX para marcar outliers</li>
-                    </ul>
-                </div>
-
-                <h4>A) Crear columna calculada para detectar outliers:</h4>
-                <ol>
-                    <li>En Power Query, ir a "Add Column" → "Custom Column"</li>
-                    <li>Nombrar la columna: "Es_Outlier"</li>
-                    <li>Usar fórmula para detectar outliers basada en percentiles</li>
-                    <li>Marcar valores que estén fuera del rango Q1-1.5*IQR a Q3+1.5*IQR</li>
-                </ol>
-
-                <h4>B) Aplicar transformaciones a outliers:</h4>
-                <ol>
-                    <li>Filtrar filas donde "Es_Outlier" = true</li>
-                    <li>Decidir estrategia: eliminar, winsorizar o mantener</li>
-                    <li>Aplicar "Replace Values" para corregir outliers extremos</li>
-                    <li>Documentar decisiones en los "Applied Steps"</li>
-                </ol>
-
-                <div class="checkpoint" onclick="toggleCheckpoint(this)">
-                    <input type="checkbox" id="pbi-outliers">
-                    <label for="pbi-outliers">✅ Outliers detectados y tratados usando columnas calculadas</label>
-                </div>
-            </div>
-
-            <div class="step">
-                <div class="step-header">
-                    <div class="step-number">6</div>
-                    <div class="step-title">Transformaciones de Datos</div>
-                    <div class="time-estimate">⏱️ 5 min</div>
-                </div>
-
-                <h4>A) Estandarizar formatos de texto:</h4>
-                <ol>
-                    <li>Seleccionar columnas de texto</li>
-                    <li>Ir a "Transform" → "Format" → "UPPERCASE/lowercase/Proper Case"</li>
-                    <li>Aplicar "Trim" para eliminar espacios extra</li>
-                    <li>Usar "Clean" para caracteres no imprimibles</li>
-                </ol>
-
-                <h4>B) Crear columnas derivadas:</h4>
-                <ol>
-                    <li>Ir a "Add Column" → "Custom Column"</li>
-                    <li>Crear categorías basadas en rangos numéricos</li>
-                    <li>Generar flags booleanos para condiciones especiales</li>
-                    <li>Calcular métricas derivadas (ej: IMC, ratios, etc.)</li>
-                </ol>
-
-                <div class="checkpoint" onclick="toggleCheckpoint(this)">
-                    <input type="checkbox" id="pbi-transformations">
-                    <label for="pbi-transformations">✅ Transformaciones de formato y columnas derivadas aplicadas</label>
-                </div>
-            </div>
-
-                <ol>
-                    <li><strong>Revisar pasos aplicados:</strong> En el panel "Applied Steps" verifica cada transformación</li>
-                    <li><strong>Verificar calidad:</strong> Asegúrate de que "Column Quality" muestre 100% Valid</li>
-                    <li><strong>Renombrar consulta:</strong> Clic derecho en "Query1" → Rename → "DatosLimpios"</li>
-                    <li><strong>Cargar datos:</strong> Clic en "Home" → "Close & Apply"</li>
-                </ol>
-
-                <div class="alert alert-success">
-                    <span style="font-size: 1.2rem;">🎉</span>
-                    <strong>¡Excelente!</strong> Tu dataset está limpio y listo para análisis en Power BI.
-                    Observa cómo cada paso queda documentado automáticamente.
-                </div>
-
-                <div class="checkpoint" onclick="toggle
+</html>
