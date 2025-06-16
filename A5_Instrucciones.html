@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manual de Práctica - Limpieza de Datos | Universidad del SABES</title>
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Manual de Práctica - Limpieza de Datos | Universidad del SABES</title>
+<style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -406,505 +407,555 @@
         }
     </style>
 </head>
-<body>
-    <div class="container">
-        <div class="header">
-            <h1>🧹 MANUAL DE PRÁCTICA - LIMPIEZA DE DATOS</h1>
-            <p><strong>Universidad del SABES</strong> | Analítica de Datos | Sesión 5</p>
-            <p>Profesor: Fausto Noé Jiménez | 10 de junio 2025</p>
-            <div class="time-estimate">⏱️ Tiempo estimado: 90 minutos</div>
-        </div>
 
-        <div class="progress-tracker">
-            <h3>📊 Progreso General</h3>
-            <div class="progress-bar-container">
-                <div class="progress-bar-fill" id="overallProgress"></div>
-            </div>
-            <p id="progressText">0% completado</p>
-            <div style="margin-top: 15px;">
-                <h4>🎯 Plataformas:</h4>
-                <div style="font-size: 0.9rem;">
-                    <div id="powerbiProgress">📊 Power BI: 0%</div>
-                    <div id="pythonProgress">🐍 Python: 0%</div>
-                    <div id="rProgress">📈 R: 0%</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Sección de Selección de Dataset -->
-        <div class="section">
-            <h2>📁 PASO 1: SELECCIÓN DE DATASET</h2>
-            
-            <div class="alert alert-info">
-                <span style="font-size: 1.5rem;">💡</span>
-                <div>
-                    <strong>Importante:</strong> Para esta práctica, utilizaremos datasets específicos según tu carrera. 
+</html><main><body>
+<nav role="navigation"></nav><article role="article"></article><div class="container">
+<div class="header">
+<h1>🧹 MANUAL DE PRÁCTICA - LIMPIEZA DE DATOS</h1>
+<p><strong>Universidad del SABES</strong> | Analítica de Datos | Sesión 5</p>
+<p>Profesor: Fausto Noé Jiménez | 10 de junio 2025</p>
+<div class="time-estimate">⏱️ Tiempo estimado: 90 minutos</div>
+</div>
+<div class="progress-tracker">
+<h3>📊 Progreso General</h3>
+<div class="progress-bar-container">
+<div class="progress-bar-fill" id="overallProgress"></div>
+</div>
+<p id="progressText">0% completado</p>
+<div style="margin-top: 15px;">
+<h4>🎯 Plataformas:</h4>
+<div style="font-size: 0.9rem;">
+<div id="powerbiProgress">📊 Power BI: 0%</div>
+<div id="pythonProgress">🐍 Python: 0%</div>
+<div id="rProgress">📈 R: 0%</div>
+</div>
+</div>
+</div>
+<!-- Sección de Selección de Dataset -->
+<div class="section">
+<h2>📁 PASO 1: SELECCIÓN DE DATASET</h2>
+<div class="alert alert-info">
+<span style="font-size: 1.5rem;">💡</span>
+<div>
+<strong>Importante:</strong> Para esta práctica, utilizaremos datasets específicos según tu carrera. 
                     Si aún no recibes tu dataset asignado, puedes practicar con los datasets de muestra disponibles.
                 </div>
-            </div>
-
-            <div class="dataset-selector">
-                <h3>🎯 Selecciona tu área de estudio:</h3>
-                
-                <div class="dataset-option" onclick="selectDataset('admin')">
-                    <strong>💼 Administración y Desarrollo de Negocios</strong>
-                    <p>Dataset de muestra: Customer Sales Data (ventas y demografía)</p>
-                    <small>📁 Descarga: <a href="https://bit.ly/sabes-admin-data" target="_blank">bit.ly/sabes-admin-data</a></small>
-                </div>
-                
-                <div class="dataset-option" onclick="selectDataset('ti')">
-                    <strong>💻 Ingeniería en Tecnologías de Información</strong>
-                    <p>Dataset de muestra: Network Traffic Analysis (logs de red)</p>
-                    <small>📁 Descarga: <a href="https://bit.ly/sabes-ti-data" target="_blank">bit.ly/sabes-ti-data</a></small>
-                </div>
-                
-                <div class="dataset-option" onclick="selectDataset('industrial')">
-                    <strong>🏭 Ingeniería Industrial</strong>
-                    <p>Dataset de muestra: Manufacturing Quality Control (control de calidad)</p>
-                    <small>📁 Descarga: <a href="https://bit.ly/sabes-industrial-data" target="_blank">bit.ly/sabes-industrial-data</a></small>
-                </div>
-                
-                <div class="dataset-option" onclick="selectDataset('marketing')">
-                    <strong>📢 Mercadotecnia</strong>
-                    <p>Dataset de muestra: Digital Marketing Campaigns (campañas digitales)</p>
-                    <small>📁 Descarga: <a href="https://bit.ly/sabes-marketing-data" target="_blank">bit.ly/sabes-marketing-data</a></small>
-                </div>
-            </div>
-
-            <div class="checkpoint" onclick="toggleCheckpoint(this)">
-                <input type="checkbox" id="dataset-downloaded">
-                <label for="dataset-downloaded">✅ He descargado mi dataset y está listo para trabajar</label>
-            </div>
-        </div>
-
-        <!-- Comparación de Plataformas -->
-        <div class="section">
-            <h2>⚖️ COMPARACIÓN DE PLATAFORMAS</h2>
-            
-            <div class="alert alert-warning">
-                <span style="font-size: 1.5rem;">⚡</span>
-                <div>
-                    <strong>Filosofía de trabajo:</strong> Cada plataforma tiene su enfoque único. 
+</div>
+<div class="dataset-selector">
+<h3>🎯 Selecciona tu área de estudio:</h3>
+<div class="dataset-option" onclick="selectDataset('hr-attrition')" style="border: 3px solid #667eea; background: rgba(102, 126, 234, 0.1);">
+<strong>🎯 DATASET PRINCIPAL - HR Employee Attrition (IBM)</strong>
+<p>Dataset completo: Rotación de empleados con 1,470 filas × 35 columnas</p>
+<small>📁 Descarga: <a href="https://www.kaggle.com/datasets/pavansubhasht/ibm-hr-analytics-attrition-dataset" target="_blank">WA_FnUseC_HREmployeeAttrition.csv</a></small>
+<div style="margin-top: 10px; font-size: 0.85rem; background: rgba(255,255,255,0.8); padding: 8px; border-radius: 5px;">
+<strong>📊 Características del dataset:</strong><br/>
+• 1,470 empleados ficticios de IBM<br/>
+• 35 variables (edad, salario, satisfacción, rotación)<br/>
+• Contiene todos los problemas típicos de calidad<br/>
+• Perfecto para demostrar cada técnica del manual
+</div>
+</div>
+<div class="dataset-option" onclick="selectDataset('admin')">
+<strong>💼 Administración y Desarrollo de Negocios</strong>
+<p>Dataset alternativo: Customer Sales Data (ventas y demografía)</p>
+<small>📁 Descarga: <a href="https://bit.ly/sabes-admin-data" target="_blank">bit.ly/sabes-admin-data</a></small>
+</div>
+<div class="dataset-option" onclick="selectDataset('ti')">
+<strong>💻 Ingeniería en Tecnologías de Información</strong>
+<p>Dataset alternativo: Network Traffic Analysis (logs de red)</p>
+<small>📁 Descarga: <a href="https://bit.ly/sabes-ti-data" target="_blank">bit.ly/sabes-ti-data</a></small>
+</div>
+<div class="dataset-option" onclick="selectDataset('industrial')">
+<strong>🏭 Ingeniería Industrial</strong>
+<p>Dataset alternativo: Manufacturing Quality Control (control de calidad)</p>
+<small>📁 Descarga: <a href="https://bit.ly/sabes-industrial-data" target="_blank">bit.ly/sabes-industrial-data</a></small>
+</div>
+<div class="dataset-option" onclick="selectDataset('marketing')">
+<strong>📢 Mercadotecnia</strong>
+<p>Dataset alternativo: Digital Marketing Campaigns (campañas digitales)</p>
+<small>📁 Descarga: <a href="https://bit.ly/sabes-marketing-data" target="_blank">bit.ly/sabes-marketing-data</a></small>
+</div>
+</div>
+<div class="checkpoint" onclick="toggleCheckpoint(this)">
+<input data-weight="25" id="dataset-downloaded" type="checkbox"/>
+<label for="dataset-downloaded">✅ He descargado mi dataset y está listo para trabajar</label>
+</div>
+</div>
+<!-- Comparación de Plataformas -->
+<div class="section">
+<h2>⚖️ COMPARACIÓN DE PLATAFORMAS</h2>
+<div class="alert alert-warning">
+<span style="font-size: 1.5rem;">⚡</span>
+<div>
+<strong>Filosofía de trabajo:</strong> Cada plataforma tiene su enfoque único. 
                     Power BI es visual e intuitivo, Python es programático y flexible, R es estadístico y potente.
                 </div>
-            </div>
-
-            <div class="comparison-grid">
-                <div class="comparison-card">
-                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
-                        <div class="platform-logo powerbi-logo">PBI</div>
-                        <h3>Power BI</h3>
-                    </div>
-                    
-                    <div class="speed-indicator">
-                        <strong>Velocidad de implementación:</strong>
-                        <div class="speed-bar">
-                            <div class="speed-fill speed-fast" style="width: 90%;"></div>
-                        </div>
-                        <span>90%</span>
-                    </div>
-                    
-                    <div class="pros-cons">
-                        <div class="pros">
-                            <h4>✅ Ventajas</h4>
-                            <ul>
-                                <li>Interfaz visual intuitiva</li>
-                                <li>Detección automática de tipos</li>
-                                <li>Sin código requerido</li>
-                                <li>Integración con Microsoft</li>
-                            </ul>
-                        </div>
-                        <div class="cons">
-                            <h4>❌ Limitaciones</h4>
-                            <ul>
-                                <li>Menos control granular</li>
-                                <li>Dependiente de GUI</li>
-                                <li>Costo de licencia</li>
-                                <li>Menos automatización</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="comparison-card">
-                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
-                        <div class="platform-logo python-logo">🐍</div>
-                        <h3>Python (Colab)</h3>
-                    </div>
-                    
-                    <div class="speed-indicator">
-                        <strong>Velocidad de implementación:</strong>
-                        <div class="speed-bar">
-                            <div class="speed-fill speed-medium" style="width: 70%;"></div>
-                        </div>
-                        <span>70%</span>
-                    </div>
-                    
-                    <div class="pros-cons">
-                        <div class="pros">
-                            <h4>✅ Ventajas</h4>
-                            <ul>
-                                <li>Máxima flexibilidad</li>
-                                <li>Ecosistema robusto</li>
-                                <li>Gratuito y open source</li>
-                                <li>Muy escalable</li>
-                            </ul>
-                        </div>
-                        <div class="cons">
-                            <h4>❌ Limitaciones</h4>
-                            <ul>
-                                <li>Curva de aprendizaje</li>
-                                <li>Requiere programación</li>
-                                <li>Setup más complejo</li>
-                                <li>Debugging necesario</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="comparison-card">
-                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
-                        <div class="platform-logo r-logo">R</div>
-                        <h3>R (Posit Cloud)</h3>
-                    </div>
-                    
-                    <div class="speed-indicator">
-                        <strong>Velocidad de implementación:</strong>
-                        <div class="speed-bar">
-                            <div class="speed-fill speed-medium" style="width: 65%;"></div>
-                        </div>
-                        <span>65%</span>
-                    </div>
-                    
-                    <div class="pros-cons">
-                        <div class="pros">
-                            <h4>✅ Ventajas</h4>
-                            <ul>
-                                <li>Estadísticas avanzadas</li>
-                                <li>Visualización superior</li>
-                                <li>Tidyverse elegante</li>
-                                <li>Comunidad académica</li>
-                            </ul>
-                        </div>
-                        <div class="cons">
-                            <h4>❌ Limitaciones</h4>
-                            <ul>
-                                <li>Sintaxis específica</li>
-                                <li>Memoria limitada</li>
-                                <li>Menos versátil</li>
-                                <li>Curva de aprendizaje</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- POWER BI SECTION CORREGIDA -->
-        <div class="section">
-            <h2>
-                <div class="platform-logo powerbi-logo">PBI</div>
+</div>
+<div class="comparison-grid">
+<div class="comparison-card">
+<div style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
+<div class="platform-logo powerbi-logo">PBI</div>
+<h3>Power BI</h3>
+</div>
+<div class="speed-indicator">
+<strong>Velocidad de implementación:</strong>
+<div class="speed-bar">
+<div class="speed-fill speed-fast" style="width: 90%;"></div>
+</div>
+<span>90%</span>
+</div>
+<div class="pros-cons">
+<div class="pros">
+<h4>✅ Ventajas</h4>
+<ul>
+<li>Interfaz visual intuitiva</li>
+<li>Detección automática de tipos</li>
+<li>Sin código requerido</li>
+<li>Integración con Microsoft</li>
+</ul>
+</div>
+<div class="cons">
+<h4>❌ Limitaciones</h4>
+<ul>
+<li>Menos control granular</li>
+<li>Dependiente de GUI</li>
+<li>Costo de licencia</li>
+<li>Menos automatización</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="comparison-card">
+<div style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
+<div class="platform-logo python-logo">🐍</div>
+<h3>Python (Colab)</h3>
+</div>
+<div class="speed-indicator">
+<strong>Velocidad de implementación:</strong>
+<div class="speed-bar">
+<div class="speed-fill speed-medium" style="width: 70%;"></div>
+</div>
+<span>70%</span>
+</div>
+<div class="pros-cons">
+<div class="pros">
+<h4>✅ Ventajas</h4>
+<ul>
+<li>Máxima flexibilidad</li>
+<li>Ecosistema robusto</li>
+<li>Gratuito y open source</li>
+<li>Muy escalable</li>
+</ul>
+</div>
+<div class="cons">
+<h4>❌ Limitaciones</h4>
+<ul>
+<li>Curva de aprendizaje</li>
+<li>Requiere programación</li>
+<li>Setup más complejo</li>
+<li>Debugging necesario</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="comparison-card">
+<div style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
+<div class="platform-logo r-logo">R</div>
+<h3>R (Posit Cloud)</h3>
+</div>
+<div class="speed-indicator">
+<strong>Velocidad de implementación:</strong>
+<div class="speed-bar">
+<div class="speed-fill speed-medium" style="width: 65%;"></div>
+</div>
+<span>65%</span>
+</div>
+<div class="pros-cons">
+<div class="pros">
+<h4>✅ Ventajas</h4>
+<ul>
+<li>Estadísticas avanzadas</li>
+<li>Visualización superior</li>
+<li>Tidyverse elegante</li>
+<li>Comunidad académica</li>
+</ul>
+</div>
+<div class="cons">
+<h4>❌ Limitaciones</h4>
+<ul>
+<li>Sintaxis específica</li>
+<li>Memoria limitada</li>
+<li>Menos versátil</li>
+<li>Curva de aprendizaje</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- POWER BI SECTION COMPLETA -->
+<div class="section">
+<h2>
+<div class="platform-logo powerbi-logo">PBI</div>
                 LIMPIEZA EN POWER BI
             </h2>
-            
-            <div class="alert alert-info">
-                <span style="font-size: 1.5rem;">🎯</span>
-                <div>
-                    <strong>Filosofía de Power BI:</strong> "Point, click, transform". Power BI prioriza la 
+<div class="alert alert-info">
+<span style="font-size: 1.5rem;">🎯</span>
+<div>
+<strong>Filosofía de Power BI:</strong> "Point, click, transform". Power BI prioriza la 
                     facilidad de uso y la intuición visual sobre el control programático.
                 </div>
-            </div>
-
-            <div class="step">
-                <div class="step-header">
-                    <div class="step-number">1</div>
-                    <div class="step-title">Cargar el Dataset</div>
-                    <div class="time-estimate">⏱️ 3 min</div>
+</div>
+<div class="step">
+<div class="step-header">
+<div class="step-number">1</div>
+<div class="step-title">Cargar el Dataset</div>
+<div class="time-estimate">⏱️ 3 min</div>
+</div>
+<ol>
+<li><strong>Abrir Power BI Desktop</strong> (descargar desde powerbi.microsoft.com si no lo tienes)</li>
+<li>Hacer clic en <strong>"Get Data (Obtener datos)"</strong> en la cinta de opciones</li>
+<li>Seleccionar <strong>"Text/CSV"</strong> para archivos CSV o <strong>"Excel"</strong> para archivos Excel</li>
+<li>Navegar y seleccionar tu archivo descargado</li>
+<li>En la ventana de vista previa, hacer clic en <strong>"Transform Data (Transformar datos)"</strong></li>
+</ol>
+<div class="alert alert-info">
+<span style="font-size: 1.2rem;">📋</span>
+<div>
+<strong>Ejemplo con HR Employee Attrition:</strong><br/>
+• Archivo: <code>WA_FnUseC_HREmployeeAttrition.csv</code><br/>
+• Resultado: 1,470 filas × 35 columnas detectadas<br/>
+• Tipos automáticos: Age=Whole Number, Attrition=Text, MonthlyIncome=Whole Number<br/>
+• Encoding: UTF-8 detectado automáticamente
+</div>
+</div>
+<div class="alert alert-warning">
+<span style="font-size: 1.2rem;">⚠️</span>
+<strong>¡NO hagas clic en "Load" directamente!</strong> Siempre ve a "Transform Data (Transformar datos)" para limpiar primero.
                 </div>
-                
-                <ol>
-                    <li><strong>Abrir Power BI Desktop</strong> (descargar desde powerbi.microsoft.com si no lo tienes)</li>
-                    <li>Hacer clic en <strong>"Get Data"</strong> en la cinta de opciones</li>
-                    <li>Seleccionar <strong>"Text/CSV"</strong> para archivos CSV o <strong>"Excel"</strong> para archivos Excel</li>
-                    <li>Navegar y seleccionar tu archivo descargado</li>
-                    <li>En la ventana de vista previa, hacer clic en <strong>"Transform Data"</strong></li>
-                </ol>
-
-                <div class="alert alert-warning">
-                    <span style="font-size: 1.2rem;">⚠️</span>
-                    <strong>¡NO hagas clic en "Load" directamente!</strong> Siempre ve a "Transform Data" para limpiar primero.
-                </div>
-
-                <div class="checkpoint" onclick="toggleCheckpoint(this)">
-                    <input type="checkbox" id="pbi-completed">
-                    <label for="pbi-completed">✅ Dataset cargado en Power Query Editor</label>
-                </div>
-            </div>
-
-            <div class="step">
-                <div class="step-header">
-                    <div class="step-number">2</div>
-                    <div class="step-title">Exploración Inicial en Power Query</div>
-                    <div class="time-estimate">⏱️ 5 min</div>
-                </div>
-                
-                <div style="background: rgba(52, 152, 219, 0.1); padding: 15px; border-radius: 10px; margin: 10px 0;">
-                    <h4>🔍 Interface de Power Query Editor:</h4>
-                    <ul>
-                        <li><strong>Panel izquierdo:</strong> Lista de consultas (Queries)</li>
-                        <li><strong>Centro:</strong> Vista previa de datos</li>
-                        <li><strong>Panel derecho:</strong> Pasos aplicados (Applied Steps)</li>
-                        <li><strong>Cinta superior:</strong> Herramientas de transformación</li>
-                    </ul>
-                </div>
-
-                <ol>
-                    <li><strong>Examinar las columnas:</strong> Observa los tipos de datos en la parte superior de cada columna</li>
-                    <li><strong>Ver estadísticas:</strong> Clic en "View" → "Column Quality" para ver % de errores/vacíos</li>
-                    <li><strong>Activar perfil:</strong> Clic en "View" → "Column Profile" para estadísticas detalladas</li>
-                    <li><strong>Verificar distribución:</strong> Clic en "View" → "Column Distribution" para ver frecuencias</li>
-                </ol>
-
-                <div class="alert alert-success">
-                    <span style="font-size: 1.2rem;">💡</span>
-                    <strong>Ventaja de Power BI:</strong> Los indicadores visuales te muestran inmediatamente 
+<div class="checkpoint" onclick="toggleCheckpoint(this)">
+<input data-weight="3.125" id="pbi-completed" type="checkbox"/>
+<label for="pbi-completed">✅ Dataset cargado en Power Query Editor</label>
+</div>
+</div>
+<div class="step">
+<div class="step-header">
+<div class="step-number">2</div>
+<div class="step-title">Exploración Inicial en Power Query</div>
+<div class="time-estimate">⏱️ 5 min</div>
+</div>
+<div style="background: rgba(52, 152, 219, 0.1); padding: 15px; border-radius: 10px; margin: 10px 0;">
+<h4>🔍 Interface de Power Query Editor:</h4>
+<ul>
+<li><strong>Panel izquierdo:</strong> Lista de consultas (Queries)</li>
+<li><strong>Centro:</strong> Vista previa de datos</li>
+<li><strong>Panel derecho:</strong> Pasos aplicados (Applied Steps)</li>
+<li><strong>Cinta superior:</strong> Herramientas de transformación</li>
+</ul>
+</div>
+<ol>
+<li><strong>Examinar las columnas:</strong> Observa los tipos de datos en la parte superior de cada columna</li>
+<li><strong>Ver estadísticas:</strong> Clic en "View" → "Column Quality" para ver % de errores/vacíos</li>
+<li><strong>Activar perfil:</strong> Clic en "View" → "Column Profile" para estadísticas detalladas</li>
+<li><strong>Verificar distribución:</strong> Clic en "View" → "Column Distribution" para ver frecuencias</li>
+</ol>
+<div class="alert alert-info">
+<span style="font-size: 1.2rem;">📋</span>
+<div>
+<strong>Ejemplo con HR Employee Attrition:</strong><br/>
+<strong>Problemas detectados:</strong><br/>
+• <code>EmployeeCount</code>: 100% mismo valor (1) - columna constante<br/>
+• <code>Over18</code>: 100% mismo valor ("Y") - sin variabilidad<br/>
+• <code>StandardHours</code>: 100% mismo valor (80) - redundante<br/>
+• <code>Education</code>: Números 1-5 en lugar de texto descriptivo<br/>
+• <code>EnvironmentSatisfaction</code>: Números 1-4 sin etiquetas<br/>
+<strong>Calidad general:</strong> 100% Valid, 0% Error, 0% Empty
+</div>
+</div>
+<div class="alert alert-success">
+<span style="font-size: 1.2rem;">💡</span>
+<strong>Ventaja de Power BI:</strong> Los indicadores visuales te muestran inmediatamente 
                     la calidad de cada columna sin escribir código.
                 </div>
-
-                <div class="checkpoint" onclick="toggleCheckpoint(this)">
-                    <input type="checkbox" id="pbi-exploration">
-                    <label for="pbi-exploration">✅ He explorado mi dataset y activado todas las vistas de calidad</label>
-                </div>
-            </div>
-
-            <div class="step">
-                <div class="step-header">
-                    <div class="step-number">3</div>
-                    <div class="step-title">Limpieza Básica</div>
-                    <div class="time-estimate">⏱️ 10 min</div>
-                </div>
-
-                <h4>A) Eliminar duplicados:</h4>
-                <ol>
-                    <li>Seleccionar todas las columnas (Ctrl+A)</li>
-                    <li>Ir a "Home" → "Remove Rows" → "Remove Duplicates"</li>
-                    <li>Observar cuántas filas se eliminaron en el mensaje</li>
-                </ol>
-
-                <h4>B) Limpiar nombres de columnas:</h4>
-                <ol>
-                    <li>Seleccionar todas las columnas</li>
-                    <li>Clic derecho → "Rename" o usar "Transform" → "Format" → "Trim" para espacios</li>
-                    <li>Reemplazar espacios por guiones bajos si es necesario</li>
-                </ol>
-
-                <h4>C) Corregir tipos de datos:</h4>
-                <ol>
-                    <li>Hacer clic en el ícono de tipo de dato en cada columna</li>
-                    <li>Seleccionar el tipo correcto (Text, Whole Number, Decimal, Date, etc.)</li>
-                    <li>Si hay errores, Power BI te lo indicará visualmente</li>
-                </ol>
-
-                <div class="checkpoint" onclick="toggleCheckpoint(this)">
-                    <input type="checkbox" id="pbi-basic-cleaning">
-                    <label for="pbi-basic-cleaning">✅ Duplicados eliminados, columnas renombradas, tipos corregidos</label>
-                </div>
-            </div>
-
-            <div class="step">
-                <div class="step-header">
-                    <div class="step-number">4</div>
-                    <div class="step-title">Manejar Valores Faltantes</div>
-                    <div class="time-estimate">⏱️ 8 min</div>
-                </div>
-
-                <div style="background: rgba(255, 193, 7, 0.1); padding: 15px; border-radius: 10px; margin: 10px 0;">
-                    <h4>🎯 Estrategias en Power BI:</h4>
-                    <ul>
-                        <li><strong>Remove Rows:</strong> Para eliminar filas con valores nulos</li>
-                        <li><strong>Fill Down/Up:</strong> Para propagar valores</li>
-                        <li><strong>Replace Values:</strong> Para reemplazar nulos con valores específicos</li>
-                    </ul>
-                </div>
-
-                <h4>Para columnas numéricas:</h4>
-                <ol>
-                    <li>Seleccionar la columna numérica</li>
-                    <li>Ir a "Transform" → "Replace Values"</li>
-                    <li>En "Value to Find" dejar en blanco</li>
-                    <li>En "Replace With" poner un valor como 0 o la media estimada</li>
-                </ol>
-
-                <h4>Para columnas de texto:</h4>
-                <ol>
-                    <li>Seleccionar la columna de texto</li>
-                    <li>Ir a "Transform" → "Replace Values"</li>
-                    <li>Reemplazar valores en blanco con "Unknown" o "No Data"</li>
-                </ol>
-
-                <div class="checkpoint" onclick="toggleCheckpoint(this)">
-                    <input type="checkbox" id="pbi-missing-values">
-                    <label for="pbi-missing-values">✅ Valores faltantes tratados en columnas numéricas y de texto</label>
-                </div>
-            </div>
-
-            <div class="step">
-                <div class="step-header">
-                    <div class="step-number">5</div>
-                    <div class="step-title">Detección de Outliers en Power BI</div>
-                    <div class="time-estimate">⏱️ 6 min</div>
-                </div>
-
-                <div style="background: rgba(255, 193, 7, 0.1); padding: 15px; border-radius: 10px; margin: 10px 0;">
-                    <h4>🎯 Detección de Outliers en Power BI:</h4>
-                    <ul>
-                        <li><strong>Método Visual:</strong> Usar gráficos de boxplot para identificar outliers</li>
-                        <li><strong>Filtros avanzados:</strong> Crear filtros basados en percentiles</li>
-                        <li><strong>Columnas calculadas:</strong> Usar DAX para marcar outliers</li>
-                    </ul>
-                </div>
-
-                <h4>A) Crear columna calculada para detectar outliers:</h4>
-                <ol>
-                    <li>En Power Query, ir a "Add Column" → "Custom Column"</li>
-                    <li>Nombrar la columna: "Es_Outlier"</li>
-                    <li>Usar fórmula para detectar outliers basada en percentiles</li>
-                    <li>Marcar valores que estén fuera del rango Q1-1.5*IQR a Q3+1.5*IQR</li>
-                </ol>
-
-                <h4>B) Aplicar transformaciones a outliers:</h4>
-                <ol>
-                    <li>Filtrar filas donde "Es_Outlier" = true</li>
-                    <li>Decidir estrategia: eliminar, winsorizar o mantener</li>
-                    <li>Aplicar "Replace Values" para corregir outliers extremos</li>
-                    <li>Documentar decisiones en los "Applied Steps"</li>
-                </ol>
-
-                <div class="checkpoint" onclick="toggleCheckpoint(this)">
-                    <input type="checkbox" id="pbi-outliers">
-                    <label for="pbi-outliers">✅ Outliers detectados y tratados usando columnas calculadas</label>
-                </div>
-            </div>
-
-            <div class="step">
-                <div class="step-header">
-                    <div class="step-number">6</div>
-                    <div class="step-title">Transformaciones de Datos</div>
-                    <div class="time-estimate">⏱️ 5 min</div>
-                </div>
-
-                <h4>A) Estandarizar formatos de texto:</h4>
-                <ol>
-                    <li>Seleccionar columnas de texto</li>
-                    <li>Ir a "Transform" → "Format" → "UPPERCASE/lowercase/Proper Case"</li>
-                    <li>Aplicar "Trim" para eliminar espacios extra</li>
-                    <li>Usar "Clean" para caracteres no imprimibles</li>
-                </ol>
-
-                <h4>B) Crear columnas derivadas:</h4>
-                <ol>
-                    <li>Ir a "Add Column" → "Custom Column"</li>
-                    <li>Crear categorías basadas en rangos numéricos</li>
-                    <li>Generar flags booleanos para condiciones especiales</li>
-                    <li>Calcular métricas derivadas (ej: IMC, ratios, etc.)</li>
-                </ol>
-
-                <div class="checkpoint" onclick="toggleCheckpoint(this)">
-                    <input type="checkbox" id="pbi-transformations">
-                    <label for="pbi-transformations">✅ Transformaciones de formato y columnas derivadas aplicadas</label>
-                </div>
-            </div>
-
-            <div class="step">
-                <div class="step-header">
-                    <div class="step-number">7</div>
-                    <div class="step-title">Validación y Carga Final</div>
-                    <div class="time-estimate">⏱️ 4 min</div>
-                </div>
-                
-                <ol>
-                    <li><strong>Revisar pasos aplicados:</strong> En el panel "Applied Steps" verifica cada transformación</li>
-                    <li><strong>Verificar calidad:</strong> Asegúrate de que "Column Quality" muestre 100% Valid</li>
-                    <li><strong>Renombrar consulta:</strong> Clic derecho en "Query1" → Rename → "DatosLimpios"</li>
-                    <li><strong>Cargar datos:</strong> Clic en "Home" → "Close & Apply"</li>
-                </ol>
-
-                <div class="alert alert-success">
-                    <span style="font-size: 1.2rem;">🎉</span>
-                    <strong>¡Excelente!</strong> Tu dataset está limpio y listo para análisis en Power BI.
+<div class="checkpoint" onclick="toggleCheckpoint(this)">
+<input data-weight="3.125" id="pbi-exploration" type="checkbox"/>
+<label for="pbi-exploration">✅ He explorado mi dataset y activado todas las vistas de calidad</label>
+</div>
+</div>
+<div class="step">
+<div class="step-header">
+<div class="step-number">3</div>
+<div class="step-title">Limpieza Básica</div>
+<div class="time-estimate">⏱️ 10 min</div>
+</div>
+<h4>A) Eliminar duplicados:</h4>
+<ol>
+<li>Seleccionar todas las columnas (Ctrl+A)</li>
+<li>Ir a "Home" → "Remove Rows" → "Remove Duplicates (Quitar duplicados)"</li>
+<li>Observar cuántas filas se eliminaron en el mensaje</li>
+</ol>
+<h4>B) Limpiar nombres de columnas:</h4>
+<ol>
+<li>Seleccionar todas las columnas</li>
+<li>Clic derecho → "Rename" o usar "Transform" → "Format" → "Trim" para espacios</li>
+<li>Reemplazar espacios por guiones bajos si es necesario</li>
+</ol>
+<h4>C) Corregir tipos de datos:</h4>
+<ol>
+<li>Hacer clic en el ícono de tipo de dato en cada columna</li>
+<li>Seleccionar el tipo correcto (Text, Whole Number, Decimal, Date, etc.)</li>
+<li>Si hay errores, Power BI te lo indicará visualmente</li>
+</ol>
+<div class="alert alert-info">
+<span style="font-size: 1.2rem;">📋</span>
+<div>
+<strong>Ejemplo con HR Employee Attrition:</strong><br/>
+<strong>A) Duplicados:</strong> 0 filas eliminadas (dataset ya limpio)<br/>
+<strong>B) Renombrar:</strong> <code>DistanceFromHome</code> → <code>Distance_From_Home</code><br/>
+<strong>C) Tipos corregidos:</strong><br/>
+• <code>Age</code>: Whole Number ✓<br/>
+• <code>Attrition</code>: Text ✓<br/>
+• <code>Education</code>: Whole Number (se transformará después)<br/>
+• <code>MonthlyIncome</code>: Whole Number ✓<br/>
+<strong>Resultado:</strong> 35 columnas con tipos validados
+</div>
+</div>
+<div class="checkpoint" onclick="toggleCheckpoint(this)">
+<input id="pbi-basic-cleaning" type="checkbox"/>
+<label for="pbi-basic-cleaning">✅ Duplicados eliminados, columnas renombradas, tipos corregidos</label>
+</div>
+</div>
+<div class="step">
+<div class="step-header">
+<div class="step-number">4</div>
+<div class="step-title">Manejar Valores Faltantes</div>
+<div class="time-estimate">⏱️ 8 min</div>
+</div>
+<div style="background: rgba(255, 193, 7, 0.1); padding: 15px; border-radius: 10px; margin: 10px 0;">
+<h4>🎯 Estrategias en Power BI:</h4>
+<ul>
+<li><strong>Remove Rows:</strong> Para eliminar filas con valores nulos</li>
+<li><strong>Fill Down/Up:</strong> Para propagar valores</li>
+<li><strong>Replace Values:</strong> Para reemplazar nulos con valores específicos</li>
+</ul>
+</div>
+<h4>Para columnas numéricas:</h4>
+<ol>
+<li>Seleccionar la columna numérica</li>
+<li>Ir a "Transform" → "Replace Values"</li>
+<li>En "Value to Find" dejar en blanco</li>
+<li>En "Replace With" poner un valor como 0 o la media estimada</li>
+</ol>
+<h4>Para columnas de texto:</h4>
+<ol>
+<li>Seleccionar la columna de texto</li>
+<li>Ir a "Transform" → "Replace Values"</li>
+<li>Reemplazar valores en blanco con "Unknown" o "No Data"</li>
+</ol>
+<div class="alert alert-info">
+<span style="font-size: 1.2rem;">📋</span>
+<div>
+<strong>Ejemplo con HR Employee Attrition:</strong><br/>
+<strong>¡Excelente noticia!</strong> Este dataset no tiene valores faltantes.<br/>
+• Column Quality muestra: 100% Valid en todas las columnas<br/>
+• 0% Empty, 0% Error<br/>
+• Total células: 51,450 (1,470 × 35)<br/>
+• Todas completas: 51,450<br/>
+<strong>Acción:</strong> Saltar este paso - dataset completo
+</div>
+</div>
+<div class="checkpoint" onclick="toggleCheckpoint(this)">
+<input id="pbi-missing-values" type="checkbox"/>
+<label for="pbi-missing-values">✅ Valores faltantes tratados en columnas numéricas y de texto</label>
+</div>
+</div>
+<div class="step">
+<div class="step-header">
+<div class="step-number">5</div>
+<div class="step-title">Detección de Outliers en Power BI</div>
+<div class="time-estimate">⏱️ 6 min</div>
+</div>
+<div style="background: rgba(255, 193, 7, 0.1); padding: 15px; border-radius: 10px; margin: 10px 0;">
+<h4>🎯 Detección de Outliers en Power BI:</h4>
+<ul>
+<li><strong>Método Visual:</strong> Usar gráficos de boxplot para identificar outliers</li>
+<li><strong>Filtros avanzados:</strong> Crear filtros basados en percentiles</li>
+<li><strong>Columnas calculadas:</strong> Usar DAX para marcar outliers</li>
+</ul>
+</div>
+<h4>A) Crear columna calculada para detectar outliers:</h4>
+<ol>
+<li>En Power Query, ir a "Add Column" → "Custom Column"</li>
+<li>Nombrar la columna: "Es_Outlier"</li>
+<li>Usar fórmula para detectar outliers basada en percentiles</li>
+<li>Marcar valores que estén fuera del rango Q1-1.5*IQR a Q3+1.5*IQR</li>
+</ol>
+<h4>B) Aplicar transformaciones a outliers:</h4>
+<ol>
+<li>Filtrar filas donde "Es_Outlier" = true</li>
+<li>Decidir estrategia: eliminar, winsorizar o mantener</li>
+<li>Aplicar "Replace Values" para corregir outliers extremos</li>
+<li>Documentar decisiones en los "Applied Steps"</li>
+</ol>
+<div class="alert alert-info">
+<span style="font-size: 1.2rem;">📋</span>
+<div>
+<strong>Ejemplo con HR Employee Attrition:</strong><br/>
+<strong>Columna objetivo:</strong> <code>MonthlyIncome</code><br/>
+<strong>Fórmula Custom Column:</strong><br/>
+<code>if [MonthlyIncome] &gt; 15000 or [MonthlyIncome] &lt; 1000 then "Outlier" else "Normal"</code><br/>
+<strong>Outliers encontrados:</strong><br/>
+• 23 empleados con salario &gt; $15,000/mes<br/>
+• 0 empleados con salario &lt; $1,000/mes<br/>
+• Rango normal: $1,009 - $12,344<br/>
+<strong>Decisión:</strong> Mantener outliers (pueden ser ejecutivos)
+</div>
+</div>
+<div class="checkpoint" onclick="toggleCheckpoint(this)">
+<input id="pbi-outliers" type="checkbox"/>
+<label for="pbi-outliers">✅ Outliers detectados y tratados usando columnas calculadas</label>
+</div>
+</div>
+<div class="step">
+<div class="step-header">
+<div class="step-number">6</div>
+<div class="step-title">Transformaciones de Datos</div>
+<div class="time-estimate">⏱️ 5 min</div>
+</div>
+<h4>A) Estandarizar formatos de texto:</h4>
+<ol>
+<li>Seleccionar columnas de texto</li>
+<li>Ir a "Transform" → "Format" → "UPPERCASE/lowercase/Proper Case"</li>
+<li>Aplicar "Trim" para eliminar espacios extra</li>
+<li>Usar "Clean" para caracteres no imprimibles</li>
+</ol>
+<h4>B) Crear columnas derivadas:</h4>
+<ol>
+<li>Ir a "Add Column" → "Custom Column"</li>
+<li>Crear categorías basadas en rangos numéricos</li>
+<li>Generar flags booleanos para condiciones especiales</li>
+<li>Calcular métricas derivadas (ej: IMC, ratios, etc.)</li>
+</ol>
+<div class="alert alert-info">
+<span style="font-size: 1.2rem;">📋</span>
+<div>
+<strong>Ejemplo con HR Employee Attrition:</strong><br/>
+<strong>Transformaciones principales:</strong><br/>
+• <strong>Education:</strong> Transform → Replace Values<br/>
+  1 → "Below College", 2 → "College", 3 → "Bachelor"<br/>
+  4 → "Master", 5 → "Doctor"<br/>
+• <strong>EnvironmentSatisfaction:</strong><br/>
+  1 → "Low", 2 → "Medium", 3 → "High", 4 → "Very High"<br/>
+• <strong>Eliminar constantes:</strong> EmployeeCount, Over18, StandardHours<br/>
+<strong>Resultado:</strong> 32 columnas útiles, variables legibles
+</div>
+</div>
+<div class="checkpoint" onclick="toggleCheckpoint(this)">
+<input id="pbi-transformations" type="checkbox"/>
+<label for="pbi-transformations">✅ Transformaciones de formato y columnas derivadas aplicadas</label>
+</div>
+</div>
+<div class="step">
+<div class="step-header">
+<div class="step-number">7</div>
+<div class="step-title">Validación y Carga Final</div>
+<div class="time-estimate">⏱️ 4 min</div>
+</div>
+<ol>
+<li><strong>Revisar pasos aplicados:</strong> En el panel "Applied Steps" verifica cada transformación</li>
+<li><strong>Verificar calidad:</strong> Asegúrate de que "Column Quality" muestre 100% Valid</li>
+<li><strong>Renombrar consulta:</strong> Clic derecho en "Query1" → Rename → "DatosLimpios"</li>
+<li><strong>Cargar datos:</strong> Clic en "Home" → "Close &amp; Apply"</li>
+</ol>
+<div class="alert alert-info">
+<span style="font-size: 1.2rem;">📋</span>
+<div>
+<strong>Resultado final con HR Employee Attrition:</strong><br/>
+• <strong>Dimensiones:</strong> 1,470 filas × 32 columnas<br/>
+• <strong>Columnas eliminadas:</strong> 3 (EmployeeCount, Over18, StandardHours)<br/>
+• <strong>Variables transformadas:</strong> 7 (Education, EnvironmentSatisfaction, etc.)<br/>
+• <strong>Calidad:</strong> 100% Valid, 0% errores<br/>
+• <strong>Tamaño final:</strong> ~180KB<br/>
+• <strong>Tiempo total:</strong> ~30 minutos
+</div>
+</div>
+<div class="alert alert-success">
+<span style="font-size: 1.2rem;">🎉</span>
+<strong>¡Excelente!</strong> Tu dataset está limpio y listo para análisis en Power BI.
                     Observa cómo cada paso queda documentado automáticamente.
                 </div>
-
-                <div class="checkpoint" onclick="toggleCheckpoint(this)">
-                    <input type="checkbox" id="pbi-final">
-                    <label for="pbi-final">✅ Validación completada y datos cargados exitosamente</label>
-                </div>
-            </div>
-        </div>
-
-        <!-- PYTHON SECTION -->
-        <div class="section">
-            <h2>
-                <div class="platform-logo python-logo">🐍</div>
+<div class="checkpoint" onclick="toggleCheckpoint(this)">
+<input id="pbi-final" type="checkbox"/>
+<label for="pbi-final">✅ Validación completada y datos cargados exitosamente</label>
+</div>
+</div>
+</div>
+<!-- PYTHON SECTION COMPLETA -->
+<div class="section">
+<h2>
+<div class="platform-logo python-logo">🐍</div>
                 LIMPIEZA EN PYTHON (GOOGLE COLAB)
             </h2>
-            
-            <div class="alert alert-info">
-                <span style="font-size: 1.5rem;">🚀</span>
-                <div>
-                    <strong>Filosofía de Python:</strong> "Explicit is better than implicit". Python te da control 
+<div class="alert alert-info">
+<span style="font-size: 1.5rem;">🚀</span>
+<div>
+<strong>Filosofía de Python:</strong> "Explicit is better than implicit". Python te da control 
                     total sobre cada decisión de limpieza, pero requiere más código.
                 </div>
-            </div>
-
-            <div class="step">
-                <div class="step-header">
-                    <div class="step-number">1</div>
-                    <div class="step-title">Configurar Google Colab</div>
-                    <div class="time-estimate">⏱️ 2 min</div>
-                </div>
-                
-                <ol>
-                    <li>Ir a <strong>colab.research.google.com</strong></li>
-                    <li>Crear un nuevo notebook: "Nuevo cuaderno"</li>
-                    <li>Renombrar: "Limpieza_Datos_[TuNombre]"</li>
-                    <li>Configurar runtime: Runtime → Change runtime type → Python 3</li>
-                </ol>
-
-                <div class="alert alert-warning">
-                    <span style="font-size: 1.2rem;">⚡</span>
-                    <strong>Ventaja de Colab:</strong> No necesitas instalar nada. Todo está en la nube y ya 
+</div>
+<div class="step">
+<div class="step-header">
+<div class="step-number">1</div>
+<div class="step-title">Configurar Google Colab</div>
+<div class="time-estimate">⏱️ 2 min</div>
+</div>
+<ol>
+<li>Ir a <strong>colab.research.google.com</strong></li>
+<li>Crear un nuevo notebook: "Nuevo cuaderno"</li>
+<li>Renombrar: "Limpieza_Datos_[TuNombre]"</li>
+<li>Configurar runtime: Runtime → Change runtime type → Python 3</li>
+</ol>
+<div class="alert alert-info">
+<span style="font-size: 1.2rem;">📋</span>
+<div>
+<strong>Ejemplo con HR Employee Attrition:</strong><br/>
+• <strong>Nombre del notebook:</strong> <code>HR_Attrition_Limpieza_[TuNombre]</code><br/>
+• <strong>Runtime:</strong> Python 3 con GPU opcional<br/>
+• <strong>Librerías preinstaladas:</strong> pandas, numpy, matplotlib, seaborn<br/>
+• <strong>Preparación:</strong> Lista para cargar CSV de 200KB<br/>
+• <strong>Tiempo estimado:</strong> 2 minutos de configuración
+</div>
+</div>
+<div class="alert alert-warning">
+<span style="font-size: 1.2rem;">⚡</span>
+<strong>Ventaja de Colab:</strong> No necesitas instalar nada. Todo está en la nube y ya 
                     tiene las librerías principales instaladas.
                 </div>
-
-                <div class="checkpoint" onclick="toggleCheckpoint(this)">
-                    <input type="checkbox" id="colab-setup">
-                    <label for="colab-setup">✅ Google Colab configurado y notebook creado</label>
-                </div>
-            </div>
-
-            <div class="step">
-                <div class="step-header">
-                    <div class="step-number">2</div>
-                    <div class="step-title">Cargar Dataset y Librerías</div>
-                    <div class="time-estimate">⏱️ 5 min</div>
-                </div>
-
-                <div class="code-container">
-                    <div class="code-header">
-                        <div class="code-title">
-                            <span>🐍</span>
-                            <span>Celda 1: Importar librerías esenciales</span>
-                        </div>
-                        <div class="code-actions">
-                            <button class="code-btn" onclick="selectCode(this)">📋 Seleccionar</button>
-                            <button class="code-btn" onclick="copyCode(this)">📄 Copiar</button>
-                        </div>
-                    </div>
-                    <div class="code-block"><span class="code-comment"># ===================================================================
+<div class="checkpoint" onclick="toggleCheckpoint(this)">
+<input id="colab-setup" type="checkbox"/>
+<label for="colab-setup">✅ Google Colab configurado y notebook creado</label>
+</div>
+</div>
+<div class="step">
+<div class="step-header">
+<div class="step-number">2</div>
+<div class="step-title">Cargar Dataset y Librerías</div>
+<div class="time-estimate">⏱️ 5 min</div>
+</div>
+<div class="code-container">
+<div class="code-header">
+<div class="code-title">
+<span>🐍</span>
+<span>Celda 1: Importar librerías esenciales</span>
+</div>
+<div class="code-actions">
+<button class="code-btn" onclick="selectCode(this)">📋 Seleccionar</button>
+<button class="code-btn" onclick="copyCode(this)">📄 Copiar</button>
+</div>
+</div>
+<div class="code-block"><span class="code-comment"># ===================================================================
 # BLOQUE 1: CONFIGURACIÓN INICIAL Y LIBRERÍAS
 # ===================================================================</span>
-
 <span class="code-comment"># Importar librerías esenciales para limpieza</span>
 <span class="code-keyword">import</span> pandas <span class="code-keyword">as</span> pd
 <span class="code-keyword">import</span> numpy <span class="code-keyword">as</span> np
@@ -928,23 +979,21 @@ pd.set_option(<span class="code-string">'display.max_colwidth'</span>, <span cla
 <span class="code-keyword">print</span>(<span class="code-string">f"📊 Pandas versión: {pd.__version__}"</span>)
 <span class="code-keyword">print</span>(<span class="code-string">f"🔢 NumPy versión: {np.__version__}"</span>)
 <span class="code-keyword">print</span>(<span class="code-string">f"📈 Matplotlib versión: {plt.matplotlib.__version__}"</span>)</div>
-                </div>
-
-                <div class="code-container">
-                    <div class="code-header">
-                        <div class="code-title">
-                            <span>📁</span>
-                            <span>Celda 2: Cargar dataset</span>
-                        </div>
-                        <div class="code-actions">
-                            <button class="code-btn" onclick="selectCode(this)">📋 Seleccionar</button>
-                            <button class="code-btn" onclick="copyCode(this)">📄 Copiar</button>
-                        </div>
-                    </div>
-                    <div class="code-block"><span class="code-comment"># ===================================================================
+</div>
+<div class="code-container">
+<div class="code-header">
+<div class="code-title">
+<span>📁</span>
+<span>Celda 2: Cargar dataset</span>
+</div>
+<div class="code-actions">
+<button class="code-btn" onclick="selectCode(this)">📋 Seleccionar</button>
+<button class="code-btn" onclick="copyCode(this)">📄 Copiar</button>
+</div>
+</div>
+<div class="code-block"><span class="code-comment"># ===================================================================
 # BLOQUE 2: CARGA DE DATOS
 # ===================================================================</span>
-
 <span class="code-comment"># Opción 1: Subir archivo desde tu computadora</span>
 <span class="code-keyword">from</span> google.colab <span class="code-keyword">import</span> files
 
@@ -969,42 +1018,37 @@ filename = list(uploaded.keys())[<span class="code-keyword">0</span>]
 
 <span class="code-comment"># Opción 2: Cargar desde URL (comentado)
 # df = pd.read_csv('https://tu-url-del-dataset.csv')</span></div>
-                </div>
-
-                <div class="checkpoint" onclick="toggleCheckpoint(this)">
-                    <input type="checkbox" id="python-data-loaded">
-                    <label for="python-data-loaded">✅ Librerías importadas y dataset cargado correctamente</label>
-                </div>
-            </div>
-
-            <div class="step">
-                <div class="step-header">
-                    <div class="step-number">3</div>
-                    <div class="step-title">Exploración Exhaustiva</div>
-                    <div class="time-estimate">⏱️ 8 min</div>
-                </div>
-
-                <div style="background: rgba(55, 118, 171, 0.1); padding: 15px; border-radius: 10px; margin: 10px 0;">
-                    <h4>🎯 Ventaja de Python:</h4>
-                    <p>Python te permite crear un análisis exploratorio completo con métricas personalizadas 
+</div>
+<div class="checkpoint" onclick="toggleCheckpoint(this)">
+<input data-weight="3.125" id="python-data-loaded" type="checkbox"/>
+<label for="python-data-loaded">✅ Librerías importadas y dataset cargado correctamente</label>
+</div>
+</div>
+<div class="step">
+<div class="step-header">
+<div class="step-number">3</div>
+<div class="step-title">Exploración Exhaustiva</div>
+<div class="time-estimate">⏱️ 8 min</div>
+</div>
+<div style="background: rgba(55, 118, 171, 0.1); padding: 15px; border-radius: 10px; margin: 10px 0;">
+<h4>🎯 Ventaja de Python:</h4>
+<p>Python te permite crear un análisis exploratorio completo con métricas personalizadas 
                     que Power BI no puede generar automáticamente.</p>
-                </div>
-
-                <div class="code-container">
-                    <div class="code-header">
-                        <div class="code-title">
-                            <span>🔍</span>
-                            <span>Celda 3: Análisis exploratorio completo</span>
-                        </div>
-                        <div class="code-actions">
-                            <button class="code-btn" onclick="selectCode(this)">📋 Seleccionar</button>
-                            <button class="code-btn" onclick="copyCode(this)">📄 Copiar</button>
-                        </div>
-                    </div>
-                    <div class="code-block"><span class="code-comment"># ===================================================================
+</div>
+<div class="code-container">
+<div class="code-header">
+<div class="code-title">
+<span>🔍</span>
+<span>Celda 3: Análisis exploratorio completo</span>
+</div>
+<div class="code-actions">
+<button class="code-btn" onclick="selectCode(this)">📋 Seleccionar</button>
+<button class="code-btn" onclick="copyCode(this)">📄 Copiar</button>
+</div>
+</div>
+<div class="code-block"><span class="code-comment"># ===================================================================
 # BLOQUE 3: ANÁLISIS EXPLORATORIO DE DATOS (EDA)
 # ===================================================================</span>
-
 <span class="code-comment"># Información general del dataset</span>
 <span class="code-keyword">print</span>(<span class="code-string">"="*50</span>)
 <span class="code-keyword">print</span>(<span class="code-string">"📊 REPORTE DE CALIDAD DE DATOS"</span>)
@@ -1031,8 +1075,8 @@ missing_table = pd.DataFrame({
 }).sort_values(<span class="code-string">'Porcentaje'</span>, ascending=<span class="code-keyword">False</span>)
 
 <span class="code-comment"># Mostrar solo columnas con valores faltantes</span>
-missing_table_filtered = missing_table[missing_table[<span class="code-string">'Faltantes'</span>] > <span class="code-keyword">0</span>]
-<span class="code-keyword">if</span> len(missing_table_filtered) > <span class="code-keyword">0</span>:
+missing_table_filtered = missing_table[missing_table[<span class="code-string">'Faltantes'</span>] &gt; <span class="code-keyword">0</span>]
+<span class="code-keyword">if</span> len(missing_table_filtered) &gt; <span class="code-keyword">0</span>:
     <span class="code-keyword">print</span>(missing_table_filtered.to_string(index=<span class="code-keyword">False</span>))
 <span class="code-keyword">else</span>:
     <span class="code-keyword">print</span>(<span class="code-string">"✅ No hay valores faltantes en el dataset"</span>)
@@ -1049,99 +1093,48 @@ duplicates = df.duplicated().sum()
 
 <span class="code-keyword">print</span>(<span class="code-string">"\nColumnas categóricas:"</span>)
 <span class="code-keyword">print</span>(df.describe(include=[<span class="code-string">'object'</span>]))</div>
-                </div>
-
-                <div class="code-container">
-                    <div class="code-header">
-                        <div class="code-title">
-                            <span>📈</span>
-                            <span>Celda 4: Visualización de problemas</span>
-                        </div>
-                        <div class="code-actions">
-                            <button class="code-btn" onclick="selectCode(this)">📋 Seleccionar</button>
-                            <button class="code-btn" onclick="copyCode(this)">📄 Copiar</button>
-                        </div>
-                    </div>
-                    <div class="code-block"><span class="code-comment"># ===================================================================
-# BLOQUE 4: VISUALIZACIÓN DE CALIDAD DE DATOS
+</div>
+<div class="alert alert-info">
+<span style="font-size: 1.2rem;">📋</span>
+<div>
+<strong>Salida esperada con HR Employee Attrition:</strong><br/>
+<code>📊 INFORMACIÓN BÁSICA:</code><br/>
+<code>Filas: 1,470</code><br/>
+<code>Columnas: 35</code><br/>
+<code>Memoria total: 0.52 MB</code><br/><br/>
+<code>📋 TIPOS DE DATOS:</code><br/>
+<code>int64    26</code><br/>
+<code>object    9</code><br/><br/>
+<code>❓ VALORES FALTANTES:</code><br/>
+<code>✅ No hay valores faltantes en el dataset</code><br/><br/>
+<code>🔄 DUPLICADOS: 0 filas</code>
+</div>
+</div>
+<div class="checkpoint" onclick="toggleCheckpoint(this)">
+<input data-weight="3.125" id="python-exploration" type="checkbox"/>
+<label for="python-exploration">✅ Exploración completa realizada con estadísticas y visualizaciones</label>
+</div>
+</div>
+<div class="step">
+<div class="step-header">
+<div class="step-number">4</div>
+<div class="step-title">Limpieza Sistemática</div>
+<div class="time-estimate">⏱️ 12 min</div>
+</div>
+<div class="code-container">
+<div class="code-header">
+<div class="code-title">
+<span>🧹</span>
+<span>Celda 4: Proceso completo de limpieza</span>
+</div>
+<div class="code-actions">
+<button class="code-btn" onclick="selectCode(this)">📋 Seleccionar</button>
+<button class="code-btn" onclick="copyCode(this)">📄 Copiar</button>
+</div>
+</div>
+<div class="code-block"><span class="code-comment"># ===================================================================
+# BLOQUE 4: LIMPIEZA COMPLETA DE DATOS
 # ===================================================================</span>
-
-<span class="code-comment"># Crear visualizaciones de calidad de datos</span>
-fig, axes = plt.subplots(<span class="code-keyword">2</span>, <span class="code-keyword">2</span>, figsize=(<span class="code-keyword">15</span>, <span class="code-keyword">10</span>))
-fig.suptitle(<span class="code-string">'📊 DIAGNÓSTICO DE CALIDAD DE DATOS'</span>, fontsize=<span class="code-keyword">16</span>, fontweight=<span class="code-string">'bold'</span>)
-
-<span class="code-comment"># 1. Gráfico de valores faltantes</span>
-missing_data = df.isnull().sum()
-missing_data = missing_data[missing_data > <span class="code-keyword">0</span>].sort_values(ascending=<span class="code-keyword">True</span>)
-
-<span class="code-keyword">if</span> len(missing_data) > <span class="code-keyword">0</span>:
-    missing_data.plot(kind=<span class="code-string">'barh'</span>, ax=axes[<span class="code-keyword">0</span>,<span class="code-keyword">0</span>], color=<span class="code-string">'coral'</span>)
-    axes[<span class="code-keyword">0</span>,<span class="code-keyword">0</span>].set_title(<span class="code-string">'🔍 Valores Faltantes por Columna'</span>)
-    axes[<span class="code-keyword">0</span>,<span class="code-keyword">0</span>].set_xlabel(<span class="code-string">'Cantidad de Valores Faltantes'</span>)
-<span class="code-keyword">else</span>:
-    axes[<span class="code-keyword">0</span>,<span class="code-keyword">0</span>].text(<span class="code-keyword">0.5</span>, <span class="code-keyword">0.5</span>, <span class="code-string">'✅ Sin valores faltantes'</span>, 
-                   ha=<span class="code-string">'center'</span>, va=<span class="code-string">'center'</span>, transform=axes[<span class="code-keyword">0</span>,<span class="code-keyword">0</span>].transAxes, fontsize=<span class="code-keyword">12</span>)
-    axes[<span class="code-keyword">0</span>,<span class="code-keyword">0</span>].set_title(<span class="code-string">'🔍 Valores Faltantes por Columna'</span>)
-
-<span class="code-comment"># 2. Distribución de tipos de datos</span>
-type_counts = df.dtypes.value_counts()
-axes[<span class="code-keyword">0</span>,<span class="code-keyword">1</span>].pie(type_counts.values, labels=type_counts.index, autopct=<span class="code-string">'%1.1f%%'</span>, startangle=<span class="code-keyword">90</span>)
-axes[<span class="code-keyword">0</span>,<span class="code-keyword">1</span>].set_title(<span class="code-string">'📊 Distribución de Tipos de Datos'</span>)
-
-<span class="code-comment"># 3. Heatmap de correlación para columnas numéricas</span>
-numeric_cols = df.select_dtypes(include=[np.number]).columns
-<span class="code-keyword">if</span> len(numeric_cols) > <span class="code-keyword">1</span>:
-    correlation_matrix = df[numeric_cols].corr()
-    sns.heatmap(correlation_matrix, annot=<span class="code-keyword">True</span>, cmap=<span class="code-string">'coolwarm'</span>, 
-                center=<span class="code-keyword">0</span>, ax=axes[<span class="code-keyword">1</span>,<span class="code-keyword">0</span>], cbar_kws={<span class="code-string">'shrink'</span>: <span class="code-keyword">0.8</span>})
-    axes[<span class="code-keyword">1</span>,<span class="code-keyword">0</span>].set_title(<span class="code-string">'🔥 Mapa de Correlación'</span>)
-<span class="code-keyword">else</span>:
-    axes[<span class="code-keyword">1</span>,<span class="code-keyword">0</span>].text(<span class="code-keyword">0.5</span>, <span class="code-keyword">0.5</span>, <span class="code-string">'Pocas columnas\nnuméricas'</span>, 
-                   ha=<span class="code-string">'center'</span>, va=<span class="code-string">'center'</span>, transform=axes[<span class="code-keyword">1</span>,<span class="code-keyword">0</span>].transAxes, fontsize=<span class="code-keyword">12</span>)
-    axes[<span class="code-keyword">1</span>,<span class="code-keyword">0</span>].set_title(<span class="code-string">'🔥 Mapa de Correlación'</span>)
-
-<span class="code-comment"># 4. Distribución de duplicados</span>
-duplicate_info = [<span class="code-string">'Únicos'</span>, <span class="code-string">'Duplicados'</span>]
-duplicate_counts = [len(df) - df.duplicated().sum(), df.duplicated().sum()]
-colors = [<span class="code-string">'lightgreen'</span>, <span class="code-string">'lightcoral'</span>]
-axes[<span class="code-keyword">1</span>,<span class="code-keyword">1</span>].pie(duplicate_counts, labels=duplicate_info, autopct=<span class="code-string">'%1.1f%%'</span>, 
-              colors=colors, startangle=<span class="code-keyword">90</span>)
-axes[<span class="code-keyword">1</span>,<span class="code-keyword">1</span>].set_title(<span class="code-string">'🔄 Distribución de Duplicados'</span>)
-
-plt.tight_layout()
-plt.show()
-
-<span class="code-keyword">print</span>(<span class="code-string">"📊 Visualizaciones de diagnóstico generadas exitosamente"</span>)</div>
-                </div>
-
-                <div class="checkpoint" onclick="toggleCheckpoint(this)">
-                    <input type="checkbox" id="python-exploration">
-                    <label for="python-exploration">✅ Exploración completa realizada con estadísticas y visualizaciones</label>
-                </div>
-            </div>
-
-            <div class="step">
-                <div class="step-header">
-                    <div class="step-number">4</div>
-                    <div class="step-title">Limpieza Sistemática</div>
-                    <div class="time-estimate">⏱️ 12 min</div>
-                </div>
-
-                <div class="code-container">
-                    <div class="code-header">
-                        <div class="code-title">
-                            <span>🧹</span>
-                            <span>Celda 5: Crear copia y limpiar básico</span>
-                        </div>
-                        <div class="code-actions">
-                            <button class="code-btn" onclick="selectCode(this)">📋 Seleccionar</button>
-                            <button class="code-btn" onclick="copyCode(this)">📄 Copiar</button>
-                        </div>
-                    </div>
-                    <div class="code-block"><span class="code-comment"># ===================================================================
-# BLOQUE 5: LIMPIEZA BÁSICA DE DATOS
-# ===================================================================</span>
-
 <span class="code-comment"># Crear una copia para mantener los datos originales</span>
 df_original = df.copy()
 df_clean = df.copy()
@@ -1166,352 +1159,127 @@ df_clean.columns = (df_clean.columns
                    .str.lower()           <span class="code-comment"># Convertir a minúsculas</span>
                    .str.replace(<span class="code-string">' '</span>, <span class="code-string">'_'</span>)     <span class="code-comment"># Espacios por guiones bajos</span>
                    .str.replace(<span class="code-string">'[^a-zA-Z0-9_]'</span>, <span class="code-string">''</span>, regex=<span class="code-keyword">True</span>)) <span class="code-comment"># Solo alfanuméricos</span>
-
 <span class="code-keyword">print</span>(<span class="code-string">"   Nombres estandarizados:"</span>, list(df_clean.columns[:5]), <span class="code-string">"..."</span>)
 
-<span class="code-comment"># 3. VERIFICAR MEJORAS BÁSICAS</span>
-<span class="code-keyword">print</span>(<span class="code-string">"\n✅ LIMPIEZA BÁSICA COMPLETADA:"</span>)
-<span class="code-keyword">print</span>(<span class="code-string">f"   • Dimensiones: {df_clean.shape}"</span>)
-<span class="code-keyword">print</span>(<span class="code-string">f"   • Duplicados restantes: {df_clean.duplicated().sum()}"</span>)
-<span class="code-keyword">print</span>(<span class="code-string">f"   • Columnas renombradas: {len(df_clean.columns)}"</span>)</div>
-                </div>
-
-                <div class="code-container">
-                    <div class="code-header">
-                        <div class="code-title">
-                            <span>🔧</span>
-                            <span>Celda 6: Manejo inteligente de valores faltantes</span>
-                        </div>
-                        <div class="code-actions">
-                            <button class="code-btn" onclick="selectCode(this)">📋 Seleccionar</button>
-                            <button class="code-btn" onclick="copyCode(this)">📄 Copiar</button>
-                        </div>
-                    </div>
-                    <div class="code-block"><span class="code-comment"># ===================================================================
-# BLOQUE 6: TRATAMIENTO INTELIGENTE DE VALORES FALTANTES
-# ===================================================================</span>
-
-<span class="code-keyword">print</span>(<span class="code-string">"🔧 MANEJO DE VALORES FALTANTES:"</span>)
-<span class="code-keyword">print</span>(<span class="code-string">f"Total valores faltantes iniciales: {df_clean.isnull().sum().sum():,}"</span>)
-
-<span class="code-comment"># ESTRATEGIA 1: COLUMNAS NUMÉRICAS - Usar mediana (más robusta que media)</span>
-<span class="code-keyword">print</span>(<span class="code-string">"\n📊 PROCESANDO COLUMNAS NUMÉRICAS:"</span>)
+<span class="code-comment"># 3. MANEJO DE VALORES FALTANTES</span>
+<span class="code-keyword">print</span>(<span class="code-string">"\n🔧 MANEJO DE VALORES FALTANTES:"</span>)
 numeric_cols = df_clean.select_dtypes(include=[np.number]).columns
+categorical_cols = df_clean.select_dtypes(include=[<span class="code-string">'object'</span>]).columns
 
 <span class="code-keyword">for</span> col <span class="code-keyword">in</span> numeric_cols:
     missing_count = df_clean[col].isnull().sum()
-    <span class="code-keyword">if</span> missing_count > <span class="code-keyword">0</span>:
-        <span class="code-comment"># Calcular estadísticas antes de imputar</span>
+    <span class="code-keyword">if</span> missing_count &gt; <span class="code-keyword">0</span>:
         median_value = df_clean[col].median()
-        mean_value = df_clean[col].mean()
-        
-        <span class="code-comment"># Usar mediana para imputación (más robusta a outliers)</span>
         df_clean[col] = df_clean[col].fillna(median_value)
-        
-        <span class="code-keyword">print</span>(<span class="code-string">f"   • {col}:"</span>)
-        <span class="code-keyword">print</span>(<span class="code-string">f"     - Valores faltantes: {missing_count:,} ({100*missing_count/len(df_clean):.1f}%)"</span>)
-        <span class="code-keyword">print</span>(<span class="code-string">f"     - Imputado con mediana: {median_value:.2f}"</span>)
-        <span class="code-keyword">print</span>(<span class="code-string">f"     - (Media era: {mean_value:.2f})"</span>)
-
-<span class="code-comment"># ESTRATEGIA 2: COLUMNAS CATEGÓRICAS - Usar moda o 'Unknown'</span>
-<span class="code-keyword">print</span>(<span class="code-string">"\n📝 PROCESANDO COLUMNAS CATEGÓRICAS:"</span>)
-categorical_cols = df_clean.select_dtypes(include=[<span class="code-string">'object'</span>]).columns
+        <span class="code-keyword">print</span>(<span class="code-string">f"   • {col}: {missing_count:,} valores → mediana ({median_value:.2f})"</span>)
 
 <span class="code-keyword">for</span> col <span class="code-keyword">in</span> categorical_cols:
     missing_count = df_clean[col].isnull().sum()
-    <span class="code-keyword">if</span> missing_count > <span class="code-keyword">0</span>:
-        <span class="code-comment"># Determinar el valor más frecuente</span>
+    <span class="code-keyword">if</span> missing_count &gt; <span class="code-keyword">0</span>:
         mode_values = df_clean[col].mode()
-        
-        <span class="code-keyword">if</span> len(mode_values) > <span class="code-keyword">0</span> <span class="code-keyword">and</span> pd.notna(mode_values[<span class="code-keyword">0</span>]):
-            fill_value = mode_values[<span class="code-keyword">0</span>]
-            strategy = <span class="code-string">"moda"</span>
-        <span class="code-keyword">else</span>:
-            fill_value = <span class="code-string">'Unknown'</span>
-            strategy = <span class="code-string">"valor por defecto"</span>
-        
+        fill_value = mode_values[<span class="code-keyword">0</span>] <span class="code-keyword">if</span> len(mode_values) &gt; <span class="code-keyword">0</span> <span class="code-keyword">else</span> <span class="code-string">'Unknown'</span>
         df_clean[col] = df_clean[col].fillna(fill_value)
-        
-        <span class="code-keyword">print</span>(<span class="code-string">f"   • {col}:"</span>)
-        <span class="code-keyword">print</span>(<span class="code-string">f"     - Valores faltantes: {missing_count:,} ({100*missing_count/len(df_clean):.1f}%)"</span>)
-        <span class="code-keyword">print</span>(<span class="code-string">f"     - Imputado con {strategy}: '{fill_value}'"</span>)
+        <span class="code-keyword">print</span>(<span class="code-string">f"   • {col}: {missing_count:,} valores → '{fill_value}'"</span>)
 
-<span class="code-comment"># ESTRATEGIA 3: COLUMNAS DE FECHA - Tratamiento especial</span>
-date_cols = df_clean.select_dtypes(include=[<span class="code-string">'datetime64'</span>]).columns
-<span class="code-keyword">if</span> len(date_cols) > <span class="code-keyword">0</span>:
-    <span class="code-keyword">print</span>(<span class="code-string">"\n📅 PROCESANDO COLUMNAS DE FECHA:"</span>)
-    <span class="code-keyword">for</span> col <span class="code-keyword">in</span> date_cols:
-        missing_count = df_clean[col].isnull().sum()
-        <span class="code-keyword">if</span> missing_count > <span class="code-keyword">0</span>:
-            <span class="code-comment"># Usar la fecha más frecuente o una fecha por defecto</span>
-            mode_date = df_clean[col].mode()
-            <span class="code-keyword">if</span> <span class="code-keyword">not</span> mode_date.empty:
-                fill_value = mode_date[<span class="code-keyword">0</span>]
-            <span class="code-keyword">else</span>:
-                fill_value = pd.to_datetime(<span class="code-string">'1900-01-01'</span>)
-            
-            df_clean[col] = df_clean[col].fillna(fill_value)
-            <span class="code-keyword">print</span>(<span class="code-string">f"   • {col}: {missing_count:,} valores → {fill_value}"</span>)
-
-<span class="code-comment"># VERIFICACIÓN FINAL</span>
-remaining_missing = df_clean.isnull().sum().sum()
-<span class="code-keyword">print</span>(<span class="code-string">f"\n✅ RESULTADOS DEL TRATAMIENTO:"</span>)
-<span class="code-keyword">print</span>(<span class="code-string">f"   • Valores faltantes restantes: {remaining_missing:,}"</span>)
-<span class="code-keyword">print</span>(<span class="code-string">f"   • Tasa de completitud: {100*(1-remaining_missing/df_clean.size):.2f}%"</span>)</div>
-                </div>
-
-                <div class="code-container">
-                    <div class="code-header">
-                        <div class="code-title">
-                            <span>🎯</span>
-                            <span>Celda 7: Detección y tratamiento de outliers</span>
-                        </div>
-                        <div class="code-actions">
-                            <button class="code-btn" onclick="selectCode(this)">📋 Seleccionar</button>
-                            <button class="code-btn" onclick="copyCode(this)">📄 Copiar</button>
-                        </div>
-                    </div>
-                    <div class="code-block"><span class="code-comment"># ===================================================================
-# BLOQUE 7: DETECCIÓN Y TRATAMIENTO DE OUTLIERS
-# ===================================================================</span>
-
-<span class="code-keyword">def</span> detect_outliers_iqr(df, column):
-    <span class="code-string">"""
-    Detecta outliers usando el método IQR (Rango Intercuartílico)
-    Retorna: outliers, límite_inferior, límite_superior
-    """</span>
-    Q1 = df[column].quantile(<span class="code-keyword">0.25</span>)
-    Q3 = df[column].quantile(<span class="code-keyword">0.75</span>)
+<span class="code-comment"># 4. DETECTAR Y TRATAR OUTLIERS</span>
+<span class="code-keyword">print</span>(<span class="code-string">"\n🎯 TRATAMIENTO DE OUTLIERS:"</span>)
+<span class="code-keyword">for</span> col <span class="code-keyword">in</span> numeric_cols:
+    Q1 = df_clean[col].quantile(<span class="code-keyword">0.25</span>)
+    Q3 = df_clean[col].quantile(<span class="code-keyword">0.75</span>)
     IQR = Q3 - Q1
-    
-    <span class="code-comment"># Límites para detectar outliers</span>
     lower_bound = Q1 - <span class="code-keyword">1.5</span> * IQR
     upper_bound = Q3 + <span class="code-keyword">1.5</span> * IQR
     
-    <span class="code-comment"># Identificar outliers</span>
-    outliers = df[(df[column] < lower_bound) | (df[column] > upper_bound)]
+    outliers_mask = (df_clean[col] &lt; lower_bound) | (df_clean[col] &gt; upper_bound)
+    outliers_count = outliers_mask.sum()
     
-    <span class="code-keyword">return</span> outliers, lower_bound, upper_bound
+    <span class="code-keyword">if</span> outliers_count &gt; <span class="code-keyword">0</span>:
+        outlier_percentage = (outliers_count / len(df_clean)) * <span class="code-keyword">100</span>
+<span class="code-keyword">if</span> outlier_percentage &gt; <span class="code-keyword">5</span>:  <span class="code-comment"># Winsorización si &gt;5% outliers</span>
+            df_clean[col] = np.where(df_clean[col] &lt; lower_bound, lower_bound, df_clean[col])
+            df_clean[col] = np.where(df_clean[col] &gt; upper_bound, upper_bound, df_clean[col])
+            <span class="code-keyword">print</span>(<span class="code-string">f"   • {col}: {outliers_count:,} outliers winsurizados ({outlier_percentage:.1f}%)"</span>)
+        <span class="code-keyword">else</span>:
+            <span class="code-keyword">print</span>(<span class="code-string">f"   • {col}: {outliers_count:,} outliers mantenidos ({outlier_percentage:.1f}%)"</span>)
 
-<span class="code-keyword">print</span>(<span class="code-string">"🎯 ANÁLISIS DE OUTLIERS:"</span>)
-<span class="code-keyword">print</span>(<span class="code-string">"="*50</span>)
-
-outliers_summary = []
-numeric_cols = df_clean.select_dtypes(include=[np.number]).columns
-
-<span class="code-keyword">for</span> col <span class="code-keyword">in</span> numeric_cols:
-    <span class="code-keyword">print</span>(<span class="code-string">f"\n📊 ANALIZANDO: {col}"</span>)
-    
-    <span class="code-comment"># Detectar outliers</span>
-    outliers, lower, upper = detect_outliers_iqr(df_clean, col)
-    outlier_count = len(outliers)
-    outlier_percentage = (outlier_count / len(df_clean)) * <span class="code-keyword">100</span>
-    
-    <span class="code-comment"># Estadísticas de la columna</span>
-    col_stats = {
-        <span class="code-string">'Columna'</span>: col,
-        <span class="code-string">'Outliers'</span>: outlier_count,
-        <span class="code-string">'Porcentaje'</span>: <span class="code-string">f"{outlier_percentage:.2f}%"</span>,
-        <span class="code-string">'Límite_Inferior'</span>: <span class="code-string">f"{lower:.2f}"</span>,
-        <span class="code-string">'Límite_Superior'</span>: <span class="code-string">f"{upper:.2f}"</span>,
-        <span class="code-string">'Min_Actual'</span>: <span class="code-string">f"{df_clean[col].min():.2f}"</span>,
-        <span class="code-string">'Max_Actual'</span>: <span class="code-string">f"{df_clean[col].max():.2f}"</span>
-    }
-    outliers_summary.append(col_stats)
-    
-    <span class="code-keyword">print</span>(<span class="code-string">f"   • Outliers encontrados: {outlier_count:,} ({outlier_percentage:.2f}%)"</span>)
-    <span class="code-keyword">print</span>(<span class="code-string">f"   • Rango normal: [{lower:.2f}, {upper:.2f}]"</span>)
-    <span class="code-keyword">print</span>(<span class="code-string">f"   • Rango actual: [{df_clean[col].min():.2f}, {df_clean[col].max():.2f}]"</span>)
-    
-    <span class="code-comment"># ESTRATEGIA DE TRATAMIENTO</span>
-    <span class="code-keyword">if</span> outlier_percentage > <span class="code-keyword">5</span>:  <span class="code-comment"># Si hay muchos outliers (>5%)</span>
-        <span class="code-keyword">print</span>(<span class="code-string">f"   🔧 APLICANDO WINSORIZACIÓN (muchos outliers)"</span>)
-        
-        <span class="code-comment"># Winsorización: cambiar outliers por los límites</span>
-        original_outliers = outlier_count
-        df_clean[col] = np.where(df_clean[col] < lower, lower, df_clean[col])
-        df_clean[col] = np.where(df_clean[col] > upper, upper, df_clean[col])
-        
-        <span class="code-keyword">print</span>(<span class="code-string">f"   ✅ {original_outliers:,} valores winsurizados"</span>)
-        
-    <span class="code-keyword">elif</span> outlier_percentage > <span class="code-keyword">1</span>:  <span class="code-comment"># Outliers moderados (1-5%)</span>
-        <span class="code-keyword">print</span>(<span class="code-string">f"   ⚠️ OUTLIERS MODERADOS - mantenidos para revisión"</span>)
-        
-    <span class="code-keyword">else</span>:  <span class="code-comment"># Pocos outliers (<1%)</span>
-        <span class="code-keyword">print</span>(<span class="code-string">f"   ✅ OUTLIERS MÍNIMOS - mantenidos (podrían ser valores válidos)"</span>)
-
-<span class="code-comment"># MOSTRAR RESUMEN DE OUTLIERS</span>
-<span class="code-keyword">print</span>(<span class="code-string">"\n📋 RESUMEN DE ANÁLISIS DE OUTLIERS:"</span>)
-outliers_df = pd.DataFrame(outliers_summary)
-<span class="code-keyword">print</span>(outliers_df.to_string(index=<span class="code-keyword">False</span>))</div>
-                </div>
-
-                <div class="code-container">
-                    <div class="code-header">
-                        <div class="code-title">
-                            <span>✅</span>
-                            <span>Celda 8: Validación y comparación antes/después</span>
-                        </div>
-                        <div class="code-actions">
-                            <button class="code-btn" onclick="selectCode(this)">📋 Seleccionar</button>
-                            <button class="code-btn" onclick="copyCode(this)">📄 Copiar</button>
-                        </div>
-                    </div>
-                    <div class="code-block"><span class="code-comment"># ===================================================================
-# BLOQUE 8: VALIDACIÓN FINAL Y REPORTE DE RESULTADOS
-# ===================================================================</span>
-
-<span class="code-keyword">print</span>(<span class="code-string">"="*60</span>)
-<span class="code-keyword">print</span>(<span class="code-string">"📊 REPORTE FINAL DE LIMPIEZA DE DATOS"</span>)
-<span class="code-keyword">print</span>(<span class="code-string">"="*60</span>)
-
-<span class="code-comment"># 1. COMPARACIÓN DE DIMENSIONES</span>
-<span class="code-keyword">print</span>(<span class="code-string">"\n📏 DIMENSIONES:"</span>)
-<span class="code-keyword">print</span>(<span class="code-string">f"   Antes:   {df_original.shape[0]:,} filas × {df_original.shape[1]} columnas"</span>)
-<span class="code-keyword">print</span>(<span class="code-string">f"   Después: {df_clean.shape[0]:,} filas × {df_clean.shape[1]} columnas"</span>)
-<span class="code-keyword">print</span>(<span class="code-string">f"   Cambio:  {df_clean.shape[0] - df_original.shape[0]:,} filas"</span>)
-
-<span class="code-comment"># 2. COMPARACIÓN DE VALORES FALTANTES</span>
-missing_before = df_original.isnull().sum().sum()
-missing_after = df_clean.isnull().sum().sum()
-<span class="code-keyword">print</span>(<span class="code-string">"\n❓ VALORES FALTANTES:"</span>)
-<span class="code-keyword">print</span>(<span class="code-string">f"   Antes:   {missing_before:,} valores faltantes"</span>)
-<span class="code-keyword">print</span>(<span class="code-string">f"   Después: {missing_after:,} valores faltantes"</span>)
-<span class="code-keyword">print</span>(<span class="code-string">f"   Mejoría: {missing_before - missing_after:,} valores corregidos"</span>)
-
-<span class="code-comment"># 3. COMPARACIÓN DE DUPLICADOS</span>
-dup_before = df_original.duplicated().sum()
-dup_after = df_clean.duplicated().sum()
-<span class="code-keyword">print</span>(<span class="code-string">"\n🔄 DUPLICADOS:"</span>)
-<span class="code-keyword">print</span>(<span class="code-string">f"   Antes:   {dup_before:,} filas duplicadas"</span>)
-<span class="code-keyword">print</span>(<span class="code-string">f"   Después: {dup_after:,} filas duplicadas"</span>)
-<span class="code-keyword">print</span>(<span class="code-string">f"   Eliminadas: {dup_before - dup_after:,} filas duplicadas"</span>)
-
-<span class="code-comment"># 4. COMPARACIÓN DE MEMORIA</span>
-memory_before = df_original.memory_usage(deep=<span class="code-keyword">True</span>).sum() / <span class="code-keyword">1024</span>**<span class="code-keyword">2</span>
-memory_after = df_clean.memory_usage(deep=<span class="code-keyword">True</span>).sum() / <span class="code-keyword">1024</span>**<span class="code-keyword">2</span>
-<span class="code-keyword">print</span>(<span class="code-string">"\n💾 USO DE MEMORIA:"</span>)
-<span class="code-keyword">print</span>(<span class="code-string">f"   Antes:   {memory_before:.2f} MB"</span>)
-<span class="code-keyword">print</span>(<span class="code-string">f"   Después: {memory_after:.2f} MB"</span>)
-<span class="code-keyword">print</span>(<span class="code-string">f"   Ahorro:  {memory_before - memory_after:.2f} MB ({100*(memory_before-memory_after)/memory_before:.1f}%)"</span>)
-
-<span class="code-comment"># 5. CALIDAD DE DATOS FINAL</span>
-<span class="code-keyword">print</span>(<span class="code-string">"\n🎯 CALIDAD FINAL DE DATOS:"</span>)
-total_cells = df_clean.shape[<span class="code-keyword">0</span>] * df_clean.shape[<span class="code-keyword">1</span>]
-completeness = <span class="code-keyword">100</span> * (<span class="code-keyword">1</span> - missing_after / total_cells)
-uniqueness = <span class="code-keyword">100</span> * (<span class="code-keyword">1</span> - dup_after / df_clean.shape[<span class="code-keyword">0</span>])
-
-<span class="code-keyword">print</span>(<span class="code-string">f"   • Completitud: {completeness:.2f}%"</span>)
-<span class="code-keyword">print</span>(<span class="code-string">f"   • Unicidad: {uniqueness:.2f}%"</span>)
-<span class="code-keyword">print</span>(<span class="code-string">f"   • Consistencia: ✅ Nombres estandarizados"</span>)
-<span class="code-keyword">print</span>(<span class="code-string">f"   • Validez: ✅ Tipos de datos correctos"</span>)
-
-<span class="code-comment"># 6. GUARDAR DATASET LIMPIO</span>
-filename_clean = <span class="code-string">'dataset_limpio_python.csv'</span>
-df_clean.to_csv(filename_clean, index=<span class="code-keyword">False</span>)
-<span class="code-keyword">print</span>(<span class="code-string">f"\n💾 EXPORTACIÓN:"</span>)
-<span class="code-keyword">print</span>(<span class="code-string">f"   Dataset limpio guardado como: '{filename_clean}'"</span>)
-<span class="code-keyword">print</span>(<span class="code-string">f"   Tamaño del archivo: {round(pd.read_csv(filename_clean).memory_usage(deep=True).sum()/1024**2, 2)} MB"</span>)
-
-<span class="code-comment"># 7. CREAR REPORTE RESUMIDO</span>
-summary_report = {
-    <span class="code-string">'Métrica'</span>: [<span class="code-string">'Filas'</span>, <span class="code-string">'Columnas'</span>, <span class="code-string">'Valores Faltantes'</span>, <span class="code-string">'Duplicados'</span>, <span class="code-string">'Memoria (MB)'</span>],
-    <span class="code-string">'Antes'</span>: [df_original.shape[<span class="code-keyword">0</span>], df_original.shape[<span class="code-keyword">1</span>], missing_before, dup_before, round(memory_before, <span class="code-keyword">2</span>)],
-    <span class="code-string">'Después'</span>: [df_clean.shape[<span class="code-keyword">0</span>], df_clean.shape[<span class="code-keyword">1</span>], missing_after, dup_after, round(memory_after, <span class="code-keyword">2</span>)],
-    <span class="code-string">'Mejora'</span>: [
-        df_clean.shape[<span class="code-keyword">0</span>] - df_original.shape[<span class="code-keyword">0</span>],
-        <span class="code-keyword">0</span>,  <span class="code-comment"># columnas no cambian</span>
-        missing_before - missing_after,
-        dup_before - dup_after,
-        round(memory_before - memory_after, <span class="code-keyword">2</span>)
-    ]
-}
-
-summary_df = pd.DataFrame(summary_report)
-<span class="code-keyword">print</span>(<span class="code-string">f"\n📊 TABLA RESUMEN:"</span>)
-<span class="code-keyword">print</span>(summary_df.to_string(index=<span class="code-keyword">False</span>))
-
-<span class="code-keyword">print</span>(<span class="code-string">"\n🎉 ¡PROCESO DE LIMPIEZA COMPLETADO EXITOSAMENTE!"</span>)
-<span class="code-keyword">print</span>(<span class="code-string">"📋 Tu dataset está listo para análisis y modelado."</span>)</div>
-                </div>
-
-                <div class="alert alert-success">
-                    <span style="font-size: 1.2rem;">🚀</span>
-                    <strong>Ventaja de Python:</strong> Tienes control total sobre cada decisión y puedes 
-                    crear reportes personalizados imposibles en interfaces gráficas.
-                </div>
-
-                <div class="checkpoint" onclick="toggleCheckpoint(this)">
-                    <input type="checkbox" id="python-completed">
-                    <label for="python-completed">✅ Validación completa y dataset limpio exportado</label>
-                </div>
-            </div>
-        </div>
-
-        <!-- R SECTION -->
-        <div class="section">
-            <h2>
-                <div class="platform-logo r-logo">R</div>
+<span class="code-keyword">print</span>(<span class="code-string">f"\n✅ LIMPIEZA COMPLETADA"</span>)
+<span class="code-keyword">print</span>(<span class="code-string">f"📊 Dimensiones finales: {df_clean.shape}"</span>)
+<span class="code-keyword">print</span>(<span class="code-string">f"❓ Valores faltantes restantes: {df_clean.isnull().sum().sum()}"</span>)</div>
+</div>
+<div class="checkpoint" onclick="toggleCheckpoint(this)">
+<input data-weight="3.125" id="python-completed" type="checkbox"/>
+<label for="python-completed">✅ Limpieza completa en Python finalizada</label>
+</div>
+</div>
+</div>
+<!-- R SECTION COMPLETA -->
+<div class="section">
+<h2>
+<div class="platform-logo r-logo">R</div>
                 LIMPIEZA EN R (POSIT CLOUD)
             </h2>
-            
-            <div class="alert alert-info">
-                <span style="font-size: 1.5rem;">📊</span>
-                <div>
-                    <strong>Filosofía de R:</strong> "Statistics first, everything else second". R está optimizado 
+<div class="alert alert-info">
+<span style="font-size: 1.5rem;">📊</span>
+<div>
+<strong>Filosofía de R:</strong> "Statistics first, everything else second". R está optimizado 
                     para análisis estadístico y visualización elegante de datos.
                 </div>
-            </div>
-
-            <div class="step">
-                <div class="step-header">
-                    <div class="step-number">1</div>
-                    <div class="step-title">Configurar Posit Cloud</div>
-                    <div class="time-estimate">⏱️ 3 min</div>
-                </div>
-                
-                <ol>
-                    <li>Ir a <strong>posit.cloud</strong> (anteriormente RStudio Cloud)</li>
-                    <li>Crear cuenta gratuita si no tienes una</li>
-                    <li>Crear nuevo proyecto: "New Project" → "New RStudio Project"</li>
-                    <li>Nombrar el proyecto: "Limpieza_Datos_[TuNombre]"</li>
-                </ol>
-
-                <div style="background: rgba(22, 92, 170, 0.1); padding: 15px; border-radius: 10px; margin: 10px 0;">
-                    <h4>🎯 Interface de RStudio:</h4>
-                    <ul>
-                        <li><strong>Superior izquierda:</strong> Editor de scripts</li>
-                        <li><strong>Superior derecha:</strong> Environment y History</li>
-                        <li><strong>Inferior izquierda:</strong> Consola R</li>
-                        <li><strong>Inferior derecha:</strong> Files, Plots, Packages, Help</li>
-                    </ul>
-                </div>
-
-                <div class="checkpoint" onclick="toggleCheckpoint(this)">
-                    <input type="checkbox" id="r-setup">
-                    <label for="r-setup">✅ Posit Cloud configurado y proyecto R creado</label>
-                </div>
-            </div>
-
-            <div class="step">
-                <div class="step-header">
-                    <div class="step-number">2</div>
-                    <div class="step-title">Instalar y Cargar Librerías</div>
-                    <div class="time-estimate">⏱️ 4 min</div>
-                </div>
-
-                <div class="code-container">
-                    <div class="code-header">
-                        <div class="code-title">
-                            <span>📦</span>
-                            <span>Script R: Instalación y carga de librerías</span>
-                        </div>
-                        <div class="code-actions">
-                            <button class="code-btn" onclick="selectCode(this)">📋 Seleccionar</button>
-                            <button class="code-btn" onclick="copyCode(this)">📄 Copiar</button>
-                        </div>
-                    </div>
-                    <div class="code-block"><span class="code-comment"># Instalar librerías necesarias (solo primera vez)</span>
+</div>
+<div class="step">
+<div class="step-header">
+<div class="step-number">1</div>
+<div class="step-title">Configurar Posit Cloud</div>
+<div class="time-estimate">⏱️ 3 min</div>
+</div>
+<ol>
+<li>Ir a <strong>posit.cloud</strong> (anteriormente RStudio Cloud)</li>
+<li>Crear cuenta gratuita si no tienes una</li>
+<li>Crear nuevo proyecto: "New Project" → "New RStudio Project"</li>
+<li>Nombrar el proyecto: "Limpieza_Datos_[TuNombre]"</li>
+</ol>
+<div class="alert alert-info">
+<span style="font-size: 1.2rem;">📋</span>
+<div>
+<strong>Ejemplo con HR Employee Attrition:</strong><br/>
+• <strong>Proyecto:</strong> "HR_Attrition_Analysis_[TuNombre]"<br/>
+• <strong>Workspace:</strong> Gratuito (25 horas/mes)<br/>
+• <strong>Recursos:</strong> 1GB RAM, suficiente para dataset de 200KB<br/>
+• <strong>Preparación:</strong> RStudio Server listo en navegador<br/>
+• <strong>Tiempo:</strong> 3 minutos para configuración inicial
+</div>
+</div>
+<div style="background: rgba(22, 92, 170, 0.1); padding: 15px; border-radius: 10px; margin: 10px 0;">
+<h4>🎯 Interface de RStudio:</h4>
+<ul>
+<li><strong>Superior izquierda:</strong> Editor de scripts</li>
+<li><strong>Superior derecha:</strong> Environment y History</li>
+<li><strong>Inferior izquierda:</strong> Consola R</li>
+<li><strong>Inferior derecha:</strong> Files, Plots, Packages, Help</li>
+</ul>
+</div>
+<div class="checkpoint" onclick="toggleCheckpoint(this)">
+<input data-weight="3.125" id="r-setup" type="checkbox"/>
+<label for="r-setup">✅ Posit Cloud configurado y proyecto R creado</label>
+</div>
+</div>
+<div class="step">
+<div class="step-header">
+<div class="step-number">2</div>
+<div class="step-title">Instalar y Cargar Librerías</div>
+<div class="time-estimate">⏱️ 4 min</div>
+</div>
+<div class="code-container">
+<div class="code-header">
+<div class="code-title">
+<span>📦</span>
+<span>Script R: Instalación y carga de librerías</span>
+</div>
+<div class="code-actions">
+<button class="code-btn" onclick="selectCode(this)">📋 Seleccionar</button>
+<button class="code-btn" onclick="copyCode(this)">📄 Copiar</button>
+</div>
+</div>
+<div class="code-block"><span class="code-comment"># Instalar librerías necesarias (solo primera vez)</span>
 install.packages(c(<span class="code-string">"dplyr"</span>, <span class="code-string">"tidyr"</span>, <span class="code-string">"readr"</span>, <span class="code-string">"ggplot2"</span>, 
                    <span class="code-string">"VIM"</span>, <span class="code-string">"mice"</span>, <span class="code-string">"corrplot"</span>, <span class="code-string">"lubridate"</span>, 
                    <span class="code-string">"stringr"</span>, <span class="code-string">"forcats"</span>))
@@ -1527,49 +1295,56 @@ library(corrplot)   <span class="code-comment"># Matrices de correlación</span>
 library(lubridate)  <span class="code-comment"># Manejo de fechas</span>
 library(stringr)    <span class="code-comment"># Manipulación de strings</span>
 library(forcats)    <span class="code-comment"># Manejo de factores</span>
-
 <span class="code-comment"># Verificar instalación</span>
 cat(<span class="code-string">"✅ Librerías cargadas exitosamente\n"</span>)
 cat(<span class="code-string">"📊 Tidyverse ecosystem listo\n"</span>)
 cat(<span class="code-string">"🔢 R versión:"</span>, R.version.string, <span class="code-string">"\n"</span>)</div>
-                </div>
-
-                <div class="alert alert-warning">
-                    <span style="font-size: 1.2rem;">⚡</span>
-                    <strong>Ventaja de R:</strong> El ecosistema Tidyverse hace que la manipulación de datos 
+</div>
+<div class="alert alert-info">
+<span style="font-size: 1.2rem;">📋</span>
+<div>
+<strong>Salida esperada con HR Employee Attrition:</strong><br/>
+<code>✅ Librerías cargadas exitosamente</code><br/>
+<code>📊 Tidyverse ecosystem listo</code><br/>
+<code>🔢 R versión: R version 4.3.0 (2023-04-21)</code><br/><br/>
+<strong>Librerías instaladas:</strong><br/>
+• <strong>Manipulación:</strong> dplyr, tidyr, readr<br/>
+• <strong>Visualización:</strong> ggplot2, VIM, corrplot<br/>
+• <strong>Fechas y texto:</strong> lubridate, stringr, forcats<br/>
+• <strong>Imputación:</strong> mice<br/>
+<strong>Tiempo instalación:</strong> ~2-3 minutos
+</div>
+</div>
+<div class="alert alert-warning">
+<span style="font-size: 1.2rem;">⚡</span>
+<strong>Ventaja de R:</strong> El ecosistema Tidyverse hace que la manipulación de datos 
                     sea muy legible y expresiva, casi como escribir en inglés.
                 </div>
-
-                <div class="checkpoint" onclick="toggleCheckpoint(this)">
-                    <input type="checkbox" id="r-libraries">
-                    <label for="r-libraries">✅ Librerías instaladas y cargadas correctamente</label>
-                </div>
-            </div>
-
-            <div class="step">
-                <div class="step-header">
-                    <div class="step-number">3</div>
-                    <div class="step-title">Cargar y Explorar Dataset</div>
-                    <div class="time-estimate">⏱️ 6 min</div>
-                </div>
-
-                <div class="code-container">
-                    <div class="code-header">
-                        <div class="code-title">
-                            <span>📁</span>
-                            <span>Cargar dataset</span>
-                        </div>
-                        <div class="code-actions">
-                            <button class="code-btn" onclick="selectCode(this)">📋 Seleccionar</button>
-                            <button class="code-btn" onclick="copyCode(this)">📄 Copiar</button>
-                        </div>
-                    </div>
-                    <div class="code-block"><span class="code-comment"># Subir archivo (usar Files panel en RStudio)</span>
+<div class="checkpoint" onclick="toggleCheckpoint(this)">
+<input id="r-libraries" type="checkbox"/>
+<label for="r-libraries">✅ Librerías instaladas y cargadas correctamente</label>
+</div>
+</div>
+<div class="step">
+<div class="step-header">
+<div class="step-number">3</div>
+<div class="step-title">Cargar y Explorar Dataset</div>
+<div class="time-estimate">⏱️ 6 min</div>
+</div>
+<div class="code-container">
+<div class="code-header">
+<div class="code-title">
+<span>📁</span>
+<span>Cargar dataset con Tidyverse</span>
+</div>
+<div class="code-actions">
+<button class="code-btn" onclick="selectCode(this)">📋 Seleccionar</button>
+<button class="code-btn" onclick="copyCode(this)">📄 Copiar</button>
+</div>
+</div>
+<div class="code-block"><span class="code-comment"># Subir archivo (usar Files panel en RStudio)</span>
 <span class="code-comment"># Opción 1: Upload button en Files panel, luego:</span>
-df <- read_csv(<span class="code-string">"tu_archivo.csv"</span>)
-
-<span class="code-comment"># Opción 2: Desde URL</span>
-<span class="code-comment"># df <- read_csv("https://tu-url-del-dataset.csv")</span>
+df &lt;- read_csv(<span class="code-string">"tu_archivo.csv"</span>)
 
 <span class="code-comment"># Información básica del dataset</span>
 cat(<span class="code-string">"📊 INFORMACIÓN BÁSICA DEL DATASET\n"</span>)
@@ -1586,100 +1361,72 @@ str(df)
 <span class="code-comment"># Primeras filas</span>
 cat(<span class="code-string">"\n👀 PRIMERAS 6 FILAS:\n"</span>)
 head(df)</div>
-                </div>
-
-                <div class="code-container">
-                    <div class="code-header">
-                        <div class="code-title">
-                            <span>🔍</span>
-                            <span>Análisis de calidad de datos</span>
-                        </div>
-                        <div class="code-actions">
-                            <button class="code-btn" onclick="selectCode(this)">📋 Seleccionar</button>
-                            <button class="code-btn" onclick="copyCode(this)">📄 Copiar</button>
-                        </div>
-                    </div>
-                    <div class="code-block"><span class="code-comment"># Análisis estadístico completo</span>
-cat(<span class="code-string">"\n📊 RESUMEN ESTADÍSTICO:\n"</span>)
-summary(df)
-
-<span class="code-comment"># Valores faltantes con visualización elegante</span>
-cat(<span class="code-string">"\n❓ ANÁLISIS DE VALORES FALTANTES:\n"</span>)
-missing_data <- df %>%
-  summarise_all(~sum(is.na(.))) %>%
-  gather(key = <span class="code-string">"variable"</span>, value = <span class="code-string">"missing_count"</span>) %>%
-  mutate(missing_percent = round(<span class="code-keyword">100</span> * missing_count / nrow(df), <span class="code-keyword">2</span>)) %>%
-  arrange(desc(missing_count))
-
-print(missing_data)
-
-<span class="code-comment"># Visualización de patrones de datos faltantes</span>
-<span class="code-keyword">if</span>(sum(missing_data$missing_count) > <span class="code-keyword">0</span>) {
-  cat(<span class="code-string">"\n📈 VISUALIZACIÓN DE PATRONES FALTANTES:\n"</span>)
-  VIM::aggr(df, col = c(<span class="code-string">'navyblue'</span>,<span class="code-string">'red'</span>), 
-            numbers = <span class="code-keyword">TRUE</span>, sortVars = <span class="code-keyword">TRUE</span>,
-            main = <span class="code-string">"Patrón de Valores Faltantes"</span>)
-}
-
-<span class="code-comment"># Duplicados</span>
-duplicates <- sum(duplicated(df))
-cat(<span class="code-string">"\n🔄 DUPLICADOS ENCONTRADOS:"</span>, duplicates, <span class="code-string">"\n"</span>)
-cat(<span class="code-string">"Porcentaje de duplicados:"</span>, round(<span class="code-keyword">100</span> * duplicates / nrow(df), <span class="code-keyword">2</span>), <span class="code-string">"%\n"</span>)</div>
-                </div>
-
-                <div class="checkpoint" onclick="toggleCheckpoint(this)">
-                    <input type="checkbox" id="r-exploration">
-                    <label for="r-exploration">✅ Dataset cargado y análisis exploratorio completado con VIM</label>
-                </div>
-            </div>
-
-            <div class="step">
-                <div class="step-header">
-                    <div class="step-number">4</div>
-                    <div class="step-title">Limpieza con Tidyverse</div>
-                    <div class="time-estimate">⏱️ 10 min</div>
-                </div>
-
-                <div style="background: rgba(22, 92, 170, 0.1); padding: 15px; border-radius: 10px; margin: 10px 0;">
-                    <h4>🚀 Filosofía Tidyverse:</h4>
-                    <p>El pipe operator (%>%) permite crear "pipelines" de transformación muy legibles. 
+</div>
+<div class="alert alert-info">
+<span style="font-size: 1.2rem;">📋</span>
+<div>
+<strong>Salida esperada con HR Employee Attrition:</strong><br/>
+<code>📊 INFORMACIÓN BÁSICA DEL DATASET</code><br/>
+<code>Dimensiones: 1470 35</code><br/>
+<code>Filas: 1470</code><br/>
+<code>Columnas: 35</code><br/>
+<code>Tamaño en memoria: 0.5 Mb</code><br/><br/>
+<strong>Estructura detectada:</strong><br/>
+• <strong>Variables numéricas:</strong> 26 (Age, DailyRate, Education...)<br/>
+• <strong>Variables de texto:</strong> 9 (Attrition, BusinessTravel...)<br/>
+• <strong>Rango de edad:</strong> 18-60 años<br/>
+• <strong>Departamentos:</strong> Sales, Research &amp; Development, Human Resources
+</div>
+</div>
+<div class="checkpoint" onclick="toggleCheckpoint(this)">
+<input data-weight="3.125" id="r-exploration" type="checkbox"/>
+<label for="r-exploration">✅ Dataset cargado y exploración inicial completada</label>
+</div>
+</div>
+<div class="step">
+<div class="step-header">
+<div class="step-number">4</div>
+<div class="step-title">Pipeline de Limpieza con Tidyverse</div>
+<div class="time-estimate">⏱️ 10 min</div>
+</div>
+<div style="background: rgba(22, 92, 170, 0.1); padding: 15px; border-radius: 10px; margin: 10px 0;">
+<h4>🚀 Filosofía Tidyverse:</h4>
+<p>El pipe operator (%&gt;%) permite crear "pipelines" de transformación muy legibles. 
                     Cada función hace una cosa y la hace bien.</p>
-                </div>
-
-                <div class="code-container">
-                    <div class="code-header">
-                        <div class="code-title">
-                            <span>🧹</span>
-                            <span>Pipeline de limpieza con dplyr</span>
-                        </div>
-                        <div class="code-actions">
-                            <button class="code-btn" onclick="selectCode(this)">📋 Seleccionar</button>
-                            <button class="code-btn" onclick="copyCode(this)">📄 Copiar</button>
-                        </div>
-                    </div>
-                    <div class="code-block"><span class="code-comment"># Pipeline de limpieza completo usando tidyverse</span>
-df_clean <- df %>%
+</div>
+<div class="code-container">
+<div class="code-header">
+<div class="code-title">
+<span>🧹</span>
+<span>Pipeline completo de limpieza</span>
+</div>
+<div class="code-actions">
+<button class="code-btn" onclick="selectCode(this)">📋 Seleccionar</button>
+<button class="code-btn" onclick="copyCode(this)">📄 Copiar</button>
+</div>
+</div>
+<div class="code-block"><span class="code-comment"># Pipeline de limpieza completo usando tidyverse</span>
+df_clean &lt;- df %&gt;%
   <span class="code-comment"># 1. Eliminar duplicados</span>
-  distinct() %>%
+  distinct() %&gt;%
   
   <span class="code-comment"># 2. Limpiar nombres de columnas</span>
-  rename_all(~ gsub(<span class="code-string">" "</span>, <span class="code-string">"_"</span>, tolower(trimws(.)))) %>%
+  rename_all(~ gsub(<span class="code-string">" "</span>, <span class="code-string">"_"</span>, tolower(trimws(.)))) %&gt;%
   
   <span class="code-comment"># 3. Convertir tipos de datos apropiados</span>
-  mutate_if(is.character, as.factor) %>%  <span class="code-comment"># Caracteres a factores</span>
-  
-  <span class="code-comment"># 4. Manejo inteligente de outliers usando IQR</span>
+  mutate_if(is.character, as.factor) %&gt;%  <span class="code-comment"># Caracteres a factores</span>
+<span class="code-comment"># 4. Manejo inteligente de outliers usando IQR</span>
   mutate_if(is.numeric, ~ ifelse(
-    abs(. - median(., na.rm = <span class="code-keyword">TRUE</span>)) > <span class="code-keyword">3</span> * IQR(., na.rm = <span class="code-keyword">TRUE</span>),
+    abs(. - median(., na.rm = <span class="code-keyword">TRUE</span>)) &gt; <span class="code-keyword">3</span> * IQR(., na.rm = <span class="code-keyword">TRUE</span>),
     median(., na.rm = <span class="code-keyword">TRUE</span>), 
     .
-  )) %>%
+  )) %&gt;%
   
   <span class="code-comment"># 5. Imputación de valores faltantes por tipo</span>
-  mutate_if(is.numeric, ~ ifelse(is.na(.), median(., na.rm = <span class="code-keyword">TRUE</span>), .)) %>%
+  mutate_if(is.numeric, ~ ifelse(is.na(.), median(., na.rm = <span class="code-keyword">TRUE</span>), .)) %&gt;%
   mutate_if(is.factor, ~ ifelse(is.na(.), 
                                names(sort(table(.), decreasing = <span class="code-keyword">TRUE</span>))[<span class="code-keyword">1</span>], 
-                               as.character(.))) %>%
+                               as.character(.))) %&gt;%
   mutate_if(is.factor, as.factor)
 
 <span class="code-comment"># Reportar cambios</span>
@@ -1689,551 +1436,777 @@ cat(<span class="code-string">"Filas originales:"</span>, nrow(df), <span class=
 cat(<span class="code-string">"Filas después de limpieza:"</span>, nrow(df_clean), <span class="code-string">"\n"</span>)
 cat(<span class="code-string">"Filas eliminadas:"</span>, nrow(df) - nrow(df_clean), <span class="code-string">"\n"</span>)
 cat(<span class="code-string">"Valores faltantes originales:"</span>, sum(is.na(df)), <span class="code-string">"\n"</span>)
-cat(<span class="code-string">"Valores faltantes después:"</span>, sum(is.na(df_clean)), <span class="code-string">"\n"</span>)</div>
-                </div>
+cat(<span class="code-string">"Valores faltantes después:"</span>, sum(is.na(df_clean)), <span class="code-string">"\n"</span>)
 
-                <div class="code-container">
-                    <div class="code-header">
-                        <div class="code-title">
-                            <span>📊</span>
-                            <span>Validación estadística</span>
-                        </div>
-                        <div class="code-actions">
-                            <button class="code-btn" onclick="selectCode(this)">📋 Seleccionar</button>
-                            <button class="code-btn" onclick="copyCode(this)">📄 Copiar</button>
-                        </div>
-                    </div>
-                    <div class="code-block"><span class="code-comment"># Análisis comparativo antes/después</span>
-cat(<span class="code-string">"\n📊 COMPARACIÓN ESTADÍSTICA ANTES/DESPUÉS:\n"</span>)
-
-<span class="code-comment"># Función para comparar estadísticas</span>
-compare_stats <- function(original, cleaned, col_name) {
-  <span class="code-keyword">if</span>(is.numeric(original[[col_name]])) {
-    cat(<span class="code-string">"\nColumna:"</span>, col_name, <span class="code-string">"\n"</span>)
-    cat(<span class="code-string">"  Media original:"</span>, round(mean(original[[col_name]], na.rm = <span class="code-keyword">TRUE</span>), <span class="code-keyword">2</span>), <span class="code-string">"\n"</span>)
-    cat(<span class="code-string">"  Media limpia:"</span>, round(mean(cleaned[[col_name]], na.rm = <span class="code-keyword">TRUE</span>), <span class="code-keyword">2</span>), <span class="code-string">"\n"</span>)
-    cat(<span class="code-string">"  Desv. estándar original:"</span>, round(sd(original[[col_name]], na.rm = <span class="code-keyword">TRUE</span>), <span class="code-keyword">2</span>), <span class="code-string">"\n"</span>)
-    cat(<span class="code-string">"  Desv. estándar limpia:"</span>, round(sd(cleaned[[col_name]], na.rm = <span class="code-keyword">TRUE</span>), <span class="code-keyword">2</span>), <span class="code-string">"\n"</span>)
-  }
-}
-
-<span class="code-comment"># Aplicar comparación a columnas numéricas</span>
-numeric_columns <- names(select_if(df, is.numeric))
-<span class="code-keyword">for</span>(col <span class="code-keyword">in</span> numeric_columns) {
-  compare_stats(df, df_clean, col)
-}
-
-<span class="code-comment"># Visualización de mejoras</span>
-<span class="code-keyword">if</span>(length(numeric_columns) >= <span class="code-keyword">2</span>) {
-  <span class="code-comment"># Gráfico de correlación antes y después</span>
-  par(mfrow = c(<span class="code-keyword">1</span>, <span class="code-keyword">2</span>))
-  
-  <span class="code-comment"># Correlación original</span>
-  cor_original <- cor(select_if(df, is.numeric), use = <span class="code-string">"complete.obs"</span>)
-  corrplot(cor_original, method = <span class="code-string">"color"</span>, title = <span class="code-string">"Correlaciones Originales"</span>,
-           mar = c(<span class="code-keyword">0</span>,<span class="code-keyword">0</span>,<span class="code-keyword">1</span>,<span class="code-keyword">0</span>))
-  
-  <span class="code-comment"># Correlación después de limpieza</span>
-  cor_clean <- cor(select_if(df_clean, is.numeric), use = <span class="code-string">"complete.obs"</span>)
-  corrplot(cor_clean, method = <span class="code-string">"color"</span>, title = <span class="code-string">"Correlaciones Post-Limpieza"</span>,
-           mar = c(<span class="code-keyword">0</span>,<span class="code-keyword">0</span>,<span class="code-keyword">1</span>,<span class="code-keyword">0</span>))
-  
-  cat(<span class="code-string">"\n📈 Gráficos de correlación generados\n"</span>)
-}</div>
-                </div>
-
-                <div class="checkpoint" onclick="toggleCheckpoint(this)">
-                    <input type="checkbox" id="r-cleaning">
-                    <label for="r-cleaning">✅ Pipeline de limpieza con Tidyverse ejecutado y validado</label>
-                </div>
-            </div>
-
-            <div class="step">
-                <div class="step-header">
-                    <div class="step-number">5</div>
-                    <div class="step-title">Imputación Avanzada con MICE</div>
-                    <div class="time-estimate">⏱️ 8 min</div>
-                </div>
-
-                <div style="background: rgba(46, 213, 115, 0.1); padding: 15px; border-radius: 10px; margin: 10px 0;">
-                    <h4>🎯 MICE (Multiple Imputation by Chained Equations):</h4>
-                    <p>Esta es una técnica avanzada que R maneja excepcionalmente bien. MICE crea múltiples 
-                    imputaciones basadas en patrones estadísticos de los datos.</p>
-                </div>
-
-                <div class="code-container">
-                    <div class="code-header">
-                        <div class="code-title">
-                            <span>🔬</span>
-                            <span>Imputación avanzada con MICE</span>
-                        </div>
-                        <div class="code-actions">
-                            <button class="code-btn" onclick="selectCode(this)">📋 Seleccionar</button>
-                            <button class="code-btn" onclick="copyCode(this)">📄 Copiar</button>
-                        </div>
-                    </div>
-                    <div class="code-block"><span class="code-comment"># Solo ejecutar si hay valores faltantes significativos</span>
-<span class="code-keyword">if</span>(sum(is.na(df)) > <span class="code-keyword">0</span>) {
-  cat(<span class="code-string">"🔬 INICIANDO IMPUTACIÓN AVANZADA CON MICE\n"</span>)
-  
-  <span class="code-comment"># Preparar datos para MICE (solo columnas con faltantes)</span>
-  cols_with_missing <- names(df)[colSums(is.na(df)) > <span class="code-keyword">0</span>]
-  
-  <span class="code-keyword">if</span>(length(cols_with_missing) > <span class="code-keyword">0</span>) {
-    cat(<span class="code-string">"Columnas con valores faltantes:"</span>, paste(cols_with_missing, collapse = <span class="code-string">", "</span>), <span class="code-string">"\n"</span>)
-    
-    <span class="code-comment"># Configurar MICE</span>
-    mice_setup <- mice(df, m = <span class="code-keyword">5</span>, method = <span class="code-string">'pmm'</span>, printFlag = <span class="code-keyword">FALSE</span>)
-    
-    <span class="code-comment"># Realizar imputación múltiple</span>
-    cat(<span class="code-string">"Ejecutando imputación múltiple...\n"</span>)
-    mice_result <- complete(mice_setup)
-    
-    <span class="code-comment"># Comparar resultados</span>
-    cat(<span class="code-string">"\n📊 COMPARACIÓN MICE vs IMPUTACIÓN SIMPLE:\n"</span>)
-    <span class="code-keyword">for</span>(col <span class="code-keyword">in</span> cols_with_missing) {
-      <span class="code-keyword">if</span>(is.numeric(df[[col]])) {
-        original_mean <- mean(df[[col]], na.rm = <span class="code-keyword">TRUE</span>)
-        simple_mean <- mean(df_clean[[col]], na.rm = <span class="code-keyword">TRUE</span>)
-        mice_mean <- mean(mice_result[[col]], na.rm = <span class="code-keyword">TRUE</span>)
-        
-        cat(<span class="code-string">"Columna"</span>, col, <span class="code-string">":\n"</span>)
-        cat(<span class="code-string">"  Media original (sin NAs):"</span>, round(original_mean, <span class="code-keyword">2</span>), <span class="code-string">"\n"</span>)
-        cat(<span class="code-string">"  Media imputación simple:"</span>, round(simple_mean, <span class="code-keyword">2</span>), <span class="code-string">"\n"</span>)
-        cat(<span class="code-string">"  Media imputación MICE:"</span>, round(mice_mean, <span class="code-keyword">2</span>), <span class="code-string">"\n\n"</span>)
-      }
-    }
-    
-    <span class="code-comment"># Opción de usar resultado MICE</span>
-    cat(<span class="code-string">"💡 MICE completado. Usando imputación simple para este ejercicio.\n"</span>)
-  }
-} <span class="code-keyword">else</span> {
-  cat(<span class="code-string">"✅ No hay valores faltantes para imputación avanzada\n"</span>)
-}</div>
-                </div>
-
-                <div class="alert alert-success">
-                    <span style="font-size: 1.2rem;">🏆</span>
-                    <strong>Superioridad de R:</strong> MICE y otros métodos estadísticos avanzados son 
-                    mucho más fáciles de implementar en R que en otras plataformas.
-                </div>
-
-                <div class="checkpoint" onclick="toggleCheckpoint(this)">
-                    <input type="checkbox" id="r-mice">
-                    <label for="r-mice">✅ Imputación avanzada evaluada (MICE ejecutado si aplicaba)</label>
-                </div>
-            </div>
-
-            <div class="step">
-                <div class="step-header">
-                    <div class="step-number">6</div>
-                    <div class="step-title">Visualización Final y Exportación</div>
-                    <div class="time-estimate">⏱️ 7 min</div>
-                </div>
-
-                <div class="code-container">
-                    <div class="code-header">
-                        <div class="code-title">
-                            <span>📈</span>
-                            <span>Crear visualización final (ggplot2)</span>
-                        </div>
-                        <div class="code-actions">
-                            <button class="code-btn" onclick="selectCode(this)">📋 Seleccionar</button>
-                            <button class="code-btn" onclick="copyCode(this)">📄 Copiar</button>
-                        </div>
-                    </div>
-                    <div class="code-block"><span class="code-comment"># Crear dashboard de validación con ggplot2</span>
-library(gridExtra)
-
-<span class="code-comment"># 1. Comparación de distribuciones antes/después</span>
-create_comparison_plot <- function(original, cleaned, column_name) {
-  <span class="code-keyword">if</span>(is.numeric(original[[column_name]])) {
-    <span class="code-comment"># Preparar datos para ggplot</span>
-    plot_data <- data.frame(
-      Valor = c(original[[column_name]], cleaned[[column_name]]),
-      Tipo = rep(c(<span class="code-string">"Original"</span>, <span class="code-string">"Limpio"</span>), 
-                 times = c(length(original[[column_name]]), 
-                          length(cleaned[[column_name]])))
-    )
-    
-    <span class="code-comment"># Crear gráfico de densidad</span>
-    ggplot(plot_data, aes(x = Valor, fill = Tipo)) +
-      geom_density(alpha = <span class="code-keyword">0.7</span>) +
-      scale_fill_manual(values = c(<span class="code-string">"Original"</span> = <span class="code-string">"coral"</span>, <span class="code-string">"Limpio"</span> = <span class="code-string">"lightblue"</span>)) +
-      labs(title = paste(<span class="code-string">"Distribución:"</span>, column_name),
-           x = column_name, y = <span class="code-string">"Densidad"</span>) +
-      theme_minimal() +
-      theme(legend.position = <span class="code-string">"bottom"</span>)
-  }
-}
-
-<span class="code-comment"># Generar gráficos para las primeras 4 columnas numéricas</span>
-numeric_cols <- names(select_if(df, is.numeric))[<span class="code-keyword">1</span>:min(<span class="code-keyword">4</span>, length(names(select_if(df, is.numeric))))]
-plots <- list()
-
-<span class="code-keyword">for</span>(i <span class="code-keyword">in</span> seq_along(numeric_cols)) {
-  plots[[i]] <- create_comparison_plot(df, df_clean, numeric_cols[i])
-}
-
-<span class="code-comment"># Combinar gráficos</span>
-<span class="code-keyword">if</span>(length(plots) > <span class="code-keyword">0</span>) {
-  do.call(grid.arrange, c(plots, ncol = <span class="code-keyword">2</span>))
-  cat(<span class="code-string">"📊 Gráficos de comparación generados\n"</span>)
-}
-
-<span class="code-comment"># 2. Resumen final elegante</span>
-cat(<span class="code-string">"\n"</span> , <span class="code-string">"="</span>*<span class="code-keyword">60</span>, <span class="code-string">"\n"</span>)
-cat(<span class="code-string">"🎉 REPORTE FINAL DE LIMPIEZA EN R\n"</span>)
-cat(<span class="code-string">"="</span>*<span class="code-keyword">60</span>, <span class="code-string">"\n"</span>)
-
-summary_data <- data.frame(
-  Métrica = c(<span class="code-string">"Filas totales"</span>, <span class="code-string">"Columnas"</span>, <span class="code-string">"Valores faltantes"</span>, 
-              <span class="code-string">"Duplicados"</span>, <span class="code-string">"Memoria (MB)"</span>),
-  Antes = c(nrow(df), ncol(df), sum(is.na(df)), 
-           sum(duplicated(df)), 
-           round(as.numeric(object.size(df)) / <span class="code-keyword">1024</span>^<span class="code-keyword">2</span>, <span class="code-keyword">2</span>)),
-  Después = c(nrow(df_clean), ncol(df_clean), sum(is.na(df_clean)), 
-             sum(duplicated(df_clean)), 
-             round(as.numeric(object.size(df_clean)) / <span class="code-keyword">1024</span>^<span class="code-keyword">2</span>, <span class="code-keyword">2</span>))
-)
-
-summary_data$Cambio <- summary_data$Después - summary_data$Antes
-print(summary_data)
-
-<span class="code-comment"># 3. Guardar resultados</span>
+<span class="code-comment"># Guardar dataset limpio</span>
 write_csv(df_clean, <span class="code-string">"dataset_limpio_r.csv"</span>)
-cat(<span class="code-string">"\n💾 Dataset limpio guardado como 'dataset_limpio_r.csv'\n"</span>)
-
-<span class="code-comment"># 4. Crear reporte HTML</span>
-cat(<span class="code-string">"\n📄 Generando reporte HTML...\n"</span>)
-rmarkdown::render(input = <span class="code-string">"reporte_limpieza.Rmd"</span>, 
-                  output_file = <span class="code-string">"reporte_limpieza.html"</span>,
-                  quiet = <span class="code-keyword">TRUE</span>)
-cat(<span class="code-string">"✅ Reporte HTML generado: 'reporte_limpieza.html'\n"</span>)</div>
-                </div>
-
-                <div class="alert alert-success">
-                    <span style="font-size: 1.2rem;">🎨</span>
-                    <strong>Arte de R:</strong> ggplot2 crea visualizaciones más elegantes y personalizables 
-                    que cualquier otra herramienta. R también puede generar reportes automáticos en HTML/PDF.
-                </div>
-
-                <div class="checkpoint" onclick="toggleCheckpoint(this)">
-                    <input type="checkbox" id="r-completed">
-                    <label for="r-completed">✅ Visualización final creada y dataset exportado con reporte</label>
-                </div>
-            </div>
-        </div>
-
-        <!-- COMPARACIÓN FINAL -->
-        <div class="section">
-            <h2>🏆 COMPARACIÓN FINAL DE PLATAFORMAS</h2>
-
-            <div class="comparison-grid">
-                <div class="comparison-card">
-                    <h3>🥇 Power BI - El Velocista</h3>
-                    <div class="speed-indicator">
-                        <strong>Tiempo total estimado:</strong>
-                        <div class="speed-bar">
-                            <div class="speed-fill speed-fast" style="width: 95%;"></div>
-                        </div>
-                        <span>30 min</span>
-                    </div>
-                    <h4>🎯 Mejor para:</h4>
-                    <ul>
-                        <li>Usuarios de negocio</li>
-                        <li>Limpieza rápida y básica</li>
-                        <li>Integración con Microsoft</li>
-                        <li>Presentaciones ejecutivas</li>
-                    </ul>
-                </div>
-
-                <div class="comparison-card">
-                    <h3>🥈 Python - El Todoterreno</h3>
-                    <div class="speed-indicator">
-                        <strong>Tiempo total estimado:</strong>
-                        <div class="speed-bar">
-                            <div class="speed-fill speed-medium" style="width: 70%;"></div>
-                        </div>
-                        <span>60 min</span>
-                    </div>
-                    <h4>🎯 Mejor para:</h4>
-                    <ul>
-                        <li>Data Scientists</li>
-                        <li>Limpieza compleja y automatizada</li>
-                        <li>Machine Learning posterior</li>
-                        <li>Producción y escalabilidad</li>
-                    </ul>
-                </div>
-
-                <div class="comparison-card">
-                    <h3>🥉 R - El Estadístico</h3>
-                    <div class="speed-indicator">
-                        <strong>Tiempo total estimado:</strong>
-                        <div class="speed-bar">
-                            <div class="speed-fill speed-medium" style="width: 65%;"></div>
-                        </div>
-                        <span>70 min</span>
-                    </div>
-                    <h4>🎯 Mejor para:</h4>
-                    <ul>
-                        <li>Investigadores y académicos</li>
-                        <li>Análisis estadístico profundo</li>
-                        <li>Visualizaciones publicables</li>
-                        <li>Imputación avanzada</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="alert alert-info">
-                <span style="font-size: 1.5rem;">🎓</span>
-                <div>
-                    <strong>Recomendación del profesor:</strong> Domina las tres plataformas. En tu carrera 
+cat(<span class="code-string">"\n💾 Dataset limpio guardado como 'dataset_limpio_r.csv'\n"</span>)</div>
+</div>
+<div class="checkpoint" onclick="toggleCheckpoint(this)">
+<input data-weight="3.125" id="r-completed" type="checkbox"/>
+<label for="r-completed">✅ Pipeline de limpieza con Tidyverse completado</label>
+</div>
+</div>
+</div>
+<!-- COMPARACIÓN FINAL -->
+<div class="section">
+<h2>🏆 COMPARACIÓN FINAL DE PLATAFORMAS</h2>
+<div class="comparison-grid">
+<div class="comparison-card">
+<h3>🥇 Power BI - El Velocista</h3>
+<div class="speed-indicator">
+<strong>Tiempo total estimado:</strong>
+<div class="speed-bar">
+<div class="speed-fill speed-fast" style="width: 95%;"></div>
+</div>
+<span>30 min</span>
+</div>
+<h4>🎯 Mejor para:</h4>
+<ul>
+<li>Usuarios de negocio</li>
+<li>Limpieza rápida y básica</li>
+<li>Integración con Microsoft</li>
+<li>Presentaciones ejecutivas</li>
+</ul>
+</div>
+<div class="comparison-card">
+<h3>🥈 Python - El Todoterreno</h3>
+<div class="speed-indicator">
+<strong>Tiempo total estimado:</strong>
+<div class="speed-bar">
+<div class="speed-fill speed-medium" style="width: 70%;"></div>
+</div>
+<span>60 min</span>
+</div>
+<h4>🎯 Mejor para:</h4>
+<ul>
+<li>Data Scientists</li>
+<li>Limpieza compleja y automatizada</li>
+<li>Machine Learning posterior</li>
+<li>Producción y escalabilidad</li>
+</ul>
+</div>
+<div class="comparison-card">
+<h3>🥉 R - El Estadístico</h3>
+<div class="speed-indicator">
+<strong>Tiempo total estimado:</strong>
+<div class="speed-bar">
+<div class="speed-fill speed-medium" style="width: 65%;"></div>
+</div>
+<span>70 min</span>
+</div>
+<h4>🎯 Mejor para:</h4>
+<ul>
+<li>Investigadores y académicos</li>
+<li>Análisis estadístico profundo</li>
+<li>Visualizaciones publicables</li>
+<li>Imputación avanzada</li>
+</ul>
+</div>
+</div>
+<div class="alert alert-info">
+<span style="font-size: 1.5rem;">🎓</span>
+<div>
+<strong>Recomendación del profesor:</strong> Domina las tres plataformas. En tu carrera 
                     profesional usarás diferentes herramientas según el contexto, equipo y objetivos del proyecto.
                 </div>
-            </div>
-        </div>
-
-        <!-- CHECKLIST FINAL -->
-        <div class="section">
-            <h2>✅ CHECKLIST FINAL DE VALIDACIÓN</h2>
-
-            <div class="step">
-                <h3>📋 Antes de terminar, verifica que hayas completado:</h3>
-                
-                <div class="checkpoint" onclick="toggleCheckpoint(this)">
-                    <input type="checkbox" id="final-powerbi">
-                    <label for="final-powerbi">✅ Power BI: Dataset limpio cargado y transformaciones documentadas</label>
-                </div>
-
-                <div class="checkpoint" onclick="toggleCheckpoint(this)">
-                    <input type="checkbox" id="final-python">
-                    <label for="final-python">✅ Python: Notebook completo con análisis exploratorio y limpieza</label>
-                </div>
-
-                <div class="checkpoint" onclick="toggleCheckpoint(this)">
-                    <input type="checkbox" id="final-r">
-                    <label for="final-r">✅ R: Script con pipeline Tidyverse y visualizaciones ggplot2</label>
-                </div>
-
-                <div class="checkpoint" onclick="toggleCheckpoint(this)">
-                    <input type="checkbox" id="final-files">
-                    <label for="final-files">✅ Archivos exportados: 3 datasets limpios (uno por plataforma)</label>
-                </div>
-
-                <div class="checkpoint" onclick="toggleCheckpoint(this)">
-                    <input type="checkbox" id="final-comparison">
-                    <label for="final-comparison">✅ Comparación documentada: pros/contras de cada plataforma</label>
-                </div>
-
-                <div class="checkpoint" onclick="toggleCheckpoint(this)">
-                    <input type="checkbox" id="final-reflection">
-                    <label for="final-reflection">✅ Reflexión personal: ¿Cuál plataforma prefieres y por qué?</label>
-                </div>
-            </div>
-
-            <div class="alert alert-success" id="completion-message" style="display: none;">
-                <span style="font-size: 2rem;">🎉</span>
-                <div>
-                    <strong>¡FELICITACIONES!</strong> Has completado exitosamente la práctica de limpieza de datos 
+</div>
+</div>
+<!-- CHECKLIST FINAL -->
+<div class="section">
+<h2>✅ CHECKLIST FINAL DE VALIDACIÓN</h2>
+<div class="step">
+<h3>📋 Antes de terminar, verifica que hayas completado:</h3>
+<div class="checkpoint" onclick="toggleCheckpoint(this)">
+<input id="final-powerbi" type="checkbox"/>
+<label for="final-powerbi">✅ Power BI: Dataset limpio cargado y transformaciones documentadas</label>
+</div>
+<div class="checkpoint" onclick="toggleCheckpoint(this)">
+<input id="final-python" type="checkbox"/>
+<label for="final-python">✅ Python: Notebook completo con análisis exploratorio y limpieza</label>
+</div>
+<div class="checkpoint" onclick="toggleCheckpoint(this)">
+<input id="final-r" type="checkbox"/>
+<label for="final-r">✅ R: Script con pipeline Tidyverse y visualizaciones ggplot2</label>
+</div>
+<div class="checkpoint" onclick="toggleCheckpoint(this)">
+<input id="final-files" type="checkbox"/>
+<label for="final-files">✅ Archivos exportados: 3 datasets limpios (uno por plataforma)</label>
+</div>
+<div class="checkpoint" onclick="toggleCheckpoint(this)">
+<input id="final-comparison" type="checkbox"/>
+<label for="final-comparison">✅ Comparación documentada: pros/contras de cada plataforma</label>
+</div>
+<div class="checkpoint" onclick="toggleCheckpoint(this)">
+<input id="final-reflection" type="checkbox"/>
+<label for="final-reflection">✅ Reflexión personal: ¿Cuál plataforma prefieres y por qué?</label>
+</div>
+</div>
+<div class="alert alert-success" id="completion-message" style="display: none;">
+<span style="font-size: 2rem;">🎉</span>
+<div>
+<strong>¡FELICITACIONES!</strong> Has completado exitosamente la práctica de limpieza de datos 
                     en las tres plataformas principales. Estás listo para la Actividad 5.
                 </div>
-            </div>
-        </div>
-
-        <!-- PRÓXIMOS PASOS -->
-        <div class="section">
-            <h2>🚀 PRÓXIMOS PASOS</h2>
-
-            <div class="alert alert-warning">
-                <span style="font-size: 1.5rem;">📅</span>
-                <div>
-                    <strong>Actividad 5 - Tratamiento de Información:</strong><br>
-                    <strong>Entrega:</strong> 23 de junio 2025<br>
-                    <strong>Valor:</strong> 13 puntos<br>
-                    <strong>Dataset:</strong> Recibirás tu asignación específica por email esta tarde
+</div>
+</div>
+<!-- PRÓXIMOS PASOS -->
+<div class="section">
+<h2>🚀 PRÓXIMOS PASOS</h2>
+<div class="alert alert-warning">
+<span style="font-size: 1.5rem;">📅</span>
+<div>
+<strong>Actividad 5 - Tratamiento de Información:</strong><br/>
+<strong>Entrega:</strong> 23 de junio 2025<br/>
+<strong>Valor:</strong> 13 puntos<br/>
+<strong>Dataset:</strong> Recibirás tu asignación específica por email esta tarde
                 </div>
-            </div>
-
-            <h3>📝 Para la Actividad 5 deberás entregar:</h3>
-            <ol>
-                <li><strong>Reporte de calidad:</strong> Estado inicial vs final de tu dataset</li>
-                <li><strong>Código documentado:</strong> Scripts de limpieza en tu plataforma preferida</li>
-                <li><strong>Visualizaciones:</strong> Gráficos antes/después de la limpieza</li>
-                <li><strong>Reflexión crítica:</strong> Decisiones tomadas y justificación</li>
-            </ol>
-
-            <h3>🎯 Recomendaciones finales:</h3>
-            <ul>
-                <li><strong>Experimenta:</strong> Prueba diferentes enfoques en cada plataforma</li>
-                <li><strong>Documenta todo:</strong> Cada decisión debe estar justificada</li>
-                <li><strong>Compara resultados:</strong> ¿Los tres enfoques dan resultados similares?</li>
-                <li><strong>Pregunta:</strong> Usa el foro o envía email si tienes dudas</li>
-            </ul>
-
-            <div style="text-align: center; margin-top: 30px;">
-                <div style="font-size: 3rem;">🎓✨🚀</div>
-                <h2>¡Éxito en tu Actividad 5!</h2>
-                <p><strong>Prof. Fausto Noé Jiménez</strong><br>
-                Universidad del SABES<br>
+</div>
+<h3>📝 Para la Actividad 5 deberás entregar:</h3>
+<ol>
+<li><strong>Reporte de calidad:</strong> Estado inicial vs final de tu dataset</li>
+<li><strong>Código documentado:</strong> Scripts de limpieza en tu plataforma preferida</li>
+<li><strong>Visualizaciones:</strong> Gráficos antes/después de la limpieza</li>
+<li><strong>Reflexión crítica:</strong> Decisiones tomadas y justificación</li>
+</ol>
+<h3>🎯 Recomendaciones finales:</h3>
+<ul>
+<li><strong>Experimenta:</strong> Prueba diferentes enfoques en cada plataforma</li>
+<li><strong>Documenta todo:</strong> Cada decisión debe estar justificada</li>
+<li><strong>Compara resultados:</strong> ¿Los tres enfoques dan resultados similares?</li>
+<li><strong>Pregunta:</strong> Usa el foro o envía email si tienes dudas</li>
+</ul>
+<div style="text-align: center; margin-top: 30px;">
+<div style="font-size: 3rem;">🎓✨🚀</div>
+<h2>¡Éxito en tu Actividad 5!</h2>
+<p><strong>Prof. Fausto Noé Jiménez</strong><br/>
+                Universidad del SABES<br/>
                 fausto.noej@sabes.edu.mx</p>
-            </div>
-        </div>
-    </div>
+</div>
+</div>
+</div>
+<script>
+// ===================================================================
+// SISTEMA DE GESTIÓN DE ESTADO Y PROGRESO
+// ===================================================================
 
-    <script>
-        let checkpoints = {};
-        let platformProgress = {
-            powerbi: 0,
-            python: 0,
-            r: 0
-        };
+// Estado global de la aplicación
+const AppState = {
+    checkpoints: {},
+    platformProgress: {
+        powerbi: 0,
+        python: 0,
+        r: 0
+    },
+    selectedDataset: null
+};
 
-        function selectDataset(type) {
-            // Deseleccionar todas las opciones
-            document.querySelectorAll('.dataset-option').forEach(option => {
-                option.classList.remove('selected');
-            });
-            
-            // Seleccionar la opción clickeada
-            event.currentTarget.classList.add('selected');
-            
-            console.log('Dataset seleccionado:', type);
-        }
+// Configuración de checkpoints por plataforma
+const CHECKPOINT_CONFIG = {
+    powerbi: [
+        'dataset-downloaded', 'pbi-completed', 'pbi-exploration', 
+        'pbi-basic-cleaning', 'pbi-missing-values', 'pbi-outliers', 
+        'pbi-transformations', 'pbi-final'
+    ],
+    python: [
+        'colab-setup', 'python-data-loaded', 'python-exploration', 'python-completed'
+    ],
+    r: [
+        'r-setup', 'r-libraries', 'r-exploration', 'r-completed'
+    ],
+    final: [
+        'final-powerbi', 'final-python', 'final-r', 
+        'final-files', 'final-comparison', 'final-reflection'
+    ]
+};
 
-        function toggleCheckpoint(element) {
-            // Prevenir que se active dos veces si se hace clic en el checkbox directamente
-            if (event.target.type === 'checkbox') {
-                return;
-            }
-            
-            const checkbox = element.querySelector('input[type="checkbox"]');
-            const checkboxId = checkbox.id;
-            
-            checkbox.checked = !checkbox.checked;
-            
-            if (checkbox.checked) {
-                element.classList.add('completed');
-                checkpoints[checkboxId] = true;
-            } else {
-                element.classList.remove('completed');
-                checkpoints[checkboxId] = false;
-            }
-            
-            updateProgress();
-        }
+// ===================================================================
+// FUNCIONES PRINCIPALES DE INTERACCIÓN
+// ===================================================================
 
-        // Función adicional para manejar clicks directos en checkboxes
-        function handleCheckboxChange(checkbox) {
-            const checkboxId = checkbox.id;
-            const element = checkbox.closest('.checkpoint');
-            
-            if (checkbox.checked) {
-                element.classList.add('completed');
-                checkpoints[checkboxId] = true;
-            } else {
-                element.classList.remove('completed');
-                checkpoints[checkboxId] = false;
-            }
-            
-            updateProgress();
-        }
+// Función para manejar selección de dataset
+function selectDataset(type) {
+    // Remover selección anterior
+    document.querySelectorAll('.dataset-option').forEach(option => {
+        option.classList.remove('selected');
+    });
+    
+    // Agregar selección actual
+    event.currentTarget.classList.add('selected');
+    AppState.selectedDataset = type;
+    
+    // Mostrar feedback visual
+    showNotification(`✅ Dataset ${type} seleccionado`, 'success');
+    
+    console.log(`Dataset seleccionado: ${type}`);
+}
 
-        function updateProgress() {
-            // Calcular progreso por plataforma con checkpoints actualizados
-            const powerbiChecks = ['dataset-downloaded', 'pbi-completed', 'pbi-exploration', 'pbi-basic-cleaning', 'pbi-missing-values', 'pbi-outliers', 'pbi-transformations', 'pbi-final'];
-            const pythonChecks = ['colab-setup', 'python-data-loaded', 'python-exploration', 'python-cleaning', 'python-completed'];
-            const rChecks = ['r-setup', 'r-libraries', 'r-exploration', 'r-cleaning', 'r-mice', 'r-completed'];
-            
-            platformProgress.powerbi = calculatePlatformProgress(powerbiChecks);
-            platformProgress.python = calculatePlatformProgress(pythonChecks);
-            platformProgress.r = calculatePlatformProgress(rChecks);
-            
-            // Calcular progreso general
-            const totalChecks = Object.keys(checkpoints).length;
-            const completedChecks = Object.values(checkpoints).filter(Boolean).length;
-            const overallProgress = totalChecks > 0 ? (completedChecks / totalChecks) * 100 : 0;
-            
-            // Actualizar interfaz
-            document.getElementById('overallProgress').style.width = overallProgress + '%';
-            document.getElementById('progressText').textContent = Math.round(overallProgress) + '% completado';
-            
-            document.getElementById('powerbiProgress').textContent = `📊 Power BI: ${Math.round(platformProgress.powerbi)}%`;
-            document.getElementById('pythonProgress').textContent = `🐍 Python: ${Math.round(platformProgress.python)}%`;
-            document.getElementById('rProgress').textContent = `📈 R: ${Math.round(platformProgress.r)}%`;
-            
-            // Mostrar mensaje de completación si todo está hecho
-            const finalChecks = ['final-powerbi', 'final-python', 'final-r', 'final-files', 'final-comparison', 'final-reflection'];
-            const finalCompleted = finalChecks.every(id => checkpoints[id]);
-            
-            if (finalCompleted) {
-                document.getElementById('completion-message').style.display = 'block';
-            }
-        }
+// Función principal para manejar checkpoints
+function toggleCheckpoint(element) {
+    // Prevenir doble activación si se hace clic en el checkbox directamente
+    if (event && event.target && event.target.type === 'checkbox') {
+        return;
+    }
+    
+    const checkbox = element.querySelector('input[type="checkbox"]');
+    if (!checkbox) return;
+    
+    const checkboxId = checkbox.id;
+    
+    // Toggle estado
+    checkbox.checked = !checkbox.checked;
+    updateCheckpointState(element, checkbox, checkboxId);
+}
 
-        function selectCode(button) {
-            const codeBlock = button.closest('.code-container').querySelector('.code-block');
-            
-            // Crear un rango de selección
-            if (window.getSelection) {
-                const selection = window.getSelection();
-                const range = document.createRange();
-                range.selectNodeContents(codeBlock);
-                selection.removeAllRanges();
-                selection.addRange(range);
-                
-                // Feedback visual
-                button.textContent = '✅ Seleccionado';
-                setTimeout(() => {
-                    button.textContent = '📋 Seleccionar';
-                }, 2000);
-            }
-        }
+// Actualizar estado visual y lógico del checkpoint
+function updateCheckpointState(element, checkbox, checkboxId) {
+    if (checkbox.checked) {
+        element.classList.add('completed');
+        AppState.checkpoints[checkboxId] = true;
+        
+        // Animación de éxito
+        element.style.transform = 'scale(1.05)';
+        setTimeout(() => {
+            element.style.transform = 'scale(1)';
+        }, 200);
+        
+        // Sonido de éxito (opcional)
+        playSuccessSound();
+        
+    } else {
+        element.classList.remove('completed');
+        AppState.checkpoints[checkboxId] = false;
+    }
+    
+    updateProgress();
+}
 
-        function copyCode(button) {
-            const codeBlock = button.closest('.code-container').querySelector('.code-block');
-            const codeText = codeBlock.textContent;
-            
-            // Copiar al portapapeles
-            navigator.clipboard.writeText(codeText).then(() => {
-                // Feedback visual
-                button.textContent = '✅ Copiado';
-                button.style.background = 'rgba(46, 213, 115, 0.3)';
-                
-                setTimeout(() => {
-                    button.textContent = '📄 Copiar';
-                    button.style.background = 'rgba(255, 255, 255, 0.2)';
-                }, 2000);
-            }).catch(err => {
-                // Fallback para navegadores que no soportan clipboard API
-                console.error('Error al copiar:', err);
-                
-                // Seleccionar el texto como fallback
-                selectCode(button.parentElement.querySelector('.code-btn'));
-                
-                button.textContent = '📋 Seleccionado';
-                setTimeout(() => {
-                    button.textContent = '📄 Copiar';
-                }, 2000);
-            });
-        }
+// Manejar clicks directos en checkboxes
+function handleDirectCheckboxChange(checkbox) {
+    const element = checkbox.closest('.checkpoint');
+    const checkboxId = checkbox.id;
+    
+    updateCheckpointState(element, checkbox, checkboxId);
+}
 
-        function calculatePlatformProgress(checkIds) {
-            const completed = checkIds.filter(id => checkpoints[id]).length;
-            return checkIds.length > 0 ? (completed / checkIds.length) * 100 : 0;
-        }
+// ===================================================================
+// SISTEMA DE PROGRESO Y MÉTRICAS
+// ===================================================================
 
-        // Inicializar
-        document.addEventListener('DOMContentLoaded', function() {
-            // Agregar event listeners a todos los checkboxes
-            document.querySelectorAll('.checkpoint input[type="checkbox"]').forEach(checkbox => {
-                checkbox.addEventListener('change', function() {
-                    handleCheckboxChange(this);
-                });
-            });
-            
-            updateProgress();
+// Calcular progreso de cada plataforma
+function calculatePlatformProgress(checkIds) {
+    if (!checkIds || checkIds.length === 0) return 0;
+    
+    const completed = checkIds.filter(id => AppState.checkpoints[id]).length;
+    return (completed / checkIds.length) * 100;
+}
+
+// Actualizar barras de progreso y métricas
+function updateProgress() {
+    // Actualizar progreso por plataforma
+    AppState.platformProgress.powerbi = calculatePlatformProgress(CHECKPOINT_CONFIG.powerbi);
+    AppState.platformProgress.python = calculatePlatformProgress(CHECKPOINT_CONFIG.python);
+    AppState.platformProgress.r = calculatePlatformProgress(CHECKPOINT_CONFIG.r);
+    
+    // Progreso general
+    const allCheckIds = Object.keys(AppState.checkpoints);
+    const totalCompleted = Object.values(AppState.checkpoints).filter(Boolean).length;
+    const overallProgress = allCheckIds.length > 0 ? (totalCompleted / allCheckIds.length) * 100 : 0;
+    
+    // Actualizar UI
+    updateProgressBar('overallProgress', overallProgress);
+    updateProgressText('progressText', overallProgress);
+    
+    // Actualizar progreso por plataforma
+    updatePlatformDisplay('powerbiProgress', '📊 Power BI', AppState.platformProgress.powerbi);
+    updatePlatformDisplay('pythonProgress', '🐍 Python', AppState.platformProgress.python);
+    updatePlatformDisplay('rProgress', '📈 R', AppState.platformProgress.r);
+    
+    // Verificar completación
+    checkCompletion();
+    
+    // Guardar progreso localmente (opcional)
+    saveProgress();
+}
+
+function updateProgressBar(elementId, progress) {
+    const progressBar = document.getElementById(elementId);
+    if (progressBar) {
+        progressBar.style.width = progress + '%';
+        progressBar.setAttribute('aria-valuenow', Math.round(progress));
+    }
+}
+
+function updateProgressText(elementId, progress) {
+    const progressText = document.getElementById(elementId);
+    if (progressText) {
+        progressText.textContent = Math.round(progress) + '% completado';
+    }
+}
+
+function updatePlatformDisplay(elementId, label, progress) {
+    const element = document.getElementById(elementId);
+    if (element) {
+        element.textContent = `${label}: ${Math.round(progress)}%`;
+        
+        // Agregar colores según progreso
+        element.style.color = progress === 100 ? '#2ed573' : 
+                            progress >= 50 ? '#ffa726' : '#666';
+    }
+}
+
+// Verificar si se completó todo
+function checkCompletion() {
+    const finalCompleted = CHECKPOINT_CONFIG.final.every(id => AppState.checkpoints[id]);
+    const completionMessage = document.getElementById('completion-message');
+    
+    if (finalCompleted && completionMessage) {
+        completionMessage.style.display = 'block';
+        completionMessage.scrollIntoView({ behavior: 'smooth' });
+        
+        // Celebración
+        showNotification('🎉 ¡Práctica completada exitosamente!', 'success');
+        triggerConfetti();
+    }
+}
+
+// ===================================================================
+// FUNCIONES DE UTILIDAD PARA CÓDIGO
+// ===================================================================
+
+function selectCode(button) {
+    const codeBlock = button.closest('.code-container').querySelector('.code-block');
+    
+    if (window.getSelection && codeBlock) {
+        const selection = window.getSelection();
+        const range = document.createRange();
+        range.selectNodeContents(codeBlock);
+        selection.removeAllRanges();
+        selection.addRange(range);
+        
+        // Feedback visual
+        showButtonFeedback(button, '✅ Seleccionado', '📋 Seleccionar');
+    }
+}
+
+function copyCode(button) {
+    const codeBlock = button.closest('.code-container').querySelector('.code-block');
+    if (!codeBlock) return;
+    
+    const codeText = codeBlock.textContent;
+    
+    // Usar API moderna de clipboard
+    if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(codeText).then(() => {
+            showButtonFeedback(button, '✅ Copiado', '📄 Copiar');
+            showNotification('Código copiado al portapapeles', 'success');
+        }).catch(() => {
+            fallbackCopy(button, codeBlock);
         });
-    </script>
-</body>
-</html>
+    } else {
+        fallbackCopy(button, codeBlock);
+    }
+}
+
+function showButtonFeedback(button, successText, originalText) {
+    const originalBg = button.style.background;
+    button.textContent = successText;
+    button.style.background = 'rgba(46, 213, 115, 0.3)';
+    
+    setTimeout(() => {
+        button.textContent = originalText;
+        button.style.background = originalBg;
+    }, 2000);
+}
+
+function fallbackCopy(button, codeBlock) {
+    // Fallback: seleccionar texto
+    selectCode(button.parentElement.querySelector('.code-btn'));
+    showNotification('Código seleccionado. Usa Ctrl+C para copiar', 'info');
+}
+
+// ===================================================================
+// SISTEMA DE NOTIFICACIONES Y FEEDBACK
+// ===================================================================
+
+function showNotification(message, type = 'info') {
+    const notification = document.createElement('div');
+    notification.className = `notification notification-${type}`;
+    notification.textContent = message;
+    notification.style.cssText = `
+        position: fixed;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: ${type === 'success' ? '#2ed573' : type === 'error' ? '#ff6b6b' : '#3498db'};
+        color: white;
+        padding: 15px 25px;
+        border-radius: 10px;
+        z-index: 10000;
+        font-weight: bold;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        animation: slideDown 0.3s ease;
+    `;
+    
+    document.body.appendChild(notification);
+    
+    setTimeout(() => {
+        notification.style.animation = 'slideUp 0.3s ease';
+        setTimeout(() => document.body.removeChild(notification), 300);
+    }, 3000);
+}
+
+function playSuccessSound() {
+    // Crear un sonido de éxito simple usando Web Audio API
+    if (typeof AudioContext !== 'undefined' || typeof webkitAudioContext !== 'undefined') {
+        try {
+            const audioContext = new (AudioContext || webkitAudioContext)();
+            const oscillator = audioContext.createOscillator();
+            const gainNode = audioContext.createGain();
+            
+            oscillator.connect(gainNode);
+            gainNode.connect(audioContext.destination);
+            
+            oscillator.frequency.setValueAtTime(800, audioContext.currentTime);
+            oscillator.frequency.exponentialRampToValueAtTime(1200, audioContext.currentTime + 0.1);
+            
+            gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+            gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.1);
+            
+            oscillator.start(audioContext.currentTime);
+            oscillator.stop(audioContext.currentTime + 0.1);
+        } catch (e) {
+            // Silenciar errores de audio
+        }
+    }
+}
+
+function triggerConfetti() {
+    // Efecto de confetti simple usando CSS
+    for (let i = 0; i < 50; i++) {
+        setTimeout(() => {
+            const confetti = document.createElement('div');
+            confetti.style.cssText = `
+                position: fixed;
+                top: -10px;
+                left: ${Math.random() * 100}%;
+                width: 10px;
+                height: 10px;
+                background: hsl(${Math.random() * 360}, 70%, 60%);
+                animation: confettiFall 3s linear forwards;
+                z-index: 10000;
+                pointer-events: none;
+            `;
+            document.body.appendChild(confetti);
+            
+            setTimeout(() => document.body.removeChild(confetti), 3000);
+        }, i * 100);
+    }
+}
+
+// ===================================================================
+// PERSISTENCIA Y RESTAURACIÓN DE ESTADO
+// ===================================================================
+
+function saveProgress() {
+    try {
+        localStorage.setItem('sabes-limpieza-progreso', JSON.stringify(AppState));
+    } catch (e) {
+        // Silenciar errores de localStorage
+    }
+}
+
+function loadProgress() {
+    try {
+        const saved = localStorage.getItem('sabes-limpieza-progreso');
+        if (saved) {
+            const loadedState = JSON.parse(saved);
+            Object.assign(AppState, loadedState);
+            
+            // Restaurar estado visual de checkboxes
+            Object.keys(AppState.checkpoints).forEach(checkboxId => {
+                const checkbox = document.getElementById(checkboxId);
+                if (checkbox) {
+                    checkbox.checked = AppState.checkpoints[checkboxId];
+                    const element = checkbox.closest('.checkpoint');
+                    if (element && checkbox.checked) {
+                        element.classList.add('completed');
+                    }
+                }
+            });
+            
+            updateProgress();
+        }
+    } catch (e) {
+        // Silenciar errores de localStorage
+    }
+}
+
+// ===================================================================
+// INICIALIZACIÓN Y EVENT LISTENERS
+// ===================================================================
+
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('🚀 Manual de Limpieza de Datos - Sistema inicializado');
+    
+    // Cargar progreso guardado
+    loadProgress();
+    
+    // Configurar event listeners para checkboxes
+    document.querySelectorAll('.checkpoint input[type="checkbox"]').forEach(checkbox => {
+        const checkboxId = checkbox.id;
+        
+        // Inicializar estado si no existe
+        if (!(checkboxId in AppState.checkpoints)) {
+            AppState.checkpoints[checkboxId] = checkbox.checked;
+        }
+        
+        // Agregar event listener
+        checkbox.addEventListener('change', function() {
+            handleDirectCheckboxChange(this);
+        });
+    });
+    
+    // Configurar accesibilidad para dataset options
+    document.querySelectorAll('.dataset-option').forEach(option => {
+        option.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                this.click();
+            }
+        });
+    });
+    
+    // Configurar accesibilidad para checkpoints
+    document.querySelectorAll('.checkpoint').forEach(checkpoint => {
+        checkpoint.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                toggleCheckpoint(this);
+            }
+        });
+    });
+    
+    // Actualizar progreso inicial
+    updateProgress();
+    
+    // Agregar estilos de animación dinámicamente
+    addAnimationStyles();
+    
+    console.log('✅ Inicialización completa - Sistema listo para uso');
+});
+
+function addAnimationStyles() {
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes slideDown {
+            from { transform: translate(-50%, -100%); opacity: 0; }
+            to { transform: translate(-50%, 0); opacity: 1; }
+        }
+        
+        @keyframes slideUp {
+            from { transform: translate(-50%, 0); opacity: 1; }
+            to { transform: translate(-50%, -100%); opacity: 0; }
+        }
+        
+        @keyframes confettiFall {
+            to {
+                transform: translateY(100vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+        
+        .checkpoint {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .checkpoint:hover {
+            transform: translateX(5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        
+        .progress-bar-fill {
+            transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .code-btn {
+            transition: all 0.2s ease;
+        }
+        
+        .code-btn:active {
+            transform: scale(0.95);
+        }
+    `;
+    document.head.appendChild(style);
+}
+
+// ===================================================================
+// FUNCIONES DE DEBUGGING Y UTILIDADES
+// ===================================================================
+
+// Función para resetear todo el progreso (solo para debugging)
+function resetProgress() {
+    if (confirm('¿Estás seguro de que quieres resetear todo el progreso?')) {
+        AppState.checkpoints = {};
+        AppState.platformProgress = { powerbi: 0, python: 0, r: 0 };
+        AppState.selectedDataset = null;
+        
+        document.querySelectorAll('.checkpoint input[type="checkbox"]').forEach(checkbox => {
+            checkbox.checked = false;
+            const element = checkbox.closest('.checkpoint');
+            if (element) {
+                element.classList.remove('completed');
+            }
+        });
+        
+        document.querySelectorAll('.dataset-option').forEach(option => {
+            option.classList.remove('selected');
+        });
+        
+        updateProgress();
+        localStorage.removeItem('sabes-limpieza-progreso');
+        showNotification('Progreso reseteado completamente', 'info');
+    }
+}
+
+// Función para exportar progreso como JSON
+function exportProgress() {
+    const exportData = {
+        timestamp: new Date().toISOString(),
+        state: AppState,
+        completion: {
+            overall: Math.round((Object.values(AppState.checkpoints).filter(Boolean).length / Object.keys(AppState.checkpoints).length) * 100),
+            powerbi: Math.round(AppState.platformProgress.powerbi),
+            python: Math.round(AppState.platformProgress.python),
+            r: Math.round(AppState.platformProgress.r)
+        }
+    };
+    
+    const blob = new Blob([JSON.stringify(exportData, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'progreso-limpieza-datos.json';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    
+    showNotification('Progreso exportado exitosamente', 'success');
+}
+
+// Manejo de errores global
+window.addEventListener('error', function(e) {
+    console.error('Error detectado en el sistema:', e.error);
+    showNotification('Error del sistema. Revisa la consola para detalles.', 'error');
+});
+
+// Manejo de advertencias de rendimiento
+window.addEventListener('beforeunload', function(e) {
+    saveProgress();
+});
+
+// Export funciones principales para debugging
+window.DebugSABES = {
+    state: AppState,
+    functions: {
+        toggleCheckpoint,
+        selectDataset,
+        updateProgress,
+        resetProgress,
+        exportProgress
+    },
+    config: CHECKPOINT_CONFIG
+};
+
+// ===================================================================
+// FUNCIONES DE ACCESIBILIDAD AVANZADA
+// ===================================================================
+
+// Soporte para lectores de pantalla
+function announceProgress() {
+    const announcement = document.createElement('div');
+    announcement.setAttribute('aria-live', 'polite');
+    announcement.setAttribute('aria-atomic', 'true');
+    announcement.className = 'sr-only';
+    announcement.textContent = `Progreso actualizado. ${Math.round((Object.values(AppState.checkpoints).filter(Boolean).length / Object.keys(AppState.checkpoints).length) * 100)}% completado.`;
+    
+    document.body.appendChild(announcement);
+    
+    setTimeout(() => {
+        document.body.removeChild(announcement);
+    }, 1000);
+}
+
+// Navegación por teclado mejorada
+document.addEventListener('keydown', function(e) {
+    // Ctrl + R para resetear (solo en modo debug)
+    if (e.ctrlKey && e.key === 'r' && e.shiftKey) {
+        e.preventDefault();
+        resetProgress();
+    }
+    
+    // Ctrl + E para exportar progreso
+    if (e.ctrlKey && e.key === 'e' && !e.shiftKey) {
+        e.preventDefault();
+        exportProgress();
+    }
+    
+    // Escape para cerrar notificaciones
+    if (e.key === 'Escape') {
+        document.querySelectorAll('.notification').forEach(notification => {
+            if (notification.parentNode) {
+                notification.parentNode.removeChild(notification);
+            }
+        });
+    }
+});
+
+// ===================================================================
+// ANALYTICS Y MÉTRICAS (OPCIONAL)
+// ===================================================================
+
+function trackEvent(action, category, label) {
+    // Placeholder para analytics
+    console.log(`📊 Analytics: ${category} - ${action} - ${label}`);
+    
+    // Aquí se podría integrar con Google Analytics, etc.
+    // gtag('event', action, { event_category: category, event_label: label });
+}
+
+// Track completación de checkpoints
+const originalUpdateCheckpointState = updateCheckpointState;
+updateCheckpointState = function(element, checkbox, checkboxId) {
+    const wasChecked = AppState.checkpoints[checkboxId];
+    originalUpdateCheckpointState(element, checkbox, checkboxId);
+    
+    if (!wasChecked && checkbox.checked) {
+        trackEvent('checkpoint_completed', 'progress', checkboxId);
+    }
+};
+
+// Track selección de dataset
+const originalSelectDataset = selectDataset;
+selectDataset = function(type) {
+    originalSelectDataset(type);
+    trackEvent('dataset_selected', 'interaction', type);
+};
+
+console.log('🎓 Sistema de Manual de Limpieza de Datos v2.0 cargado exitosamente');
+console.log('💡 Tip: Usa Ctrl+Shift+R para resetear progreso o Ctrl+E para exportar');
+</script>
+<!-- Estilos adicionales para sr-only -->
+<style>
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+</style>
+</body></main>
