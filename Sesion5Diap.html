@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Analítica de Datos - Sesión 5 | Universidad del SABES</title>
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Analítica de Datos - Sesión 5 | Universidad del SABES</title>
+<style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -350,205 +351,183 @@
     </style>
 </head>
 <body>
-    <div class="presentation-container">
-        <div class="header">
-            <div class="header-group">
-                <div class="university-logo">🎓</div>
-                <div class="course-info">
-                    <h1>ANALÍTICA DE DATOS</h1>
-                    <p>Universidad del SABES | Sesión 5 de 12 | 10 de junio 2025</p>
-                    <p>Prof. Fausto Noé Jiménez</p>
-                </div>
-            </div>
-            
-            <div class="header-group">
-                <div class="navigation-controls">
-                    <button class="nav-btn-header" id="prevBtn" onclick="navigateSlide(-1)">⬅️ Anterior</button>
-                    <div class="slide-counter">
-                        <span id="currentSlide">1</span>/<span id="totalSlides">20</span>
-                    </div>
-                    <button class="nav-btn-header" id="nextBtn" onclick="navigateSlide(1)">Siguiente ➡️</button>
-                </div>
-            </div>
-            
-            <div class="header-group">
-                <div class="timer-display">
+<div class="presentation-container">
+<div class="header">
+<div class="header-group">
+<div class="university-logo">🎓</div>
+<div class="course-info">
+<h1>ANALÍTICA DE DATOS</h1>
+<p>Universidad del SABES | Sesión 5 de 12 | 10 de junio 2025</p>
+<p>Prof. Fausto Noé Jiménez</p>
+</div>
+</div>
+<div class="header-group">
+<div class="navigation-controls">
+<button class="nav-btn-header" id="prevBtn" onclick="navigateSlide(-1)">⬅️ Anterior</button>
+<div class="slide-counter">
+<span id="currentSlide">1</span>/<span id="totalSlides">20</span>
+</div>
+<button class="nav-btn-header" id="nextBtn" onclick="navigateSlide(1)">Siguiente ➡️</button>
+</div>
+</div>
+<div class="header-group">
+<div class="timer-display">
                     ⏱️ <span id="timeRemaining">45:00</span>
-                </div>
-                <div class="timer-controls">
-                    <button class="timer-btn" onclick="controlTimer('start')">▶️</button>
-                    <button class="timer-btn" onclick="controlTimer('pause')">⏸️</button>
-                    <button class="timer-btn" onclick="controlTimer('reset')">🔄</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="slide-container">
-            <!-- Slide 1: Título -->
-            <div class="slide active">
-                <h1>🧹 OPTIMIZACIÓN DE DATOS</h1>
-                <div style="font-size: 5rem; margin: 30px 0;">📊🔧✨</div>
-                <h3>Sesión 5: Limpieza, Transformación y Calidad</h3>
-                <p><strong>Semana:</strong> 10 - 16 de junio 2025</p>
-                <div class="interactive-element" onclick="showInfo('El 80% del tiempo en data science se dedica a limpieza de datos')">
-                    <h3>🎯 ¡La Realidad del Data Science!</h3>
-                    <p>"80% limpieza, 20% análisis" - El trabajo real comienza aquí</p>
-                </div>
-                <p style="font-size: 1rem; font-style: italic; margin-top: 20px;">
+</div>
+<div class="timer-controls">
+<button class="timer-btn" onclick="controlTimer('start')">▶️</button>
+<button class="timer-btn" onclick="controlTimer('pause')">⏸️</button>
+<button class="timer-btn" onclick="controlTimer('reset')">🔄</button>
+</div>
+</div>
+</div>
+<div class="slide-container">
+<!-- Slide 1: Título -->
+<div class="slide active">
+<h1>🧹 OPTIMIZACIÓN DE DATOS</h1>
+<div style="font-size: 5rem; margin: 30px 0;">📊🔧✨</div>
+<h3>Sesión 5: Limpieza, Transformación y Calidad</h3>
+<p><strong>Semana:</strong> 10 - 16 de junio 2025</p>
+<div class="interactive-element" onclick="showInfo('El 80% del tiempo en data science se dedica a limpieza de datos')">
+<h3>🎯 ¡La Realidad del Data Science!</h3>
+<p>"80% limpieza, 20% análisis" - El trabajo real comienza aquí</p>
+</div>
+<p style="font-size: 1rem; font-style: italic; margin-top: 20px;">
                     "Data is the new oil, but unrefined oil isn't very useful" - Clive Humby (2024)
                 </p>
-            </div>
-
-            <!-- Slide 2: Objetivos -->
-            <div class="slide">
-                <h2>🎯 OBJETIVOS DE LA SESIÓN</h2>
-                <ul>
-                    <li><strong>Dominar</strong> técnicas de limpieza de datos en 3 plataformas</li>
-                    <li><strong>Identificar</strong> y tratar datos atípicos (outliers)</li>
-                    <li><strong>Manejar</strong> datos faltantes con estrategias apropiadas</li>
-                    <li><strong>Aplicar</strong> transformaciones de datos efectivas</li>
-                    <li><strong>Evaluar</strong> la calidad de datos antes y después</li>
-                    <li><strong>Preparar</strong> datasets para la Actividad 5</li>
-                </ul>
-                
-                <div class="interactive-element" onclick="showInfo('Usaremos Power BI, Python y R para ejemplos prácticos')">
-                    <h3>🛠️ Herramientas de Hoy</h3>
-                    <p>Power BI • Google Colab (Python) • Posit Cloud (R)</p>
-                </div>
-            </div>
-
-            <!-- Slide 3: La Realidad de los Datos Sucios -->
-            <div class="slide">
-                <h2>🚨 LA REALIDAD: DATOS SUCIOS</h2>
-                <div style="font-size: 4rem; margin: 20px 0;">📊💀🔥</div>
-                
-                <div class="tools-grid">
-                    <div class="data-quality-indicator">
-                        <h3>❌ PROBLEMAS COMUNES</h3>
-                        <ul>
-                            <li>Valores faltantes (NaN, NULL, "")</li>
-                            <li>Datos duplicados</li>
-                            <li>Formatos inconsistentes</li>
-                            <li>Outliers extremos</li>
-                            <li>Errores de tipeo</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="data-quality-indicator good">
-                        <h3>✅ DATOS LIMPIOS</h3>
-                        <ul>
-                            <li>Completitud > 95%</li>
-                            <li>Formatos estandarizados</li>
-                            <li>Sin duplicados</li>
-                            <li>Outliers validados</li>
-                            <li>Consistencia temporal</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <p><strong>Estadística IBM (2024):</strong> Las empresas pierden $15 millones anuales por mala calidad de datos.</p>
-                
-                <div class="interactive-element" onclick="showInfo('Ejemplo: Dataset con 40% datos faltantes, 15% duplicados, 200 outliers')">
-                    <h3>📊 Ejemplo Real</h3>
-                    <p>Dataset típico: 40% faltantes, 15% duplicados, 200+ outliers</p>
-                </div>
-            </div>
-
-            <!-- Slide 4: Estrategias de Limpieza -->
-            <div class="slide">
-                <h2>🧹 ESTRATEGIAS DE LIMPIEZA</h2>
-                
-                <div class="tools-grid">
-                    <div class="tool-card" onclick="showInfo('1. Exploración inicial con info(), describe(), summary()')">
-                        <div style="font-size: 2.5rem;">🔍</div>
-                        <h3>1. EXPLORACIÓN</h3>
-                        <ul>
-                            <li>Dimensiones del dataset</li>
-                            <li>Tipos de datos</li>
-                            <li>Valores faltantes</li>
-                            <li>Estadísticas descriptivas</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="tool-card" onclick="showInfo('2. Limpieza: duplicados, formatos, valores imposibles')">
-                        <div style="font-size: 2.5rem;">🧼</div>
-                        <h3>2. LIMPIEZA</h3>
-                        <ul>
-                            <li>Eliminar duplicados</li>
-                            <li>Estandarizar formatos</li>
-                            <li>Corregir errores obvios</li>
-                            <li>Validar rangos lógicos</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="tool-card" onclick="showInfo('3. Imputación: media, mediana, moda, regresión, KNN')">
-                        <div style="font-size: 2.5rem;">🔧</div>
-                        <h3>3. IMPUTACIÓN</h3>
-                        <ul>
-                            <li>Media/Mediana para numéricos</li>
-                            <li>Moda para categóricos</li>
-                            <li>Imputación por grupos</li>
-                            <li>Métodos avanzados (KNN)</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="tool-card" onclick="showInfo('4. Validación: verificar resultados, documentar cambios')">
-                        <div style="font-size: 2.5rem;">✅</div>
-                        <h3>4. VALIDACIÓN</h3>
-                        <ul>
-                            <li>Comparar antes/después</li>
-                            <li>Verificar consistencia</li>
-                            <li>Documentar cambios</li>
-                            <li>Crear reporte de calidad</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Slide 5: Power BI - Limpieza -->
-            <div class="slide">
-                <h2>📊 LIMPIEZA EN POWER BI</h2>
-                <div style="font-size: 3rem; margin: 20px 0;">🔧📊💻</div>
-                
-                <h3>Power Query Editor: Tu mejor amigo</h3>
-                
-                <div class="tools-grid">
-                    <div class="feature-highlight">
-                        <h4>🎯 Pasos Básicos en Power Query</h4>
-                        <ol>
-                            <li><strong>Cargar datos:</strong> Get Data → Your Source</li>
-                            <li><strong>Transform Data:</strong> Abre Power Query Editor</li>
-                            <li><strong>Remove Duplicates:</strong> Home → Remove Rows</li>
-                            <li><strong>Fill Down/Up:</strong> Para datos faltantes</li>
-                            <li><strong>Replace Values:</strong> Corregir errores</li>
-                            <li><strong>Change Data Type:</strong> Estandarizar tipos</li>
-                        </ol>
-                    </div>
-                    
-                    <div class="feature-highlight">
-                        <h4>⚡ Funciones M Útiles</h4>
-                        <div class="code-example">// Remover filas con valores nulos en columna específica
-Table.SelectRows(Source, each [Columna] <> null)
+</div>
+<!-- Slide 2: Objetivos -->
+<div class="slide">
+<h2>🎯 OBJETIVOS DE LA SESIÓN</h2>
+<ul>
+<li><strong>Dominar</strong> técnicas de limpieza de datos en 3 plataformas</li>
+<li><strong>Identificar</strong> y tratar datos atípicos (outliers)</li>
+<li><strong>Manejar</strong> datos faltantes con estrategias apropiadas</li>
+<li><strong>Aplicar</strong> transformaciones de datos efectivas</li>
+<li><strong>Evaluar</strong> la calidad de datos antes y después</li>
+<li><strong>Preparar</strong> datasets para la Actividad 5</li>
+</ul>
+<div class="interactive-element" onclick="showInfo('Usaremos Power BI, Python y R para ejemplos prácticos')">
+<h3>🛠️ Herramientas de Hoy</h3>
+<p>Power BI • Google Colab (Python) • Posit Cloud (R)</p>
+</div>
+</div>
+<!-- Slide 3: La Realidad de los Datos Sucios -->
+<div class="slide">
+<h2>🚨 LA REALIDAD: DATOS SUCIOS</h2>
+<div style="font-size: 4rem; margin: 20px 0;">📊💀🔥</div>
+<div class="tools-grid">
+<div class="data-quality-indicator">
+<h3>❌ PROBLEMAS COMUNES</h3>
+<ul>
+<li>Valores faltantes (NaN, NULL, "")</li>
+<li>Datos duplicados</li>
+<li>Formatos inconsistentes</li>
+<li>Outliers extremos</li>
+<li>Errores de tipeo</li>
+</ul>
+</div>
+<div class="data-quality-indicator good">
+<h3>✅ DATOS LIMPIOS</h3>
+<ul>
+<li>Completitud &gt; 95%</li>
+<li>Formatos estandarizados</li>
+<li>Sin duplicados</li>
+<li>Outliers validados</li>
+<li>Consistencia temporal</li>
+</ul>
+</div>
+</div>
+<p><strong>Estadística IBM (2024):</strong> Las empresas pierden $15 millones anuales por mala calidad de datos.</p>
+<div class="interactive-element" onclick="showInfo('Ejemplo: Dataset con 40% datos faltantes, 15% duplicados, 200 outliers')">
+<h3>📊 Ejemplo Real</h3>
+<p>Dataset típico: 40% faltantes, 15% duplicados, 200+ outliers</p>
+</div>
+</div>
+<!-- Slide 4: Estrategias de Limpieza -->
+<div class="slide">
+<h2>🧹 ESTRATEGIAS DE LIMPIEZA</h2>
+<div class="tools-grid">
+<div class="tool-card" onclick="showInfo('1. Exploración inicial con info(), describe(), summary()')">
+<div style="font-size: 2.5rem;">🔍</div>
+<h3>1. EXPLORACIÓN</h3>
+<ul>
+<li>Dimensiones del dataset</li>
+<li>Tipos de datos</li>
+<li>Valores faltantes</li>
+<li>Estadísticas descriptivas</li>
+</ul>
+</div>
+<div class="tool-card" onclick="showInfo('2. Limpieza: duplicados, formatos, valores imposibles')">
+<div style="font-size: 2.5rem;">🧼</div>
+<h3>2. LIMPIEZA</h3>
+<ul>
+<li>Eliminar duplicados</li>
+<li>Estandarizar formatos</li>
+<li>Corregir errores obvios</li>
+<li>Validar rangos lógicos</li>
+</ul>
+</div>
+<div class="tool-card" onclick="showInfo('3. Imputación: media, mediana, moda, regresión, KNN')">
+<div style="font-size: 2.5rem;">🔧</div>
+<h3>3. IMPUTACIÓN</h3>
+<ul>
+<li>Media/Mediana para numéricos</li>
+<li>Moda para categóricos</li>
+<li>Imputación por grupos</li>
+<li>Métodos avanzados (KNN)</li>
+</ul>
+</div>
+<div class="tool-card" onclick="showInfo('4. Validación: verificar resultados, documentar cambios')">
+<div style="font-size: 2.5rem;">✅</div>
+<h3>4. VALIDACIÓN</h3>
+<ul>
+<li>Comparar antes/después</li>
+<li>Verificar consistencia</li>
+<li>Documentar cambios</li>
+<li>Crear reporte de calidad</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Slide 5: Power BI - Limpieza -->
+<div class="slide">
+<h2>📊 LIMPIEZA EN POWER BI</h2>
+<div style="font-size: 3rem; margin: 20px 0;">🔧📊💻</div>
+<h3>Power Query Editor: Tu mejor amigo</h3>
+<div class="tools-grid">
+<div class="feature-highlight">
+<h4>🎯 Pasos Básicos en Power Query</h4>
+<ol>
+<li><strong>Cargar datos:</strong> Get Data → Your Source</li>
+<li><strong>Transform Data:</strong> Abre Power Query Editor</li>
+<li><strong>Remove Duplicates:</strong> Home → Remove Rows</li>
+<li><strong>Fill Down/Up:</strong> Para datos faltantes</li>
+<li><strong>Replace Values:</strong> Corregir errores</li>
+<li><strong>Change Data Type:</strong> Estandarizar tipos</li>
+</ol>
+</div>
+<div class="feature-highlight">
+<h4>⚡ Funciones M Útiles</h4>
+<div class="code-example">// Remover filas con valores nulos en columna específica
+Table.SelectRows(Source, each [Columna] &lt;&gt; null)
 
 // Reemplazar valores en blanco con 0
 Table.ReplaceValue(Source, "", 0, Replacer.ReplaceValue, {"Ventas"})
 
 // Limpiar texto (quitar espacios extra)
 Table.TransformColumns(Source, {{"Nombre", Text.Trim}})</div>
-                    </div>
-                </div>
-                
-                <div class="interactive-element" onclick="showInfo('Power BI detecta automáticamente tipos de datos y sugiere transformaciones')">
-                    <h3>💡 Ventaja de Power BI</h3>
-                    <p>Detección automática + Interface visual + M Language</p>
-                </div>
-            </div>
-
-            <!-- Slide 6: Python Colab - Limpieza -->
-            <div class="slide">
-                <h2>🐍 LIMPIEZA EN PYTHON (COLAB)</h2>
-                
-                <div class="code-example"># Importar librerías esenciales
+</div>
+</div>
+<div class="interactive-element" onclick="showInfo('Power BI detecta automáticamente tipos de datos y sugiere transformaciones')">
+<h3>💡 Ventaja de Power BI</h3>
+<p>Detección automática + Interface visual + M Language</p>
+</div>
+</div>
+<!-- Slide 6: Python Colab - Limpieza -->
+<div class="slide">
+<h2>🐍 LIMPIEZA EN PYTHON (COLAB)</h2>
+<div class="code-example"># Importar librerías esenciales
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -586,25 +565,22 @@ for col in categorical_cols:
 print("Después de limpieza:")
 print("Valores faltantes:", df_clean.isnull().sum().sum())
 print("Shape original:", df.shape, "→ Shape limpio:", df_clean.shape)</div>
-                
-                <div class="interactive-element" onclick="showInfo('Python ofrece máxima flexibilidad y control sobre el proceso de limpieza')">
-                    <h3>🚀 Poder de Python</h3>
-                    <p>Flexibilidad total + Librerías especializadas + Automatización</p>
-                </div>
-            </div>
-
-            <!-- Slide 7: R Posit - Limpieza -->
-            <div class="slide">
-                <h2>📊 LIMPIEZA EN R (POSIT CLOUD)</h2>
-                
-                <div class="code-example"># Cargar librerías
+<div class="interactive-element" onclick="showInfo('Python ofrece máxima flexibilidad y control sobre el proceso de limpieza')">
+<h3>🚀 Poder de Python</h3>
+<p>Flexibilidad total + Librerías especializadas + Automatización</p>
+</div>
+</div>
+<!-- Slide 7: R Posit - Limpieza -->
+<div class="slide">
+<h2>📊 LIMPIEZA EN R (POSIT CLOUD)</h2>
+<div class="code-example"># Cargar librerías
 library(dplyr)
 library(tidyr)
 library(VIM)
 library(ggplot2)
 
 # Cargar datos
-df <- read.csv("dataset_sucio.csv", stringsAsFactors = FALSE)
+df &lt;- read.csv("dataset_sucio.csv", stringsAsFactors = FALSE)
 
 # Exploración inicial
 cat("Dimensiones del dataset:", dim(df), "\n")
@@ -617,18 +593,18 @@ VIM::aggr(df, col = c('navyblue','red'),
           numbers = TRUE, sortVars = TRUE)
 
 # Limpieza con dplyr
-df_clean <- df %>%
+df_clean &lt;- df %&gt;%
   # Eliminar duplicados
-  distinct() %>%
+  distinct() %&gt;%
   # Limpiar nombres de columnas
-  rename_all(~ gsub(" ", "_", tolower(trimws(.)))) %>%
+  rename_all(~ gsub(" ", "_", tolower(trimws(.)))) %&gt;%
   # Manejar outliers con IQR
   mutate(across(where(is.numeric), ~ ifelse(
-    abs(. - median(., na.rm = TRUE)) > 3 * IQR(., na.rm = TRUE),
+    abs(. - median(., na.rm = TRUE)) &gt; 3 * IQR(., na.rm = TRUE),
     median(., na.rm = TRUE), .
-  ))) %>%
+  ))) %&gt;%
   # Imputar valores faltantes
-  mutate(across(where(is.numeric), ~ ifelse(is.na(.), median(., na.rm = TRUE), .))) %>%
+  mutate(across(where(is.numeric), ~ ifelse(is.na(.), median(., na.rm = TRUE), .))) %&gt;%
   mutate(across(where(is.character), ~ ifelse(is.na(.), 
     names(sort(table(.), decreasing = TRUE))[1], .)))
 
@@ -636,597 +612,519 @@ df_clean <- df %>%
 cat("Datos originales:", nrow(df), "filas,", ncol(df), "columnas\n")
 cat("Datos limpios:", nrow(df_clean), "filas,", ncol(df_clean), "columnas\n")
 cat("Valores faltantes eliminados:", sum(is.na(df)) - sum(is.na(df_clean)), "\n")</div>
-                
-                <div class="interactive-element" onclick="showInfo('R excel en análisis estadístico y visualización de patrones de datos faltantes')">
-                    <h3>📈 Fortaleza de R</h3>
-                    <p>Análisis estadístico robusto + Visualización avanzada + Tidyverse</p>
-                </div>
-            </div>
-
-            <!-- Slide 8: Manejo de Outliers -->
-            <div class="slide">
-                <h2>🎯 MANEJO DE OUTLIERS</h2>
-                <div style="font-size: 4rem; margin: 20px 0;">📊🚨🔍</div>
-                
-                <div class="tools-grid">
-                    <div class="tool-card" onclick="showInfo('IQR: Q1 - 1.5*IQR < valor < Q3 + 1.5*IQR')">
-                        <h3>📊 MÉTODO IQR</h3>
-                        <p><strong>Regla:</strong> Q1 - 1.5×IQR ≤ valor ≤ Q3 + 1.5×IQR</p>
-                        <div class="feature-highlight">
-                            <p>✅ Robusto estadísticamente</p>
-                            <p>✅ No asume distribución normal</p>
-                            <p>⚠️ Puede ser muy conservador</p>
-                        </div>
-                    </div>
-                    
-                    <div class="tool-card" onclick="showInfo('Z-Score: |z| > 3 se considera outlier')">
-                        <h3>📈 Z-SCORE</h3>
-                        <p><strong>Regla:</strong> |z| > 3 es outlier</p>
-                        <div class="feature-highlight">
-                            <p>✅ Fácil de interpretar</p>
-                            <p>✅ Considera media y desviación</p>
-                            <p>⚠️ Sensible a distribución</p>
-                        </div>
-                    </div>
-                    
-                    <div class="tool-card" onclick="showInfo('Isolation Forest: algoritmo de ML para detección de anomalías')">
-                        <h3>🤖 ISOLATION FOREST</h3>
-                        <p><strong>Método:</strong> Machine Learning</p>
-                        <div class="feature-highlight">
-                            <p>✅ Multivariable</p>
-                            <p>✅ No paramétrico</p>
-                            <p>⚠️ Más complejo de interpretar</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="interactive-element" onclick="showInfo('Estrategias: 1) Eliminar, 2) Transformar, 3) Mantener pero flaggear, 4) Investigar causa')">
-                    <h3>🎯 Estrategias de Tratamiento</h3>
-                    <p>¿Eliminar, transformar, mantener o investigar?</p>
-                </div>
-            </div>
-
-            <!-- Slide 9: Datos Faltantes -->
-            <div class="slide">
-                <h2>❓ ESTRATEGIAS PARA DATOS FALTANTES</h2>
-                
-                <div class="tools-grid">
-                    <div class="tool-card" onclick="showInfo('MCAR: Missing Completely at Random - seguro eliminar')">
-                        <h3>🎲 MCAR</h3>
-                        <p><strong>Missing Completely at Random</strong></p>
-                        <p>Los datos faltantes no dependen de ninguna variable</p>
-                        <div class="feature-highlight">
-                            <p>✅ Seguro eliminar filas</p>
-                            <p>✅ No introduce sesgo</p>
-                        </div>
-                    </div>
-                    
-                    <div class="tool-card" onclick="showInfo('MAR: Missing at Random - usar imputación inteligente')">
-                        <h3>🎯 MAR</h3>
-                        <p><strong>Missing at Random</strong></p>
-                        <p>Dependen de variables observadas</p>
-                        <div class="feature-highlight">
-                            <p>✅ Imputación por grupos</p>
-                            <p>✅ Regresión múltiple</p>
-                        </div>
-                    </div>
-                    
-                    <div class="tool-card" onclick="showInfo('MNAR: Missing Not at Random - investigar patrón')">
-                        <h3>🚨 MNAR</h3>
-                        <p><strong>Missing Not at Random</strong></p>
-                        <p>El valor faltante ES información</p>
-                        <div class="feature-highlight">
-                            <p>⚠️ Requiere dominio específico</p>
-                            <p>⚠️ Crear categoría "Desconocido"</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="interactive-element" onclick="showInfo('Técnicas: 1) Listwise deletion, 2) Mean/Median, 3) KNN, 4) MICE, 5) Deep learning')">
-                    <h3>🛠️ Técnicas de Imputación</h3>
-                    <p>Desde simple hasta avanzada: media → KNN → MICE → Deep Learning</p>
-                </div>
-            </div>
-
-            <!-- Slide 10: Transformaciones -->
-            <div class="slide">
-                <h2>🔄 TRANSFORMACIONES DE DATOS</h2>
-                <div style="font-size: 4rem; margin: 20px 0;">📊🔀✨</div>
-                
-                <div class="tools-grid">
-                    <div class="tool-card" onclick="showInfo('Normalización: (x - min) / (max - min) → [0,1]')">
-                        <h3>📏 NORMALIZACIÓN</h3>
-                        <p><strong>Min-Max Scaling</strong></p>
-                        <div class="code-example"># Python
+<div class="interactive-element" onclick="showInfo('R excel en análisis estadístico y visualización de patrones de datos faltantes')">
+<h3>📈 Fortaleza de R</h3>
+<p>Análisis estadístico robusto + Visualización avanzada + Tidyverse</p>
+</div>
+</div>
+<!-- Slide 8: Manejo de Outliers -->
+<div class="slide">
+<h2>🎯 MANEJO DE OUTLIERS</h2>
+<div style="font-size: 4rem; margin: 20px 0;">📊🚨🔍</div>
+<div class="tools-grid">
+<div class="tool-card" onclick="showInfo('IQR: Q1 - 1.5*IQR &lt; valor &lt; Q3 + 1.5*IQR')">
+<h3>📊 MÉTODO IQR</h3>
+<p><strong>Regla:</strong> Q1 - 1.5×IQR ≤ valor ≤ Q3 + 1.5×IQR</p>
+<div class="feature-highlight">
+<p>✅ Robusto estadísticamente</p>
+<p>✅ No asume distribución normal</p>
+<p>⚠️ Puede ser muy conservador</p>
+</div>
+</div>
+<div class="tool-card" onclick="showInfo('Z-Score: |z| &gt; 3 se considera outlier')">
+<h3>📈 Z-SCORE</h3>
+<p><strong>Regla:</strong> |z| &gt; 3 es outlier</p>
+<div class="feature-highlight">
+<p>✅ Fácil de interpretar</p>
+<p>✅ Considera media y desviación</p>
+<p>⚠️ Sensible a distribución</p>
+</div>
+</div>
+<div class="tool-card" onclick="showInfo('Isolation Forest: algoritmo de ML para detección de anomalías')">
+<h3>🤖 ISOLATION FOREST</h3>
+<p><strong>Método:</strong> Machine Learning</p>
+<div class="feature-highlight">
+<p>✅ Multivariable</p>
+<p>✅ No paramétrico</p>
+<p>⚠️ Más complejo de interpretar</p>
+</div>
+</div>
+</div>
+<div class="interactive-element" onclick="showInfo('Estrategias: 1) Eliminar, 2) Transformar, 3) Mantener pero flaggear, 4) Investigar causa')">
+<h3>🎯 Estrategias de Tratamiento</h3>
+<p>¿Eliminar, transformar, mantener o investigar?</p>
+</div>
+</div>
+<!-- Slide 9: Datos Faltantes -->
+<div class="slide">
+<h2>❓ ESTRATEGIAS PARA DATOS FALTANTES</h2>
+<div class="tools-grid">
+<div class="tool-card" onclick="showInfo('MCAR: Missing Completely at Random - seguro eliminar')">
+<h3>🎲 MCAR</h3>
+<p><strong>Missing Completely at Random</strong></p>
+<p>Los datos faltantes no dependen de ninguna variable</p>
+<div class="feature-highlight">
+<p>✅ Seguro eliminar filas</p>
+<p>✅ No introduce sesgo</p>
+</div>
+</div>
+<div class="tool-card" onclick="showInfo('MAR: Missing at Random - usar imputación inteligente')">
+<h3>🎯 MAR</h3>
+<p><strong>Missing at Random</strong></p>
+<p>Dependen de variables observadas</p>
+<div class="feature-highlight">
+<p>✅ Imputación por grupos</p>
+<p>✅ Regresión múltiple</p>
+</div>
+</div>
+<div class="tool-card" onclick="showInfo('MNAR: Missing Not at Random - investigar patrón')">
+<h3>🚨 MNAR</h3>
+<p><strong>Missing Not at Random</strong></p>
+<p>El valor faltante ES información</p>
+<div class="feature-highlight">
+<p>⚠️ Requiere dominio específico</p>
+<p>⚠️ Crear categoría "Desconocido"</p>
+</div>
+</div>
+</div>
+<div class="interactive-element" onclick="showInfo('Técnicas: 1) Listwise deletion, 2) Mean/Median, 3) KNN, 4) MICE, 5) Deep learning')">
+<h3>🛠️ Técnicas de Imputación</h3>
+<p>Desde simple hasta avanzada: media → KNN → MICE → Deep Learning</p>
+</div>
+</div>
+<!-- Slide 10: Transformaciones -->
+<div class="slide">
+<h2>🔄 TRANSFORMACIONES DE DATOS</h2>
+<div style="font-size: 4rem; margin: 20px 0;">📊🔀✨</div>
+<div class="tools-grid">
+<div class="tool-card" onclick="showInfo('Normalización: (x - min) / (max - min) → [0,1]')">
+<h3>📏 NORMALIZACIÓN</h3>
+<p><strong>Min-Max Scaling</strong></p>
+<div class="code-example"># Python
 from sklearn.preprocessing import MinMaxScaler
 scaler = MinMaxScaler()
 df_norm = scaler.fit_transform(df)
 
 # R
-df_norm <- scale(df, center = min(df), 
+df_norm &lt;- scale(df, center = min(df), 
                 scale = max(df) - min(df))</div>
-                    </div>
-                    
-                    <div class="tool-card" onclick="showInfo('Estandarización: (x - μ) / σ → media=0, std=1')">
-                        <h3>📊 ESTANDARIZACIÓN</h3>
-                        <p><strong>Z-Score Standardization</strong></p>
-                        <div class="code-example"># Python
+</div>
+<div class="tool-card" onclick="showInfo('Estandarización: (x - μ) / σ → media=0, std=1')">
+<h3>📊 ESTANDARIZACIÓN</h3>
+<p><strong>Z-Score Standardization</strong></p>
+<div class="code-example"># Python
 from sklearn.preprocessing import StandardScaler
 scaler = StandardScaler()
 df_std = scaler.fit_transform(df)
 
 # R
-df_std <- scale(df)</div>
-                    </div>
-                    
-                    <div class="tool-card" onclick="showInfo('Log: reduce skewness, Box-Cox: más general')">
-                        <h3>📈 TRANSFORMACIONES</h3>
-                        <p><strong>Log, Square Root, Box-Cox</strong></p>
-                        <div class="code-example"># Python
+df_std &lt;- scale(df)</div>
+</div>
+<div class="tool-card" onclick="showInfo('Log: reduce skewness, Box-Cox: más general')">
+<h3>📈 TRANSFORMACIONES</h3>
+<p><strong>Log, Square Root, Box-Cox</strong></p>
+<div class="code-example"># Python
 import numpy as np
 df_log = np.log1p(df)  # log(1+x)
 df_sqrt = np.sqrt(df)
 
 # R
-df_log <- log1p(df)
-df_sqrt <- sqrt(df)</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Slide 11: Calidad de Datos -->
-            <div class="slide">
-                <h2>✅ MÉTRICAS DE CALIDAD</h2>
-                
-                <div class="tools-grid">
-                    <div class="data-quality-indicator good">
-                        <h3>📊 COMPLETITUD</h3>
-                        <p><strong>% de datos no faltantes</strong></p>
-                        <p>Objetivo: > 95%</p>
-                        <div class="code-example">completitud = (1 - df.isnull().sum() / len(df)) * 100</div>
-                    </div>
-                    
-                    <div class="data-quality-indicator good">
-                        <h3>🎯 CONSISTENCIA</h3>
-                        <p><strong>Formatos estandarizados</strong></p>
-                        <p>Fechas, números, categorías</p>
-                        <div class="code-example"># Verificar formatos de fecha
+df_log &lt;- log1p(df)
+df_sqrt &lt;- sqrt(df)</div>
+</div>
+</div>
+</div>
+<!-- Slide 11: Calidad de Datos -->
+<div class="slide">
+<h2>✅ MÉTRICAS DE CALIDAD</h2>
+<div class="tools-grid">
+<div class="data-quality-indicator good">
+<h3>📊 COMPLETITUD</h3>
+<p><strong>% de datos no faltantes</strong></p>
+<p>Objetivo: &gt; 95%</p>
+<div class="code-example">completitud = (1 - df.isnull().sum() / len(df)) * 100</div>
+</div>
+<div class="data-quality-indicator good">
+<h3>🎯 CONSISTENCIA</h3>
+<p><strong>Formatos estandarizados</strong></p>
+<p>Fechas, números, categorías</p>
+<div class="code-example"># Verificar formatos de fecha
 pd.to_datetime(df['fecha'], errors='coerce').isnull().sum()</div>
-                    </div>
-                    
-                    <div class="data-quality-indicator good">
-                        <h3>🔍 PRECISIÓN</h3>
-                        <p><strong>Valores dentro de rangos esperados</strong></p>
-                        <p>Edades 0-120, salarios > 0</p>
-                        <div class="code-example"># Verificar rangos lógicos
-invalid_ages = df[(df['edad'] < 0) | (df['edad'] > 120)]</div>
-                    </div>
-                    
-                    <div class="data-quality-indicator">
-                        <h3>🚫 DUPLICACIÓN</h3>
-                        <p><strong>% de registros únicos</strong></p>
-                        <p>Objetivo: < 5% duplicados</p>
-                        <div class="code-example">duplicacion = (df.duplicated().sum() / len(df)) * 100</div>
-                    </div>
-                </div>
-                
-                <div class="interactive-element" onclick="showInfo('Crear un reporte de calidad automatizado para documentar el proceso')">
-                    <h3>📋 Reporte de Calidad</h3>
-                    <p>Documenta ANTES y DESPUÉS de la limpieza</p>
-                </div>
-            </div>
-
-            <!-- Slide 12: Datasets por Carrera - Administración -->
-            <div class="slide">
-                <div class="slide-content">
-                    <h2>📊 DATASETS - ADMINISTRACIÓN Y NEGOCIOS</h2>
-                    <div style="font-size: 3rem; margin: 20px 0;">💼📈📋</div>
-                    
-                    <div class="career-section">
-                        <h3>👥 15 ESTUDIANTES - ADMINISTRACIÓN Y DESARROLLO DE NEGOCIOS</h3>
-                        
-                        <div class="dataset-list">
-                            <div class="tools-grid">
-                                <div class="tool-card" onclick="showDatasetInfo('Administración', 'Customer Sales Data')">
-                                    <strong>📊 Customer Sales Data</strong><br>
-                                    <em>Sales transactions, customer demographics</em><br>
+</div>
+<div class="data-quality-indicator good">
+<h3>🔍 PRECISIÓN</h3>
+<p><strong>Valores dentro de rangos esperados</strong></p>
+<p>Edades 0-120, salarios &gt; 0</p>
+<div class="code-example"># Verificar rangos lógicos
+invalid_ages = df[(df['edad'] &lt; 0) | (df['edad'] &gt; 120)]</div>
+</div>
+<div class="data-quality-indicator">
+<h3>🚫 DUPLICACIÓN</h3>
+<p><strong>% de registros únicos</strong></p>
+<p>Objetivo: &lt; 5% duplicados</p>
+<div class="code-example">duplicacion = (df.duplicated().sum() / len(df)) * 100</div>
+</div>
+</div>
+<div class="interactive-element" onclick="showInfo('Crear un reporte de calidad automatizado para documentar el proceso')">
+<h3>📋 Reporte de Calidad</h3>
+<p>Documenta ANTES y DESPUÉS de la limpieza</p>
+</div>
+</div>
+<!-- Slide 12: Datasets por Carrera - Administración -->
+<div class="slide">
+<div class="slide-content">
+<h2>📊 DATASETS - ADMINISTRACIÓN Y NEGOCIOS</h2>
+<div style="font-size: 3rem; margin: 20px 0;">💼📈📋</div>
+<div class="career-section">
+<h3>👥 15 ESTUDIANTES - ADMINISTRACIÓN Y DESARROLLO DE NEGOCIOS</h3>
+<div class="dataset-list">
+<div class="tools-grid">
+<div class="tool-card" onclick="showDatasetInfo('Administración', 'Customer Sales Data')">
+<strong>📊 Customer Sales Data</strong><br/>
+<em>Sales transactions, customer demographics</em><br/>
                                     📁 kaggle.com/datasets/kyanyoga/sample-sales-data
                                 </div>
-                                
-                                <div class="tool-card" onclick="showDatasetInfo('Administración', 'HR Analytics')">
-                                    <strong>👥 HR Analytics Dataset</strong><br>
-                                    <em>Employee attrition, performance, salary</em><br>
+<div class="tool-card" onclick="showDatasetInfo('Administración', 'HR Analytics')">
+<strong>👥 HR Analytics Dataset</strong><br/>
+<em>Employee attrition, performance, salary</em><br/>
                                     📁 kaggle.com/datasets/pavansubhasht/ibm-hr-analytics-attrition-dataset
                                 </div>
-                                
-                                <div class="tool-card" onclick="showDatasetInfo('Administración', 'Superstore Sales')">
-                                    <strong>🏪 Superstore Sales</strong><br>
-                                    <em>Retail sales, profit, regions</em><br>
+<div class="tool-card" onclick="showDatasetInfo('Administración', 'Superstore Sales')">
+<strong>🏪 Superstore Sales</strong><br/>
+<em>Retail sales, profit, regions</em><br/>
                                     📁 kaggle.com/datasets/vivek468/superstore-dataset-final
                                 </div>
-                                
-                                <div class="tool-card" onclick="showDatasetInfo('Administración', 'Marketing Campaign')">
-                                    <strong>📢 Marketing Campaign Data</strong><br>
-                                    <em>Customer response, demographics</em><br>
+<div class="tool-card" onclick="showDatasetInfo('Administración', 'Marketing Campaign')">
+<strong>📢 Marketing Campaign Data</strong><br/>
+<em>Customer response, demographics</em><br/>
                                     📁 kaggle.com/datasets/rodsaldanha/arketing-campaign
                                 </div>
-                                
-                                <div class="tool-card" onclick="showDatasetInfo('Administración', 'Financial Data')">
-                                    <strong>💰 Financial Performance</strong><br>
-                                    <em>Company financials, stock prices</em><br>
+<div class="tool-card" onclick="showDatasetInfo('Administración', 'Financial Data')">
+<strong>💰 Financial Performance</strong><br/>
+<em>Company financials, stock prices</em><br/>
                                     📁 finance.yahoo.com (API available)
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="interactive-element" onclick="showInfo('Cada dataset tiene problemas reales: faltantes, duplicados, outliers, formatos inconsistentes')">
-                        <h3>🎯 Características de los Datasets</h3>
-                        <p>Todos contienen datos sucios reales para práctica auténtica</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Slide 13: Datasets - Ingeniería TI -->
-            <div class="slide">
-                <h2>💻 DATASETS - INGENIERÍA TI</h2>
-                <div style="font-size: 3rem; margin: 20px 0;">⚙️💾🔧</div>
-                
-                <div class="career-section">
-                    <h3>💻 5 ESTUDIANTES - INGENIERÍA EN TECNOLOGÍAS DE INFORMACIÓN</h3>
-                    
-                    <div class="dataset-list">
-                        <div class="tools-grid">
-                            <div class="tool-card" onclick="showDatasetInfo('Ing. TI', 'Network Traffic')">
-                                <strong>🌐 Network Traffic Analysis</strong><br>
-                                <em>Network logs, bandwidth, security</em><br>
+</div>
+</div>
+</div>
+<div class="interactive-element" onclick="showInfo('Cada dataset tiene problemas reales: faltantes, duplicados, outliers, formatos inconsistentes')">
+<h3>🎯 Características de los Datasets</h3>
+<p>Todos contienen datos sucios reales para práctica auténtica</p>
+</div>
+</div>
+</div>
+<!-- Slide 13: Datasets - Ingeniería TI -->
+<div class="slide">
+<h2>💻 DATASETS - INGENIERÍA TI</h2>
+<div style="font-size: 3rem; margin: 20px 0;">⚙️💾🔧</div>
+<div class="career-section">
+<h3>💻 5 ESTUDIANTES - INGENIERÍA EN TECNOLOGÍAS DE INFORMACIÓN</h3>
+<div class="dataset-list">
+<div class="tools-grid">
+<div class="tool-card" onclick="showDatasetInfo('Ing. TI', 'Network Traffic')">
+<strong>🌐 Network Traffic Analysis</strong><br/>
+<em>Network logs, bandwidth, security</em><br/>
                                 📁 kaggle.com/datasets/jsrojas/ip-network-traffic-flows-labeled-with-87-apps
                             </div>
-                            
-                            <div class="tool-card" onclick="showDatasetInfo('Ing. TI', 'Software Metrics')">
-                                <strong>📊 Software Development Metrics</strong><br>
-                                <em>Code quality, bugs, development time</em><br>
+<div class="tool-card" onclick="showDatasetInfo('Ing. TI', 'Software Metrics')">
+<strong>📊 Software Development Metrics</strong><br/>
+<em>Code quality, bugs, development time</em><br/>
                                 📁 kaggle.com/datasets/semioniy/predictemps
                             </div>
-                            
-                            <div class="tool-card" onclick="showDatasetInfo('Ing. TI', 'Cybersecurity')">
-                                <strong>🛡️ Cybersecurity Incidents</strong><br>
-                                <em>Security logs, threats, incidents</em><br>
+<div class="tool-card" onclick="showDatasetInfo('Ing. TI', 'Cybersecurity')">
+<strong>🛡️ Cybersecurity Incidents</strong><br/>
+<em>Security logs, threats, incidents</em><br/>
                                 📁 kaggle.com/datasets/zusmani/utkmlcyber-security-breaches
                             </div>
-                            
-                            <div class="tool-card" onclick="showDatasetInfo('Ing. TI', 'Server Performance')">
-                                <strong>⚡ Server Performance Logs</strong><br>
-                                <em>CPU, memory, disk usage</em><br>
+<div class="tool-card" onclick="showDatasetInfo('Ing. TI', 'Server Performance')">
+<strong>⚡ Server Performance Logs</strong><br/>
+<em>CPU, memory, disk usage</em><br/>
                                 📁 github.com/datasets/server-performance-logs
                             </div>
-                            
-                            <div class="tool-card" onclick="showDatasetInfo('Ing. TI', 'Mobile App Analytics')">
-                                <strong>📱 Mobile App Analytics</strong><br>
-                                <em>User sessions, crashes, performance</em><br>
+<div class="tool-card" onclick="showDatasetInfo('Ing. TI', 'Mobile App Analytics')">
+<strong>📱 Mobile App Analytics</strong><br/>
+<em>User sessions, crashes, performance</em><br/>
                                 📁 kaggle.com/datasets/ruchi798/mobile-app-analytics
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Slide 14: Datasets - Ingeniería Industrial -->
-            <div class="slide">
-                <h2>🏭 DATASETS - INGENIERÍA INDUSTRIAL</h2>
-                <div style="font-size: 3rem; margin: 20px 0;">⚙️📊🔧</div>
-                
-                <div class="career-section">
-                    <h3>🏭 22 ESTUDIANTES - INGENIERÍA INDUSTRIAL</h3>
-                    
-                    <div class="dataset-list">
-                        <div class="tools-grid">
-                            <div class="tool-card" onclick="showDatasetInfo('Ing. Industrial', 'Manufacturing Quality')">
-                                <strong>🏭 Manufacturing Quality Control</strong><br>
-                                <em>Defects, production line data</em><br>
+</div>
+</div>
+</div>
+</div>
+<!-- Slide 14: Datasets - Ingeniería Industrial -->
+<div class="slide">
+<h2>🏭 DATASETS - INGENIERÍA INDUSTRIAL</h2>
+<div style="font-size: 3rem; margin: 20px 0;">⚙️📊🔧</div>
+<div class="career-section">
+<h3>🏭 22 ESTUDIANTES - INGENIERÍA INDUSTRIAL</h3>
+<div class="dataset-list">
+<div class="tools-grid">
+<div class="tool-card" onclick="showDatasetInfo('Ing. Industrial', 'Manufacturing Quality')">
+<strong>🏭 Manufacturing Quality Control</strong><br/>
+<em>Defects, production line data</em><br/>
                                 📁 kaggle.com/datasets/shivamb/machine-predictive-maintenance-classification
                             </div>
-                            
-                            <div class="tool-card" onclick="showDatasetInfo('Ing. Industrial', 'Supply Chain')">
-                                <strong>📦 Supply Chain Management</strong><br>
-                                <em>Inventory, logistics, delivery</em><br>
+<div class="tool-card" onclick="showDatasetInfo('Ing. Industrial', 'Supply Chain')">
+<strong>📦 Supply Chain Management</strong><br/>
+<em>Inventory, logistics, delivery</em><br/>
                                 📁 kaggle.com/datasets/harshsingh2209/supply-chain-analysis
                             </div>
-                            
-                            <div class="tool-card" onclick="showDatasetInfo('Ing. Industrial', 'Production Planning')">
-                                <strong>📅 Production Planning</strong><br>
-                                <em>Scheduling, capacity, efficiency</em><br>
+<div class="tool-card" onclick="showDatasetInfo('Ing. Industrial', 'Production Planning')">
+<strong>📅 Production Planning</strong><br/>
+<em>Scheduling, capacity, efficiency</em><br/>
                                 📁 kaggle.com/datasets/supergus/manufacturing-dataset
                             </div>
-                            
-                            <div class="tool-card" onclick="showDatasetInfo('Ing. Industrial', 'Lean Manufacturing')">
-                                <strong>⚡ Lean Manufacturing</strong><br>
-                                <em>Waste reduction, OEE, kaizen</em><br>
+<div class="tool-card" onclick="showDatasetInfo('Ing. Industrial', 'Lean Manufacturing')">
+<strong>⚡ Lean Manufacturing</strong><br/>
+<em>Waste reduction, OEE, kaizen</em><br/>
                                 📁 kaggle.com/datasets/elikplim/industrial-safety-and-health-analytics-database
                             </div>
-                            
-                            <div class="tool-card" onclick="showDatasetInfo('Ing. Industrial', 'Predictive Maintenance')">
-                                <strong>🔧 Predictive Maintenance</strong><br>
-                                <em>Equipment sensors, failure prediction</em><br>
+<div class="tool-card" onclick="showDatasetInfo('Ing. Industrial', 'Predictive Maintenance')">
+<strong>🔧 Predictive Maintenance</strong><br/>
+<em>Equipment sensors, failure prediction</em><br/>
                                 📁 kaggle.com/datasets/stephanmatzka/predictive-maintenance-dataset-ai4i-2020
                             </div>
-                            
-                            <div class="tool-card" onclick="showDatasetInfo('Ing. Industrial', 'Energy Consumption')">
-                                <strong>⚡ Industrial Energy</strong><br>
-                                <em>Power usage, efficiency, costs</em><br>
+<div class="tool-card" onclick="showDatasetInfo('Ing. Industrial', 'Energy Consumption')">
+<strong>⚡ Industrial Energy</strong><br/>
+<em>Power usage, efficiency, costs</em><br/>
                                 📁 kaggle.com/datasets/robikscube/hourly-energy-consumption
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Slide 15: Datasets - Mercadotecnia -->
-            <div class="slide">
-                <h2>📢 DATASETS - MERCADOTECNIA</h2>
-                <div style="font-size: 3rem; margin: 20px 0;">📊🎯📈</div>
-                
-                <div class="career-section">
-                    <h3>📢 7 ESTUDIANTES - MERCADOTECNIA</h3>
-                    
-                    <div class="dataset-list">
-                        <div class="tools-grid">
-                            <div class="tool-card" onclick="showDatasetInfo('Mercadotecnia', 'Digital Marketing')">
-                                <strong>📱 Digital Marketing Campaigns</strong><br>
-                                <em>CTR, conversions, spend, ROI</em><br>
+</div>
+</div>
+</div>
+</div>
+<!-- Slide 15: Datasets - Mercadotecnia -->
+<div class="slide">
+<h2>📢 DATASETS - MERCADOTECNIA</h2>
+<div style="font-size: 3rem; margin: 20px 0;">📊🎯📈</div>
+<div class="career-section">
+<h3>📢 7 ESTUDIANTES - MERCADOTECNIA</h3>
+<div class="dataset-list">
+<div class="tools-grid">
+<div class="tool-card" onclick="showDatasetInfo('Mercadotecnia', 'Digital Marketing')">
+<strong>📱 Digital Marketing Campaigns</strong><br/>
+<em>CTR, conversions, spend, ROI</em><br/>
                                 📁 kaggle.com/datasets/loveall/clicks-conversion-tracking
                             </div>
-                            
-                            <div class="tool-card" onclick="showDatasetInfo('Mercadotecnia', 'Social Media')">
-                                <strong>📱 Social Media Analytics</strong><br>
-                                <em>Engagement, reach, sentiment</em><br>
+<div class="tool-card" onclick="showDatasetInfo('Mercadotecnia', 'Social Media')">
+<strong>📱 Social Media Analytics</strong><br/>
+<em>Engagement, reach, sentiment</em><br/>
                                 📁 kaggle.com/datasets/crowdflower/twitter-airline-sentiment
                             </div>
-                            
-                            <div class="tool-card" onclick="showDatasetInfo('Mercadotecnia', 'Customer Segmentation')">
-                                <strong>👥 Customer Segmentation</strong><br>
-                                <em>Demographics, behavior, RFM</em><br>
+<div class="tool-card" onclick="showDatasetInfo('Mercadotecnia', 'Customer Segmentation')">
+<strong>👥 Customer Segmentation</strong><br/>
+<em>Demographics, behavior, RFM</em><br/>
                                 📁 kaggle.com/datasets/vjchoudhary7/customer-segmentation-tutorial-in-python
                             </div>
-                            
-                            <div class="tool-card" onclick="showDatasetInfo('Mercadotecnia', 'E-commerce')">
-                                <strong>🛒 E-commerce Behavior</strong><br>
-                                <em>Product views, cart, purchases</em><br>
+<div class="tool-card" onclick="showDatasetInfo('Mercadotecnia', 'E-commerce')">
+<strong>🛒 E-commerce Behavior</strong><br/>
+<em>Product views, cart, purchases</em><br/>
                                 📁 kaggle.com/datasets/retailrocket/ecommerce-dataset
                             </div>
-                            
-                            <div class="tool-card" onclick="showDatasetInfo('Mercadotecnia', 'Brand Sentiment')">
-                                <strong>💭 Brand Sentiment Analysis</strong><br>
-                                <em>Reviews, ratings, text sentiment</em><br>
+<div class="tool-card" onclick="showDatasetInfo('Mercadotecnia', 'Brand Sentiment')">
+<strong>💭 Brand Sentiment Analysis</strong><br/>
+<em>Reviews, ratings, text sentiment</em><br/>
                                 📁 kaggle.com/datasets/sid321axn/amazon-alexa-reviews
                             </div>
-                            
-                            <div class="tool-card" onclick="showDatasetInfo('Mercadotecnia', 'Price Analytics')">
-                                <strong>💰 Pricing Analytics</strong><br>
-                                <em>Price elasticity, competition</em><br>
+<div class="tool-card" onclick="showDatasetInfo('Mercadotecnia', 'Price Analytics')">
+<strong>💰 Pricing Analytics</strong><br/>
+<em>Price elasticity, competition</em><br/>
                                 📁 kaggle.com/datasets/gpreda/reddit-vaccine-myths
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Slide 16: Proceso de Asignación -->
-            <div class="slide">
-                <h2>🎯 PROCESO DE ASIGNACIÓN</h2>
-                
-                <div class="tools-grid">
-                    <div class="tool-card" onclick="showInfo('Cada estudiante recibirá un dataset específico vía email')">
-                        <div style="font-size: 2.5rem;">📧</div>
-                        <h3>ASIGNACIÓN PERSONAL</h3>
-                        <ul>
-                            <li>Email individual con dataset</li>
-                            <li>Enlaces de descarga directos</li>
-                            <li>Instrucciones específicas</li>
-                            <li>Deadline: 23 de junio</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="tool-card" onclick="showInfo('Los datasets están balanceados por dificultad y tamaño')">
-                        <div style="font-size: 2.5rem;">⚖️</div>
-                        <h3>CRITERIOS DE SELECCIÓN</h3>
-                        <ul>
-                            <li>Relevancia por carrera</li>
-                            <li>Nivel de "suciedad" similar</li>
-                            <li>Tamaño manejable (10K-100K rows)</li>
-                            <li>Variedad de problemas</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="tool-card" onclick="showInfo('Cada dataset tiene problemas únicos pero comparable dificultad')">
-                        <div style="font-size: 2.5rem;">🎲</div>
-                        <h3>DISTRIBUCIÓN ALEATORIA</h3>
-                        <ul>
-                            <li>Dentro de cada carrera</li>
-                            <li>Evita datasets duplicados</li>
-                            <li>Garantiza variedad</li>
-                            <li>Mismo nivel de dificultad</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="interactive-element" onclick="showInfo('Actividad 5 vale 13 puntos - importancia alta en calificación final')">
-                    <h3>📋 ACTIVIDAD 5: TRATAMIENTO DE INFORMACIÓN</h3>
-                    <p><strong>Valor:</strong> 13 puntos | <strong>Entrega:</strong> 23 de junio 2025</p>
-                </div>
-            </div>
-
-            <!-- Slide 17: Entregables Actividad 5 -->
-            <div class="slide">
-                <h2>📋 ENTREGABLES ACTIVIDAD 5</h2>
-                
-                <div class="tools-grid">
-                    <div class="data-quality-indicator good">
-                        <h3>📊 1. REPORTE DE CALIDAD</h3>
-                        <ul>
-                            <li>Estado inicial del dataset</li>
-                            <li>Problemas identificados</li>
-                            <li>Métricas de calidad ANTES</li>
-                            <li>Estrategias aplicadas</li>
-                            <li>Métricas de calidad DESPUÉS</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="data-quality-indicator good">
-                        <h3>💻 2. CÓDIGO DOCUMENTADO</h3>
-                        <ul>
-                            <li>Scripts de limpieza (Python/R)</li>
-                            <li>Comentarios explicativos</li>
-                            <li>Funciones reutilizables</li>
-                            <li>Validaciones incluidas</li>
-                            <li>Output claramente marcado</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="data-quality-indicator good">
-                        <h3>📈 3. VISUALIZACIONES</h3>
-                        <ul>
-                            <li>Antes vs Después</li>
-                            <li>Distribución de outliers</li>
-                            <li>Patrones de datos faltantes</li>
-                            <li>Transformaciones aplicadas</li>
-                            <li>Dashboard en Power BI</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="data-quality-indicator">
-                        <h3>📝 4. REFLEXIÓN</h3>
-                        <ul>
-                            <li>Decisiones tomadas y por qué</li>
-                            <li>Alternativas consideradas</li>
-                            <li>Limitaciones encontradas</li>
-                            <li>Lecciones aprendidas</li>
-                            <li>Recomendaciones futuras</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Slide 18: Mejores Prácticas -->
-            <div class="slide">
-                <h2>✨ MEJORES PRÁCTICAS</h2>
-                <div style="font-size: 4rem; margin: 20px 0;">🏆📚💡</div>
-                
-                <div class="tools-grid">
-                    <div class="feature-highlight">
-                        <h3>📋 DOCUMENTACIÓN</h3>
-                        <ul>
-                            <li><strong>Registra TODO:</strong> Cada decisión y cambio</li>
-                            <li><strong>Código comentado:</strong> Explica el "por qué"</li>
-                            <li><strong>Versionado:</strong> Guarda estados intermedios</li>
-                            <li><strong>Reproducibilidad:</strong> Otros deben poder replicar</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="feature-highlight">
-                        <h3>🔍 VALIDACIÓN</h3>
-                        <ul>
-                            <li><strong>Sentido común:</strong> ¿Los resultados son lógicos?</li>
-                            <li><strong>Comparación:</strong> Antes vs después siempre</li>
-                            <li><strong>Casos extremos:</strong> Verifica outliers manualmente</li>
-                            <li><strong>Stakeholder review:</strong> ¿Experto del dominio aprueba?</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="feature-highlight">
-                        <h3>⚖️ BALANCE</h3>
-                        <ul>
-                            <li><strong>Calidad vs Cantidad:</strong> ¿Mejor menos pero limpio?</li>
-                            <li><strong>Tiempo vs Perfección:</strong> 80/20 rule aplica</li>
-                            <li><strong>Automático vs Manual:</strong> Híbrido es mejor</li>
-                            <li><strong>Conservar vs Transformar:</strong> Mantén originales</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <p style="font-size: 1.1rem; font-style: italic; margin-top: 30px;">
+</div>
+</div>
+</div>
+</div>
+<!-- Slide 16: Proceso de Asignación -->
+<div class="slide">
+<h2>🎯 PROCESO DE ASIGNACIÓN</h2>
+<div class="tools-grid">
+<div class="tool-card" onclick="showInfo('Cada estudiante recibirá un dataset específico vía email')">
+<div style="font-size: 2.5rem;">📧</div>
+<h3>ASIGNACIÓN PERSONAL</h3>
+<ul>
+<li>Email individual con dataset</li>
+<li>Enlaces de descarga directos</li>
+<li>Instrucciones específicas</li>
+<li>Deadline: 23 de junio</li>
+</ul>
+</div>
+<div class="tool-card" onclick="showInfo('Los datasets están balanceados por dificultad y tamaño')">
+<div style="font-size: 2.5rem;">⚖️</div>
+<h3>CRITERIOS DE SELECCIÓN</h3>
+<ul>
+<li>Relevancia por carrera</li>
+<li>Nivel de "suciedad" similar</li>
+<li>Tamaño manejable (10K-100K rows)</li>
+<li>Variedad de problemas</li>
+</ul>
+</div>
+<div class="tool-card" onclick="showInfo('Cada dataset tiene problemas únicos pero comparable dificultad')">
+<div style="font-size: 2.5rem;">🎲</div>
+<h3>DISTRIBUCIÓN ALEATORIA</h3>
+<ul>
+<li>Dentro de cada carrera</li>
+<li>Evita datasets duplicados</li>
+<li>Garantiza variedad</li>
+<li>Mismo nivel de dificultad</li>
+</ul>
+</div>
+</div>
+<div class="interactive-element" onclick="showInfo('Actividad 5 vale 13 puntos - importancia alta en calificación final')">
+<h3>📋 ACTIVIDAD 5: TRATAMIENTO DE INFORMACIÓN</h3>
+<p><strong>Valor:</strong> 13 puntos | <strong>Entrega:</strong> 23 de junio 2025</p>
+</div>
+</div>
+<!-- Slide 17: Entregables Actividad 5 -->
+<div class="slide">
+<h2>📋 ENTREGABLES ACTIVIDAD 5</h2>
+<div class="tools-grid">
+<div class="data-quality-indicator good">
+<h3>📊 1. REPORTE DE CALIDAD</h3>
+<ul>
+<li>Estado inicial del dataset</li>
+<li>Problemas identificados</li>
+<li>Métricas de calidad ANTES</li>
+<li>Estrategias aplicadas</li>
+<li>Métricas de calidad DESPUÉS</li>
+</ul>
+</div>
+<div class="data-quality-indicator good">
+<h3>💻 2. CÓDIGO DOCUMENTADO</h3>
+<ul>
+<li>Scripts de limpieza (Python/R)</li>
+<li>Comentarios explicativos</li>
+<li>Funciones reutilizables</li>
+<li>Validaciones incluidas</li>
+<li>Output claramente marcado</li>
+</ul>
+</div>
+<div class="data-quality-indicator good">
+<h3>📈 3. VISUALIZACIONES</h3>
+<ul>
+<li>Antes vs Después</li>
+<li>Distribución de outliers</li>
+<li>Patrones de datos faltantes</li>
+<li>Transformaciones aplicadas</li>
+<li>Dashboard en Power BI</li>
+</ul>
+</div>
+<div class="data-quality-indicator">
+<h3>📝 4. REFLEXIÓN</h3>
+<ul>
+<li>Decisiones tomadas y por qué</li>
+<li>Alternativas consideradas</li>
+<li>Limitaciones encontradas</li>
+<li>Lecciones aprendidas</li>
+<li>Recomendaciones futuras</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Slide 18: Mejores Prácticas -->
+<div class="slide">
+<h2>✨ MEJORES PRÁCTICAS</h2>
+<div style="font-size: 4rem; margin: 20px 0;">🏆📚💡</div>
+<div class="tools-grid">
+<div class="feature-highlight">
+<h3>📋 DOCUMENTACIÓN</h3>
+<ul>
+<li><strong>Registra TODO:</strong> Cada decisión y cambio</li>
+<li><strong>Código comentado:</strong> Explica el "por qué"</li>
+<li><strong>Versionado:</strong> Guarda estados intermedios</li>
+<li><strong>Reproducibilidad:</strong> Otros deben poder replicar</li>
+</ul>
+</div>
+<div class="feature-highlight">
+<h3>🔍 VALIDACIÓN</h3>
+<ul>
+<li><strong>Sentido común:</strong> ¿Los resultados son lógicos?</li>
+<li><strong>Comparación:</strong> Antes vs después siempre</li>
+<li><strong>Casos extremos:</strong> Verifica outliers manualmente</li>
+<li><strong>Stakeholder review:</strong> ¿Experto del dominio aprueba?</li>
+</ul>
+</div>
+<div class="feature-highlight">
+<h3>⚖️ BALANCE</h3>
+<ul>
+<li><strong>Calidad vs Cantidad:</strong> ¿Mejor menos pero limpio?</li>
+<li><strong>Tiempo vs Perfección:</strong> 80/20 rule aplica</li>
+<li><strong>Automático vs Manual:</strong> Híbrido es mejor</li>
+<li><strong>Conservar vs Transformar:</strong> Mantén originales</li>
+</ul>
+</div>
+</div>
+<p style="font-size: 1.1rem; font-style: italic; margin-top: 30px;">
                     "Garbage in, garbage out. Clean data in, insights out." - Data Science Mantra
                 </p>
-            </div>
-
-            <!-- Slide 19: Recursos y Enlaces -->
-            <div class="slide">
-                <h2>🔗 RECURSOS ADICIONALES</h2>
-                
-                <div class="tools-grid">
-                    <div class="tool-card" onclick="showInfo('Documentación oficial y tutoriales')">
-                        <h3>📚 DOCUMENTACIÓN</h3>
-                        <ul>
-                            <li>Pandas User Guide: pandas.pydata.org</li>
-                            <li>R for Data Science: r4ds.had.co.nz</li>
-                            <li>Power Query M Reference: docs.microsoft.com</li>
-                            <li>Sklearn Preprocessing: scikit-learn.org</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="tool-card" onclick="showInfo('Cursos gratuitos especializados')">
-                        <h3>🎓 CURSOS GRATUITOS</h3>
-                        <ul>
-                            <li>Coursera: Data Cleaning Course</li>
-                            <li>Kaggle Learn: Data Cleaning</li>
-                            <li>DataCamp: Cleaning Data in Python</li>
-                            <li>edX: Data Analysis for Social Scientists</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="tool-card" onclick="showInfo('Libros especializados en limpieza de datos')">
-                        <h3>📖 LIBROS RECOMENDADOS</h3>
-                        <ul>
-                            <li>"Bad Data Handbook" - Q. Ethan McCallum</li>
-                            <li>"Data Wrangling with Python" - Jacqueline Kazil</li>
-                            <li>"R for Data Science" - Wickham & Grolemund</li>
-                            <li>"Python for Data Analysis" - Wes McKinney</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="interactive-element" onclick="showInfo('Comunidades activas para resolver dudas')">
-                    <h3>💬 COMUNIDADES</h3>
-                    <p>Stack Overflow • Reddit r/datascience • Kaggle Forums • Discord Data Science</p>
-                </div>
-            </div>
-
-            <!-- Slide 20: Próxima Sesión -->
-            <div class="slide">
-                <h1>📅 PRÓXIMA SESIÓN</h1>
-                <div style="font-size: 4rem; margin: 20px 0;">🔄📊💡</div>
-                
-                <h3>Sesión 6: Tratamiento Avanzado de la Información</h3>
-                <ul>
-                    <li><strong>Modelos de datos:</strong> Crear y optimizar estructuras</li>
-                    <li><strong>Columnas calculadas:</strong> DAX, Python, R avanzado</li>
-                    <li><strong>Medidas calculadas:</strong> KPIs y métricas personalizadas</li>
-                    <li><strong>Tablas dinámicas:</strong> Análisis multidimensional</li>
-                </ul>
-                
-                <div class="interactive-element" onclick="showInfo('Continuación de Actividad 5 - trabajaremos con datos ya limpios')">
-                    <h3>📝 Preparación requerida:</h3>
-                    <ul>
-                        <li>Completar limpieza de tu dataset asignado</li>
-                        <li>Tener datos listos para análisis</li>
-                        <li>Documentar proceso de limpieza</li>
-                        <li>Preparar preguntas sobre transformaciones</li>
-                    </ul>
-                    <p><strong>¡Tu dataset limpio será la base de la próxima sesión!</strong></p>
-                </div>
-                
-                <h2 style="margin-top: 30px;">🏁 ¡FIN DE LA TEORÍA!</h2>
-                <p><strong>Ahora:</strong> 30 minutos de práctica + 15 minutos de Q&A</p>
-                <p><strong>Datasets por email:</strong> Esta tarde</p>
-            </div>
-        </div>
-
-        <div class="progress-indicator">
-            <div class="progress-bar" id="progressBar"></div>
-        </div>
-    </div>
-
-    <script>
+</div>
+<!-- Slide 19: Recursos y Enlaces -->
+<div class="slide">
+<h2>🔗 RECURSOS ADICIONALES</h2>
+<div class="tools-grid">
+<div class="tool-card" onclick="showInfo('Documentación oficial y tutoriales')">
+<h3>📚 DOCUMENTACIÓN</h3>
+<ul>
+<li>Pandas User Guide: pandas.pydata.org</li>
+<li>R for Data Science: r4ds.had.co.nz</li>
+<li>Power Query M Reference: docs.microsoft.com</li>
+<li>Sklearn Preprocessing: scikit-learn.org</li>
+</ul>
+</div>
+<div class="tool-card" onclick="showInfo('Cursos gratuitos especializados')">
+<h3>🎓 CURSOS GRATUITOS</h3>
+<ul>
+<li>Coursera: Data Cleaning Course</li>
+<li>Kaggle Learn: Data Cleaning</li>
+<li>DataCamp: Cleaning Data in Python</li>
+<li>edX: Data Analysis for Social Scientists</li>
+</ul>
+</div>
+<div class="tool-card" onclick="showInfo('Libros especializados en limpieza de datos')">
+<h3>📖 LIBROS RECOMENDADOS</h3>
+<ul>
+<li>"Bad Data Handbook" - Q. Ethan McCallum</li>
+<li>"Data Wrangling with Python" - Jacqueline Kazil</li>
+<li>"R for Data Science" - Wickham &amp; Grolemund</li>
+<li>"Python for Data Analysis" - Wes McKinney</li>
+</ul>
+</div>
+</div>
+<div class="interactive-element" onclick="showInfo('Comunidades activas para resolver dudas')">
+<h3>💬 COMUNIDADES</h3>
+<p>Stack Overflow • Reddit r/datascience • Kaggle Forums • Discord Data Science</p>
+</div>
+</div>
+<!-- Slide 20: Próxima Sesión -->
+<div class="slide">
+<h1>📅 PRÓXIMA SESIÓN</h1>
+<div style="font-size: 4rem; margin: 20px 0;">🔄📊💡</div>
+<h3>Sesión 6: Tratamiento Avanzado de la Información</h3>
+<ul>
+<li><strong>Modelos de datos:</strong> Crear y optimizar estructuras</li>
+<li><strong>Columnas calculadas:</strong> DAX, Python, R avanzado</li>
+<li><strong>Medidas calculadas:</strong> KPIs y métricas personalizadas</li>
+<li><strong>Tablas dinámicas:</strong> Análisis multidimensional</li>
+</ul>
+<div class="interactive-element" onclick="showInfo('Continuación de Actividad 5 - trabajaremos con datos ya limpios')">
+<h3>📝 Preparación requerida:</h3>
+<ul>
+<li>Completar limpieza de tu dataset asignado</li>
+<li>Tener datos listos para análisis</li>
+<li>Documentar proceso de limpieza</li>
+<li>Preparar preguntas sobre transformaciones</li>
+</ul>
+<p><strong>¡Tu dataset limpio será la base de la próxima sesión!</strong></p>
+</div>
+<h2 style="margin-top: 30px;">🏁 ¡FIN DE LA TEORÍA!</h2>
+<p><strong>Ahora:</strong> 30 minutos de práctica + 15 minutos de Q&amp;A</p>
+<p><strong>Datasets por email:</strong> Esta tarde</p>
+</div>
+</div>
+<div class="progress-indicator">
+<div class="progress-bar" id="progressBar"></div>
+</div>
+</div>
+<script>
         // Variables globales
         var currentSlideIndex = 0;
         var totalSlides = 0;
