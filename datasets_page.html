@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datasets por Carrera Académica</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 40px;
+            font-size: 2.5em;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .career-section {
+            margin-bottom: 40px;
+            background: linear-gradient(145deg, #f8f9fa, #e9ecef);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .career-section:hover {
+            transform: translateY(-5px);
+        }
+
+        .career-title {
+            font-size: 1.8em;
+            font-weight: 700;
+            margin-bottom: 25px;
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .dataset-item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            margin-bottom: 15px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border-left: 4px solid #3498db;
+        }
+
+        .dataset-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            border-left-color: #e74c3c;
+        }
+
+        .dataset-number {
+            font-weight: bold;
+            color: #3498db;
+            margin-right: 15px;
+            font-size: 1.1em;
+        }
+
+        .dataset-content {
+            flex: 1;
+        }
+
+        .dataset-title {
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 5px;
+            font-size: 1.1em;
+        }
+
+        .dataset-description {
+            color: #7f8c8d;
+            font-size: 0.95em;
+            margin-bottom: 8px;
+        }
+
+        .dataset-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-size: 0.9em;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(52, 152, 219, 0.3);
+        }
+
+        .dataset-link:hover {
+            background: linear-gradient(135deg, #2980b9, #1f4e79);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(52, 152, 219, 0.4);
+        }
+
+        .link-icon {
+            font-size: 0.8em;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            .career-title {
+                font-size: 1.5em;
+            }
+            
+            .dataset-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📚 Datasets por Carrera Académica</h1>
+        
+        <div class="career-section">
+            <h2 class="career-title">🧑‍💼 ADMINISTRACIÓN Y DESARROLLO DE NEGOCIOS</h2>
+            
+            <div class="dataset-item">
+                <span class="dataset-number">1.</span>
+                <div class="dataset-content">
+                    <div class="dataset-title">📊 Customer Sales Data – Datos de Ventas de Clientes</div>
+                    <div class="dataset-description">📝 Transacciones de ventas y datos demográficos de los clientes.</div>
+                    <a href="https://www.kaggle.com/datasets/kyanyoga/sample-sales-data" class="dataset-link" target="_blank">
+                        🔗 Ver dataset <span class="link-icon">↗</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="dataset-item">
+                <span class="dataset-number">2.</span>
+                <div class="dataset-content">
+                    <div class="dataset-title">👥 HR Analytics Dataset – Análisis de Recursos Humanos</div>
+                    <div class="dataset-description">📝 Información sobre rotación, desempeño y salarios de empleados.</div>
+                    <a href="https://www.kaggle.com/datasets/pavansubhasht/ibm-hr-analytics-attrition-dataset" class="dataset-link" target="_blank">
+                        🔗 Ver dataset <span class="link-icon">↗</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="dataset-item">
+                <span class="dataset-number">3.</span>
+                <div class="dataset-content">
+                    <div class="dataset-title">🏪 Superstore Sales – Ventas de Tienda Minorista</div>
+                    <div class="dataset-description">📝 Ventas, ganancias y datos regionales de una cadena minorista.</div>
+                    <a href="https://www.kaggle.com/datasets/rohitsahoo/sales-forecasting" class="dataset-link" target="_blank">
+                        🔗 Ver dataset <span class="link-icon">↗</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="dataset-item">
+                <span class="dataset-number">4.</span>
+                <div class="dataset-content">
+                    <div class="dataset-title">📢 Marketing Campaign Data – Campañas de Marketing</div>
+                    <div class="dataset-description">📝 Respuestas de clientes y datos demográficos de campañas.</div>
+                    <a href="https://www.kaggle.com/datasets/rodsaldanha/arketing-campaign" class="dataset-link" target="_blank">
+                        🔗 Ver dataset <span class="link-icon">↗</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="dataset-item">
+                <span class="dataset-number">5.</span>
+                <div class="dataset-content">
+                    <div class="dataset-title">💰 Financial Performance – Desempeño Financiero</div>
+                    <div class="dataset-description">📝 Finanzas corporativas e historial de precios de acciones.</div>
+                    <a href="https://finance.yahoo.com/quote/AAPL/history" class="dataset-link" target="_blank">
+                        🔗 Ver en Yahoo Finance <span class="link-icon">↗</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="career-section">
+            <h2 class="career-title">💻 INGENIERÍA EN TECNOLOGÍAS DE LA INFORMACIÓN</h2>
+            
+            <div class="dataset-item">
+                <span class="dataset-number">1.</span>
+                <div class="dataset-content">
+                    <div class="dataset-title">🌐 Network Traffic Analysis – Análisis de Tráfico de Red</div>
+                    <div class="dataset-description">📝 Flujos de red etiquetados por aplicación; ideal para seguridad.</div>
+                    <a href="https://www.kaggle.com/datasets/jsrojas/ip-network-traffic-flows-labeled-with-87-apps" class="dataset-link" target="_blank">
+                        🔗 Ver dataset <span class="link-icon">↗</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="dataset-item">
+                <span class="dataset-number">2.</span>
+                <div class="dataset-content">
+                    <div class="dataset-title">📈 Estimating Software Effort – Estimación de Esfuerzo en Software</div>
+                    <div class="dataset-description">📝 Variables para predecir el esfuerzo en proyectos de software.</div>
+                    <a href="https://www.kaggle.com/datasets/ranakrc/software-effort-estimation" class="dataset-link" target="_blank">
+                        🔗 Ver dataset <span class="link-icon">↗</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="dataset-item">
+                <span class="dataset-number">3.</span>
+                <div class="dataset-content">
+                    <div class="dataset-title">🐞 Software Defect Prediction – Predicción de Defectos en Software</div>
+                    <div class="dataset-description">📝 Métricas para detectar errores en desarrollos de software.</div>
+                    <a href="https://www.kaggle.com/datasets/semcollegekt/software-defect-prediction" class="dataset-link" target="_blank">
+                        🔗 Ver dataset <span class="link-icon">↗</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="dataset-item">
+                <span class="dataset-number">4.</span>
+                <div class="dataset-content">
+                    <div class="dataset-title">🛡️ Cyber Security Breaches – Filtraciones de Seguridad</div>
+                    <div class="dataset-description">📝 Registros de incidentes, amenazas y vulnerabilidades.</div>
+                    <a href="https://www.kaggle.com/datasets/shawon10/cyber-security-breaches" class="dataset-link" target="_blank">
+                        🔗 Ver dataset <span class="link-icon">↗</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="dataset-item">
+                <span class="dataset-number">5.</span>
+                <div class="dataset-content">
+                    <div class="dataset-title">🔐 UNSW-NB15 Dataset – Ataques de Red Clasificados</div>
+                    <div class="dataset-description">📝 Datos para entrenamiento y validación de IDS.</div>
+                    <a href="https://www.kaggle.com/datasets/dhoogla/unswnb15" class="dataset-link" target="_blank">
+                        🔗 Ver dataset <span class="link-icon">↗</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="dataset-item">
+                <span class="dataset-number">6.</span>
+                <div class="dataset-content">
+                    <div class="dataset-title">⚙️ Server Performance Logs – Rendimiento del Servidor</div>
+                    <div class="dataset-description">📝 CPU, RAM y uso de disco en servidores reales.</div>
+                    <a href="https://www.kaggle.com/datasets/shashwatwork/web-server-access-logs" class="dataset-link" target="_blank">
+                        🔗 Ver dataset <span class="link-icon">↗</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="dataset-item">
+                <span class="dataset-number">7.</span>
+                <div class="dataset-content">
+                    <div class="dataset-title">📱 Analyzing Screen Time – Análisis de Tiempo de Pantalla</div>
+                    <div class="dataset-description">📝 Uso de apps móviles por tiempo, usuario y categoría.</div>
+                    <a href="https://www.kaggle.com/datasets/valakhorasani/mobile-device-usage-and-user-behavior-dataset" class="dataset-link" target="_blank">
+                        🔗 Ver dataset <span class="link-icon">↗</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="dataset-item">
+                <span class="dataset-number">8.</span>
+                <div class="dataset-content">
+                    <div class="dataset-title">📊 ScreenTime App Details – Detalles por Aplicación</div>
+                    <div class="dataset-description">📝 Datos de tiempo invertido en apps y tipo de actividad.</div>
+                    <a href="https://www.kaggle.com/datasets/salvatorerastelli/spotify-and-youtube-eda" class="dataset-link" target="_blank">
+                        🔗 Ver dataset <span class="link-icon">↗</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="career-section">
+            <h2 class="career-title">🏭 INGENIERÍA INDUSTRIAL</h2>
+            
+            <div class="dataset-item">
+                <span class="dataset-number">1.</span>
+                <div class="dataset-content">
+                    <div class="dataset-title">🏭 Manufacturing Quality Control – Control de Calidad en Manufactura</div>
+                    <div class="dataset-description">📝 Datos de defectos, mantenimiento y líneas de producción.</div>
+                    <a href="https://www.kaggle.com/datasets/supergus/manufacturing-productivity-dataset" class="dataset-link" target="_blank">
+                        🔗 Ver dataset <span class="link-icon">↗</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="dataset-item">
+                <span class="dataset-number">2.</span>
+                <div class="dataset-content">
+                    <div class="dataset-title">📦 Supply Chain Management – Gestión de la Cadena de Suministro</div>
+                    <div class="dataset-description">📝 Inventarios, logística y tiempos de entrega.</div>
+                    <a href="https://www.kaggle.com/datasets/harshsingh2209/supply-chain-analysis" class="dataset-link" target="_blank">
+                        🔗 Ver dataset <span class="link-icon">↗</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="dataset-item">
+                <span class="dataset-number">3.</span>
+                <div class="dataset-content">
+                    <div class="dataset-title">📅 Production Planning – Planificación de Producción</div>
+                    <div class="dataset-description">📝 Programación de producción, eficiencia y capacidad.</div>
+                    <a href="https://www.kaggle.com/datasets/aadhavvignesh/production-planning-dataset" class="dataset-link" target="_blank">
+                        🔗 Ver dataset <span class="link-icon">↗</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="dataset-item">
+                <span class="dataset-number">4.</span>
+                <div class="dataset-content">
+                    <div class="dataset-title">⚡ Lean Manufacturing – Manufactura Esbelta</div>
+                    <div class="dataset-description">📝 Datos sobre OEE, kaizen, seguridad industrial.</div>
+                    <a href="https://www.kaggle.com/datasets/supergus/manufacturing-productivity-dataset" class="dataset-link" target="_blank">
+                        🔗 Ver dataset <span class="link-icon">↗</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="dataset-item">
+                <span class="dataset-number">5.</span>
+                <div class="dataset-content">
+                    <div class="dataset-title">🔧 Predictive Maintenance – Mantenimiento Predictivo</div>
+                    <div class="dataset-description">📝 Sensores de equipo, fallas y predicción de mantenimiento.</div>
+                    <a href="https://www.kaggle.com/datasets/shivamb/machine-predictive-maintenance-classification" class="dataset-link" target="_blank">
+                        🔗 Ver dataset <span class="link-icon">↗</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="dataset-item">
+                <span class="dataset-number">6.</span>
+                <div class="dataset-content">
+                    <div class="dataset-title">⚡ Industrial Energy Consumption – Consumo Energético Industrial</div>
+                    <div class="dataset-description">📝 Datos horarios de consumo de energía por sector.</div>
+                    <a href="https://www.kaggle.com/datasets/robikscube/hourly-energy-consumption" class="dataset-link" target="_blank">
+                        🔗 Ver dataset <span class="link-icon">↗</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="career-section">
+            <h2 class="career-title">📢 MERCADOTECNIA</h2>
+            
+            <div class="dataset-item">
+                <span class="dataset-number">1.</span>
+                <div class="dataset-content">
+                    <div class="dataset-title">📱 Digital Marketing Campaigns – Campañas de Marketing Digital</div>
+                    <div class="dataset-description">📝 CTR, conversiones, inversión y ROI.</div>
+                    <a href="https://www.kaggle.com/datasets/fayomi/advertising-prediction" class="dataset-link" target="_blank">
+                        🔗 Ver dataset <span class="link-icon">↗</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="dataset-item">
+                <span class="dataset-number">2.</span>
+                <div class="dataset-content">
+                    <div class="dataset-title">💬 Social Media Analytics – Análisis en Redes Sociales</div>
+                    <div class="dataset-description">📝 Sentimiento, alcance y engagement en Twitter.</div>
+                    <a href="https://www.kaggle.com/datasets/kazanova/sentiment140" class="dataset-link" target="_blank">
+                        🔗 Ver dataset <span class="link-icon">↗</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="dataset-item">
+                <span class="dataset-number">3.</span>
+                <div class="dataset-content">
+                    <div class="dataset-title">👥 Customer Segmentation – Segmentación de Clientes</div>
+                    <div class="dataset-description">📝 Demográficos, comportamiento, análisis RFM.</div>
+                    <a href="https://www.kaggle.com/datasets/abisheksudarshan/customer-segmentation" class="dataset-link" target="_blank">
+                        🔗 Ver dataset <span class="link-icon">↗</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="dataset-item">
+                <span class="dataset-number">4.</span>
+                <div class="dataset-content">
+                    <div class="dataset-title">🛒 E-commerce Behavior – Comportamiento en Comercio Electrónico</div>
+                    <div class="dataset-description">📝 Visualización de productos, carrito y compras.</div>
+                    <a href="https://www.kaggle.com/datasets/mkechinov/ecommerce-behavior-data-from-multi-category-store" class="dataset-link" target="_blank">
+                        🔗 Ver dataset <span class="link-icon">↗</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="dataset-item">
+                <span class="dataset-number">5.</span>
+                <div class="dataset-content">
+                    <div class="dataset-title">💭 Brand Sentiment Analysis – Análisis de Sentimiento de Marca</div>
+                    <div class="dataset-description">📝 Reseñas, calificaciones y texto de usuarios.</div>
+                    <a href="https://www.kaggle.com/datasets/snap/amazon-fine-food-reviews" class="dataset-link" target="_blank">
+                        🔗 Ver dataset <span class="link-icon">↗</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="dataset-item">
+                <span class="dataset-number">6.</span>
+                <div class="dataset-content">
+                    <div class="dataset-title">💰 Pricing Analytics – Análisis de Precios</div>
+                    <div class="dataset-description">📝 Elasticidad, competencia y tendencias de mercado.</div>
+                    <a href="https://www.kaggle.com/datasets/promptcloud/flipkart-products-dataset" class="dataset-link" target="_blank">
+                        🔗 Ver dataset <span class="link-icon">↗</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
